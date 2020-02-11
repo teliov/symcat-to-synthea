@@ -1,0 +1,868 @@
+{
+    "name": "Injury to the shoulder",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015873015873015873
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984126984126984
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0031746031746031746
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9968253968253968
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006349206349206349
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9936507936507937
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714285
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019047619047619046
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9809523809523809
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025396825396825397
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9746031746031746
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01746031746031746
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9825396825396825
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012698412698412698
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9873015873015873
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.028947368421052635
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9710526315789474
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.021052631578947368
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9789473684210527
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02631578947368421
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9736842105263158
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.011842105263157895
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9881578947368421
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.011842105263157895
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9881578947368421
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9842105263157894
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.015789473684210575
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                    "display": "Injury to the shoulder"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "NIH: National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+                "Within all the people who go to their doctor with injury to the shoulder, 94% report having shoulder pain, 50% report having arm pain, and 39% report having neck pain. The symptoms that are highly suggestive of injury to the shoulder are shoulder pain, shoulder stiffness or tightness, arm stiffness or tightness, and shoulder swelling, although you may still have injury to the shoulder without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.94,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.06000000000000005,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Shoulder pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "28bf5d81761a883d6e26f5bafce33028968b0ac3528f19369133f04c",
+                "display": "Shoulder pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "28bf5d81761a883d6e26f5bafce33028968b0ac3528f19369133f04c",
+                "display": "Shoulder pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.5,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.5,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Arm pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain (finding)"
+            },
+            "remarks": [
+                "Arm pain is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.39,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.61,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Neck pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1310d177602475cbdec2965e7b82220450b18d061610c4dfbc165c39",
+                "display": "Neck pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1310d177602475cbdec2965e7b82220450b18d061610c4dfbc165c39",
+                "display": "Neck pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.09,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.91,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Elbow pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1ed8eee352fcd4f149dda8fb8bee7a17910cac2bed12b7b3e7f5ae4f",
+                "display": "Elbow pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1ed8eee352fcd4f149dda8fb8bee7a17910cac2bed12b7b3e7f5ae4f",
+                "display": "Elbow pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Shoulder stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "19d22ac8d256464618c63a1420df4e96492fb94c789cccaa54de685a",
+                "display": "Shoulder stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "19d22ac8d256464618c63a1420df4e96492fb94c789cccaa54de685a",
+                "display": "Shoulder stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Lower body pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Arm stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "06f41fa65a3abd353222402d4ecdb227013f1a2cf991dc264eadfa44",
+                "display": "Arm stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "06f41fa65a3abd353222402d4ecdb227013f1a2cf991dc264eadfa44",
+                "display": "Arm stiffness or tightness (finding)"
+            },
+            "remarks": [
+                "Arm stiffness or tightness is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Shoulder swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1a466ba76e18a6848e9148e852f9c60156e2fb67a164144c91a44d5f",
+                "display": "Shoulder swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1a466ba76e18a6848e9148e852f9c60156e2fb67a164144c91a44d5f",
+                "display": "Shoulder swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Bones are painful",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b3410497bde6908c297cfc9286cd3535815465032f432a72b59be041",
+                "display": "Bones are painful"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b3410497bde6908c297cfc9286cd3535815465032f432a72b59be041",
+                "display": "Bones are painful (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Arm weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness (finding)"
+            },
+            "remarks": [
+                "Arm weakness is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Muscle cramps, contractures, or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0b78cc9fc616a5add61cb1fa8ffcbd0fc233d82e9239827814712289",
+                "display": "Injury to the shoulder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Injury to the shoulder_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

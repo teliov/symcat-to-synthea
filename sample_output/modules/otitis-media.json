@@ -1,0 +1,868 @@
+{
+    "name": "Otitis media",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030821917808219176
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9691780821917808
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.043835616438356165
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9561643835616438
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015068493150684932
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9849315068493151
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003424657534246575
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9965753424657534
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0027397260273972603
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9972602739726028
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002054794520547945
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9979452054794521
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0013698630136986301
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986301369863013
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0006849315068493151
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9993150684931507
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.021951219512195124
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9780487804878049
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03170731707317073
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9682926829268292
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.021951219512195124
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9780487804878049
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012195121951219513
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9878048780487805
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012195121951219513
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9878048780487805
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.983739837398374
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.016260162601625994
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                    "display": "Otitis media"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Otitis media (Latin for \"inflammation of the middle ear\") is the medical term for middle ear infection. Although several subtypes of otitis media are distinguished, the term is often used synonymously with acute otitis media. It is very common in childhood.",
+                "Within all the people who go to their doctor with otitis media, 86% report having ear pain, 76% report having fever, and 71% report having cough. The symptoms that are highly suggestive of otitis media are ear pain, redness in ear, pulling at ears, and fluid in ear, although you may still have otitis media without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.86,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.14,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Ear pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.76,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.24,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.71,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.29000000000000004,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.59,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.41000000000000003,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Nasal congestion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "212a9650524fcaac378c1bd175f37a240e2cbd8718317c634530f963",
+                "display": "Nasal congestion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "212a9650524fcaac378c1bd175f37a240e2cbd8718317c634530f963",
+                "display": "Nasal congestion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Sore throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Redness in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "826e6ed0530a1223f5fa8a030f66db758ef3eabcccb2f47488847192",
+                "display": "Redness in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "826e6ed0530a1223f5fa8a030f66db758ef3eabcccb2f47488847192",
+                "display": "Redness in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Pulling at ears",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1cebbff2518142ae65b17786c874279ba6596421377b9433fab04ffc",
+                "display": "Pulling at ears"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1cebbff2518142ae65b17786c874279ba6596421377b9433fab04ffc",
+                "display": "Pulling at ears (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Coryza",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Fluid in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Plugged feeling in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d2d924881778f4c92e04fa160e22b308d9d5215ab3afeffba1fe5b94",
+                "display": "Otitis media"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Otitis media_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

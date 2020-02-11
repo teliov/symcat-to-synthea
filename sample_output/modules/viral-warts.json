@@ -1,0 +1,388 @@
+{
+    "name": "Viral warts",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005633802816901409
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9943661971830986
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.035211267605633804
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9647887323943662
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022535211267605635
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9774647887323944
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015492957746478875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9845070422535211
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.011267605633802818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9887323943661972
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007042253521126761
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9929577464788732
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0028169014084507044
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9971830985915493
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.018918918918918916
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.981081081081081
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02972972972972973
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9702702702702702
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02972972972972973
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9702702702702702
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010810810810810811
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9891891891891892
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010810810810810811
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9891891891891892
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9855855855855856
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.014414414414414378
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "6a74a0b01581a8dd988022df3e1a8957d3b909b84b62c619a689f90f",
+                    "display": "Viral warts"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                null,
+                null
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Viral warts_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

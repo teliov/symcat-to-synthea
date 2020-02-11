@@ -1,0 +1,868 @@
+{
+    "name": "Mononeuritis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0016666666666666668
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9983333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006666666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9933333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.021666666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9783333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03166666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9683333333333334
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9766666666666667
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015000000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.985
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022222222222222223
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9777777777777777
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.019444444444444445
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9805555555555555
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9666666666666667
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9833333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01666666666666672
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                    "display": "Mononeuritis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Peripheral neuropathy is damage to nerves of the peripheral nervous system, which may be caused either by diseases of or trauma to the nerve or the side effects of systemic illness.",
+                "Within all the people who go to their doctor with mononeuritis, 79% report having loss of sensation, 51% report having foot or toe pain, and 47% report having paresthesia. The symptoms that are highly suggestive of mononeuritis are loss of sensation, paresthesia, and hand or finger weakness, although you may still have mononeuritis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.79,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.20999999999999996,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Loss of sensation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7ef8a43094d9870156c558ea6ee74a5c11658f7ce22017b1db6345d3",
+                "display": "Loss of sensation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7ef8a43094d9870156c558ea6ee74a5c11658f7ce22017b1db6345d3",
+                "display": "Loss of sensation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Foot or toe pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.47,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.53,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Paresthesia",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85429958ca8501b9d1c63c75fbb8bcc9819d2eadadd95c4f3de3e1b4",
+                "display": "Paresthesia"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85429958ca8501b9d1c63c75fbb8bcc9819d2eadadd95c4f3de3e1b4",
+                "display": "Paresthesia (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.47,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.53,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.45,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.55,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Arm pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain (finding)"
+            },
+            "remarks": [
+                "Arm pain is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.37,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.63,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Low back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.37,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.63,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Hand or finger pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Elbow pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1ed8eee352fcd4f149dda8fb8bee7a17910cac2bed12b7b3e7f5ae4f",
+                "display": "Elbow pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1ed8eee352fcd4f149dda8fb8bee7a17910cac2bed12b7b3e7f5ae4f",
+                "display": "Elbow pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Shoulder pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "28bf5d81761a883d6e26f5bafce33028968b0ac3528f19369133f04c",
+                "display": "Shoulder pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "28bf5d81761a883d6e26f5bafce33028968b0ac3528f19369133f04c",
+                "display": "Shoulder pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Ankle pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2befb2e3a7cd839b89c611a70cf7b9a77e8c24bee1f140ae38de3ad0",
+                "display": "Ankle pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2befb2e3a7cd839b89c611a70cf7b9a77e8c24bee1f140ae38de3ad0",
+                "display": "Ankle pain (finding)"
+            },
+            "remarks": [
+                "Ankle pain is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Wrist pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1c041889187bf4d3a2a4d3e07aaeca7f4c4cc535002bc398aef4c422",
+                "display": "Wrist pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1c041889187bf4d3a2a4d3e07aaeca7f4c4cc535002bc398aef4c422",
+                "display": "Wrist pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Hand or finger weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "937ca8b681780d61afa4a3745e4b9aa5814d0efd4bc76565e73596d8",
+                "display": "Mononeuritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "858332075a98c33310e5de37dc4290c3552a07c39e394631e011a5fe",
+                "display": "Hand or finger weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "858332075a98c33310e5de37dc4290c3552a07c39e394631e011a5fe",
+                "display": "Hand or finger weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Mononeuritis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

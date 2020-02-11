@@ -1,0 +1,868 @@
+{
+    "name": "Diabetes insipidus",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024166666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9758333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025833333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9741666666666666
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9916666666666667
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9916666666666667
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9916666666666667
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.06944444444444445
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9305555555555556
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.027777777777777776
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9722222222222222
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.001388888888888889
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986111111111111
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.001388888888888889
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986111111111111
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9981481481481481
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.0018518518518518823
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                    "display": "Diabetes insipidus"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Diabetes insipidus (DI) is a condition characterized by excessive thirst and excretion of large amounts of severely diluted urine, with reduction of fluid intake having no effect on the concentration of the urine. There are several different types of DI, each with a different cause. The most common type in humans is central DI, caused by a deficiency of arginine vasopressin (AVP), also known as antidiuretic hormone (ADH). The second common type of DI is nephrogenic diabetes insipidus, which is caused by an insensitivity of the kidneys to ADH. It can also be an iatrogenic artifact of drug use.",
+                "Within all the people who go to their doctor with diabetes insipidus, 51% report having excessive appetite, 51% report having difficulty in swallowing, and 51% report having frequent urination. The symptoms that are highly suggestive of diabetes insipidus are excessive appetite, difficulty in swallowing, frequent urination, itchy eyelid, emotional symptoms, wrist weakness, elbow cramps or spasms, elbow weakness, nailbiting, and hip stiffness or tightness, although you may still have diabetes insipidus without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Excessive appetite",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c2d432674b4fe5c5e2a914e7f31613700af7a2de51c82f75ce3cb298",
+                "display": "Excessive appetite"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c2d432674b4fe5c5e2a914e7f31613700af7a2de51c82f75ce3cb298",
+                "display": "Excessive appetite (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Difficulty in swallowing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Frequent urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Itchy eyelid",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "26f1c9e6e8263ab35d31deb65e12b6c58e0a0e23ae6dbecc76cc0b6d",
+                "display": "Itchy eyelid"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "26f1c9e6e8263ab35d31deb65e12b6c58e0a0e23ae6dbecc76cc0b6d",
+                "display": "Itchy eyelid (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Emotional symptoms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "4a650b565bcd79880b14c7c31a0ec7e664c86913ed0765c301c77794",
+                "display": "Emotional symptoms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "4a650b565bcd79880b14c7c31a0ec7e664c86913ed0765c301c77794",
+                "display": "Emotional symptoms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Wrist weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f74873162867f7014ff45760e57397a2dc1ec47eb26907b95e997ea9",
+                "display": "Wrist weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f74873162867f7014ff45760e57397a2dc1ec47eb26907b95e997ea9",
+                "display": "Wrist weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Elbow cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c56f4122cf02e81fc3f8ccb80fa1b009f9dd6e0f974564f0baf6b574",
+                "display": "Elbow cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c56f4122cf02e81fc3f8ccb80fa1b009f9dd6e0f974564f0baf6b574",
+                "display": "Elbow cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Elbow weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3e7166f6b9c7f979748fa0e224454da80a0b3d4d608a1422f5caed8f",
+                "display": "Elbow weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3e7166f6b9c7f979748fa0e224454da80a0b3d4d608a1422f5caed8f",
+                "display": "Elbow weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Nailbiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Hip stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26f80ac055effed02a218669a43729f4ebaf5b4d5f182aa12ce9cd37",
+                "display": "Diabetes insipidus"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Diabetes insipidus_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

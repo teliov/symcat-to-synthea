@@ -1,0 +1,748 @@
+{
+    "name": "Peripheral arterial disease",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0025974025974025974
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9974025974025974
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714287
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03506493506493507
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.964935064935065
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.048051948051948054
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.951948051948052
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.94
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.96
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.027272727272727275
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9727272727272728
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9818181818181818
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03636363636363636
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9636363636363636
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.00909090909090909
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.990909090909091
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.00909090909090909
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.990909090909091
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9878787878787879
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.012121212121212088
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                    "display": "Peripheral arterial disease"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Peripheral vascular disease (PVD), commonly referred to as peripheral artery disease (PAD) or peripheral artery occlusive disease (PAOD) or peripheral obliterative arteriopathy, refers to the obstruction of large arteries not within the coronary, aortic arch vasculature, or brain. PVD can result from atherosclerosis, inflammatory processes leading to stenosis, an embolism, or thrombus formation. It causes either acute or chronic ischemia (lack of blood supply). Often PVD is a term used to refer to atherosclerotic blockages found in the lower extremity.",
+                "Within all the people who go to their doctor with peripheral arterial disease, 55% report having skin lesion, 51% report having leg pain, and 24% report having foot or toe pain. The symptoms that are highly suggestive of peripheral arterial disease are poor circulation and feeling cold, although you may still have peripheral arterial disease without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.55,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.44999999999999996,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Skin lesion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Foot or toe pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Poor circulation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c7156270815d7d0c8ae7151c9625e9f814bc4fc64412f5ffc894e47a",
+                "display": "Poor circulation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c7156270815d7d0c8ae7151c9625e9f814bc4fc64412f5ffc894e47a",
+                "display": "Poor circulation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Lymphedema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "814cedacea819158682c930c78298928073ac20e89f6a99e2f739274",
+                "display": "Lymphedema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "814cedacea819158682c930c78298928073ac20e89f6a99e2f739274",
+                "display": "Lymphedema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Leg cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "767c9388b3593960cfeb75145c4e0061ae941425fd584c33a47aca84",
+                "display": "Leg cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "767c9388b3593960cfeb75145c4e0061ae941425fd584c33a47aca84",
+                "display": "Leg cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Feeling cold",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "caacb3fdac9aa2d615c7fceeb41495a5dfda5555ac67225bd75465b6",
+                "display": "Feeling cold"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "caacb3fdac9aa2d615c7fceeb41495a5dfda5555ac67225bd75465b6",
+                "display": "Feeling cold (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Hemoptysis",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fce3a9d81b8660d5a6d3ed09f4a801d0b35045777842a450d2b0c04d",
+                "display": "Hemoptysis"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fce3a9d81b8660d5a6d3ed09f4a801d0b35045777842a450d2b0c04d",
+                "display": "Hemoptysis (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Symptoms of the kidneys",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "26bb77691e7449f8f825c494a7269a06892e5dafe804fe4dedb2b276",
+                "display": "Peripheral arterial disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Peripheral arterial disease_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Arthritis of the hip",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014705882352941176
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014705882352941176
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004411764705882353
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9955882352941177
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007352941176470588
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9926470588235294
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013235294117647059
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.986764705882353
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022058823529411766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9779411764705882
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022058823529411766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9779411764705882
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.027941176470588233
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9720588235294118
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02972972972972973
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9702702702702702
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016216216216216217
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9837837837837837
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02972972972972973
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9702702702702702
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012162162162162163
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9878378378378379
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012162162162162163
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9878378378378379
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9837837837837837
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.016216216216216273
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                    "display": "Arthritis of the hip"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Arthritis of the hip is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with arthritis of the hip, 93% report having hip pain, 56% report having leg pain, and 43% report having low back pain. The symptoms that are highly suggestive of arthritis of the hip are hip pain and hip stiffness or tightness, although you may still have arthritis of the hip without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.93,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.06999999999999995,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Hip pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.56,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.43999999999999995,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.43,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.5700000000000001,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Low back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.37,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.63,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Knee pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Ache all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over (finding)"
+            },
+            "remarks": [
+                "Myalgia, or muscle pain, is a symptom of many diseases and disorders. The most common causes are the overuse or over-stretching of a muscle or group of muscles. Myalgia without a traumatic history is often due to viral infections. Longer-term myalgias may be indicative of a metabolic myopathy, some nutritional deficiencies or chronic fatigue syndrome."
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Groin pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Lower body pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Problems with movement",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Pelvic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.09,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.91,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Joint pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Hip stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "868796d65bcf744c706540c78cdca2665fca06513cb8493a215090c9",
+                "display": "Arthritis of the hip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Arthritis of the hip_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

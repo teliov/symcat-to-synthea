@@ -1,0 +1,868 @@
+{
+    "name": "Heart block",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0011764705882352942
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9988235294117647
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0011764705882352942
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9988235294117647
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0023529411764705885
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9976470588235294
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0011764705882352942
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9988235294117647
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003529411764705882
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9964705882352941
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007058823529411764
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9929411764705882
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025882352941176474
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9741176470588235
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.05764705882352942
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9423529411764706
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.94
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.96
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012903225806451613
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9870967741935484
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025806451612903226
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9741935483870968
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.041935483870967745
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9580645161290322
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.00967741935483871
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9903225806451613
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.00967741935483871
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9903225806451613
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9870967741935484
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.012903225806451646
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                    "display": "Heart block"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "A heart block is a disease in the electrical system of the heart. This is opposed to coronary artery disease, which is disease of the blood vessels of the heart. While coronary artery disease can cause angina (chest pain) or myocardial infarction (heart attack), heart block can cause lightheadedness, syncope (fainting), and palpitations.",
+                "Within all the people who go to their doctor with heart block, 48% report having sharp chest pain, 46% report having shortness of breath, and 39% report having dizziness. The symptoms that are highly suggestive of heart block are decreased heart rate, although you may still have heart block without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.48,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.52,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.46,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.54,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.39,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.61,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Fainting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "97bd50b353dba728d06a17cfee6cb99847543ec35a8384713c48a777",
+                "display": "Fainting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "97bd50b353dba728d06a17cfee6cb99847543ec35a8384713c48a777",
+                "display": "Fainting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.29,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.71,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Palpitations",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fe7475349164c17ff52305f12defdcc0460b971adaf12dbcd7d4554",
+                "display": "Palpitations"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fe7475349164c17ff52305f12defdcc0460b971adaf12dbcd7d4554",
+                "display": "Palpitations (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Chest tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ed999058533c037cb6bd3069ccd2d4b533023ceb40acb5d316bb5730",
+                "display": "Chest tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ed999058533c037cb6bd3069ccd2d4b533023ceb40acb5d316bb5730",
+                "display": "Chest tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Peripheral edema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Decreased heart rate",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6b82087334ae1889825af76d0d775ac9daa7fe3ae692186347a3eec3",
+                "display": "Decreased heart rate"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6b82087334ae1889825af76d0d775ac9daa7fe3ae692186347a3eec3",
+                "display": "Decreased heart rate (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Weight gain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "35724cd7c9d10129f0d3b79a9aef0e3e26743e2378832a074e034e61",
+                "display": "Weight gain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "35724cd7c9d10129f0d3b79a9aef0e3e26743e2378832a074e034e61",
+                "display": "Weight gain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Increased heart rate",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "61c8faf4628bc43c4daf53f9aa17b546bdad37900f8d8896ec742f37",
+                "display": "Increased heart rate"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "61c8faf4628bc43c4daf53f9aa17b546bdad37900f8d8896ec742f37",
+                "display": "Increased heart rate (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Irregular heartbeat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4c390cbb6d2b653ec3d702a4107a1eaf51ee11da08d7db8eda9cd9ac",
+                "display": "Heart block"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7e57aeb27ba9f3c2aa46f975fe12aaf70280fe2ac712f4f302de3ad2",
+                "display": "Irregular heartbeat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7e57aeb27ba9f3c2aa46f975fe12aaf70280fe2ac712f4f302de3ad2",
+                "display": "Irregular heartbeat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Heart block_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

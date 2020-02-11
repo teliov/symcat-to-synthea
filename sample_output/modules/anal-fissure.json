@@ -1,0 +1,868 @@
+{
+    "name": "Anal fissure",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.023529411764705882
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9764705882352941
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.016470588235294115
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9835294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0058823529411764705
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9941176470588236
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015294117647058824
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9847058823529412
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.016470588235294115
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9835294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.010588235294117647
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9894117647058823
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008235294117647058
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.991764705882353
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003529411764705882
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9964705882352941
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.019512195121951216
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9804878048780488
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03414634146341462
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9658536585365853
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024390243902439022
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975609756097561
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010975609756097559
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890243902439024
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010975609756097559
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890243902439024
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9853658536585366
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.014634146341463428
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                    "display": "Anal fissure"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "An anal fissure is a break or tear in the skin of the anal canal. Anal fissures may be noticed by bright red anal bleeding on toilet paper, sometimes in the toilet. If acute they may cause pain after defecation but with chronic fissures pain intensity is often less. Anal fissures usually extend from the anal opening and are usually located posteriorly in the midline, probably because of the relatively unsupported nature and poor perfusion of the anal wall in that location. Fissure depth may be superficial or sometimes down to the underlying sphincter muscle.",
+                "Within all the people who go to their doctor with anal fissure, 80% report having rectal bleeding, 75% report having pain of the anus, and 65% report having blood in stool. The symptoms that are highly suggestive of anal fissure are rectal bleeding, pain of the anus, blood in stool, constipation, changes in stool appearance, irregular belly button , and vaginal dryness, although you may still have anal fissure without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.8,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.19999999999999996,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Rectal bleeding",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6b1103328178b0eb33ea0793691afaf85e0658214e37f8d43db784c5",
+                "display": "Rectal bleeding"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6b1103328178b0eb33ea0793691afaf85e0658214e37f8d43db784c5",
+                "display": "Rectal bleeding (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.75,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.25,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Pain of the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.65,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.35,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Blood in stool",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.44,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.56,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Constipation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "441e1f49a3ac39357369f2018bd4cdab3c8cbd79379be80a2550aa10",
+                "display": "Constipation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "441e1f49a3ac39357369f2018bd4cdab3c8cbd79379be80a2550aa10",
+                "display": "Constipation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Changes in stool appearance",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "752d4bbaf61d07cf5dd6c98e09c6035c7e97eea91a7c768f453cf09f",
+                "display": "Changes in stool appearance"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "752d4bbaf61d07cf5dd6c98e09c6035c7e97eea91a7c768f453cf09f",
+                "display": "Changes in stool appearance (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Lower body pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Irregular belly button",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Cramps and spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Vaginal dryness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "192c24d1d4fa9718b47dce9ee949b9ebaf113d75ac61d210a0e69a91",
+                "display": "Vaginal dryness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "192c24d1d4fa9718b47dce9ee949b9ebaf113d75ac61d210a0e69a91",
+                "display": "Vaginal dryness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Symptoms of prostate",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ee14c150596724922748adf6086361be8c03dbfc0702c4c8c0c9b521",
+                "display": "Symptoms of prostate"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ee14c150596724922748adf6086361be8c03dbfc0702c4c8c0c9b521",
+                "display": "Symptoms of prostate (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Itchiness of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "265bd66f438b70e04f4b05e384a14ea179d0c7f795d24323dbff90b4",
+                "display": "Anal fissure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Anal fissure_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

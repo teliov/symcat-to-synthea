@@ -1,0 +1,868 @@
+{
+    "name": "Broken tooth",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0013698630136986301
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986301369863013
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024657534246575342
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9753424657534246
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01780821917808219
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9821917808219178
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02602739726027397
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9739726027397261
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01780821917808219
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9821917808219178
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00958904109589041
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9904109589041096
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0027397260273972603
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9972602739726028
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06190476190476191
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9380952380952381
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0380952380952381
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9619047619047619
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024390243902439025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975609756097561
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01951219512195122
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9804878048780488
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024390243902439025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975609756097561
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015853658536585366
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9841463414634146
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015853658536585366
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9841463414634146
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9788617886178862
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.021138211382113803
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                    "display": "Broken tooth"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Dental trauma refers to trauma to the face, mouth, and especially the teeth, lips and periodontium. The study of dental trauma is called dental traumatology.",
+                "Within all the people who go to their doctor with broken tooth, 88% report having toothache, 37% report having facial pain, and 25% report having gum pain. The symptoms that are highly suggestive of broken tooth are toothache, facial pain, gum pain, lip swelling, mouth pain, bleeding in mouth, bleeding gums, difficulty eating, dry lips, and lump over jaw, although you may still have broken tooth without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.88,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.12,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Toothache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a7a40aa9ed26a3fd02669c3faf31de0f36ec9f4f9cbc20dfcb604fc5",
+                "display": "Toothache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a7a40aa9ed26a3fd02669c3faf31de0f36ec9f4f9cbc20dfcb604fc5",
+                "display": "Toothache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.37,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.63,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Facial pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Gum pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0cbfc8283b3a0f93663673251e9e64943cacc8fe2248c1a0aee5e66c",
+                "display": "Gum pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0cbfc8283b3a0f93663673251e9e64943cacc8fe2248c1a0aee5e66c",
+                "display": "Gum pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Lip swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "07f4fcdd4474efdece9b0036d3d8b45849b8691ccdd3d30f3f13c08a",
+                "display": "Lip swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "07f4fcdd4474efdece9b0036d3d8b45849b8691ccdd3d30f3f13c08a",
+                "display": "Lip swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Mouth pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Bleeding in mouth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2f66ceec3c15d5417295dce834664e4234b0421693f5609838487129",
+                "display": "Bleeding in mouth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2f66ceec3c15d5417295dce834664e4234b0421693f5609838487129",
+                "display": "Bleeding in mouth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Peripheral edema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Bleeding gums",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6afca9564539b6a4f109cac854d21404db02df2d75503abdb1680bd0",
+                "display": "Bleeding gums"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6afca9564539b6a4f109cac854d21404db02df2d75503abdb1680bd0",
+                "display": "Bleeding gums (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Difficulty eating",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "52f3a3bc07de76212047ef199d68fc1934b595c7e0a73a11d2bf7785",
+                "display": "Difficulty eating"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "52f3a3bc07de76212047ef199d68fc1934b595c7e0a73a11d2bf7785",
+                "display": "Difficulty eating (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Slurring words",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Dry lips",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2d2a0420160206b7ae29712a6e7bb9f6f0aa4efccc75af8330cd219d",
+                "display": "Dry lips"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2d2a0420160206b7ae29712a6e7bb9f6f0aa4efccc75af8330cd219d",
+                "display": "Dry lips (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Lump over jaw",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7096acbeedfdc41eac019fd74d6f964ac5331cdd80a891c68c7f10b0",
+                "display": "Broken tooth"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8ff93d77a9bd298030bd0b4f4c7652d75606b210166b0dcb5a9259e5",
+                "display": "Lump over jaw"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8ff93d77a9bd298030bd0b4f4c7652d75606b210166b0dcb5a9259e5",
+                "display": "Lump over jaw (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Broken tooth_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

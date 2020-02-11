@@ -1,0 +1,868 @@
+{
+    "name": "Glaucoma",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0012987012987012987
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9987012987012988
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0012987012987012987
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9987012987012988
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0025974025974025974
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9974025974025974
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714287
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.032467532467532464
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9675324675324676
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.048051948051948054
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.951948051948052
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02608695652173913
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9739130434782609
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02608695652173913
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9739130434782609
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01956521739130435
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9804347826086957
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014130434782608696
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9858695652173913
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014130434782608696
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9858695652173913
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.981159420289855
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.018840579710144967
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                    "display": "Glaucoma"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Glaucoma is a term describing a group of ocular disorders with multi-factorial etiology united by a clinically characteristic intraocular pressure-associated optic neuropathy. This can permanently damage vision in the affected eye(s) and lead to blindness if left untreated. It is normally associated with increased fluid pressure in the eye (aqueous humour). The term \"ocular hypertension\" is used for people with consistently raised intraocular pressure (IOP) without any associated optic nerve damage. Conversely, the term 'normal tension' or 'low tension' glaucoma is used for those with optic nerve damage and associated visual field loss, but normal or low IOP.",
+                "Within all the people who go to their doctor with glaucoma, 46% report having diminished vision, 32% report having pain in eye, and 26% report having symptoms of eye. The symptoms that are highly suggestive of glaucoma are symptoms of eye, spots or clouds in vision, blindness, and itchy eyelid, although you may still have glaucoma without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.46,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.54,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Diminished vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Pain in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Symptoms of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Spots or clouds in vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Eye redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Lacrimation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0df780436d68b44d03ff08ef12a43dcca5b9f8fd4e87ce1e5c90263b",
+                "display": "Lacrimation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0df780436d68b44d03ff08ef12a43dcca5b9f8fd4e87ce1e5c90263b",
+                "display": "Lacrimation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Itchiness of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Blindness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Eye burns or stings",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "cd6e438379d68f1991771072c5fc8c4e725c6f70d0db83b3cf13bdd7",
+                "display": "Eye burns or stings"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "cd6e438379d68f1991771072c5fc8c4e725c6f70d0db83b3cf13bdd7",
+                "display": "Eye burns or stings (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Foreign body sensation in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b2e6283fc2fd75907247409f23150b1a24ef4a75c5f45d628b42d135",
+                "display": "Foreign body sensation in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b2e6283fc2fd75907247409f23150b1a24ef4a75c5f45d628b42d135",
+                "display": "Foreign body sensation in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.01,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.99,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Itchy eyelid",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "26f1c9e6e8263ab35d31deb65e12b6c58e0a0e23ae6dbecc76cc0b6d",
+                "display": "Itchy eyelid"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "26f1c9e6e8263ab35d31deb65e12b6c58e0a0e23ae6dbecc76cc0b6d",
+                "display": "Itchy eyelid (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.01,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.99,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Feeling cold",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "07cae3207bf0cd66e711dfae1b39e03dec57830f28c658efa68e73d0",
+                "display": "Glaucoma"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "caacb3fdac9aa2d615c7fceeb41495a5dfda5555ac67225bd75465b6",
+                "display": "Feeling cold"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "caacb3fdac9aa2d615c7fceeb41495a5dfda5555ac67225bd75465b6",
+                "display": "Feeling cold (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Glaucoma_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

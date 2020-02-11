@@ -1,0 +1,628 @@
+{
+    "name": "Colorectal cancer",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985714285714286
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9942857142857143
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02142857142857143
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9785714285714285
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.037142857142857144
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9628571428571429
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03428571428571429
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9657142857142857
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02121212121212121
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9787878787878788
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012121212121212121
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9878787878787879
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03636363636363636
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9636363636363636
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9848484848484849
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9848484848484849
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9797979797979798
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.02020202020202022
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "c11d10ea6ef9480aaf6cca36650a72ff63db17c18ba976fecf78e483",
+                    "display": "Colorectal cancer"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Colorectal cancer, commonly known as colon cancer or bowel cancer, is a cancer from uncontrolled cell growth in the colon or rectum (parts of the large intestine), or in the appendix. Genetic analysis shows that essentially colon and rectal tumours are genetically the same cancer. Symptoms of colorectal cancer typically include rectal bleeding and anemia which are sometimes associated with weight loss and changes in bowel habits.",
+                "Within all the people who go to their doctor with colorectal cancer, 26% report having sharp abdominal pain, 14% report having rectal bleeding, and 6% report having blood in stool. The symptoms that are highly suggestive of colorectal cancer are mass or swelling around the anus, although you may still have colorectal cancer without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c11d10ea6ef9480aaf6cca36650a72ff63db17c18ba976fecf78e483",
+                "display": "Colorectal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Rectal bleeding",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c11d10ea6ef9480aaf6cca36650a72ff63db17c18ba976fecf78e483",
+                "display": "Colorectal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6b1103328178b0eb33ea0793691afaf85e0658214e37f8d43db784c5",
+                "display": "Rectal bleeding"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6b1103328178b0eb33ea0793691afaf85e0658214e37f8d43db784c5",
+                "display": "Rectal bleeding (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Blood in stool",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c11d10ea6ef9480aaf6cca36650a72ff63db17c18ba976fecf78e483",
+                "display": "Colorectal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Pain of the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c11d10ea6ef9480aaf6cca36650a72ff63db17c18ba976fecf78e483",
+                "display": "Colorectal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Mass or swelling around the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c11d10ea6ef9480aaf6cca36650a72ff63db17c18ba976fecf78e483",
+                "display": "Colorectal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "4375ac659b40c3f1b2e110fc6604f3a930e72b16783e165271f082c7",
+                "display": "Mass or swelling around the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "4375ac659b40c3f1b2e110fc6604f3a930e72b16783e165271f082c7",
+                "display": "Mass or swelling around the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Drainage in throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c11d10ea6ef9480aaf6cca36650a72ff63db17c18ba976fecf78e483",
+                "display": "Colorectal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a7f9c921a60e5c8f5a8b590da7dfb0e60fadef6b600e5984a482063f",
+                "display": "Drainage in throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a7f9c921a60e5c8f5a8b590da7dfb0e60fadef6b600e5984a482063f",
+                "display": "Drainage in throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Colorectal cancer_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

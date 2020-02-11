@@ -1,0 +1,868 @@
+{
+    "name": "Sarcoidosis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0017857142857142857
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9982142857142857
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0017857142857142857
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9982142857142857
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03214285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9678571428571429
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03571428571428571
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9642857142857143
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.021428571428571425
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9785714285714285
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007142857142857143
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9928571428571429
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.049090909090909095
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9509090909090909
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012727272727272726
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9872727272727273
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.00909090909090909
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.990909090909091
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014545454545454545
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9854545454545455
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014545454545454545
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9854545454545455
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9806060606060606
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.019393939393939408
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                    "display": "Sarcoidosis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Sarcoidosis (from sarc meaning \"flesh\", -oid, \"like\", and -osis, \"diseased or abnormal condition\"), also called sarcoid, Besnier-Boeck disease or Besnier-Boeck-Schaumann disease, is a syndrome involving abnormal collections of chronic inflammatory cells (granulomas) that can form as nodules in multiple organs. The granulomas that appear are usually not of the caseating variety and are most often located in the lungs or the lymph nodes, but virtually any organ can be affected. Onset is usually gradual. Sarcoidosis may be asymptomatic or chronic. It commonly improves or clears up spontaneously. More than two-thirds of people with lung sarcoidosis have no symptoms after 9 years. About 50% have relapses. About 10% develop serious disability. Lung scarring or infection may lead to respiratory failure and death. In chronic cases, symptoms may fluctuate over many years. The causes of sarcoidosis are not completely understood.",
+                "Within all the people who go to their doctor with sarcoidosis, 53% report having cough, 46% report having shortness of breath, and 28% report having fatigue."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.53,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.47,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.46,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.54,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Fatigue",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Peripheral edema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Pain in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Wheezing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e9190b5443ac1fb07154398db57f75adf126412d0cc42fa30e799ce5",
+                "display": "Wheezing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e9190b5443ac1fb07154398db57f75adf126412d0cc42fa30e799ce5",
+                "display": "Wheezing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Chest tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ed999058533c037cb6bd3069ccd2d4b533023ceb40acb5d316bb5730",
+                "display": "Chest tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ed999058533c037cb6bd3069ccd2d4b533023ceb40acb5d316bb5730",
+                "display": "Chest tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Paresthesia",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85429958ca8501b9d1c63c75fbb8bcc9819d2eadadd95c4f3de3e1b4",
+                "display": "Paresthesia"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85429958ca8501b9d1c63c75fbb8bcc9819d2eadadd95c4f3de3e1b4",
+                "display": "Paresthesia (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Muscle pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6f1896060c7e7c5e0665bcb390850cfc19d4e47866a358900f4d8c37",
+                "display": "Muscle pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6f1896060c7e7c5e0665bcb390850cfc19d4e47866a358900f4d8c37",
+                "display": "Muscle pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Facial pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "adca08c546e30b90ec4206eb6d79dcb7c9861ea88daad04741352bee",
+                "display": "Sarcoidosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Sarcoidosis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

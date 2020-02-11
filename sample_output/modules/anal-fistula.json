@@ -1,0 +1,828 @@
+{
+    "name": "Anal fistula",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02602739726027397
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9739726027397261
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0027397260273972603
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9972602739726028
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00821917808219178
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9917808219178083
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024657534246575342
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9753424657534246
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02054794520547945
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9794520547945206
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00821917808219178
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9917808219178083
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00958904109589041
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9904109589041096
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9318181818181819
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.031818181818181815
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9681818181818181
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010638297872340425
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9893617021276596
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.04468085106382979
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9553191489361702
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.019148936170212766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9808510638297873
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01276595744680851
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9872340425531915
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01276595744680851
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9872340425531915
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9829787234042553
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.017021276595744705
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                    "display": "Anal fistula"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Anal fistula, or fistula-in-ano, is an abnormal connection between the epithelialised surface of the anal canal and (usually) the perianal skin.",
+                "Within all the people who go to their doctor with anal fistula, 71% report having pain of the anus, 33% report having blood in stool, and 33% report having sharp abdominal pain. The symptoms that are highly suggestive of anal fistula are pain of the anus, blood in stool, low back cramps or spasms, discharge in stools, mass or swelling around the anus, incontinence of stool, and mass in scrotum, although you may still have anal fistula without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.71,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.29000000000000004,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Pain of the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Blood in stool",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Rectal bleeding",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6b1103328178b0eb33ea0793691afaf85e0658214e37f8d43db784c5",
+                "display": "Rectal bleeding"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6b1103328178b0eb33ea0793691afaf85e0658214e37f8d43db784c5",
+                "display": "Rectal bleeding (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Low back cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dcf3e42632c477781e24de52d9b8216dcea08ae00b6d03198af426fb",
+                "display": "Low back cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dcf3e42632c477781e24de52d9b8216dcea08ae00b6d03198af426fb",
+                "display": "Low back cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Lower body pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Discharge in stools",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b806e16e2ab10ec5e97bf8391b1f6b713098add2e72d172c242e7f0b",
+                "display": "Discharge in stools"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b806e16e2ab10ec5e97bf8391b1f6b713098add2e72d172c242e7f0b",
+                "display": "Discharge in stools (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Constipation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "441e1f49a3ac39357369f2018bd4cdab3c8cbd79379be80a2550aa10",
+                "display": "Constipation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "441e1f49a3ac39357369f2018bd4cdab3c8cbd79379be80a2550aa10",
+                "display": "Constipation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Mass or swelling around the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "4375ac659b40c3f1b2e110fc6604f3a930e72b16783e165271f082c7",
+                "display": "Mass or swelling around the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "4375ac659b40c3f1b2e110fc6604f3a930e72b16783e165271f082c7",
+                "display": "Mass or swelling around the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Incontinence of stool",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3d676c91076e0dbb8126367c220d446a29146476e82dc01e26aad757",
+                "display": "Incontinence of stool"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3d676c91076e0dbb8126367c220d446a29146476e82dc01e26aad757",
+                "display": "Incontinence of stool (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Mass in scrotum",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "6f34c74b72eebeaaed072a95a18985b6d28c6327704778c00c97d355",
+                "display": "Anal fistula"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fc91229b566e3c4d36bead9a18fe11de98cf48c1828f83db5a0783ca",
+                "display": "Mass in scrotum"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fc91229b566e3c4d36bead9a18fe11de98cf48c1828f83db5a0783ca",
+                "display": "Mass in scrotum (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Anal fistula_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

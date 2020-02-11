@@ -1,0 +1,868 @@
+{
+    "name": "Gas gangrene",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007446808510638298
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9925531914893617
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0824468085106383
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9175531914893617
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0026595744680851068
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9973404255319149
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0010638297872340428
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9989361702127659
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0010638297872340428
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9989361702127659
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0010638297872340428
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9989361702127659
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.001595744680851064
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984042553191489
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0026595744680851068
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9973404255319149
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.005555555555555556
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9944444444444445
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09444444444444444
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9055555555555556
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.006666666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9933333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.99
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.05333333333333334
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9466666666666667
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015000000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.985
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015000000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.985
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.98
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.020000000000000018
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                    "display": "Gas gangrene"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Gas gangrene (also known as \"Clostridial myonecrosis\", and \"Myonecrosis\") is a bacterial infection that produces gas in tissues in gangrene. It is a deadly form of gangrene usually caused by Clostridium perfringens bacteria. It is a medical emergency.",
+                "Within all the people who go to their doctor with gas gangrene, 100% report having sharp abdominal pain, 32% report having preoccupation with sex, and 32% report having wrist cramps or spasms. The symptoms that are highly suggestive of gas gangrene are sharp abdominal pain, shoulder cramps or spasms, joint stiffness or tightness, and knee lump or mass, although you may still have gas gangrene without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 1.0,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.0,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Shoulder cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "52332094d2bf70f9d53b1747b6afa6db5fe595617fc0455d14a47b8d",
+                "display": "Shoulder cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "52332094d2bf70f9d53b1747b6afa6db5fe595617fc0455d14a47b8d",
+                "display": "Shoulder cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Excessive anger",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2b28ad7e2ef84375a5746e1447d2fb0f37f1e68a9250fdcd9635695c",
+                "display": "Excessive anger"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2b28ad7e2ef84375a5746e1447d2fb0f37f1e68a9250fdcd9635695c",
+                "display": "Excessive anger (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Ankle pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2befb2e3a7cd839b89c611a70cf7b9a77e8c24bee1f140ae38de3ad0",
+                "display": "Ankle pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2befb2e3a7cd839b89c611a70cf7b9a77e8c24bee1f140ae38de3ad0",
+                "display": "Ankle pain (finding)"
+            },
+            "remarks": [
+                "Ankle pain is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Wrist pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1c041889187bf4d3a2a4d3e07aaeca7f4c4cc535002bc398aef4c422",
+                "display": "Wrist pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1c041889187bf4d3a2a4d3e07aaeca7f4c4cc535002bc398aef4c422",
+                "display": "Wrist pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Pain during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Facial pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Joint stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fda6393decd7eaef9733d1ab144c8c194b01ee5e32dc8c8324e73cb",
+                "display": "Joint stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fda6393decd7eaef9733d1ab144c8c194b01ee5e32dc8c8324e73cb",
+                "display": "Joint stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Pain or soreness of breast",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "205662e865df56ca3acd4caeb082c75976cb68dfe7b04f5a9128a823",
+                "display": "Pain or soreness of breast"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "205662e865df56ca3acd4caeb082c75976cb68dfe7b04f5a9128a823",
+                "display": "Pain or soreness of breast (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Knee lump or mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5245c4c611c357e6424560a56026d422d3eaa759792925d3502b1811",
+                "display": "Knee lump or mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5245c4c611c357e6424560a56026d422d3eaa759792925d3502b1811",
+                "display": "Knee lump or mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Pain in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Fatigue",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "47dd58648b4bb59685db4f59d45eec81f57be42b5d7a5d31348767ca",
+                "display": "Gas gangrene"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Gas gangrene_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

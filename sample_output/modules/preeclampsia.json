@@ -1,0 +1,788 @@
+{
+    "name": "Preeclampsia",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.05283018867924528
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9471698113207547
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04716981132075472
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9528301886792453
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02641509433962264
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9735849056603774
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02830188679245283
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9716981132075472
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01320754716981132
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9867924528301887
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016037735849056604
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9839622641509433
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016037735849056604
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9839622641509433
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9786163522012579
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.021383647798742134
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                    "display": "Preeclampsia"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Pre-eclampsia or preeclampsia is a medical condition characterized by high blood pressure and significant amounts of protein in the urine of a pregnant woman. If left untreated, it can develop into eclampsia, the life-threatening occurrence of seizures during pregnancy.",
+                "Within all the people who go to their doctor with preeclampsia, 39% report having headache, 34% report having pain during pregnancy, and 31% report having problems during pregnancy. The symptoms that are highly suggestive of preeclampsia are problems during pregnancy, uterine contractions, recent pregnancy, and vaginal redness, although you may still have preeclampsia without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.39,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.61,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.34,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.6599999999999999,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Pain during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Problems during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ead4dca6864a1e84017c3da2813cf035da5b7f652b1423e3ec0fc82f",
+                "display": "Problems during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ead4dca6864a1e84017c3da2813cf035da5b7f652b1423e3ec0fc82f",
+                "display": "Problems during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.29,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.71,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Uterine contractions",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd050a1057e988465bb012a58ded9cbbbafdb45fbcb7600ca544b17b",
+                "display": "Uterine contractions"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd050a1057e988465bb012a58ded9cbbbafdb45fbcb7600ca544b17b",
+                "display": "Uterine contractions (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Lower abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Recent pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d5f92aa53423af2c05cad73c9f2507289cb9930cefc097463714329f",
+                "display": "Recent pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d5f92aa53423af2c05cad73c9f2507289cb9930cefc097463714329f",
+                "display": "Recent pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Spots or clouds in vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Cramps and spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Vaginal redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "8e79cffa08dc09303fdb227f379411cd539231913740ff026bc07cec",
+                "display": "Preeclampsia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fcc89ce7fae7c2ee3426e27e1c67a9d564343b96b5c39a2b8f0412c2",
+                "display": "Vaginal redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fcc89ce7fae7c2ee3426e27e1c67a9d564343b96b5c39a2b8f0412c2",
+                "display": "Vaginal redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Preeclampsia_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

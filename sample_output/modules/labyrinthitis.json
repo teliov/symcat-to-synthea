@@ -1,0 +1,868 @@
+{
+    "name": "Labyrinthitis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984848484848485
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00909090909090909
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.990909090909091
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012121212121212121
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9878787878787879
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025757575757575757
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9742424242424242
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.028787878787878786
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9712121212121212
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.03684210526315789
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9631578947368421
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06315789473684211
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9368421052631579
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.018918918918918916
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.981081081081081
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016216216216216217
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9837837837837837
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.032432432432432434
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9675675675675676
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016216216216216217
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9837837837837837
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016216216216216217
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9837837837837837
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9783783783783784
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.021621621621621623
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                    "display": "Labyrinthitis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Labyrinthitis is an ailment of the inner ear and a form of unilateral vestibular dysfunction. It derives its name from the labyrinths that house the vestibular system, which senses changes in head position. Labyrinthitis can cause balance disorders, vertigo, hearing loss and tinnitus.",
+                "Within all the people who go to their doctor with labyrinthitis, 97% report having dizziness, 66% report having nausea, and 61% report having vomiting. The symptoms that are highly suggestive of labyrinthitis are dizziness and ringing in ear, although you may still have labyrinthitis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.97,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.030000000000000027,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.66,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.33999999999999997,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Nausea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.61,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.39,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.49,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.51,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Ear pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Loss of sensation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7ef8a43094d9870156c558ea6ee74a5c11658f7ce22017b1db6345d3",
+                "display": "Loss of sensation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7ef8a43094d9870156c558ea6ee74a5c11658f7ce22017b1db6345d3",
+                "display": "Loss of sensation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Ringing in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Plugged feeling in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Sweating",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Spots or clouds in vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "71a4dfac5444192d45f59e8402d86d38405dabc7f9c397ec61b890bb",
+                "display": "Labyrinthitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Labyrinthitis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

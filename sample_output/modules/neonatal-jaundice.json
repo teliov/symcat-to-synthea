@@ -1,0 +1,868 @@
+{
+    "name": "Neonatal jaundice",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.09967532467532467
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9003246753246753
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0003246753246753247
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9996753246753247
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06190476190476191
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9380952380952381
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0380952380952381
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9619047619047619
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.009375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.990625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0328125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9671875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0109375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0234375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9765625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0234375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9765625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.96875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.03125
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                    "display": "Neonatal jaundice"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Neonatal jaundice or Neonatal hyperbilirubinemia, or Neonatal icterus (from the Greek word \u03af\u03ba\u03c4\u03b5\u03c1\u03bf\u03c2), attributive adjective: icteric, is a yellowing of the skin and other tissues of a newborn infant. A bilirubin level of more than 85 umol/l (5 mg/dL) manifests clinical jaundice in neonates whereas in adults a level of 34 umol/l (2 mg/dL) would look icteric. In newborns, jaundice is detected by blanching the skin with digital pressure so that it reveals underlying skin and subcutaneous tissue. Jaundiced newborns have an apparent icteric sclera, and yellowing of the face, extending down onto the chest.",
+                "Within all the people who go to their doctor with neonatal jaundice, 86% report having jaundice, 24% report having infant feeding problem, and 10% report having irritable infant. The symptoms that are highly suggestive of neonatal jaundice are jaundice, infant feeding problem, and recent weight loss, although you may still have neonatal jaundice without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.86,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.14,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Jaundice",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "84385df32f44838d15c319e2534be581668c98a3c20fb3f82c20ad6f",
+                "display": "Jaundice"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "84385df32f44838d15c319e2534be581668c98a3c20fb3f82c20ad6f",
+                "display": "Jaundice (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Infant feeding problem",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a6ef13dfe9a6b03e2c5518cc76d473affc4c1bd66de7b2767461b525",
+                "display": "Infant feeding problem"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a6ef13dfe9a6b03e2c5518cc76d473affc4c1bd66de7b2767461b525",
+                "display": "Infant feeding problem (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Irritable infant",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "32f427ab99bce716982b3d7820f9ffecc6d4970fc88da9fa5729da48",
+                "display": "Irritable infant"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "32f427ab99bce716982b3d7820f9ffecc6d4970fc88da9fa5729da48",
+                "display": "Irritable infant (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Changes in stool appearance",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "752d4bbaf61d07cf5dd6c98e09c6035c7e97eea91a7c768f453cf09f",
+                "display": "Changes in stool appearance"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "752d4bbaf61d07cf5dd6c98e09c6035c7e97eea91a7c768f453cf09f",
+                "display": "Changes in stool appearance (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Irregular belly button",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Fluid in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Recent weight loss",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "83f630151c43e0ffd7f10e50ec2f7372a73b1170d3fcf6f98223bf05",
+                "display": "Recent weight loss"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "83f630151c43e0ffd7f10e50ec2f7372a73b1170d3fcf6f98223bf05",
+                "display": "Recent weight loss (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Drainage in throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a7f9c921a60e5c8f5a8b590da7dfb0e60fadef6b600e5984a482063f",
+                "display": "Drainage in throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a7f9c921a60e5c8f5a8b590da7dfb0e60fadef6b600e5984a482063f",
+                "display": "Drainage in throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Infant spitting up",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "43c6f3ec3da518d61e93715a55524f66e4fb085314d74e6208b6c89a",
+                "display": "Infant spitting up"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "43c6f3ec3da518d61e93715a55524f66e4fb085314d74e6208b6c89a",
+                "display": "Infant spitting up (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Lack of growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Irregular appearing scalp",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5843a004a3813353de2787bbf2686ec6284cc8cc035111e546401c44",
+                "display": "Irregular appearing scalp"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5843a004a3813353de2787bbf2686ec6284cc8cc035111e546401c44",
+                "display": "Irregular appearing scalp (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Flatulence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0008fb9c51e070528eb6496adfa53f890a11858ac19c18bc29e1f0a6",
+                "display": "Neonatal jaundice"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c6ef1def409846265af9e52a2e5755aae0c88d9fc07696a02683ae6",
+                "display": "Flatulence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c6ef1def409846265af9e52a2e5755aae0c88d9fc07696a02683ae6",
+                "display": "Flatulence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Neonatal jaundice_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

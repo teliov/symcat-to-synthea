@@ -1,0 +1,868 @@
+{
+    "name": "Bladder disorder",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0027397260273972603
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9972602739726028
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0027397260273972603
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9972602739726028
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00684931506849315
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9931506849315068
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005479452054794521
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9945205479452055
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00958904109589041
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9904109589041096
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012328767123287671
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9876712328767123
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030136986301369864
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9698630136986301
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030136986301369864
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9698630136986301
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.94
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.96
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9833333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01666666666666672
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                    "display": "Bladder disorder"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Urinary bladder disease can be congenital or acquired.",
+                "Within all the people who go to their doctor with bladder disorder, 59% report having symptoms of bladder, 53% report having blood in urine, and 46% report having frequent urination. The symptoms that are highly suggestive of bladder disorder are symptoms of bladder, blood in urine, frequent urination, involuntary urination, and bladder mass, although you may still have bladder disorder without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.59,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.41000000000000003,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Symptoms of bladder",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.53,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.47,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Blood in urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.46,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.54,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Frequent urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.36,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.64,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Retention of urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Involuntary urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Suprapubic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "703cf77867ac879e0da8b007eefe9d407476a0cdaf1132c11066081f",
+                "display": "Suprapubic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "703cf77867ac879e0da8b007eefe9d407476a0cdaf1132c11066081f",
+                "display": "Suprapubic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Painful urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Bladder mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ed9cd1792b97cc04e6a07b96251ddaf3158838e3ec31655cce03eab9",
+                "display": "Bladder mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ed9cd1792b97cc04e6a07b96251ddaf3158838e3ec31655cce03eab9",
+                "display": "Bladder mass (finding)"
+            },
+            "remarks": [
+                "Bladder mass is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Coryza",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Pelvic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Lower abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "89d031d67e31e43c841483728ec6b2993c3efc2528944bb969bea004",
+                "display": "Bladder disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Bladder disorder_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

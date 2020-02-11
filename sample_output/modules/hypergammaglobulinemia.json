@@ -1,0 +1,548 @@
+{
+    "name": "Hypergammaglobulinemia",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0013157894736842105
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986842105263158
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003947368421052632
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9960526315789474
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014473684210526317
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9855263157894737
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.031578947368421054
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.968421052631579
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.048684210526315795
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9513157894736842
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9833333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01666666666666672
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "5bf59873cbe016fa1674500ca66d904fd415e3fcd62088d2eb9c4ccc",
+                    "display": "Hypergammaglobulinemia"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Hypergammaglobulinemia is a medical condition with elevated levels of gamma globulin.",
+                "Within all the people who go to their doctor with hypergammaglobulinemia, 41% report having fatigue, 8% report having hip stiffness or tightness, and 8% report having knee stiffness or tightness. The symptoms that are highly suggestive of hypergammaglobulinemia are hip stiffness or tightness and knee stiffness or tightness, although you may still have hypergammaglobulinemia without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Fatigue",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5bf59873cbe016fa1674500ca66d904fd415e3fcd62088d2eb9c4ccc",
+                "display": "Hypergammaglobulinemia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Hip stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5bf59873cbe016fa1674500ca66d904fd415e3fcd62088d2eb9c4ccc",
+                "display": "Hypergammaglobulinemia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Blood in stool",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5bf59873cbe016fa1674500ca66d904fd415e3fcd62088d2eb9c4ccc",
+                "display": "Hypergammaglobulinemia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Knee stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5bf59873cbe016fa1674500ca66d904fd415e3fcd62088d2eb9c4ccc",
+                "display": "Hypergammaglobulinemia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e70692ec7ac252aa1663696f60958383725e3d214990d6634b7f0211",
+                "display": "Knee stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e70692ec7ac252aa1663696f60958383725e3d214990d6634b7f0211",
+                "display": "Knee stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Hypergammaglobulinemia_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

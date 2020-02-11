@@ -1,0 +1,868 @@
+{
+    "name": "Benign prostatic hyperplasia (BPH)",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0012987012987012987
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9987012987012988
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012987012987012988
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.987012987012987
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04415584415584416
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9558441558441558
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04155844155844156
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9584415584415584
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9818181818181818
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9818181818181818
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03636363636363636
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9636363636363636
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013636363636363637
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9863636363636363
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013636363636363637
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9863636363636363
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.018181818181818188
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                    "display": "Benign prostatic hyperplasia (BPH)"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "BPH may refer to:",
+                "Within all the people who go to their doctor with benign prostatic hyperplasia (bph), 58% report having retention of urine, 48% report having symptoms of prostate, and 42% report having frequent urination. The symptoms that are highly suggestive of benign prostatic hyperplasia (bph) are retention of urine, symptoms of prostate, frequent urination, excessive urination at night, impotence, symptoms of bladder, hesitancy, and low urine output, although you may still have benign prostatic hyperplasia (bph) without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.58,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.42000000000000004,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Retention of urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.48,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.52,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Symptoms of prostate",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ee14c150596724922748adf6086361be8c03dbfc0702c4c8c0c9b521",
+                "display": "Symptoms of prostate"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ee14c150596724922748adf6086361be8c03dbfc0702c4c8c0c9b521",
+                "display": "Symptoms of prostate (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Frequent urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.34,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.6599999999999999,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Blood in urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Excessive urination at night",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a6981f923d2b3b43b421c34281bc4358b7a75109a37bd26d229db0f6",
+                "display": "Excessive urination at night"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a6981f923d2b3b43b421c34281bc4358b7a75109a37bd26d229db0f6",
+                "display": "Excessive urination at night (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Impotence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Involuntary urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Symptoms of bladder",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Pain in testicles",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fd42985ea19c7dffd6b22d18c4279f3a1c9e2193f01d6d2a6f1ad944",
+                "display": "Pain in testicles"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fd42985ea19c7dffd6b22d18c4279f3a1c9e2193f01d6d2a6f1ad944",
+                "display": "Pain in testicles (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Hesitancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "823d4e156af3c8c233fadb9826ab378cb440b9013953f0d66be10e5c",
+                "display": "Hesitancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "823d4e156af3c8c233fadb9826ab378cb440b9013953f0d66be10e5c",
+                "display": "Hesitancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Swelling of scrotum",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "eff5873b3091cbd4b9e86c684c7f0297e5a2518b8d6e4cab54e3943c",
+                "display": "Swelling of scrotum"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "eff5873b3091cbd4b9e86c684c7f0297e5a2518b8d6e4cab54e3943c",
+                "display": "Swelling of scrotum (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Low urine output",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "212c31e4dffe74d6bbd7cddbae4b62f46ee65d0147c26abee95ccd7b",
+                "display": "Benign prostatic hyperplasia (BPH)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "05fd53b9e6d3a9c91969e66b8f1a88ff2e5bb7f80f9f70dffca41f27",
+                "display": "Low urine output"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "05fd53b9e6d3a9c91969e66b8f1a88ff2e5bb7f80f9f70dffca41f27",
+                "display": "Low urine output (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Benign prostatic hyperplasia (BPH)_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

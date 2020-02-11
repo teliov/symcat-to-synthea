@@ -1,0 +1,868 @@
+{
+    "name": "Heat exhaustion",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019047619047619046
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9809523809523809
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019047619047619046
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9809523809523809
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.026984126984126982
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.973015873015873
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714285
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714285
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006349206349206349
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9936507936507937
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.07727272727272727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9227272727272727
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.035483870967741936
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.964516129032258
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02903225806451613
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9709677419354839
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.035483870967741936
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.964516129032258
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 1.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                    "display": "Heat exhaustion"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Heat illness or heat-related illness is a spectrum of disorders due to environmental heat exposure. It includes minor conditions such as heat cramps, heat syncope, and heat exhaustion as well as the more severe condition known as heat stroke. Heat stroke is defined as a body temperature of greater than 40.6 \u00b0C (105.1 \u00b0F) due to environmental heat exposure with lack of thermoregulation. This is distinct from a fever, where there is a physiological increase in the temperature set point of the body.",
+                "Within all the people who go to their doctor with heat exhaustion, 80% report having dizziness, 68% report having weakness, and 64% report having headache. The symptoms that are highly suggestive of heat exhaustion are dizziness, weakness, fainting, fluid retention, leg cramps or spasms, feeling hot, and sweating, although you may still have heat exhaustion without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.8,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.19999999999999996,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.68,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.31999999999999995,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.64,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.36,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.61,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.39,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Fainting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "97bd50b353dba728d06a17cfee6cb99847543ec35a8384713c48a777",
+                "display": "Fainting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "97bd50b353dba728d06a17cfee6cb99847543ec35a8384713c48a777",
+                "display": "Fainting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.58,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.42000000000000004,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.58,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.42000000000000004,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Nausea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.37,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.63,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Fluid retention",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ded06d7c33248317975b8bef8f52f270714db6b126a96a684e5f5c79",
+                "display": "Fluid retention"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ded06d7c33248317975b8bef8f52f270714db6b126a96a684e5f5c79",
+                "display": "Fluid retention (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Leg cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "767c9388b3593960cfeb75145c4e0061ae941425fd584c33a47aca84",
+                "display": "Leg cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "767c9388b3593960cfeb75145c4e0061ae941425fd584c33a47aca84",
+                "display": "Leg cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Feeling hot",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1686b0fc1e02eb0e1164cfe51c4f81f0025d57bc3f2f124133a84f98",
+                "display": "Feeling hot"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1686b0fc1e02eb0e1164cfe51c4f81f0025d57bc3f2f124133a84f98",
+                "display": "Feeling hot (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Sweating",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5787892dbe81cb9c2f594719e5011fd0e595a45214dacd235419f362",
+                "display": "Heat exhaustion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Heat exhaustion_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

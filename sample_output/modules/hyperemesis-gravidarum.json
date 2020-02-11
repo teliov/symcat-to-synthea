@@ -1,0 +1,868 @@
+{
+    "name": "Hyperemesis gravidarum",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0018518518518518521
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9981481481481481
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.07592592592592592
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.924074074074074
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022222222222222223
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9777777777777777
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.033962264150943396
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9660377358490566
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022641509433962263
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9773584905660377
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.011320754716981131
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9886792452830189
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016037735849056604
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9839622641509433
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016037735849056604
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9839622641509433
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9786163522012579
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.021383647798742134
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                    "display": "Hyperemesis gravidarum"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Hyperemesis gravidarum (HG) is a complication of pregnancy characterized by intractable nausea, vomiting, and dehydration and is estimated to affect 0.5-2.0% of pregnant women. Malnutrition and other serious complications, such as fluid or electrolyte imbalances, may result.",
+                "Within all the people who go to their doctor with hyperemesis gravidarum, 93% report having vomiting, 85% report having nausea, and 74% report having problems during pregnancy. The symptoms that are highly suggestive of hyperemesis gravidarum are vomiting, nausea, problems during pregnancy, pain during pregnancy, and vomiting blood, although you may still have hyperemesis gravidarum without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.93,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.06999999999999995,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.85,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.15000000000000002,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Nausea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.74,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.26,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Problems during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ead4dca6864a1e84017c3da2813cf035da5b7f652b1423e3ec0fc82f",
+                "display": "Problems during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ead4dca6864a1e84017c3da2813cf035da5b7f652b1423e3ec0fc82f",
+                "display": "Problems during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.66,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.33999999999999997,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.46,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.54,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Pain during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Diarrhea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "363aa29ab96f062ee4495640a04b55b908ec79b29e6289fcec8910da",
+                "display": "Diarrhea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "363aa29ab96f062ee4495640a04b55b908ec79b29e6289fcec8910da",
+                "display": "Diarrhea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Burning abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7734c15b6d3ec41729a3ede59cef7922a4d69dd651cf54cafe5b5596",
+                "display": "Burning abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7734c15b6d3ec41729a3ede59cef7922a4d69dd651cf54cafe5b5596",
+                "display": "Burning abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Vomiting blood",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7aaa74616407718e7da9c22b463d64c8a4069dad0ef56d6f76dba0ac",
+                "display": "Vomiting blood"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7aaa74616407718e7da9c22b463d64c8a4069dad0ef56d6f76dba0ac",
+                "display": "Vomiting blood (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Upper abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c22e03aa047cff91be1c501cb2156cfc976ae4169b94b8375d4c83a",
+                "display": "Hyperemesis gravidarum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9ab6356a959b4124fc2c9282252dc63ff9d1d79b896c6f6bd71ffe31",
+                "display": "Upper abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9ab6356a959b4124fc2c9282252dc63ff9d1d79b896c6f6bd71ffe31",
+                "display": "Upper abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Hyperemesis gravidarum_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

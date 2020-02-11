@@ -1,0 +1,868 @@
+{
+    "name": "Heart contusion",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02396694214876033
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9760330578512397
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024793388429752067
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9752066115702479
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0256198347107438
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9743801652892562
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004132231404958678
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9958677685950413
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00743801652892562
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9925619834710744
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005785123966942148
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9942148760330578
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008264462809917356
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9917355371900827
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.07142857142857142
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9285714285714286
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.02857142857142857
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9714285714285714
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010204081632653062
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9897959183673469
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.07551020408163267
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9244897959183673
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012244897959183675
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9877551020408163
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0010204081632653064
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9989795918367347
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0010204081632653064
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9989795918367347
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.998639455782313
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.0013605442176870541
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                    "display": "Heart contusion"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "A myocardial contusion is a general term for a contusion (bruise) of the cardiac muscle (heart muscle). It is usually a consequence of blunt trauma to the anterior chest wall, and the right heart is thought to be most commonly affected due to its anatomic location as the most anterior surface of the heart. Myocardial contusion is not a specific diagnosis and the extent of the injury can vary greatly. Usually, there are associated injuries such as sternal and/or rib fracture. When a myocardial contusion is suspected, consideration must be given to an aortic rupture, which will likely be determined by clinical signs, tests, and imaging.",
+                "Within all the people who go to their doctor with heart contusion, 51% report having apnea, 51% report having fainting, and 51% report having depression. The symptoms that are highly suggestive of heart contusion are apnea, fainting, itchy eyelid, cross-eyed, excessive growth, elbow cramps or spasms, wrist weakness, elbow weakness, hip stiffness or tightness, and nailbiting, although you may still have heart contusion without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Apnea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b7bdef76df722c5b4a8f5290397030bc11917cedf6144d1a65a1f161",
+                "display": "Apnea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b7bdef76df722c5b4a8f5290397030bc11917cedf6144d1a65a1f161",
+                "display": "Apnea (finding)"
+            },
+            "remarks": [
+                "Apnea, apnoea, or apn\u0153a (Greek: \u1f04\u03c0\u03bd\u03bf\u03b9\u03b1, from \u1f00-, privative, \u03c0\u03bd\u03ad\u03b5\u03b9\u03bd, to breathe), is a term for suspension of external breathing. During apnea there is no movement of the muscles of respiration and the volume of the lungs initially remains unchanged. Depending on the patency of the airways there may or may not be a flow of gas between the lungs and the environment; gas exchange within the lungs and cellular respiration is not affected."
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Depression",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9ea5e0adce9d91365905c1e6a1accd553fea13d5962dc45e0a1d0260",
+                "display": "Depression"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9ea5e0adce9d91365905c1e6a1accd553fea13d5962dc45e0a1d0260",
+                "display": "Depression (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Fainting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "97bd50b353dba728d06a17cfee6cb99847543ec35a8384713c48a777",
+                "display": "Fainting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "97bd50b353dba728d06a17cfee6cb99847543ec35a8384713c48a777",
+                "display": "Fainting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Itchy eyelid",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "26f1c9e6e8263ab35d31deb65e12b6c58e0a0e23ae6dbecc76cc0b6d",
+                "display": "Itchy eyelid"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "26f1c9e6e8263ab35d31deb65e12b6c58e0a0e23ae6dbecc76cc0b6d",
+                "display": "Itchy eyelid (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Cross-eyed",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e2ee96458b4c405592d20b231e4b1a6e508f92fcfa4062d77a6bba71",
+                "display": "Cross-eyed"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e2ee96458b4c405592d20b231e4b1a6e508f92fcfa4062d77a6bba71",
+                "display": "Cross-eyed (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Excessive growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "84232a120a6de53ead1ea4bbaa8e301318c4ff37c735b3631af1aea6",
+                "display": "Excessive growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "84232a120a6de53ead1ea4bbaa8e301318c4ff37c735b3631af1aea6",
+                "display": "Excessive growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Elbow cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c56f4122cf02e81fc3f8ccb80fa1b009f9dd6e0f974564f0baf6b574",
+                "display": "Elbow cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c56f4122cf02e81fc3f8ccb80fa1b009f9dd6e0f974564f0baf6b574",
+                "display": "Elbow cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Wrist weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f74873162867f7014ff45760e57397a2dc1ec47eb26907b95e997ea9",
+                "display": "Wrist weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f74873162867f7014ff45760e57397a2dc1ec47eb26907b95e997ea9",
+                "display": "Wrist weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Elbow weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3e7166f6b9c7f979748fa0e224454da80a0b3d4d608a1422f5caed8f",
+                "display": "Elbow weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3e7166f6b9c7f979748fa0e224454da80a0b3d4d608a1422f5caed8f",
+                "display": "Elbow weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Hip stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67ada96a7541e82ce8e0091f11fd76cb620e6a026dab8f371b50d4d4",
+                "display": "Hip stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Nailbiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4ae6b24474ac2842f834bec0a3e1a2bc6f20ec0b613fb99e7fa0fe91",
+                "display": "Heart contusion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Heart contusion_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

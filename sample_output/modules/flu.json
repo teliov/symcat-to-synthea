@@ -1,0 +1,868 @@
+{
+    "name": "Flu",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013541666666666665
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9864583333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022916666666666665
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9770833333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030208333333333327
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9697916666666667
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012499999999999997
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.009375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.990625
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005208333333333332
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9947916666666666
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0031249999999999993
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0031249999999999993
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996875
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02619047619047619
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9738095238095238
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02619047619047619
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9738095238095238
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02142857142857143
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9785714285714285
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013095238095238096
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.986904761904762
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013095238095238096
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.986904761904762
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9825396825396825
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01746031746031751
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                    "display": "Flu"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Influenza, commonly known as \"the flu\", is an infectious disease of birds and mammals caused by RNA viruses of the family Orthomyxoviridae, the influenza viruses. The most common symptoms are chills, fever, runny nose, sore throat, muscle pains, headache (often severe), coughing, weakness/fatigue and general discomfort. Although it is often confused with other influenza-like illnesses, especially the common cold, influenza is a more severe disease caused by a different type of virus. Influenza may produce nausea and vomiting, particularly in children, but these symptoms are more common in the unrelated gastroenteritis, which is sometimes inaccurately referred to as \"stomach flu\" or \"24-hour flu\".",
+                "Within all the people who go to their doctor with flu, 91% report having fever, 87% report having cough, and 63% report having sore throat. The symptoms that are highly suggestive of flu are flu-like syndrome and chills, although you may still have flu without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.91,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.08999999999999997,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.87,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.13,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.63,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.37,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Sore throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.63,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.37,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Nasal congestion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "212a9650524fcaac378c1bd175f37a240e2cbd8718317c634530f963",
+                "display": "Nasal congestion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "212a9650524fcaac378c1bd175f37a240e2cbd8718317c634530f963",
+                "display": "Nasal congestion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.56,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.43999999999999995,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Ache all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over (finding)"
+            },
+            "remarks": [
+                "Myalgia, or muscle pain, is a symptom of many diseases and disorders. The most common causes are the overuse or over-stretching of a muscle or group of muscles. Myalgia without a traumatic history is often due to viral infections. Longer-term myalgias may be indicative of a metabolic myopathy, some nutritional deficiencies or chronic fatigue syndrome."
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.52,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.48,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Flu-like syndrome",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a8155822acce246d816ca52daf54bc704279712140e806be1df6fc62",
+                "display": "Flu-like syndrome"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a8155822acce246d816ca52daf54bc704279712140e806be1df6fc62",
+                "display": "Flu-like syndrome (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.52,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.48,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.47,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.53,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Chills",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "da019821bdd6e2f2f218d167eb784c9b6ae5862d2496ab439682f29c",
+                "display": "Chills"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "da019821bdd6e2f2f218d167eb784c9b6ae5862d2496ab439682f29c",
+                "display": "Chills (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.37,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.63,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Coryza",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.35,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.65,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Nausea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Diarrhea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "83f5c529a2c6861fce94b951e1fd01f592f7cdf1a5b09a458ad6677c",
+                "display": "Flu"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "363aa29ab96f062ee4495640a04b55b908ec79b29e6289fcec8910da",
+                "display": "Diarrhea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "363aa29ab96f062ee4495640a04b55b908ec79b29e6289fcec8910da",
+                "display": "Diarrhea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Flu_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

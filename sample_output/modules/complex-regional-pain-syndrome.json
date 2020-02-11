@@ -1,0 +1,868 @@
+{
+    "name": "Complex regional pain syndrome",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015625
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984375
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0046875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9953125
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0140625
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9859375
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.028125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.971875
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0265625
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9734375
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.026470588235294117
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9735294117647059
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01764705882352941
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9823529411764705
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03529411764705882
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9647058823529412
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010294117647058823
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9897058823529412
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010294117647058823
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9897058823529412
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9862745098039216
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.013725490196078383
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                    "display": "Complex regional pain syndrome"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Complex Regional Pain Syndrome (CRPS), formerly Reflex Sympathetic Dystrophy (RSD) or Causalgia, is a chronic systemic disease characterized by severe pain, swelling, and changes in the skin. CRPS is expected to worsen over time. It often initially affects an arm or a leg and often spreads throughout the body; 92% of patients state that they have experienced a spread and 35% of patients report symptoms in their whole body. Recent evidence has led to the conclusion that Complex Regional Pain Syndrome is a multifactorial disorder with clinical features of neurogenic inflammation, nociceptive sensitisation (which causes extreme sensitivity or allodynia), vasomotor dysfunction, and maladaptive neuroplasticity, generated by an aberrant response to tissue injury. Treatment is complicated, involving drugs, physical therapy, psychologic treatments and neuromodulation and usually unsatisfactory, especially if begun late.",
+                "Within all the people who go to their doctor with complex regional pain syndrome, 63% report having loss of sensation, 52% report having leg pain, and 42% report having foot or toe pain. The symptoms that are highly suggestive of complex regional pain syndrome are loss of sensation and paresthesia, although you may still have complex regional pain syndrome without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.63,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.37,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Loss of sensation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7ef8a43094d9870156c558ea6ee74a5c11658f7ce22017b1db6345d3",
+                "display": "Loss of sensation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7ef8a43094d9870156c558ea6ee74a5c11658f7ce22017b1db6345d3",
+                "display": "Loss of sensation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.52,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.48,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Foot or toe pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.4,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.6,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Paresthesia",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85429958ca8501b9d1c63c75fbb8bcc9819d2eadadd95c4f3de3e1b4",
+                "display": "Paresthesia"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85429958ca8501b9d1c63c75fbb8bcc9819d2eadadd95c4f3de3e1b4",
+                "display": "Paresthesia (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.37,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.63,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Ache all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over (finding)"
+            },
+            "remarks": [
+                "Myalgia, or muscle pain, is a symptom of many diseases and disorders. The most common causes are the overuse or over-stretching of a muscle or group of muscles. Myalgia without a traumatic history is often due to viral infections. Longer-term myalgias may be indicative of a metabolic myopathy, some nutritional deficiencies or chronic fatigue syndrome."
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Arm pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain (finding)"
+            },
+            "remarks": [
+                "Arm pain is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Hand or finger pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Low back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Neck pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1310d177602475cbdec2965e7b82220450b18d061610c4dfbc165c39",
+                "display": "Neck pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1310d177602475cbdec2965e7b82220450b18d061610c4dfbc165c39",
+                "display": "Neck pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Abnormal involuntary movements",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "751cf0c0b031c70d33facce81fe1351d40441b0fce96dc16c9010d76",
+                "display": "Abnormal involuntary movements"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "751cf0c0b031c70d33facce81fe1351d40441b0fce96dc16c9010d76",
+                "display": "Abnormal involuntary movements (finding)"
+            },
+            "remarks": [
+                "Movement disorders include:"
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Problems with movement",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "35bd342ffe92d8b09245ec6d074317a73522446bee1b3eb58729a7d4",
+                "display": "Complex regional pain syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Complex regional pain syndrome_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

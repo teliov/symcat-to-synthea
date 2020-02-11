@@ -1,0 +1,748 @@
+{
+    "name": "Chronic knee pain",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996875
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0109375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890625
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98125
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0234375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9765625
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98125
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.034210526315789476
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9657894736842105
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.021052631578947368
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9789473684210527
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02631578947368421
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9736842105263158
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.009210526315789473
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9907894736842106
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.009210526315789473
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9907894736842106
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.987719298245614
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.012280701754386003
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                    "display": "Chronic knee pain"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Patellofemoral pain syndrome (PFPS) is a syndrome characterized by pain or discomfort seemingly originating from the contact of the posterior surface of the patella (back of the kneecap) with the femur (thigh bone). It is the most frequently encountered diagnosis in sports medicine clinics.",
+                "Within all the people who go to their doctor with chronic knee pain, 95% report having knee pain, 47% report having leg pain, and 34% report having knee swelling. The symptoms that are highly suggestive of chronic knee pain are knee pain, knee swelling, knee stiffness or tightness, and knee weakness, although you may still have chronic knee pain without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.95,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.050000000000000044,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Knee pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.47,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.53,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.34,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.6599999999999999,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Knee swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Hip pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Leg swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e63f20ea0b9ced31e9f46abf863908a9bf9da37b62e025c48a515647",
+                "display": "Leg swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e63f20ea0b9ced31e9f46abf863908a9bf9da37b62e025c48a515647",
+                "display": "Leg swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Knee stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e70692ec7ac252aa1663696f60958383725e3d214990d6634b7f0211",
+                "display": "Knee stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e70692ec7ac252aa1663696f60958383725e3d214990d6634b7f0211",
+                "display": "Knee stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Joint pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Knee weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b19f58f31d7589ebc23b35a3c780eaddf52af5dc3bb3b30378559ef3",
+                "display": "Chronic knee pain"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "029201fd3f91841dc4ca225d2ad45f94beaf2d06db5a178dcce6f0f9",
+                "display": "Knee weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "029201fd3f91841dc4ca225d2ad45f94beaf2d06db5a178dcce6f0f9",
+                "display": "Knee weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Chronic knee pain_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Chickenpox",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01869918699186992
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9813008130081301
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03495934959349594
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9650406504065041
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030894308943089432
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9691056910569106
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006504065040650407
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9934959349593496
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0040650406504065045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9959349593495935
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0016260162601626018
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9983739837398374
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0008130081300813009
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9991869918699187
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0024390243902439024
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9975609756097561
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010909090909090908
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890909090909091
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.021818181818181816
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9781818181818182
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016363636363636365
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9836363636363636
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025454545454545452
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9745454545454546
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025454545454545452
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9745454545454546
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9660606060606061
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.033939393939393936
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                    "display": "Chickenpox"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Chickenpox (or chicken pox) is a highly contagious disease caused by primary infection with varicella zoster virus (VZV). It usually starts with vesicular skin rash mainly on the body and head rather than at the periphery and becomes itchy, raw pockmarks, which mostly heal without scarring. On examination, the observer typically finds skin lesions at various stages of healing and also ulcers in the oral cavity & tonsil areas.",
+                "Within all the people who go to their doctor with chickenpox, 93% report having skin rash, 62% report having fever, and 45% report having abnormal appearing skin. The symptoms that are highly suggestive of chickenpox are skin rash and skin swelling, although you may still have chickenpox without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.93,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.06999999999999995,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Skin rash",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8666a538fa7d128654725f1fa34e6c44a6091ed458d644d5bbfd753a",
+                "display": "Skin rash"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8666a538fa7d128654725f1fa34e6c44a6091ed458d644d5bbfd753a",
+                "display": "Skin rash (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.62,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.38,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.45,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.55,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Abnormal appearing skin",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin (finding)"
+            },
+            "remarks": [
+                "\"Birthmarks\" is the fourth episode of the fifth season of House and the ninetieth episode overall. It aired on October 14, 2008."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.4,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.6,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Itching of skin",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1eb24b0e1a3aad2f99aaa1cc9132cfc4918ebf15d2ec0bf6c3dc5c29",
+                "display": "Itching of skin"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1eb24b0e1a3aad2f99aaa1cc9132cfc4918ebf15d2ec0bf6c3dc5c29",
+                "display": "Itching of skin (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Ache all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over (finding)"
+            },
+            "remarks": [
+                "Myalgia, or muscle pain, is a symptom of many diseases and disorders. The most common causes are the overuse or over-stretching of a muscle or group of muscles. Myalgia without a traumatic history is often due to viral infections. Longer-term myalgias may be indicative of a metabolic myopathy, some nutritional deficiencies or chronic fatigue syndrome."
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Skin lesion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Skin swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "01b7281c9d3dd1247867eb69139bff96dd1b95e43b3ba62adedb644a",
+                "display": "Skin swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "01b7281c9d3dd1247867eb69139bff96dd1b95e43b3ba62adedb644a",
+                "display": "Skin swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Pain in testicles",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fd42985ea19c7dffd6b22d18c4279f3a1c9e2193f01d6d2a6f1ad944",
+                "display": "Pain in testicles"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fd42985ea19c7dffd6b22d18c4279f3a1c9e2193f01d6d2a6f1ad944",
+                "display": "Pain in testicles (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Problems during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ead4dca6864a1e84017c3da2813cf035da5b7f652b1423e3ec0fc82f",
+                "display": "Problems during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ead4dca6864a1e84017c3da2813cf035da5b7f652b1423e3ec0fc82f",
+                "display": "Problems during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Irritable infant",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "32f427ab99bce716982b3d7820f9ffecc6d4970fc88da9fa5729da48",
+                "display": "Irritable infant"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "32f427ab99bce716982b3d7820f9ffecc6d4970fc88da9fa5729da48",
+                "display": "Irritable infant (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Eye redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a9f5cb8bca2a665b7c15569bae9313bcd55573348513215b26468409",
+                "display": "Chickenpox"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Chickenpox_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

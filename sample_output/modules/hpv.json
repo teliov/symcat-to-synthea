@@ -1,0 +1,868 @@
+{
+    "name": "HPV",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005357142857142858
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9946428571428572
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.05000000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02857142857142858
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9714285714285714
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008928571428571432
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9910714285714286
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005357142857142858
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9946428571428572
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0017857142857142863
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9982142857142857
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.015789473684210527
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9842105263157894
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.08421052631578947
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9157894736842105
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.97
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.00625
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.99375
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.00625
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.99375
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9916666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.008333333333333304
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                    "display": "HPV"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Human papillomavirus (HPV) is a virus from the papillomavirus family that is capable of infecting humans. Like all papillomaviruses, HPVs establish productive infections only in keratinocytes of the skin or mucous membranes. While the majority of the known types of HPV cause no symptoms in most people, some types can cause warts (verrucae), while others can\u2014in a minority of cases\u2014lead to cancers of the cervix, vulva, vagina, penis, oropharynx and anus. Recently, HPV has been linked with an increased risk of cardiovascular disease. In addition, HPV 16 and 18 infections are strongly associated with an increased odds ratio of developing oropharyngeal (throat) cancer.",
+                "Within all the people who go to their doctor with hpv, 28% report having warts, 12% report having vaginal itching, and 12% report having vaginal discharge. The symptoms that are highly suggestive of hpv are warts, hand or finger lump or mass, mass or swelling around the anus, and eyelid lesion or rash, although you may still have hpv without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Warts",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e8782d2de9ad4883f790fbd92e2312370c1e9593616e9e47ab88a48d",
+                "display": "Warts"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e8782d2de9ad4883f790fbd92e2312370c1e9593616e9e47ab88a48d",
+                "display": "Warts (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Frequent urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Vaginal itching",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9ddf38bbb42835924a1acd338b091e5c9d0e92259981b4c47ea3d71a",
+                "display": "Vaginal itching"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9ddf38bbb42835924a1acd338b091e5c9d0e92259981b4c47ea3d71a",
+                "display": "Vaginal itching (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Vaginal discharge",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0fe76a40dd9752fb6a500a717e30ef91548f90509958cf89219c55ce",
+                "display": "Vaginal discharge"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0fe76a40dd9752fb6a500a717e30ef91548f90509958cf89219c55ce",
+                "display": "Vaginal discharge (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Joint pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Hand or finger lump or mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "bb1af8d5b2f3b8f94618dd7b8911e8c6db9298c90747acfeec6b0f84",
+                "display": "Hand or finger lump or mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "bb1af8d5b2f3b8f94618dd7b8911e8c6db9298c90747acfeec6b0f84",
+                "display": "Hand or finger lump or mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Mass or swelling around the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "4375ac659b40c3f1b2e110fc6604f3a930e72b16783e165271f082c7",
+                "display": "Mass or swelling around the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "4375ac659b40c3f1b2e110fc6604f3a930e72b16783e165271f082c7",
+                "display": "Mass or swelling around the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Lump or mass of breast",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6fe1a8d0c4d3e025b6b5e340a3136f8db64305a5899e702908a20be4",
+                "display": "Lump or mass of breast"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6fe1a8d0c4d3e025b6b5e340a3136f8db64305a5899e702908a20be4",
+                "display": "Lump or mass of breast (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Involuntary urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Eyelid lesion or rash",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "677af1cf3d8d0abd1a8c9773286289b5a731ea7c8ae677567414cc17",
+                "display": "Eyelid lesion or rash"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "677af1cf3d8d0abd1a8c9773286289b5a731ea7c8ae677567414cc17",
+                "display": "Eyelid lesion or rash (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Unpredictable menstruation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7b0b2636641584c3a2cde33f116273f8caa8fee7103813d8ddfd5a13",
+                "display": "Unpredictable menstruation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7b0b2636641584c3a2cde33f116273f8caa8fee7103813d8ddfd5a13",
+                "display": "Unpredictable menstruation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Coughing up sputum",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "94294947d668bb6c687741b5103b7418acbcaee8776d134c5b6ebfba",
+                "display": "HPV"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d8713e210924d464bed545bf76fe488b83f47061e0bd756b820b837c",
+                "display": "Coughing up sputum"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d8713e210924d464bed545bf76fe488b83f47061e0bd756b820b837c",
+                "display": "Coughing up sputum (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "HPV_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

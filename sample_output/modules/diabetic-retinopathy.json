@@ -1,0 +1,868 @@
+{
+    "name": "Diabetic retinopathy",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015384615384615385
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984615384615385
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006153846153846154
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9938461538461538
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024615384615384615
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9753846153846154
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.043076923076923075
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9569230769230769
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024615384615384615
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9753846153846154
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.026666666666666665
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9733333333333334
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024444444444444446
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9755555555555555
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014444444444444446
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9855555555555555
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014444444444444446
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9855555555555555
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9807407407407407
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01925925925925931
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                    "display": "Diabetic retinopathy"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Diabetic retinopathy, () is retinopathy (damage to the retina) caused by complications of diabetes, which can eventually lead to blindness. It is an ocular manifestation of diabetes, a systemic disease, which affects up to 80 percent of all patients who have had diabetes for 10 years or more. Despite these intimidating statistics, research indicates that at least 90% of these new cases could be reduced if there was proper and vigilant treatment and monitoring of the eyes. The longer a person has diabetes, the higher his or her chances of developing diabetic retinopathy.",
+                "Within all the people who go to their doctor with diabetic retinopathy, 71% report having diminished vision, 33% report having spots or clouds in vision, and 25% report having pain in eye. The symptoms that are highly suggestive of diabetic retinopathy are diminished vision, spots or clouds in vision, lacrimation, foreign body sensation in eye, blindness, bleeding from eye, and abnormal movement of eyelid, although you may still have diabetic retinopathy without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.71,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.29000000000000004,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Diminished vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Spots or clouds in vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Pain in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.22,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.78,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Lacrimation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0df780436d68b44d03ff08ef12a43dcca5b9f8fd4e87ce1e5c90263b",
+                "display": "Lacrimation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0df780436d68b44d03ff08ef12a43dcca5b9f8fd4e87ce1e5c90263b",
+                "display": "Lacrimation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Symptoms of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Eye redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Foreign body sensation in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b2e6283fc2fd75907247409f23150b1a24ef4a75c5f45d628b42d135",
+                "display": "Foreign body sensation in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b2e6283fc2fd75907247409f23150b1a24ef4a75c5f45d628b42d135",
+                "display": "Foreign body sensation in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Itchiness of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Blindness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Bleeding from eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c13451c794d93a9ff20ef5c240089bdea3f25391024c7d1344fdf56c",
+                "display": "Bleeding from eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c13451c794d93a9ff20ef5c240089bdea3f25391024c7d1344fdf56c",
+                "display": "Bleeding from eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Abnormal movement of eyelid",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "10ec4543dc934be02d47b2122a49fe259702abed27f911338a9815c5",
+                "display": "Abnormal movement of eyelid"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "10ec4543dc934be02d47b2122a49fe259702abed27f911338a9815c5",
+                "display": "Abnormal movement of eyelid (finding)"
+            },
+            "remarks": [
+                "Ptosis /\u02c8to\u028as\u026as/ (from Greek Ptosis or \u03c0\u03c4\u1ff6\u03c3\u03b9\u03c2, to \"fall\") is a drooping or falling of the upper or lower eyelid. The drooping may be worse after being awake longer, when the individual's muscles are tired. This condition is sometimes called \"lazy eye\", but that term normally refers to amblyopia. If severe enough and left untreated, the drooping eyelid can cause other conditions, such as amblyopia or astigmatism. This is why it is especially important for this disorder to be treated in children at a young age, before it can interfere with vision development."
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Double vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b9fc9772025b52777730ce02fc4f2c76fbccd7ffdbe09250318db596",
+                "display": "Diabetic retinopathy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "919b32644afa4bdc8fc9b91bcf9430cc9c7cbd4842d47658810250ae",
+                "display": "Double vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "919b32644afa4bdc8fc9b91bcf9430cc9c7cbd4842d47658810250ae",
+                "display": "Double vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Diabetic retinopathy_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

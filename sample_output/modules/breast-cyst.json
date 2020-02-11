@@ -1,0 +1,788 @@
+{
+    "name": "Breast cyst",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003448275862068966
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996551724137931
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003448275862068966
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996551724137931
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.010344827586206896
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9896551724137931
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03620689655172414
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9637931034482758
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.027586206896551727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9724137931034482
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013793103448275864
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9862068965517241
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005172413793103448
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9948275862068966
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.017021276595744685
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9829787234042553
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.04255319148936171
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9574468085106382
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.017021276595744685
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9829787234042553
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.011702127659574471
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9882978723404255
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.011702127659574471
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9882978723404255
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9843971631205674
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.015602836879432647
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                    "display": "Breast cyst"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "A breast cyst is a fluid-filled sac within the breast. One breast can have one or more breast cysts. They're often described as round or oval lumps with distinct edges. In texture, a breast cyst usually feels like a soft grape or a water-filled balloon, but sometimes a breast cyst feels firm.",
+                "Within all the people who go to their doctor with breast cyst, 89% report having lump or mass of breast, 56% report having pain or soreness of breast, and 21% report having bleeding or discharge from nipple. The symptoms that are highly suggestive of breast cyst are lump or mass of breast, pain or soreness of breast, bleeding or discharge from nipple, irregular belly button , and vaginal dryness, although you may still have breast cyst without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.89,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.10999999999999999,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Lump or mass of breast",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6fe1a8d0c4d3e025b6b5e340a3136f8db64305a5899e702908a20be4",
+                "display": "Lump or mass of breast"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6fe1a8d0c4d3e025b6b5e340a3136f8db64305a5899e702908a20be4",
+                "display": "Lump or mass of breast (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.56,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.43999999999999995,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Pain or soreness of breast",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "205662e865df56ca3acd4caeb082c75976cb68dfe7b04f5a9128a823",
+                "display": "Pain or soreness of breast"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "205662e865df56ca3acd4caeb082c75976cb68dfe7b04f5a9128a823",
+                "display": "Pain or soreness of breast (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Bleeding or discharge from nipple",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b044a578d8e246ae53087fd86f13c3bebf4bd1e22da9483e3a3aecfc",
+                "display": "Bleeding or discharge from nipple"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b044a578d8e246ae53087fd86f13c3bebf4bd1e22da9483e3a3aecfc",
+                "display": "Bleeding or discharge from nipple (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Skin growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "16f017cd17bc6573e35610984e0a362e0dce7cd47663a9dfdb7c5c59",
+                "display": "Skin growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "16f017cd17bc6573e35610984e0a362e0dce7cd47663a9dfdb7c5c59",
+                "display": "Skin growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Neck mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6c08d0a0b34a31f00367f163d595dc42cae10f4793b66ad89d600936",
+                "display": "Neck mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6c08d0a0b34a31f00367f163d595dc42cae10f4793b66ad89d600936",
+                "display": "Neck mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Warts",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e8782d2de9ad4883f790fbd92e2312370c1e9593616e9e47ab88a48d",
+                "display": "Warts"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e8782d2de9ad4883f790fbd92e2312370c1e9593616e9e47ab88a48d",
+                "display": "Warts (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Irregular belly button",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Coughing up sputum",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d8713e210924d464bed545bf76fe488b83f47061e0bd756b820b837c",
+                "display": "Coughing up sputum"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d8713e210924d464bed545bf76fe488b83f47061e0bd756b820b837c",
+                "display": "Coughing up sputum (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Vaginal dryness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "192c24d1d4fa9718b47dce9ee949b9ebaf113d75ac61d210a0e69a91",
+                "display": "Vaginal dryness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "192c24d1d4fa9718b47dce9ee949b9ebaf113d75ac61d210a0e69a91",
+                "display": "Vaginal dryness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Arm lump or mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e220a5fac0737b925238129c31d9131df0a62607af28cdef9465acae",
+                "display": "Breast cyst"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5ee0ad6c3b25e177a90a0d98909d6d12ab8fb546fdf64c4c8f761f5e",
+                "display": "Arm lump or mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5ee0ad6c3b25e177a90a0d98909d6d12ab8fb546fdf64c4c8f761f5e",
+                "display": "Arm lump or mass (finding)"
+            },
+            "remarks": [
+                "Arm lump or mass is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Breast cyst_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Ovarian torsion",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008620689655172414
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9913793103448276
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.029310344827586206
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9706896551724138
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02586206896551724
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9741379310344828
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.017241379310344827
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9827586206896551
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.017241379310344827
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9827586206896551
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.001724137931034483
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9982758620689656
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02272727272727273
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.029545454545454552
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9704545454545455
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.020454545454545458
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9795454545454545
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013636363636363637
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9863636363636363
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013636363636363637
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9863636363636363
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.018181818181818188
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                    "display": "Ovarian torsion"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Ovarian torsion (OT) refers to the rotation of the ovary to such a degree as to occlude the ovarian artery and/or vein.",
+                "Within all the people who go to their doctor with ovarian torsion, 63% report having sharp abdominal pain, 48% report having lower abdominal pain, and 44% report having pelvic pain. The symptoms that are highly suggestive of ovarian torsion are lower abdominal pain, pelvic pain, groin mass, unwanted hair, and symptoms of bladder, although you may still have ovarian torsion without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.63,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.37,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.48,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.52,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Lower abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.44,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.56,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Pelvic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Ache all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over (finding)"
+            },
+            "remarks": [
+                "Myalgia, or muscle pain, is a symptom of many diseases and disorders. The most common causes are the overuse or over-stretching of a muscle or group of muscles. Myalgia without a traumatic history is often due to viral infections. Longer-term myalgias may be indicative of a metabolic myopathy, some nutritional deficiencies or chronic fatigue syndrome."
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Groin mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f46d8931cee66d4ee907a8e51c9fd62d3a6b6d85072264c9e3d1bb75",
+                "display": "Groin mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f46d8931cee66d4ee907a8e51c9fd62d3a6b6d85072264c9e3d1bb75",
+                "display": "Groin mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Unwanted hair",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a39c85681ce14f8c3244957a41c6ab3be77cccbc2dcaa71439000876",
+                "display": "Unwanted hair"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a39c85681ce14f8c3244957a41c6ab3be77cccbc2dcaa71439000876",
+                "display": "Unwanted hair (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Symptoms of bladder",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Knee swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Pain or soreness of breast",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "205662e865df56ca3acd4caeb082c75976cb68dfe7b04f5a9128a823",
+                "display": "Pain or soreness of breast"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "205662e865df56ca3acd4caeb082c75976cb68dfe7b04f5a9128a823",
+                "display": "Pain or soreness of breast (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Skin swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "01b7281c9d3dd1247867eb69139bff96dd1b95e43b3ba62adedb644a",
+                "display": "Skin swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "01b7281c9d3dd1247867eb69139bff96dd1b95e43b3ba62adedb644a",
+                "display": "Skin swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Infertility",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fc36ae1744b6c87e4477862186c7e9ffa7df6f651175687b7768ac6",
+                "display": "Infertility"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fc36ae1744b6c87e4477862186c7e9ffa7df6f651175687b7768ac6",
+                "display": "Infertility (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Acne or pimples",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "ea4be015faa7e8910a8f56322e02d0d57a5400ab963e9c11bc3acf77",
+                "display": "Ovarian torsion"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8d070eaa03bc73971c82d88354dcf0d6729962f71c7357e8182bc0f5",
+                "display": "Acne or pimples"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8d070eaa03bc73971c82d88354dcf0d6729962f71c7357e8182bc0f5",
+                "display": "Acne or pimples (finding)"
+            },
+            "remarks": [
+                "Acne or pimples is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Ovarian torsion_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

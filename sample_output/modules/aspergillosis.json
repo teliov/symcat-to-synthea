@@ -1,0 +1,868 @@
+{
+    "name": "Aspergillosis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00425531914893617
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9957446808510638
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002127659574468085
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.997872340425532
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030851063829787233
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9691489361702128
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0010638297872340426
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9989361702127659
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0010638297872340426
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9989361702127659
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01276595744680851
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9872340425531915
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019148936170212766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9808510638297873
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.028723404255319152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9712765957446808
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0030303030303030303
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996969696969697
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.05454545454545455
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9454545454545454
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03636363636363636
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9636363636363636
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0030303030303030303
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996969696969697
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0030303030303030303
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996969696969697
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9959595959595959
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.004040404040404066
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                    "display": "Aspergillosis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Aspergillosis is the name given to a wide variety of diseases caused by infection by fungi of the genus Aspergillus. The most common forms are allergic bronchopulmonary aspergillosis, pulmonary aspergilloma, and invasive aspergillosis. Most humans inhale Aspergillus spores every day. Aspergillosis develops mainly in individuals who are immunocompromised, either from disease or from immunosuppressive drugs, and is a leading cause of death in acute leukemia and hematopoietic stem cell transplantation. The most common cause is Aspergillus fumigatus.",
+                "Within all the people who go to their doctor with aspergillosis, 77% report having vomiting blood, 77% report having diminished hearing, and 77% report having shortness of breath. The symptoms that are highly suggestive of aspergillosis are diminished hearing, vomiting blood, vulvar sore, loss of sex drive, knee lump or mass, nailbiting, excessive growth, wrist weakness, shoulder swelling, and neck cramps or spasms, although you may still have aspergillosis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.77,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.22999999999999998,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.77,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.22999999999999998,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.77,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.22999999999999998,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Vomiting blood",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7aaa74616407718e7da9c22b463d64c8a4069dad0ef56d6f76dba0ac",
+                "display": "Vomiting blood"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7aaa74616407718e7da9c22b463d64c8a4069dad0ef56d6f76dba0ac",
+                "display": "Vomiting blood (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.77,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.22999999999999998,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Vulvar sore",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "503e6cd2b22fa20d874008383762ecdf9240579bcdfcde1a7bef3e33",
+                "display": "Vulvar sore"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "503e6cd2b22fa20d874008383762ecdf9240579bcdfcde1a7bef3e33",
+                "display": "Vulvar sore (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Loss of sex drive",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0c7f6feb86aac8d207612b68cd99669c463df4a6236fe5442b631954",
+                "display": "Loss of sex drive"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0c7f6feb86aac8d207612b68cd99669c463df4a6236fe5442b631954",
+                "display": "Loss of sex drive (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Knee lump or mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5245c4c611c357e6424560a56026d422d3eaa759792925d3502b1811",
+                "display": "Knee lump or mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5245c4c611c357e6424560a56026d422d3eaa759792925d3502b1811",
+                "display": "Knee lump or mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Nailbiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Excessive growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "84232a120a6de53ead1ea4bbaa8e301318c4ff37c735b3631af1aea6",
+                "display": "Excessive growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "84232a120a6de53ead1ea4bbaa8e301318c4ff37c735b3631af1aea6",
+                "display": "Excessive growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Wrist weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f74873162867f7014ff45760e57397a2dc1ec47eb26907b95e997ea9",
+                "display": "Wrist weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f74873162867f7014ff45760e57397a2dc1ec47eb26907b95e997ea9",
+                "display": "Wrist weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Shoulder swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1a466ba76e18a6848e9148e852f9c60156e2fb67a164144c91a44d5f",
+                "display": "Shoulder swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1a466ba76e18a6848e9148e852f9c60156e2fb67a164144c91a44d5f",
+                "display": "Shoulder swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Neck cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "cc708d4e3e72cdfa48ed04b90b9cb9660895ec9598d5f36d41954c66",
+                "display": "Aspergillosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "025f3b10ae50e9c3f4791b969ea541edeb6ab5a1749fd5793026ca15",
+                "display": "Neck cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "025f3b10ae50e9c3f4791b969ea541edeb6ab5a1749fd5793026ca15",
+                "display": "Neck cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Aspergillosis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

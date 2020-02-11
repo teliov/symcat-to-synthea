@@ -1,0 +1,868 @@
+{
+    "name": "Sickle cell crisis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003278688524590164
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9967213114754099
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0049180327868852455
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9950819672131147
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0180327868852459
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9819672131147541
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04262295081967213
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9573770491803278
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02622950819672131
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9737704918032787
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0049180327868852455
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9950819672131147
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.08867924528301886
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9113207547169812
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.007547169811320754
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9924528301886792
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0018867924528301885
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9981132075471698
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0018867924528301885
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9981132075471698
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9974842767295597
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.002515723270440251
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                    "display": "Sickle cell crisis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Sickle-cell disease (SCD), or sickle-cell anaemia (SCA) or drepanocytosis, is a hereditary blood disorder, characterized by red blood cells that assume an abnormal, rigid, sickle shape. Sickling decreases the cells' flexibility and results in a risk of various complications. The sickling occurs because of a mutation in the haemoglobin gene. Individuals with one copy of the defunct gene display both normal and abnormal haemoglobin. This is an example of codominance.",
+                "Within all the people who go to their doctor with sickle cell crisis, 73% report having ache all over, 71% report having leg pain, and 68% report having back pain. The symptoms that are highly suggestive of sickle cell crisis are ache all over, although you may still have sickle cell crisis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.73,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.27,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Ache all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over (finding)"
+            },
+            "remarks": [
+                "Myalgia, or muscle pain, is a symptom of many diseases and disorders. The most common causes are the overuse or over-stretching of a muscle or group of muscles. Myalgia without a traumatic history is often due to viral infections. Longer-term myalgias may be indicative of a metabolic myopathy, some nutritional deficiencies or chronic fatigue syndrome."
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.71,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.29000000000000004,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.68,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.31999999999999995,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.54,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.45999999999999996,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.49,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.51,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Arm pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain (finding)"
+            },
+            "remarks": [
+                "Arm pain is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Hip pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Low back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Knee pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Burning abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7a35dfcd6d68c18cec2536cceeb60abb071a3d92df0e1a56309a3861",
+                "display": "Sickle cell crisis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7734c15b6d3ec41729a3ede59cef7922a4d69dd651cf54cafe5b5596",
+                "display": "Burning abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7734c15b6d3ec41729a3ede59cef7922a4d69dd651cf54cafe5b5596",
+                "display": "Burning abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Sickle cell crisis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

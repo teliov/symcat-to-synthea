@@ -1,0 +1,748 @@
+{
+    "name": "Open wound of the lip",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004854368932038834
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9951456310679612
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0407766990291262
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9592233009708738
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.026213592233009703
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9737864077669903
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013592233009708733
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9864077669902913
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0058252427184466
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9941747572815534
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0029126213592233
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9970873786407767
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0029126213592233
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9970873786407767
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0029126213592233
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9970873786407767
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.07272727272727274
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9272727272727272
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.02727272727272727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9727272727272728
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.027500000000000004
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9725
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0225
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9775
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9875
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9833333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01666666666666672
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                    "display": "Open wound of the lip"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Open wound of the lip is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with open wound of the lip, 25% report having lip swelling, 19% report having facial pain, and 11% report having mouth pain. The symptoms that are highly suggestive of open wound of the lip are lip swelling, mouth pain, dry lips, tongue pain, bleeding gums, and bleeding in mouth, although you may still have open wound of the lip without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Lip swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "07f4fcdd4474efdece9b0036d3d8b45849b8691ccdd3d30f3f13c08a",
+                "display": "Lip swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "07f4fcdd4474efdece9b0036d3d8b45849b8691ccdd3d30f3f13c08a",
+                "display": "Lip swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Facial pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Mouth pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.09,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.91,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Dry lips",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2d2a0420160206b7ae29712a6e7bb9f6f0aa4efccc75af8330cd219d",
+                "display": "Dry lips"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2d2a0420160206b7ae29712a6e7bb9f6f0aa4efccc75af8330cd219d",
+                "display": "Dry lips (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Mouth ulcer",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "807e4b82f825ff066513ea2ef7869766e83b70f5ad23c1f4f45d4dba",
+                "display": "Mouth ulcer"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "807e4b82f825ff066513ea2ef7869766e83b70f5ad23c1f4f45d4dba",
+                "display": "Mouth ulcer (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Tongue pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1d12575e23e797261a1f6c215d94a778fb1b2b3abfec1cce81e43514",
+                "display": "Tongue pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1d12575e23e797261a1f6c215d94a778fb1b2b3abfec1cce81e43514",
+                "display": "Tongue pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Slurring words",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Bleeding gums",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6afca9564539b6a4f109cac854d21404db02df2d75503abdb1680bd0",
+                "display": "Bleeding gums"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6afca9564539b6a4f109cac854d21404db02df2d75503abdb1680bd0",
+                "display": "Bleeding gums (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Bleeding in mouth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f8563fd4516e91c01cebe27c65f01c3b5c4451a43c4222db31b6ab69",
+                "display": "Open wound of the lip"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2f66ceec3c15d5417295dce834664e4234b0421693f5609838487129",
+                "display": "Bleeding in mouth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2f66ceec3c15d5417295dce834664e4234b0421693f5609838487129",
+                "display": "Bleeding in mouth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Open wound of the lip_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

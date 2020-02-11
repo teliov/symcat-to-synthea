@@ -1,0 +1,868 @@
+{
+    "name": "Cystitis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984848484848485
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004545454545454545
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9954545454545455
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004545454545454545
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9954545454545455
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0196969696969697
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9803030303030303
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.016666666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9833333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013636363636363637
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9863636363636363
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.016666666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9833333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.021052631578947368
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9789473684210527
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.07894736842105263
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9210526315789473
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.019444444444444438
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9805555555555555
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03055555555555555
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9694444444444444
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03055555555555555
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9694444444444444
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.009722222222222219
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9902777777777778
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.009722222222222219
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9902777777777778
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.987037037037037
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.012962962962962954
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                    "display": "Cystitis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "A urinary tract infection (UTI) (also known as acute cystitis or bladder infection) is an infection that affects part of the urinary tract. When it affects the lower urinary tract it is known as a simple cystitis (a bladder infection) and when it affects the upper urinary tract it is known as pyelonephritis (a kidney infection). Symptoms from a lower urinary tract include painful urination and either frequent urination or urge to urinate (or both), while those of pyelonephritis include fever and flank pain in addition to the symptoms of a lower UTI. In the elderly and the very young, symptoms may be vague or non specific. The main causal agent of both types is Escherichia coli, however other bacteria, viruses or fungi may rarely be the cause.",
+                "Within all the people who go to their doctor with cystitis, 72% report having painful urination, 64% report having suprapubic pain, and 62% report having frequent urination. The symptoms that are highly suggestive of cystitis are painful urination, suprapubic pain, frequent urination, blood in urine, and symptoms of bladder, although you may still have cystitis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.72,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.28,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Painful urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.64,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.36,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Suprapubic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "703cf77867ac879e0da8b007eefe9d407476a0cdaf1132c11066081f",
+                "display": "Suprapubic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "703cf77867ac879e0da8b007eefe9d407476a0cdaf1132c11066081f",
+                "display": "Suprapubic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.62,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.38,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Frequent urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.57,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.43000000000000005,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Blood in urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.49,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.51,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Retention of urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Side pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "71d03f6bcb415d02dd4cb37dc68d6c2834e072ed821e4e82b47de516",
+                "display": "Side pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "71d03f6bcb415d02dd4cb37dc68d6c2834e072ed821e4e82b47de516",
+                "display": "Side pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Lower abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6ffb720e222bd78000c5bc78d067a71c2545d594430394b95c1031c6",
+                "display": "Lower abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.22,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.78,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Pelvic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Involuntary urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.17,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.83,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Symptoms of bladder",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "fa8aec47e3893d0a9acb2a67e6cdab4d2e79ecb1ab9cebcaf09ed4b9",
+                "display": "Cystitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Cystitis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

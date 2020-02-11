@@ -1,0 +1,868 @@
+{
+    "name": "Pituitary disorder",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003947368421052632
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9960526315789474
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04736842105263158
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9526315789473684
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.011842105263157895
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9881578947368421
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014473684210526317
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9855263157894737
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.011842105263157895
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9881578947368421
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006578947368421052
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.993421052631579
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003947368421052632
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9960526315789474
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04736842105263158
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9526315789473684
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05263157894736842
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9473684210526316
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024390243902439022
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975609756097561
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.029268292682926824
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9707317073170731
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024390243902439022
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975609756097561
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010975609756097559
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890243902439024
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010975609756097559
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890243902439024
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9853658536585366
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.014634146341463428
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                    "display": "Pituitary disorder"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "A Pituitary disease is a disorder primarily affecting the pituitary gland.",
+                "Within all the people who go to their doctor with pituitary disorder, 44% report having headache, 38% report having lack of growth, and 14% report having bleeding or discharge from nipple. The symptoms that are highly suggestive of pituitary disorder are lack of growth, bleeding or discharge from nipple, hot flashes, and postpartum problems of the breast, although you may still have pituitary disorder without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.44,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.56,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Lack of growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Pain in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sleepiness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6a77a6ea87ea954cdf3daa4bca52c47a3033aacfa45947d2e234c212",
+                "display": "Sleepiness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6a77a6ea87ea954cdf3daa4bca52c47a3033aacfa45947d2e234c212",
+                "display": "Sleepiness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Bleeding or discharge from nipple",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b044a578d8e246ae53087fd86f13c3bebf4bd1e22da9483e3a3aecfc",
+                "display": "Bleeding or discharge from nipple"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b044a578d8e246ae53087fd86f13c3bebf4bd1e22da9483e3a3aecfc",
+                "display": "Bleeding or discharge from nipple (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Mouth pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Acne or pimples",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8d070eaa03bc73971c82d88354dcf0d6729962f71c7357e8182bc0f5",
+                "display": "Acne or pimples"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8d070eaa03bc73971c82d88354dcf0d6729962f71c7357e8182bc0f5",
+                "display": "Acne or pimples (finding)"
+            },
+            "remarks": [
+                "Acne or pimples is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Hot flashes",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f383eb73fae3dc352f9c5f1cad62e1e7743d7fb61deab077a22e2b82",
+                "display": "Hot flashes"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f383eb73fae3dc352f9c5f1cad62e1e7743d7fb61deab077a22e2b82",
+                "display": "Hot flashes (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Fluid retention",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ded06d7c33248317975b8bef8f52f270714db6b126a96a684e5f5c79",
+                "display": "Fluid retention"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ded06d7c33248317975b8bef8f52f270714db6b126a96a684e5f5c79",
+                "display": "Fluid retention (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Postpartum problems of the breast",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "245d02d2fea8bbb59628ab117f8c88895132cddacae82c2278f38a2c",
+                "display": "Postpartum problems of the breast"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "245d02d2fea8bbb59628ab117f8c88895132cddacae82c2278f38a2c",
+                "display": "Postpartum problems of the breast (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Infertility",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fc36ae1744b6c87e4477862186c7e9ffa7df6f651175687b7768ac6",
+                "display": "Infertility"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fc36ae1744b6c87e4477862186c7e9ffa7df6f651175687b7768ac6",
+                "display": "Infertility (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Weight gain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c2ae7785dfb4ffb590f11747f054ec3a573de3aacee7e1d3ab5e1176",
+                "display": "Pituitary disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "35724cd7c9d10129f0d3b79a9aef0e3e26743e2378832a074e034e61",
+                "display": "Weight gain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "35724cd7c9d10129f0d3b79a9aef0e3e26743e2378832a074e034e61",
+                "display": "Weight gain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Pituitary disorder_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,748 @@
+{
+    "name": "Foreign body in the ear",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00392156862745098
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996078431372549
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03137254901960784
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9686274509803922
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.041176470588235294
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9588235294117647
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.010784313725490196
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9892156862745098
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00392156862745098
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996078431372549
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00392156862745098
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996078431372549
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002941176470588235
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9970588235294118
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00196078431372549
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9980392156862745
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.065
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.935
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.034999999999999996
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.965
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03571428571428572
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9642857142857143
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03095238095238096
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.969047619047619
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.019047619047619053
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9809523809523809
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0071428571428571435
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9928571428571429
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0071428571428571435
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9928571428571429
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9904761904761905
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.00952380952380949
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                    "display": "Foreign body in the ear"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Foreign body in the ear is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with foreign body in the ear, 70% report having ear pain, 17% report having diminished hearing, and 14% report having bleeding from ear. The symptoms that are highly suggestive of foreign body in the ear are bleeding from ear and hysterical behavior, although you may still have foreign body in the ear without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.7,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.30000000000000004,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Ear pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.17,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.83,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Bleeding from ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2a2d873eca10a3e9b5b18f215baedcd62081c786f9e487aebdb7c1cd",
+                "display": "Bleeding from ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2a2d873eca10a3e9b5b18f215baedcd62081c786f9e487aebdb7c1cd",
+                "display": "Bleeding from ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Fluid in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Throat feels tight",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9b0bdaa4d4d1e7e5c28e8cff38aa8872a83362d7d2757b1f8d3dfdee",
+                "display": "Throat feels tight"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9b0bdaa4d4d1e7e5c28e8cff38aa8872a83362d7d2757b1f8d3dfdee",
+                "display": "Throat feels tight (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Skin irritation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b17ba219479e72cb9472a031b4a4cecb42861730d1301cb824861f1b",
+                "display": "Skin irritation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b17ba219479e72cb9472a031b4a4cecb42861730d1301cb824861f1b",
+                "display": "Skin irritation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Irregular appearing scalp",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5843a004a3813353de2787bbf2686ec6284cc8cc035111e546401c44",
+                "display": "Irregular appearing scalp"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5843a004a3813353de2787bbf2686ec6284cc8cc035111e546401c44",
+                "display": "Irregular appearing scalp (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Throat irritation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7660052ddb046f2a6929ab6d9d1b252cb20ed208e32c13deeb735fe4",
+                "display": "Throat irritation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7660052ddb046f2a6929ab6d9d1b252cb20ed208e32c13deeb735fe4",
+                "display": "Throat irritation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Hysterical behavior",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d56aa15b38765a901fda0c6c183f410df036af31bff665dd67d628cd",
+                "display": "Foreign body in the ear"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "446d2abab108476afe90edcaa8be1934c8a5471ea7dc591d4a0b7ba5",
+                "display": "Hysterical behavior"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "446d2abab108476afe90edcaa8be1934c8a5471ea7dc591d4a0b7ba5",
+                "display": "Hysterical behavior (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Foreign body in the ear_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

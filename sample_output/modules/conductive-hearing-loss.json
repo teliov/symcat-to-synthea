@@ -1,0 +1,868 @@
+{
+    "name": "Conductive hearing loss",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00989010989010989
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9901098901098901
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015384615384615384
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9846153846153847
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024175824175824177
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9758241758241758
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005494505494505495
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9945054945054945
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005494505494505495
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9945054945054945
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01098901098901099
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.989010989010989
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01098901098901099
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.989010989010989
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.017582417582417582
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9824175824175824
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98125
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024999999999999998
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98125
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98125
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01875
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98125
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.975
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.025000000000000022
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                    "display": "Conductive hearing loss"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Conductive hearing loss occurs when there is a problem conducting sound waves anywhere along the route through the outer ear, tympanic membrane (eardrum), or middle ear (ossicles). This type of hearing loss may occur in conjunction with sensorineural hearing loss or alone.",
+                "Within all the people who go to their doctor with conductive hearing loss, 85% report having diminished hearing, 43% report having ear pain, and 40% report having plugged feeling in ear. The symptoms that are highly suggestive of conductive hearing loss are diminished hearing, plugged feeling in ear, redness in ear, ringing in ear, and fluid in ear, although you may still have conductive hearing loss without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.85,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.15000000000000002,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.43,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.5700000000000001,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Ear pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.4,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.6,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Plugged feeling in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.35,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.65,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Redness in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "826e6ed0530a1223f5fa8a030f66db758ef3eabcccb2f47488847192",
+                "display": "Redness in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "826e6ed0530a1223f5fa8a030f66db758ef3eabcccb2f47488847192",
+                "display": "Redness in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Ringing in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.29,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.71,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Fluid in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Difficulty speaking",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7757e67bd399478fd93d37dbc1b7da8d0ed11bd382408e6d2ae7ba51",
+                "display": "Difficulty speaking"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7757e67bd399478fd93d37dbc1b7da8d0ed11bd382408e6d2ae7ba51",
+                "display": "Difficulty speaking (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Lack of growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Hoarse voice",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e0bf72b1e83e13dbc5cc8db5595a6fa6c8a81416372e90571bf16ca4",
+                "display": "Hoarse voice"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e0bf72b1e83e13dbc5cc8db5595a6fa6c8a81416372e90571bf16ca4",
+                "display": "Hoarse voice (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Swollen or red tonsils",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a016ad0231d121e4ce3554bec6665852fff70cb7ced803753900b330",
+                "display": "Swollen or red tonsils"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a016ad0231d121e4ce3554bec6665852fff70cb7ced803753900b330",
+                "display": "Swollen or red tonsils (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Low self-esteem",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b3c18e2dcfdc74b989eba6f91846f7cf7467b5adf9e284c075c065d4",
+                "display": "Conductive hearing loss"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1398095a0b97a5279ba912b8059ef50ff6af32d32f9b48c0386e668",
+                "display": "Low self-esteem"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1398095a0b97a5279ba912b8059ef50ff6af32d32f9b48c0386e668",
+                "display": "Low self-esteem (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Conductive hearing loss_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

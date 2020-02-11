@@ -1,0 +1,748 @@
+{
+    "name": "Anemia due to malignancy",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003896103896103896
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9961038961038962
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0012987012987012987
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9987012987012988
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006493506493506494
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9935064935064936
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012987012987012988
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.987012987012987
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03376623376623377
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9662337662337662
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04155844155844156
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9584415584415584
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02962962962962963
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9703703703703703
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014814814814814815
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9851851851851852
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.04814814814814815
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9518518518518518
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.003703703703703704
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9962962962962963
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.003703703703703704
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9962962962962963
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9950617283950617
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.004938271604938316
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                    "display": "Anemia due to malignancy"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Anemia due to malignancy is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with anemia due to malignancy, 42% report having fatigue, 35% report having shortness of breath, and 15% report having difficulty in swallowing. The symptoms that are highly suggestive of anemia due to malignancy are hot flashes and flatulence, although you may still have anemia due to malignancy without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Fatigue",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.35,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.65,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Difficulty in swallowing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Pain of the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Nosebleed",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "da40e27287ddac4ae4f52c7148dd9d9141e216783d72a8640c0f52f7",
+                "display": "Nosebleed"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "da40e27287ddac4ae4f52c7148dd9d9141e216783d72a8640c0f52f7",
+                "display": "Nosebleed (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Vaginal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5ead93159784c6c67f7c040bcc322d53ca8ed0359b6986f448665b22",
+                "display": "Vaginal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5ead93159784c6c67f7c040bcc322d53ca8ed0359b6986f448665b22",
+                "display": "Vaginal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Mouth pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Hot flashes",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f383eb73fae3dc352f9c5f1cad62e1e7743d7fb61deab077a22e2b82",
+                "display": "Hot flashes"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f383eb73fae3dc352f9c5f1cad62e1e7743d7fb61deab077a22e2b82",
+                "display": "Hot flashes (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Flatulence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "30b0d8cf171b34b03205235823f6bac72ff2762ba69e9c1a5ff49372",
+                "display": "Anemia due to malignancy"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c6ef1def409846265af9e52a2e5755aae0c88d9fc07696a02683ae6",
+                "display": "Flatulence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c6ef1def409846265af9e52a2e5755aae0c88d9fc07696a02683ae6",
+                "display": "Flatulence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Anemia due to malignancy_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

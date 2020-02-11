@@ -1,0 +1,868 @@
+{
+    "name": "Paronychia",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019736842105263157
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9802631578947368
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02368421052631579
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9763157894736842
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015789473684210527
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9842105263157894
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015789473684210527
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9842105263157894
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.011842105263157895
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9881578947368421
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005263157894736842
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9947368421052631
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007894736842105263
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9921052631578947
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06666666666666668
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9333333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.03333333333333334
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9666666666666667
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02608695652173913
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9739130434782609
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02826086956521739
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9717391304347827
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.017391304347826087
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9826086956521739
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014130434782608696
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9858695652173913
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014130434782608696
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9858695652173913
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.981159420289855
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.018840579710144967
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                    "display": "Paronychia"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "In medicine, paronychia (/\u02ccp\u00e6r\u0259\u02c8n\u026aki\u0259/; Greek: \u03c0\u03b1\u03c1\u03bf\u03bd\u03c5\u03c7\u03af\u03b1: para-, around, onukh-, nail) is a nail disease that is an often-tender bacterial or fungal infection of the hand or foot where the nail and skin meet at the side or the base of a finger or toenail. The infection can start suddenly (acute paronychia) or gradually (chronic paronychia). Paronychia is commonly misapplied as a synonym for whitlow or felon.",
+                "Within all the people who go to their doctor with paronychia, 73% report having hand or finger pain, 67% report having skin on arm or hand looks infected, and 65% report having irregular appearing nails. The symptoms that are highly suggestive of paronychia are hand or finger pain, skin on arm or hand looks infected, irregular appearing nails, hand or finger swelling, skin on leg or foot looks infected, foot or toe swelling, hand or finger lump or mass, and nailbiting, although you may still have paronychia without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.73,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.27,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Hand or finger pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.67,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.32999999999999996,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Skin on arm or hand looks infected",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fc53919f7ed62152dc002caaf693014461ded3a1b1b0a7ff88f224c3",
+                "display": "Skin on arm or hand looks infected"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fc53919f7ed62152dc002caaf693014461ded3a1b1b0a7ff88f224c3",
+                "display": "Skin on arm or hand looks infected (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.65,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.35,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Irregular appearing nails",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1858289add24287e512494c4169e6fed611b9331a6d250e96863a73",
+                "display": "Irregular appearing nails"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1858289add24287e512494c4169e6fed611b9331a6d250e96863a73",
+                "display": "Irregular appearing nails (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.65,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.35,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Hand or finger swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "10d3045ab5f6b28962f66eb142f026e29440061788e3e070bd64c094",
+                "display": "Hand or finger swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "10d3045ab5f6b28962f66eb142f026e29440061788e3e070bd64c094",
+                "display": "Hand or finger swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.55,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.44999999999999996,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Foot or toe pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0d8a205870ddb381454a0a40d885ea736d70e0525e6581799371ae5f",
+                "display": "Foot or toe pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.46,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.54,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Abnormal appearing skin",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin (finding)"
+            },
+            "remarks": [
+                "\"Birthmarks\" is the fourth episode of the fifth season of House and the ninetieth episode overall. It aired on October 14, 2008."
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.43,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.5700000000000001,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Skin on leg or foot looks infected",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a6a908f6a79186ad3a452c8b49e6503e3845737bfe423222bdfe0ed5",
+                "display": "Skin on leg or foot looks infected"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a6a908f6a79186ad3a452c8b49e6503e3845737bfe423222bdfe0ed5",
+                "display": "Skin on leg or foot looks infected (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Foot or toe swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c81b416ef8f0534f78c40a2896efdb8590c6e63a774c51200f3e6a92",
+                "display": "Foot or toe swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c81b416ef8f0534f78c40a2896efdb8590c6e63a774c51200f3e6a92",
+                "display": "Foot or toe swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Hand or finger lump or mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "bb1af8d5b2f3b8f94618dd7b8911e8c6db9298c90747acfeec6b0f84",
+                "display": "Hand or finger lump or mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "bb1af8d5b2f3b8f94618dd7b8911e8c6db9298c90747acfeec6b0f84",
+                "display": "Hand or finger lump or mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Sinus congestion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d6194a5a150068af0a3a51387850e5fffc8fd65147491b762a21ccc9",
+                "display": "Sinus congestion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d6194a5a150068af0a3a51387850e5fffc8fd65147491b762a21ccc9",
+                "display": "Sinus congestion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Nailbiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22f2fdab55812dbe357ef34580ebb59a9afb710e7e49b48aa928d1f0",
+                "display": "Nailbiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Skin dryness, peeling, scaliness, or roughness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "4df54fb1c4d8c1dfb97a8c36068fb813593ba46ee3fef9f92fc584cb",
+                "display": "Paronychia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "039bca5a6ad5106c1e0a445b50945ac1c4ce2af184709bf37e90d99f",
+                "display": "Skin dryness, peeling, scaliness, or roughness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "039bca5a6ad5106c1e0a445b50945ac1c4ce2af184709bf37e90d99f",
+                "display": "Skin dryness, peeling, scaliness, or roughness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Paronychia_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

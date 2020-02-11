@@ -1,0 +1,868 @@
+{
+    "name": "Scoliosis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003529411764705883
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9964705882352941
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003529411764705883
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9964705882352941
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04352941176470589
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9564705882352941
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01647058823529412
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9835294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007058823529411766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9929411764705882
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005882352941176471
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9941176470588236
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007058823529411766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9929411764705882
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012941176470588239
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9870588235294118
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.96
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.94
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.020454545454545454
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9795454545454545
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02727272727272727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9727272727272728
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014772727272727272
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9852272727272727
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014772727272727272
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9852272727272727
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9803030303030303
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.019696969696969657
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                    "display": "Scoliosis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Scoliosis (from Ancient Greek: \u03c3\u03ba\u03bf\u03bb\u03af\u03c9\u03c3\u03b9\u03c2 skoliosis \"obliquity, bending\") is a medical condition in which a person's spine is curved from side to side. Although it is a complex three-dimensional deformity, on an X-ray, viewed from the rear, the spine of an individual with scoliosis may look more like an \"S\" or a \"C\", rather than a straight line.",
+                "Within all the people who go to their doctor with scoliosis, 66% report having back pain, 51% report having low back pain, and 31% report having leg pain. The symptoms that are highly suggestive of scoliosis are foot or toe stiffness or tightness, although you may still have scoliosis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.66,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.33999999999999997,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Low back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Problems with movement",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Lower body pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Leg weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Knee swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Unusual color or odor to urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "396c8dd9318b65be69765899b3134778054bbb8a342a467633e3b168",
+                "display": "Unusual color or odor to urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "396c8dd9318b65be69765899b3134778054bbb8a342a467633e3b168",
+                "display": "Unusual color or odor to urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Knee stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e70692ec7ac252aa1663696f60958383725e3d214990d6634b7f0211",
+                "display": "Knee stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e70692ec7ac252aa1663696f60958383725e3d214990d6634b7f0211",
+                "display": "Knee stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Foot or toe stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "21a0b655dc700939e019c597c63e6825b4f92228df9586527a432171",
+                "display": "Foot or toe stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "21a0b655dc700939e019c597c63e6825b4f92228df9586527a432171",
+                "display": "Foot or toe stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Muscle cramps, contractures, or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Stomach bloating",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "bb59dda393e953cc999756c0a54e6d06e69a9cad5f5d75bcc9b15aae",
+                "display": "Scoliosis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f5ecf602935a123a7e103b26aad93463635fbe83e2e6e126341c0562",
+                "display": "Stomach bloating"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f5ecf602935a123a7e103b26aad93463635fbe83e2e6e126341c0562",
+                "display": "Stomach bloating (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Scoliosis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

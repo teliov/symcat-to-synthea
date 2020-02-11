@@ -1,0 +1,588 @@
+{
+    "name": "Open wound of the abdomen",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006349206349206349
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9936507936507937
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015873015873015873
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984126984126984
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02222222222222222
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9777777777777777
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019047619047619046
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9809523809523809
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02222222222222222
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9777777777777777
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714285
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714285
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06190476190476191
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9380952380952381
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0380952380952381
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9619047619047619
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01914893617021277
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9808510638297873
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03191489361702128
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9680851063829787
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01914893617021277
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9808510638297873
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014893617021276596
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9851063829787234
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014893617021276596
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9851063829787234
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9801418439716312
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.019858156028368823
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "d7acd78929660b9f6ad7995591c92ac60909b768bcf2c5aba0edc1a3",
+                    "display": "Open wound of the abdomen"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Open wound of the abdomen is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with open wound of the abdomen, 35% report having sharp abdominal pain, 11% report having irregular belly button , and 6% report having swollen abdomen. The symptoms that are highly suggestive of open wound of the abdomen are irregular belly button and swollen abdomen, although you may still have open wound of the abdomen without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.35,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.65,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d7acd78929660b9f6ad7995591c92ac60909b768bcf2c5aba0edc1a3",
+                "display": "Open wound of the abdomen"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Irregular belly button",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d7acd78929660b9f6ad7995591c92ac60909b768bcf2c5aba0edc1a3",
+                "display": "Open wound of the abdomen"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7725196c5cd5bfaa7daa59e350ce4002cfdbc9f160eac3250f1f5086",
+                "display": "Irregular belly button (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Sweating",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d7acd78929660b9f6ad7995591c92ac60909b768bcf2c5aba0edc1a3",
+                "display": "Open wound of the abdomen"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Swollen abdomen",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d7acd78929660b9f6ad7995591c92ac60909b768bcf2c5aba0edc1a3",
+                "display": "Open wound of the abdomen"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "16c962bc1abd3c2557f4d0e94e3dc1c98f63b06f9b31a924380a8566",
+                "display": "Swollen abdomen"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "16c962bc1abd3c2557f4d0e94e3dc1c98f63b06f9b31a924380a8566",
+                "display": "Swollen abdomen (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Blindness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d7acd78929660b9f6ad7995591c92ac60909b768bcf2c5aba0edc1a3",
+                "display": "Open wound of the abdomen"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Open wound of the abdomen_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

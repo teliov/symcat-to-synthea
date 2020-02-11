@@ -1,0 +1,868 @@
+{
+    "name": "Myasthenia gravis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002898550724637681
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9971014492753624
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014492753623188406
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985507246376811
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004347826086956522
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9956521739130435
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007246376811594203
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9927536231884058
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.011594202898550725
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9884057971014493
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01884057971014493
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.981159420289855
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02753623188405797
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.972463768115942
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.026086956521739132
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9739130434782609
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03225806451612903
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.967741935483871
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01935483870967742
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9806451612903225
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.035483870967741936
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.964516129032258
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0064516129032258064
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9935483870967742
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0064516129032258064
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9935483870967742
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9913978494623656
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.008602150537634357
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                    "display": "Myasthenia gravis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Myasthenia gravis (from Greek \u03bc\u03cd\u03c2 \"muscle\", \u1f00\u03c3\u03b8\u03ad\u03bd\u03b5\u03b9\u03b1 \"weakness\", and Latin: gravis \"serious\"; abbreviated MG) is an autoimmune neuromuscular disease leading to fluctuating muscle weakness and fatigability. It is an autoimmune disorder, in which weakness is caused by circulating antibodies that block acetylcholine receptors at the postsynaptic neuromuscular junction, inhibiting the excitatory effects of the neurotransmitter acetylcholine on nicotinic receptors throughout neuromuscular junctions.",
+                "Within all the people who go to their doctor with myasthenia gravis, 50% report having double vision, 48% report having weakness, and 36% report having fatigue. The symptoms that are highly suggestive of myasthenia gravis are double vision, abnormal movement of eyelid, focal weakness, slurring words, and arm weakness, although you may still have myasthenia gravis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.5,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.5,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Double vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "919b32644afa4bdc8fc9b91bcf9430cc9c7cbd4842d47658810250ae",
+                "display": "Double vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "919b32644afa4bdc8fc9b91bcf9430cc9c7cbd4842d47658810250ae",
+                "display": "Double vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.48,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.52,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.36,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.64,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Fatigue",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c20f829a771219ece0f8f1fc531994a18d66bed3550fea645578243",
+                "display": "Fatigue (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Abnormal movement of eyelid",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "10ec4543dc934be02d47b2122a49fe259702abed27f911338a9815c5",
+                "display": "Abnormal movement of eyelid"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "10ec4543dc934be02d47b2122a49fe259702abed27f911338a9815c5",
+                "display": "Abnormal movement of eyelid (finding)"
+            },
+            "remarks": [
+                "Ptosis /\u02c8to\u028as\u026as/ (from Greek Ptosis or \u03c0\u03c4\u1ff6\u03c3\u03b9\u03c2, to \"fall\") is a drooping or falling of the upper or lower eyelid. The drooping may be worse after being awake longer, when the individual's muscles are tired. This condition is sometimes called \"lazy eye\", but that term normally refers to amblyopia. If severe enough and left untreated, the drooping eyelid can cause other conditions, such as amblyopia or astigmatism. This is why it is especially important for this disorder to be treated in children at a young age, before it can interfere with vision development."
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Focal weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "79d88ad5021f4a50c11220dae6feaf3bbabc54eead0899275dda0300",
+                "display": "Focal weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "79d88ad5021f4a50c11220dae6feaf3bbabc54eead0899275dda0300",
+                "display": "Focal weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Diminished vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Slurring words",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Arm weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness (finding)"
+            },
+            "remarks": [
+                "Arm weakness is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Coughing up sputum",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7348e1e14dc45971aed0f43fd97bfaeb4827c5d8fcb906b3ceabe7f0",
+                "display": "Myasthenia gravis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d8713e210924d464bed545bf76fe488b83f47061e0bd756b820b837c",
+                "display": "Coughing up sputum"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d8713e210924d464bed545bf76fe488b83f47061e0bd756b820b837c",
+                "display": "Coughing up sputum (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Myasthenia gravis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

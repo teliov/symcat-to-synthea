@@ -1,0 +1,868 @@
+{
+    "name": "Acute kidney injury",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0013157894736842105
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986842105263158
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0013157894736842105
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986842105263158
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002631578947368421
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9973684210526316
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005263157894736842
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9947368421052631
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014473684210526317
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9855263157894737
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.028947368421052635
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9710526315789474
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.046052631578947366
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9539473684210527
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06190476190476191
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9380952380952381
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0380952380952381
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9619047619047619
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02820512820512821
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9717948717948718
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.017948717948717947
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.982051282051282
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02820512820512821
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9717948717948718
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01282051282051282
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9871794871794872
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01282051282051282
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9871794871794872
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9829059829059829
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.017094017094017144
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                    "display": "Acute kidney injury"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Acute kidney injury (AKI), previously called acute renal failure (ARF), is a rapid loss of kidney function.",
+                "Within all the people who go to their doctor with acute kidney injury, 41% report having shortness of breath, 39% report having weakness, and 30% report having vomiting. The symptoms that are highly suggestive of acute kidney injury are kidney mass and symptoms of the kidneys, although you may still have acute kidney injury without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.39,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.61,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.3,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.7,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.29,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.71,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Nausea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Kidney mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "10da1352ef47642b9d2a173c2984f85f175ba479fdfe22ab2fc77e91",
+                "display": "Kidney mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "10da1352ef47642b9d2a173c2984f85f175ba479fdfe22ab2fc77e91",
+                "display": "Kidney mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Symptoms of the kidneys",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Peripheral edema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Blood in urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2fe6d99eb788392eb93382757b162bfcab7936d47c789f5e20f00de6",
+                "display": "Blood in urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Retention of urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "e94024b5d406d55aa46ba105fa7ab6b3bd3529ab16b4ab1f641b3ee3",
+                "display": "Acute kidney injury"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Acute kidney injury_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

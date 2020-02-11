@@ -1,0 +1,868 @@
+{
+    "name": "Abdominal aortic aneurysm",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0011904761904761906
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9988095238095238
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004761904761904762
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9952380952380953
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.034523809523809526
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9654761904761905
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.05952380952380952
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9404761904761905
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.08181818181818182
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9181818181818182
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.018181818181818184
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9818181818181818
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.984
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.024
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.976
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.055999999999999994
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.944
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.002
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.998
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.002
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.998
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9973333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.002666666666666706
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                    "display": "Abdominal aortic aneurysm"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Abdominal aortic aneurysm (also known as AAA, pronounced \"triple-a\") is a localized dilatation (ballooning) of the abdominal aorta exceeding the normal diameter by more than 50 percent, and is the most common form of aortic aneurysm. Approximately 90 percent of abdominal aortic aneurysms occur infrarenally (below the kidneys), but they can also occur pararenally (at the level of the kidneys) or suprarenally (above the kidneys). Such aneurysms can extend to include one or both of the iliac arteries in the pelvis.",
+                "Within all the people who go to their doctor with abdominal aortic aneurysm, 53% report having sharp abdominal pain, 35% report having back pain, and 28% report having shortness of breath. The symptoms that are highly suggestive of abdominal aortic aneurysm are swollen abdomen and pallor, although you may still have abdominal aortic aneurysm without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.53,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.47,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ce09928e8c37eaec2e58bd757d511a46dbd168c7c1e2026161ce4a35",
+                "display": "Sharp abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.35,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.65,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Side pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "71d03f6bcb415d02dd4cb37dc68d6c2834e072ed821e4e82b47de516",
+                "display": "Side pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "71d03f6bcb415d02dd4cb37dc68d6c2834e072ed821e4e82b47de516",
+                "display": "Side pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Burning abdominal pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7734c15b6d3ec41729a3ede59cef7922a4d69dd651cf54cafe5b5596",
+                "display": "Burning abdominal pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7734c15b6d3ec41729a3ede59cef7922a4d69dd651cf54cafe5b5596",
+                "display": "Burning abdominal pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Swollen abdomen",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "16c962bc1abd3c2557f4d0e94e3dc1c98f63b06f9b31a924380a8566",
+                "display": "Swollen abdomen"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "16c962bc1abd3c2557f4d0e94e3dc1c98f63b06f9b31a924380a8566",
+                "display": "Swollen abdomen (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Palpitations",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fe7475349164c17ff52305f12defdcc0460b971adaf12dbcd7d4554",
+                "display": "Palpitations"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fe7475349164c17ff52305f12defdcc0460b971adaf12dbcd7d4554",
+                "display": "Palpitations (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Retention of urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Arm swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6bd28415c30cdde6de027574aa79c61dbfd3335349a9f11feb741d84",
+                "display": "Arm swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6bd28415c30cdde6de027574aa79c61dbfd3335349a9f11feb741d84",
+                "display": "Arm swelling (finding)"
+            },
+            "remarks": [
+                "Arm swelling is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Groin pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Pallor",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "b6743aebe589b94eac63d1c1a89402c6c09039e79314617146583de9",
+                "display": "Abdominal aortic aneurysm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8f9834e5d9929f19ff42c014b79bf6fa07b39e2897402f865a7c4e38",
+                "display": "Pallor"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8f9834e5d9929f19ff42c014b79bf6fa07b39e2897402f865a7c4e38",
+                "display": "Pallor (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Abdominal aortic aneurysm_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

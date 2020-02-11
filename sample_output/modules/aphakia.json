@@ -1,0 +1,708 @@
+{
+    "name": "Aphakia",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004210526315789474
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9957894736842106
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01263157894736842
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9873684210526316
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003157894736842105
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9968421052631579
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002105263157894737
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9978947368421053
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003157894736842105
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9968421052631579
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004210526315789474
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9957894736842106
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.017894736842105262
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9821052631578947
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.05263157894736842
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9473684210526316
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06666666666666668
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9333333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.03333333333333334
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9666666666666667
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.027999999999999997
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.972
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.052000000000000005
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.948
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 1.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                    "display": "Aphakia"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Aphakia is the absence of the lens of the eye, due to surgical removal, a perforating wound or ulcer, or congenital anomaly. It causes a loss of accommodation, far sightedness (hyperopia), and a deep anterior chamber. Complications include detachment of the vitreous or retina, and glaucoma.",
+                "Within all the people who go to their doctor with aphakia, 73% report having diminished vision, 28% report having itchiness of eye, and 28% report having symptoms of eye. The symptoms that are highly suggestive of aphakia are diminished vision, symptoms of eye, itchiness of eye, spots or clouds in vision, eye burns or stings, and mass on eyelid, although you may still have aphakia without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.73,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.27,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Diminished vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Symptoms of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Pain in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Eye redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Itchiness of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9d62267c63e590c40f31090c22d9a81159882fcca1d06884ec96552a",
+                "display": "Itchiness of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Spots or clouds in vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Eye burns or stings",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "cd6e438379d68f1991771072c5fc8c4e725c6f70d0db83b3cf13bdd7",
+                "display": "Eye burns or stings"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "cd6e438379d68f1991771072c5fc8c4e725c6f70d0db83b3cf13bdd7",
+                "display": "Eye burns or stings (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Mass on eyelid",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2c1bbe869a7eaec76ac4dd590a4b643cb8b18785cf84f6771441065d",
+                "display": "Aphakia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "01acc83bcd6be176213c84ca7fab158e89604248fd8c2284d0de46ff",
+                "display": "Mass on eyelid"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "01acc83bcd6be176213c84ca7fab158e89604248fd8c2284d0de46ff",
+                "display": "Mass on eyelid (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Aphakia_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

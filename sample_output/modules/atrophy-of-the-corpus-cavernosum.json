@@ -1,0 +1,868 @@
+{
+    "name": "Atrophy of the corpus cavernosum",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.043750000000000004
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95625
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030555555555555565
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9694444444444444
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008333333333333335
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9916666666666667
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006944444444444446
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9930555555555556
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0041666666666666675
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9958333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0013888888888888892
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986111111111111
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003472222222222223
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9965277777777778
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0013888888888888892
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9986111111111111
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.028260869565217388
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9717391304347827
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.04130434782608695
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9586956521739131
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015217391304347823
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9847826086956522
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.007608695652173912
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9923913043478261
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.007608695652173912
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9923913043478261
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9898550724637681
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.010144927536231862
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                    "display": "Atrophy of the corpus cavernosum"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Atrophy of the corpus cavernosum is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with atrophy of the corpus cavernosum, 53% report having bumps on penis, 53% report having penis pain, and 42% report having abnormal appearing skin. The symptoms that are highly suggestive of atrophy of the corpus cavernosum are penis pain, bumps on penis, skin growth, impotence, penis redness, and penile discharge, although you may still have atrophy of the corpus cavernosum without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.53,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.47,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Penis pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "51f89bfb2b2ae18320e806c5150ced732ee30cd23c4c09d284e78db8",
+                "display": "Penis pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "51f89bfb2b2ae18320e806c5150ced732ee30cd23c4c09d284e78db8",
+                "display": "Penis pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.53,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.47,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Bumps on penis",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c7a16eea751073bb478a39e8f7b2706268c0209621a33e5d7c2313b4",
+                "display": "Bumps on penis"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c7a16eea751073bb478a39e8f7b2706268c0209621a33e5d7c2313b4",
+                "display": "Bumps on penis (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Abnormal appearing skin",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin (finding)"
+            },
+            "remarks": [
+                "\"Birthmarks\" is the fourth episode of the fifth season of House and the ninetieth episode overall. It aired on October 14, 2008."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.35,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.65,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Skin growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "16f017cd17bc6573e35610984e0a362e0dce7cd47663a9dfdb7c5c59",
+                "display": "Skin growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "16f017cd17bc6573e35610984e0a362e0dce7cd47663a9dfdb7c5c59",
+                "display": "Skin growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Impotence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Temper problems",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1a5fe4562ba7a58da2d59ddfdf57ad29029aeaa064d580c0caecddc",
+                "display": "Temper problems"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1a5fe4562ba7a58da2d59ddfdf57ad29029aeaa064d580c0caecddc",
+                "display": "Temper problems (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Congestion in chest",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dca266a296a44fe65deec0f53b303d0d8e5ab2c0b39c98031aef3f46",
+                "display": "Congestion in chest"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dca266a296a44fe65deec0f53b303d0d8e5ab2c0b39c98031aef3f46",
+                "display": "Congestion in chest (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Penis redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "62a086c34b1cf0ebd1c7e78fb1411fe6ba011ef1f0a5037c47c45fde",
+                "display": "Penis redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "62a086c34b1cf0ebd1c7e78fb1411fe6ba011ef1f0a5037c47c45fde",
+                "display": "Penis redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Frequent urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Penile discharge",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "74662d3d2ede018a2a4b417fc04fbff969b937c9b60c5bda367b8e07",
+                "display": "Penile discharge"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "74662d3d2ede018a2a4b417fc04fbff969b937c9b60c5bda367b8e07",
+                "display": "Penile discharge (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Groin pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "298769623ee572f9857b9206edf2a118cd9a796360011c5d0c2116f6",
+                "display": "Atrophy of the corpus cavernosum"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Atrophy of the corpus cavernosum_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Headache after lumbar puncture",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008928571428571428
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9910714285714286
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9625
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.041071428571428564
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9589285714285715
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008928571428571428
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9910714285714286
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0035714285714285713
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9964285714285714
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.96
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.94
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.017073170731707315
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9829268292682927
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012195121951219513
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9878048780487805
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02682926829268293
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.973170731707317
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.021951219512195124
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9780487804878049
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.021951219512195124
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9780487804878049
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9707317073170731
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.029268292682926855
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                    "display": "Headache after lumbar puncture"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Headache after lumbar puncture is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with headache after lumbar puncture, 98% report having headache, 65% report having nausea, and 65% report having back pain. The symptoms that are highly suggestive of headache after lumbar puncture are headache, pain of the anus, and impotence, although you may still have headache after lumbar puncture without those symptoms. People with headache after lumbar puncture almost always have headache."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.98,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.020000000000000018,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.65,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.35,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Nausea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.65,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.35,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.56,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.43999999999999995,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.47,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.53,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.34,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.6599999999999999,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Neck pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1310d177602475cbdec2965e7b82220450b18d061610c4dfbc165c39",
+                "display": "Neck pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1310d177602475cbdec2965e7b82220450b18d061610c4dfbc165c39",
+                "display": "Neck pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Low back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Pain of the anus",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f84bc83cd39d5c35f4dd04b4fc303d1f9ef93de38ab23e5d37944389",
+                "display": "Pain of the anus (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Pain during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Painful urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Pelvic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fb8baf3d208e5b7fb8ab8a09d92de4d459f01c538b72aac81c9e21b3",
+                "display": "Pelvic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Impotence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f3582b2e23b8ce4dfe09403be99f63bee7c9dc3f11ca3c2e9bd7ac6c",
+                "display": "Headache after lumbar puncture"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Headache after lumbar puncture_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

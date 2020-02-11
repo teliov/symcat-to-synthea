@@ -1,0 +1,868 @@
+{
+    "name": "Jaw disorder",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005084745762711865
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9949152542372881
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03389830508474577
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9661016949152542
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025423728813559324
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9745762711864406
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.016949152542372885
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9830508474576272
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008474576271186442
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9915254237288136
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01016949152542373
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9898305084745763
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04736842105263158
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9526315789473684
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05263157894736842
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9473684210526316
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03666666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9633333333333334
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016666666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9833333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03666666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9633333333333334
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.005
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.995
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.005
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.995
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9933333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.00666666666666671
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                    "display": "Jaw disorder"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "NIH: National Institute of Dental and Craniofacial Research",
+                "Within all the people who go to their doctor with jaw disorder, 86% report having toothache, 81% report having facial pain, and 38% report having jaw swelling. The symptoms that are highly suggestive of jaw disorder are toothache, facial pain, gum pain, jaw swelling, mouth pain, neck mass, symptoms of the face, pain in gums, and jaw pain, although you may still have jaw disorder without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.86,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.14,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Toothache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a7a40aa9ed26a3fd02669c3faf31de0f36ec9f4f9cbc20dfcb604fc5",
+                "display": "Toothache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a7a40aa9ed26a3fd02669c3faf31de0f36ec9f4f9cbc20dfcb604fc5",
+                "display": "Toothache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.81,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.18999999999999995,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Facial pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Gum pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0cbfc8283b3a0f93663673251e9e64943cacc8fe2248c1a0aee5e66c",
+                "display": "Gum pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0cbfc8283b3a0f93663673251e9e64943cacc8fe2248c1a0aee5e66c",
+                "display": "Gum pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Jaw swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "58233edcb20064476119c687347f4d1abbdf6410d0dba09ba4dacf7b",
+                "display": "Jaw swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "58233edcb20064476119c687347f4d1abbdf6410d0dba09ba4dacf7b",
+                "display": "Jaw swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.29,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.71,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Peripheral edema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Mouth pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Neck mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6c08d0a0b34a31f00367f163d595dc42cae10f4793b66ad89d600936",
+                "display": "Neck mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6c08d0a0b34a31f00367f163d595dc42cae10f4793b66ad89d600936",
+                "display": "Neck mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Symptoms of the face",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b8d8ff2f66a697be8a313c0bdf014bc440a63d1e60c0be70d93d5652",
+                "display": "Symptoms of the face"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b8d8ff2f66a697be8a313c0bdf014bc440a63d1e60c0be70d93d5652",
+                "display": "Symptoms of the face (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Difficulty in swallowing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Pain in gums",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1b925045c3f98c2e3250786586fa98d05a29f24a8bf9f8a551b68098",
+                "display": "Pain in gums"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1b925045c3f98c2e3250786586fa98d05a29f24a8bf9f8a551b68098",
+                "display": "Pain in gums (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Jaw pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "59dadcf437aebc5212c1bfbb90fc5b6536a31a6161a2f19f752211c1",
+                "display": "Jaw disorder"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "17063a25660ca0be4eed7f24241d9dfc7a752ac1b7814918c9c34afb",
+                "display": "Jaw pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "17063a25660ca0be4eed7f24241d9dfc7a752ac1b7814918c9c34afb",
+                "display": "Jaw pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Jaw disorder_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

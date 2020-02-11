@@ -1,0 +1,708 @@
+{
+    "name": "Open wound from surgical incision",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0031746031746031746
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9968253968253968
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0031746031746031746
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9968253968253968
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01111111111111111
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9888888888888889
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019047619047619046
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9809523809523809
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019047619047619046
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9809523809523809
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030158730158730152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9698412698412698
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014285714285714285
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9857142857142858
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02857142857142857
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9714285714285714
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03142857142857143
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9685714285714285
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.99
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.99
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9866666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.013333333333333308
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                    "display": "Open wound from surgical incision"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Open wound from surgical incision is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with open wound from surgical incision, 21% report having skin lesion, 10% report having recent pregnancy, and 10% report having skin swelling. The symptoms that are highly suggestive of open wound from surgical incision are recent pregnancy, although you may still have open wound from surgical incision without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.21,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.79,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Skin lesion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Skin swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "01b7281c9d3dd1247867eb69139bff96dd1b95e43b3ba62adedb644a",
+                "display": "Skin swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "01b7281c9d3dd1247867eb69139bff96dd1b95e43b3ba62adedb644a",
+                "display": "Skin swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Recent pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d5f92aa53423af2c05cad73c9f2507289cb9930cefc097463714329f",
+                "display": "Recent pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d5f92aa53423af2c05cad73c9f2507289cb9930cefc097463714329f",
+                "display": "Recent pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Knee swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d2e283dc93026af352a141bbdd4d0f81a8863fbb9134ca29d9ee128b",
+                "display": "Knee swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Flatulence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7c6ef1def409846265af9e52a2e5755aae0c88d9fc07696a02683ae6",
+                "display": "Flatulence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7c6ef1def409846265af9e52a2e5755aae0c88d9fc07696a02683ae6",
+                "display": "Flatulence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Skin on leg or foot looks infected",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a6a908f6a79186ad3a452c8b49e6503e3845737bfe423222bdfe0ed5",
+                "display": "Skin on leg or foot looks infected"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a6a908f6a79186ad3a452c8b49e6503e3845737bfe423222bdfe0ed5",
+                "display": "Skin on leg or foot looks infected (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Heavy menstrual flow",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0e08e38481da65a4d2bc55cb58a6219f6ac82aea7aaf4c3fdf4ce7b8",
+                "display": "Heavy menstrual flow"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0e08e38481da65a4d2bc55cb58a6219f6ac82aea7aaf4c3fdf4ce7b8",
+                "display": "Heavy menstrual flow (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Sneezing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "0daf49f1881d88e2c9dcfba843ac327c3c5877ce09f52c83560c18d2",
+                "display": "Open wound from surgical incision"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "81b62ba806ca80e75a21509e749e86e8a65b3bac3f28a0dbdcc183b1",
+                "display": "Sneezing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "81b62ba806ca80e75a21509e749e86e8a65b3bac3f28a0dbdcc183b1",
+                "display": "Sneezing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Open wound from surgical incision_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

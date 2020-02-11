@@ -1,0 +1,868 @@
+{
+    "name": "Adjustment reaction",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.004166666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9958333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04027777777777777
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9597222222222223
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.016666666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9833333333333333
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015277777777777779
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9847222222222223
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013888888888888888
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9861111111111112
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006944444444444444
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9930555555555556
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002777777777777778
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9972222222222222
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0225
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9775
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.027500000000000004
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9725
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.985
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.985
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.98
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.020000000000000018
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                    "display": "Adjustment reaction"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "An adjustment disorder occurs when an individual is unable to adjust to or cope with a particular stressor, like a major life event. Since people with this disorder normally have symptoms that depressed people do, such as general loss of interest, feelings of hopelessness and crying, this disorder is also sometimes known as situational depression. Unlike major depression however, the disorder is caused by an outside stressor and generally resolves once the individual is able to adapt to the situation. One hypothesis for adjustment disorder is that it may represent a sub-threshold clinical syndrome.",
+                "Within all the people who go to their doctor with adjustment reaction, 60% report having depressive or psychotic symptoms, 60% report having depression, and 59% report having anxiety and nervousness. The symptoms that are highly suggestive of adjustment reaction are excessive anger, low self-esteem, and nightmares, although you may still have adjustment reaction without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.6,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.4,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Depression",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9ea5e0adce9d91365905c1e6a1accd553fea13d5962dc45e0a1d0260",
+                "display": "Depression"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9ea5e0adce9d91365905c1e6a1accd553fea13d5962dc45e0a1d0260",
+                "display": "Depression (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.6,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.4,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Depressive or psychotic symptoms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3b117c6435324926c1ade3e3a3d0799577f8f66677ea194a1fbdbc4f",
+                "display": "Depressive or psychotic symptoms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3b117c6435324926c1ade3e3a3d0799577f8f66677ea194a1fbdbc4f",
+                "display": "Depressive or psychotic symptoms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.59,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.41000000000000003,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Anxiety and nervousness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7460a1df01d0013b74f2f39b872535f18559ed4747b67da3273553a1",
+                "display": "Anxiety and nervousness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7460a1df01d0013b74f2f39b872535f18559ed4747b67da3273553a1",
+                "display": "Anxiety and nervousness (finding)"
+            },
+            "remarks": [
+                "Anxiety and nervousness is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.22,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.78,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Excessive anger",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2b28ad7e2ef84375a5746e1447d2fb0f37f1e68a9250fdcd9635695c",
+                "display": "Excessive anger"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2b28ad7e2ef84375a5746e1447d2fb0f37f1e68a9250fdcd9635695c",
+                "display": "Excessive anger (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Hostile behavior",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ff2d30810017aabbfbbbed53bf6235269516c18aa7b0ca34f054d0a6",
+                "display": "Hostile behavior"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ff2d30810017aabbfbbbed53bf6235269516c18aa7b0ca34f054d0a6",
+                "display": "Hostile behavior (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Insomnia",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "df0f3dc0392f9176943bbe96c2a0ec8eb87bfa36d9f1e63689a4dd04",
+                "display": "Insomnia"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "df0f3dc0392f9176943bbe96c2a0ec8eb87bfa36d9f1e63689a4dd04",
+                "display": "Insomnia (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Low self-esteem",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1398095a0b97a5279ba912b8059ef50ff6af32d32f9b48c0386e668",
+                "display": "Low self-esteem"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1398095a0b97a5279ba912b8059ef50ff6af32d32f9b48c0386e668",
+                "display": "Low self-esteem (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Delusions or hallucinations",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85e3b85b581eae22180c8cf5ae744166e70f1b2002da60a8e1c53e97",
+                "display": "Delusions or hallucinations"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85e3b85b581eae22180c8cf5ae744166e70f1b2002da60a8e1c53e97",
+                "display": "Delusions or hallucinations (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Temper problems",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1a5fe4562ba7a58da2d59ddfdf57ad29029aeaa064d580c0caecddc",
+                "display": "Temper problems"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1a5fe4562ba7a58da2d59ddfdf57ad29029aeaa064d580c0caecddc",
+                "display": "Temper problems (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Fears and phobias",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9185a2117fe1e255b8d5b6393157a116dd49719c401ef804be792251",
+                "display": "Fears and phobias"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9185a2117fe1e255b8d5b6393157a116dd49719c401ef804be792251",
+                "display": "Fears and phobias (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Restlessness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "37a30bfb1314420ca5ad2ccc24ea77f3eec4dd136949caed5d175007",
+                "display": "Restlessness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "37a30bfb1314420ca5ad2ccc24ea77f3eec4dd136949caed5d175007",
+                "display": "Restlessness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Nightmares",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "96d6217221bfa96275f9724049775a8efec9a87736129e080d323513",
+                "display": "Adjustment reaction"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "bb1814759ece3b328489385602f7769942b45360c23f4926dfdd905c",
+                "display": "Nightmares"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "bb1814759ece3b328489385602f7769942b45360c23f4926dfdd905c",
+                "display": "Nightmares (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Adjustment reaction_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Diabetic kidney disease",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014705882352941176
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014705882352941176
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008823529411764706
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9911764705882353
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.022058823529411766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9779411764705882
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03970588235294118
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9602941176470589
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.026470588235294117
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9735294117647059
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.94
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.96
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016981132075471698
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9830188679245283
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.020754716981132078
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9792452830188679
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016981132075471698
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9830188679245283
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022641509433962263
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9773584905660377
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022641509433962263
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9773584905660377
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.969811320754717
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.030188679245283012
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                    "display": "Diabetic kidney disease"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Diabetic nephropathy (nephropatia diabetica), also known as Kimmelstiel-Wilson syndrome, or nodular diabetic glomerulosclerosis and intercapillary glomerulonephritis, is a progressive kidney disease caused by angiopathy of capillaries in the kidney glomeruli. It is characterized by nephrotic syndrome and diffuse glomerulosclerosis. It is due to longstanding diabetes mellitus, and is a prime indication for dialysis in many Western countries.",
+                "Within all the people who go to their doctor with diabetic kidney disease, 12% report having impotence, 12% report having leg swelling, and 7% report having thirst. The symptoms that are highly suggestive of diabetic kidney disease are impotence, thirst, and symptoms of the kidneys, although you may still have diabetic kidney disease without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Leg swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e63f20ea0b9ced31e9f46abf863908a9bf9da37b62e025c48a515647",
+                "display": "Leg swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e63f20ea0b9ced31e9f46abf863908a9bf9da37b62e025c48a515647",
+                "display": "Leg swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Impotence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Hurts to breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8ecefd608d13429302287e01f56ca67ffe8800643c021a8080ea291d",
+                "display": "Hurts to breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8ecefd608d13429302287e01f56ca67ffe8800643c021a8080ea291d",
+                "display": "Hurts to breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Lack of growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Thirst",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2e7ad354e85c4d6e7a3ace6413235f8afc626422d9be28671e97fe14",
+                "display": "Thirst"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2e7ad354e85c4d6e7a3ace6413235f8afc626422d9be28671e97fe14",
+                "display": "Thirst (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Delusions or hallucinations",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85e3b85b581eae22180c8cf5ae744166e70f1b2002da60a8e1c53e97",
+                "display": "Delusions or hallucinations"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85e3b85b581eae22180c8cf5ae744166e70f1b2002da60a8e1c53e97",
+                "display": "Delusions or hallucinations (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Irregular appearing nails",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1858289add24287e512494c4169e6fed611b9331a6d250e96863a73",
+                "display": "Irregular appearing nails"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1858289add24287e512494c4169e6fed611b9331a6d250e96863a73",
+                "display": "Irregular appearing nails (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Symptoms of the kidneys",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Leg cramps or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "767c9388b3593960cfeb75145c4e0061ae941425fd584c33a47aca84",
+                "display": "Leg cramps or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "767c9388b3593960cfeb75145c4e0061ae941425fd584c33a47aca84",
+                "display": "Leg cramps or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Heartburn",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "49094b9e5fe8168296bf7185a69c80d25593cb0987ecc5abce580a21",
+                "display": "Heartburn"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "49094b9e5fe8168296bf7185a69c80d25593cb0987ecc5abce580a21",
+                "display": "Heartburn (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Blood in stool",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ba432f340cbf704e64908fdca758f4e6322a4766f7651f31e1a8b5c2",
+                "display": "Blood in stool (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Excessive anger",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "7e4a430c996e332edd31e9c487524d4fbab1e4be741a06f776036851",
+                "display": "Diabetic kidney disease"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2b28ad7e2ef84375a5746e1447d2fb0f37f1e68a9250fdcd9635695c",
+                "display": "Excessive anger"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2b28ad7e2ef84375a5746e1447d2fb0f37f1e68a9250fdcd9635695c",
+                "display": "Excessive anger (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Diabetic kidney disease_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Blepharospasm",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014705882352941176
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985294117647059
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0029411764705882353
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9970588235294118
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0058823529411764705
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9941176470588236
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.029411764705882353
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9705882352941176
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.027941176470588233
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9720588235294118
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03235294117647059
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9676470588235294
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.03684210526315789
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9631578947368421
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06315789473684211
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9368421052631579
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.004545454545454546
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9954545454545455
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02727272727272727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9727272727272728
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9696969696969697
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.030303030303030276
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                    "display": "Blepharospasm"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "A blepharospasm (from Greek: blepharo, eyelid, and spasm, an uncontrolled muscle contraction), is any abnormal contraction or twitch of the eyelid.",
+                "Within all the people who go to their doctor with blepharospasm, 79% report having abnormal movement of eyelid, 43% report having diminished vision, and 27% report having eye moves abnormally. The symptoms that are highly suggestive of blepharospasm are abnormal movement of eyelid, eye moves abnormally, leg weakness, pain during intercourse, eyelid lesion or rash, arm weakness, muscle cramps, contractures, or spasms, cramps and spasms, blindness, and low back weakness, although you may still have blepharospasm without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.79,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.20999999999999996,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Abnormal movement of eyelid",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "10ec4543dc934be02d47b2122a49fe259702abed27f911338a9815c5",
+                "display": "Abnormal movement of eyelid"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "10ec4543dc934be02d47b2122a49fe259702abed27f911338a9815c5",
+                "display": "Abnormal movement of eyelid (finding)"
+            },
+            "remarks": [
+                "Ptosis /\u02c8to\u028as\u026as/ (from Greek Ptosis or \u03c0\u03c4\u1ff6\u03c3\u03b9\u03c2, to \"fall\") is a drooping or falling of the upper or lower eyelid. The drooping may be worse after being awake longer, when the individual's muscles are tired. This condition is sometimes called \"lazy eye\", but that term normally refers to amblyopia. If severe enough and left untreated, the drooping eyelid can cause other conditions, such as amblyopia or astigmatism. This is why it is especially important for this disorder to be treated in children at a young age, before it can interfere with vision development."
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.43,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.5700000000000001,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Diminished vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8eb2c0dc03b4ef7e4460373006802e341612e7a8978eddc661a88737",
+                "display": "Diminished vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Eye moves abnormally",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ae59ce5da84c436e2aa728070c13b809b69b108814a244efbae26825",
+                "display": "Eye moves abnormally"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ae59ce5da84c436e2aa728070c13b809b69b108814a244efbae26825",
+                "display": "Eye moves abnormally (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Leg weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Pain during intercourse",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "95c876c850c2ab7706368023480e0d40e18f152153dac9ade991f5c7",
+                "display": "Pain during intercourse"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "95c876c850c2ab7706368023480e0d40e18f152153dac9ade991f5c7",
+                "display": "Pain during intercourse (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Eyelid lesion or rash",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "677af1cf3d8d0abd1a8c9773286289b5a731ea7c8ae677567414cc17",
+                "display": "Eyelid lesion or rash"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "677af1cf3d8d0abd1a8c9773286289b5a731ea7c8ae677567414cc17",
+                "display": "Eyelid lesion or rash (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Arm weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness (finding)"
+            },
+            "remarks": [
+                "Arm weakness is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Muscle cramps, contractures, or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Cramps and spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Blindness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "cb8566370a69304c91f04fa4cdeae618bcb6e6412b1af6a054bc9988",
+                "display": "Blindness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Low back weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a374073f277a1b641d8689574746dc916032df2e8e253135fb59473a",
+                "display": "Blepharospasm"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "476bad35e8a32319824e7a0653397cce0437e215b7c077b8bb7edb09",
+                "display": "Low back weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "476bad35e8a32319824e7a0653397cce0437e215b7c077b8bb7edb09",
+                "display": "Low back weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Blepharospasm_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

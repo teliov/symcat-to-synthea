@@ -1,0 +1,788 @@
+{
+    "name": "Fracture of the neck",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002531645569620253
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9974683544303797
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002531645569620253
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9974683544303797
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008860759493670885
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9911392405063291
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013924050632911394
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9860759493670886
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007594936708860759
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9924050632911392
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012658227848101266
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9873417721518988
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.05189873417721518
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9481012658227849
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01612903225806452
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9838709677419355
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03548387096774194
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.964516129032258
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03870967741935484
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9612903225806452
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.004838709677419355
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9951612903225806
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.004838709677419355
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9951612903225806
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9935483870967742
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.006451612903225823
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                    "display": "Fracture of the neck"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "A cervical fracture, commonly called a broken neck, is a catastrophic fracture of any of the seven cervical vertebrae in the neck. Examples of common causes in humans are traffic collisions and diving into shallow water. Abnormal movement of neck bones or pieces of bone can cause a spinal cord injury resulting in loss of sensation, paralysis, or death.",
+                "Within all the people who go to their doctor with fracture of the neck, 83% report having hip pain, 36% report having low back pain, and 29% report having leg pain. The symptoms that are highly suggestive of fracture of the neck are hip pain, symptoms of bladder, and low self-esteem, although you may still have fracture of the neck without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.83,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.17000000000000004,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Hip pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "033c50c5dd2a1827e4ab715eb072f4dc72eb152451653cd2ace30470",
+                "display": "Hip pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.36,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.64,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Low back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "494588229efd3c7c08fbb212c8c77e3c69461275697efd3040d58391",
+                "display": "Low back pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.29,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.71,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Leg pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "261dcc2046e2ab046e8cb37ac4f4c28c85aec8c245965b2febc8c34a",
+                "display": "Leg pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.22,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.78,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Groin pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.22,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.78,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Side pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "71d03f6bcb415d02dd4cb37dc68d6c2834e072ed821e4e82b47de516",
+                "display": "Side pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "71d03f6bcb415d02dd4cb37dc68d6c2834e072ed821e4e82b47de516",
+                "display": "Side pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.22,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.78,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Elbow pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1ed8eee352fcd4f149dda8fb8bee7a17910cac2bed12b7b3e7f5ae4f",
+                "display": "Elbow pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1ed8eee352fcd4f149dda8fb8bee7a17910cac2bed12b7b3e7f5ae4f",
+                "display": "Elbow pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Lower body pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76dd9d1c37202d59185d7caa72fe76a58360dcc13b872131f8251ebd",
+                "display": "Lower body pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Symptoms of bladder",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "861dc93ed5cd1c489df17a6c447b0af95cae81eedcd4e0e97e7fa0fe",
+                "display": "Symptoms of bladder (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Low self-esteem",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1398095a0b97a5279ba912b8059ef50ff6af32d32f9b48c0386e668",
+                "display": "Low self-esteem"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1398095a0b97a5279ba912b8059ef50ff6af32d32f9b48c0386e668",
+                "display": "Low self-esteem (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Regurgitation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c01ba38d0c05b3a2135b2b215cac4775495e04967a7020bccfebd698",
+                "display": "Fracture of the neck"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88f4773871f52c171fb974858cb6f9f14e1791bd04a1cab1cca3b5c2",
+                "display": "Regurgitation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88f4773871f52c171fb974858cb6f9f14e1791bd04a1cab1cca3b5c2",
+                "display": "Regurgitation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Fracture of the neck_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Balanitis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03790849673202614
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9620915032679739
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03986928104575163
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9601307189542484
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00915032679738562
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9908496732026144
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0026143790849673205
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9973856209150327
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00196078431372549
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9980392156862745
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0032679738562091504
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9967320261437909
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00196078431372549
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9980392156862745
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0032679738562091504
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9967320261437909
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09090909090909091
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9090909090909091
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.009090909090909092
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.990909090909091
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016666666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9833333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.040740740740740744
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9592592592592593
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.012962962962962963
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.987037037037037
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014814814814814815
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9851851851851852
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014814814814814815
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9851851851851852
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.980246913580247
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01975308641975304
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                    "display": "Balanitis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Balanitis (/b\u00e6l\u0259\u02c8na\u026at\u026as/; from Greek: \u03b2\u03ac\u03bb\u03b1\u03bd\u03bf\u03c2 balanos \"acorn\") is inflammation of the glans penis. When the foreskin is also affected, it is termed balanoposthitis.",
+                "Within all the people who go to their doctor with balanitis, 73% report having penis redness, 53% report having penis pain, and 47% report having diaper rash. The symptoms that are highly suggestive of balanitis are penis redness, penis pain, diaper rash, and penile discharge, although you may still have balanitis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.73,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.27,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Penis redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "62a086c34b1cf0ebd1c7e78fb1411fe6ba011ef1f0a5037c47c45fde",
+                "display": "Penis redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "62a086c34b1cf0ebd1c7e78fb1411fe6ba011ef1f0a5037c47c45fde",
+                "display": "Penis redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.53,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.47,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Penis pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "51f89bfb2b2ae18320e806c5150ced732ee30cd23c4c09d284e78db8",
+                "display": "Penis pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "51f89bfb2b2ae18320e806c5150ced732ee30cd23c4c09d284e78db8",
+                "display": "Penis pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.47,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.53,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Diaper rash",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c85f1942bfa61983437cb3c8e44ebd826055d28f9e7c724c73ee7a2e",
+                "display": "Diaper rash"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c85f1942bfa61983437cb3c8e44ebd826055d28f9e7c724c73ee7a2e",
+                "display": "Diaper rash (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.43,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.5700000000000001,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Skin rash",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8666a538fa7d128654725f1fa34e6c44a6091ed458d644d5bbfd753a",
+                "display": "Skin rash"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8666a538fa7d128654725f1fa34e6c44a6091ed458d644d5bbfd753a",
+                "display": "Skin rash (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Abnormal appearing skin",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin (finding)"
+            },
+            "remarks": [
+                "\"Birthmarks\" is the fourth episode of the fifth season of House and the ninetieth episode overall. It aired on October 14, 2008."
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Painful urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85ec196b9fcfd32cbdee5a044b20d7c406ff7846cb02be6803c93ba2",
+                "display": "Painful urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Suprapubic pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "703cf77867ac879e0da8b007eefe9d407476a0cdaf1132c11066081f",
+                "display": "Suprapubic pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "703cf77867ac879e0da8b007eefe9d407476a0cdaf1132c11066081f",
+                "display": "Suprapubic pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Penile discharge",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "74662d3d2ede018a2a4b417fc04fbff969b937c9b60c5bda367b8e07",
+                "display": "Penile discharge"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "74662d3d2ede018a2a4b417fc04fbff969b937c9b60c5bda367b8e07",
+                "display": "Penile discharge (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Skin lesion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.2,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.8,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Itching of skin",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5ef46e8bd99562e0d5a60f3dacc7a154bf81e2f6602b50768fe8bff1",
+                "display": "Balanitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1eb24b0e1a3aad2f99aaa1cc9132cfc4918ebf15d2ec0bf6c3dc5c29",
+                "display": "Itching of skin"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1eb24b0e1a3aad2f99aaa1cc9132cfc4918ebf15d2ec0bf6c3dc5c29",
+                "display": "Itching of skin (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Balanitis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

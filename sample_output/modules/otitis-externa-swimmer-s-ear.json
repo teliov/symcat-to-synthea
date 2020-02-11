@@ -1,0 +1,868 @@
+{
+    "name": "Otitis externa (swimmer's ear)",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007058823529411764
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9929411764705882
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015294117647058824
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9847058823529412
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.031764705882352945
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9682352941176471
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012941176470588237
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9870588235294118
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.011764705882352941
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9882352941176471
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.009411764705882354
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9905882352941177
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0058823529411764705
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9941176470588236
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0058823529411764705
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9941176470588236
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.018421052631578946
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9815789473684211
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02631578947368421
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9736842105263158
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.028947368421052635
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9710526315789474
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013157894736842105
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9868421052631579
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013157894736842105
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9868421052631579
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9824561403508771
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.01754385964912286
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                    "display": "Otitis externa (swimmer's ear)"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Otitis externa (also known as \"External otitis\" and \"Swimmer's ear\") is an inflammation of the outer ear and ear canal. Along with otitis media, external otitis is one of the two human conditions commonly called \"earache\". It also occurs in many other species. Inflammation of the skin of the ear canal is the essence of this disorder. The inflammation can be secondary to dermatitis (eczema) only, with no microbial infection, or it can be caused by active bacterial or fungal infection. In either case, but more often with infection, the ear canal skin swells and may become painful or tender to touch.",
+                "Within all the people who go to their doctor with otitis externa (swimmer's ear), 94% report having ear pain, 38% report having fluid in ear, and 36% report having redness in ear. The symptoms that are highly suggestive of otitis externa (swimmer's ear) are ear pain, fluid in ear, redness in ear, plugged feeling in ear, diminished hearing, itchy ear(s), and bleeding from ear, although you may still have otitis externa (swimmer's ear) without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.94,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.06000000000000005,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Ear pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9e92a664bbfb42fddcfb860748e7db35963ff4264ecf32add4b9f095",
+                "display": "Ear pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.38,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.62,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Fluid in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6e5679e114a5650a48fd9620496e66033d4f5cca4933106a4f60b75a",
+                "display": "Fluid in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.36,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.64,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Redness in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "826e6ed0530a1223f5fa8a030f66db758ef3eabcccb2f47488847192",
+                "display": "Redness in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "826e6ed0530a1223f5fa8a030f66db758ef3eabcccb2f47488847192",
+                "display": "Redness in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.34,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.6599999999999999,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Plugged feeling in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Sore throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.17,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.83,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Facial pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Itchy ear(s)",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ac51d117e705cf95ff09aafaa06a6dfd52ac3abae595931aff59cdcf",
+                "display": "Itchy ear(s)"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ac51d117e705cf95ff09aafaa06a6dfd52ac3abae595931aff59cdcf",
+                "display": "Itchy ear(s) (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Bleeding from ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2a2d873eca10a3e9b5b18f215baedcd62081c786f9e487aebdb7c1cd",
+                "display": "Bleeding from ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2a2d873eca10a3e9b5b18f215baedcd62081c786f9e487aebdb7c1cd",
+                "display": "Bleeding from ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.07,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.9299999999999999,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Ringing in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "76d349cb111e5a6012d17b4d172bc1e3722aa3fb9eae0ffe65c17092",
+                "display": "Otitis externa (swimmer's ear)"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Otitis externa (swimmer's ear)_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

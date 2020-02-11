@@ -1,0 +1,868 @@
+{
+    "name": "Head and neck cancer",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984848484848485
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9984848484848485
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006060606060606061
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9939393939393939
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.025757575757575757
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9742424242424242
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04393939393939394
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.956060606060606
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02121212121212121
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9787878787878788
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.07727272727272727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9227272727272727
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.022727272727272728
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9772727272727273
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9766666666666667
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016666666666666666
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9833333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.043333333333333335
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9566666666666667
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.008333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9916666666666667
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.008333333333333333
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9916666666666667
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9888888888888889
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.011111111111111072
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                    "display": "Head and neck cancer"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Head and neck cancer refers to a group of biologically similar cancers that start in the lip, oral cavity (mouth), nasal cavity (inside the nose), paranasal sinuses, pharynx, and larynx. 90% of head and neck cancers are squamous cell carcinomas (SCCHN), originating from the mucosal lining (epithelium) of these regions. Head and neck cancers often spread to the lymph nodes of the neck, and this is often the first (and sometimes only) sign of the disease at the time of diagnosis. Head and neck cancer is strongly associated with certain environmental and lifestyle risk factors, including tobacco smoking, alcohol consumption, UV light, particular chemicals used in certain workplaces, and certain strains of viruses, such as human papillomavirus. These cancers are frequently aggressive in their biologic behavior; patients with these types of cancer are at a higher risk of developing another cancer in the head and neck area. Head and neck cancer is highly curable if detected early, usually with some form of surgery, but radiation therapy may also play an important role, while chemotherapy is often ineffective. The 2009 estimated number of head and neck cancer in the US is of 35,720 new cases.",
+                "Within all the people who go to their doctor with head and neck cancer, 28% report having sore throat, 23% report having difficulty in swallowing, and 15% report having mouth pain. The symptoms that are highly suggestive of head and neck cancer are mouth pain, throat feels tight, tongue lesions, tongue pain, and bleeding in mouth, although you may still have head and neck cancer without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sore throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b4b566d519722b9d15464c7b0d78ba643f85d0d144da43a666dc8094",
+                "display": "Sore throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Difficulty in swallowing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Mouth pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "89f713b2759b5edb8ae11d88971f3ffd20f53ae9815e033be732dfba",
+                "display": "Mouth pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Throat feels tight",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9b0bdaa4d4d1e7e5c28e8cff38aa8872a83362d7d2757b1f8d3dfdee",
+                "display": "Throat feels tight"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9b0bdaa4d4d1e7e5c28e8cff38aa8872a83362d7d2757b1f8d3dfdee",
+                "display": "Throat feels tight (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Facial pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "72a054b2b7aca4530e13f7f4886982f99f51a5deda8793b8927a43a0",
+                "display": "Facial pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Hoarse voice",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e0bf72b1e83e13dbc5cc8db5595a6fa6c8a81416372e90571bf16ca4",
+                "display": "Hoarse voice"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e0bf72b1e83e13dbc5cc8db5595a6fa6c8a81416372e90571bf16ca4",
+                "display": "Hoarse voice (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.1,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.9,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Neck mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6c08d0a0b34a31f00367f163d595dc42cae10f4793b66ad89d600936",
+                "display": "Neck mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6c08d0a0b34a31f00367f163d595dc42cae10f4793b66ad89d600936",
+                "display": "Neck mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Plugged feeling in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ec07aea60ba80c5a3263f95235c15e7b06eb503b0e7f1bbd9ae06c3c",
+                "display": "Plugged feeling in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Tongue lesions",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3ccf25410a97805252ba29fb9417f47651df7da7b5bf8c79ba1f46dc",
+                "display": "Tongue lesions"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3ccf25410a97805252ba29fb9417f47651df7da7b5bf8c79ba1f46dc",
+                "display": "Tongue lesions (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Hemoptysis",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fce3a9d81b8660d5a6d3ed09f4a801d0b35045777842a450d2b0c04d",
+                "display": "Hemoptysis"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fce3a9d81b8660d5a6d3ed09f4a801d0b35045777842a450d2b0c04d",
+                "display": "Hemoptysis (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Tongue pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1d12575e23e797261a1f6c215d94a778fb1b2b3abfec1cce81e43514",
+                "display": "Tongue pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1d12575e23e797261a1f6c215d94a778fb1b2b3abfec1cce81e43514",
+                "display": "Tongue pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.06,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.94,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Bleeding in mouth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "dd537bbbdd3fdcabafe3aa6f7b89c04c8cc1f483f4575717ecaa1c05",
+                "display": "Head and neck cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2f66ceec3c15d5417295dce834664e4234b0421693f5609838487129",
+                "display": "Bleeding in mouth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2f66ceec3c15d5417295dce834664e4234b0421693f5609838487129",
+                "display": "Bleeding in mouth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Head and neck cancer_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

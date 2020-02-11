@@ -1,0 +1,868 @@
+{
+    "name": "Acute bronchiolitis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.07741935483870968
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9225806451612903
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.020564516129032255
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9794354838709678
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0012096774193548388
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9987903225806452
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0004032258064516129
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9995967741935484
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0004032258064516129
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9995967741935484
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06666666666666668
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9333333333333333
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.03333333333333334
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9666666666666667
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02549019607843137
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9745098039215686
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03137254901960784
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9686274509803922
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01372549019607843
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9862745098039216
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014705882352941175
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9852941176470589
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.014705882352941175
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9852941176470589
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9803921568627451
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.019607843137254943
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                    "display": "Acute bronchiolitis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Bronchiolitis is inflammation of the bronchioles, the smallest air passages of the lungs. It usually occurs in children less than two years of age with the majority being aged between three and six months. It presents with coughing, wheezing and shortness of breath which can cause some children difficulty feeding. This inflammation is usually caused by respiratory syncytial virus (70% of cases) and is much more common in the winter months. Treatment is typically supportive and may involve the use of nebulized epinephrine or hypertonic saline. Bronchiolitis is common with up to one third of children being affected in their first year of life.",
+                "Within all the people who go to their doctor with acute bronchiolitis, 91% report having cough, 78% report having fever, and 76% report having nasal congestion. The symptoms that are highly suggestive of acute bronchiolitis are wheezing, although you may still have acute bronchiolitis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.91,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.08999999999999997,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.78,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.21999999999999997,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Fever",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "dd52980213ed3f58007375b494cf13182420dd104acf39cb84c683ab",
+                "display": "Fever (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.76,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.24,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Nasal congestion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "212a9650524fcaac378c1bd175f37a240e2cbd8718317c634530f963",
+                "display": "Nasal congestion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "212a9650524fcaac378c1bd175f37a240e2cbd8718317c634530f963",
+                "display": "Nasal congestion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.59,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.41000000000000003,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Wheezing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e9190b5443ac1fb07154398db57f75adf126412d0cc42fa30e799ce5",
+                "display": "Wheezing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e9190b5443ac1fb07154398db57f75adf126412d0cc42fa30e799ce5",
+                "display": "Wheezing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.56,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.43999999999999995,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Difficulty breathing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fb8e059b5629b6190a92884d3dae262b5af0a7647deade7e425724ee",
+                "display": "Difficulty breathing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fb8e059b5629b6190a92884d3dae262b5af0a7647deade7e425724ee",
+                "display": "Difficulty breathing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Coryza",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1fb2f7eb2813c5f10a1a5f9f460e010fefede0e7594a57c1705ecc43",
+                "display": "Coryza (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.18,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.8200000000000001,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Decreased appetite",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "69da782bec6e0561cd02bb9b6fb1242010ce034adab4ef0569d32463",
+                "display": "Decreased appetite"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "69da782bec6e0561cd02bb9b6fb1242010ce034adab4ef0569d32463",
+                "display": "Decreased appetite (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Irritable infant",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "32f427ab99bce716982b3d7820f9ffecc6d4970fc88da9fa5729da48",
+                "display": "Irritable infant"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "32f427ab99bce716982b3d7820f9ffecc6d4970fc88da9fa5729da48",
+                "display": "Irritable infant (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Pulling at ears",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1cebbff2518142ae65b17786c874279ba6596421377b9433fab04ffc",
+                "display": "Pulling at ears"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1cebbff2518142ae65b17786c874279ba6596421377b9433fab04ffc",
+                "display": "Pulling at ears (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Hurts to breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "d48e92b604cf85e5d65a0a8abd6ec747d1b2409bddde6d77edb6159b",
+                "display": "Acute bronchiolitis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8ecefd608d13429302287e01f56ca67ffe8800643c021a8080ea291d",
+                "display": "Hurts to breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8ecefd608d13429302287e01f56ca67ffe8800643c021a8080ea291d",
+                "display": "Hurts to breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Acute bronchiolitis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

@@ -1,0 +1,868 @@
+{
+    "name": "Spina bifida",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.020588235294117647
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9794117647058823
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.018627450980392153
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9813725490196078
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02745098039215686
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9725490196078431
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.010784313725490196
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9892156862745098
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.006862745098039215
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9931372549019608
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00392156862745098
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996078431372549
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00392156862745098
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996078431372549
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.00784313725490196
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9921568627450981
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.017142857142857144
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9828571428571429
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.04
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.96
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03142857142857143
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9685714285714285
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.005714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9942857142857143
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.005714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9942857142857143
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9923809523809524
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.007619047619047636
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                    "display": "Spina bifida"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Spina bifida (Latin: \"split spine\") is a developmental congenital disorder caused by the incomplete closing of the embryonic neural tube. Some vertebrae overlying the spinal cord are not fully formed and remain unfused and open. If the opening is large enough, this allows a portion of the spinal cord to protrude through the opening in the bones. There may or may not be a fluid-filled sac surrounding the spinal cord. Other neural tube defects include anencephaly, a condition in which the portion of the neural tube that will become the cerebrum does not close, and encephalocele, which results when other parts of the brain remain unfused.",
+                "Within all the people who go to their doctor with spina bifida, 35% report having back pain, 33% report having skin lesion, and 25% report having headache. The symptoms that are highly suggestive of spina bifida are eye moves abnormally, feet turned in, and poor circulation, although you may still have spina bifida without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.35,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.65,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.33,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.6699999999999999,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Skin lesion",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44c13a28422eebfffbdc9eccd72925136a1ec488019534291b013c46",
+                "display": "Skin lesion (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.12,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.88,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Involuntary urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e8ab05a92798047e11c91912bcfc71aabe3f1531809b0631673b5212",
+                "display": "Involuntary urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.09,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.91,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Joint pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.09,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.91,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Disturbance of memory",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "95f80eabeb5f350bf8ea0d6b2331936864fd539668570b5e27116d6e",
+                "display": "Disturbance of memory"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "95f80eabeb5f350bf8ea0d6b2331936864fd539668570b5e27116d6e",
+                "display": "Disturbance of memory (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Drainage in throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a7f9c921a60e5c8f5a8b590da7dfb0e60fadef6b600e5984a482063f",
+                "display": "Drainage in throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a7f9c921a60e5c8f5a8b590da7dfb0e60fadef6b600e5984a482063f",
+                "display": "Drainage in throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Eye moves abnormally",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ae59ce5da84c436e2aa728070c13b809b69b108814a244efbae26825",
+                "display": "Eye moves abnormally"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ae59ce5da84c436e2aa728070c13b809b69b108814a244efbae26825",
+                "display": "Eye moves abnormally (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Feet turned in",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b41321a6ba6cb6844e7ddc395f952f97919ff673cc1b40737e3e2f63",
+                "display": "Feet turned in"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b41321a6ba6cb6844e7ddc395f952f97919ff673cc1b40737e3e2f63",
+                "display": "Feet turned in (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Ringing in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Poor circulation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c7156270815d7d0c8ae7151c9625e9f814bc4fc64412f5ffc894e47a",
+                "display": "Poor circulation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c7156270815d7d0c8ae7151c9625e9f814bc4fc64412f5ffc894e47a",
+                "display": "Poor circulation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Leg weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "2e8951906c57ed794847a4c959eec54c508c1525a185a56f83dee4d6",
+                "display": "Spina bifida"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Spina bifida_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

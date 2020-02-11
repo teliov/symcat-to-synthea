@@ -1,0 +1,868 @@
+{
+    "name": "Achalasia",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0030303030303030303
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996969696969697
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007575757575757576
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9924242424242424
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0196969696969697
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9803030303030303
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9848484848484849
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030303030303030304
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9696969696969697
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024242424242424242
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9757575757575757
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.03684210526315789
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9631578947368421
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06315789473684211
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9368421052631579
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03103448275862069
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9689655172413794
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013793103448275864
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9862068965517241
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.04482758620689655
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9551724137931035
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.005172413793103448
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9948275862068966
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.005172413793103448
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9948275862068966
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.993103448275862
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.006896551724137945
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                    "display": "Achalasia"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Achalasia /e\u026ak\u0259\u02c8le\u026azi\u0259/, also known as esophageal achalasia, achalasia cardiae, cardiospasm, and esophageal aperistalsis, is an esophageal motility disorder involving the smooth muscle layer of the esophagus and the lower esophageal sphincter (LES). It is characterized by incomplete LES relaxation, increased LES tone, and lack of peristalsis of the esophagus (inability of smooth muscle to move food down the esophagus) in the absence of other explanations like cancer or fibrosis.",
+                "Within all the people who go to their doctor with achalasia, 80% report having sharp chest pain, 71% report having difficulty in swallowing, and 31% report having regurgitation. The symptoms that are highly suggestive of achalasia are difficulty in swallowing, regurgitation, hurts to breath, throat feels tight, and lump in throat, although you may still have achalasia without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.8,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.19999999999999996,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.71,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.29000000000000004,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Difficulty in swallowing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "aa767f3d9127d6d8b06c149a87fdf6897b55e517caded15ebd273379",
+                "display": "Difficulty in swallowing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Back pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f1e386f5773e030aa2451368ccc79679145f798b75fa38179b2e1bce",
+                "display": "Back pain (finding)"
+            },
+            "remarks": [
+                "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Regurgitation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88f4773871f52c171fb974858cb6f9f14e1791bd04a1cab1cca3b5c2",
+                "display": "Regurgitation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88f4773871f52c171fb974858cb6f9f14e1791bd04a1cab1cca3b5c2",
+                "display": "Regurgitation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Hurts to breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8ecefd608d13429302287e01f56ca67ffe8800643c021a8080ea291d",
+                "display": "Hurts to breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8ecefd608d13429302287e01f56ca67ffe8800643c021a8080ea291d",
+                "display": "Hurts to breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.23,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.77,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Throat feels tight",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9b0bdaa4d4d1e7e5c28e8cff38aa8872a83362d7d2757b1f8d3dfdee",
+                "display": "Throat feels tight"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9b0bdaa4d4d1e7e5c28e8cff38aa8872a83362d7d2757b1f8d3dfdee",
+                "display": "Throat feels tight (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Rib pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76c0b503ad830cb80a2ba2ec4fc9a394845b73b9a34d9e277d8c3b33",
+                "display": "Rib pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76c0b503ad830cb80a2ba2ec4fc9a394845b73b9a34d9e277d8c3b33",
+                "display": "Rib pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Lump in throat",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "146cbb323984eaa8a6a8eae776027df278ca775e72e3b5a09ca2fc27",
+                "display": "Lump in throat"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "146cbb323984eaa8a6a8eae776027df278ca775e72e3b5a09ca2fc27",
+                "display": "Lump in throat (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Cramps and spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9b5117697d7a0b8d17d6dba88ab5ec2dd8b870a812e28654811ffc49",
+                "display": "Cramps and spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Hoarse voice",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e0bf72b1e83e13dbc5cc8db5595a6fa6c8a81416372e90571bf16ca4",
+                "display": "Hoarse voice"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e0bf72b1e83e13dbc5cc8db5595a6fa6c8a81416372e90571bf16ca4",
+                "display": "Hoarse voice (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Chest tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "481023875ba3d90788c3101ac66a02271702156637526b8b899b1705",
+                "display": "Achalasia"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ed999058533c037cb6bd3069ccd2d4b533023ceb40acb5d316bb5730",
+                "display": "Chest tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ed999058533c037cb6bd3069ccd2d4b533023ceb40acb5d316bb5730",
+                "display": "Chest tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Achalasia_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

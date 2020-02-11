@@ -1,0 +1,868 @@
+{
+    "name": "Rheumatoid arthritis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.003125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.996875
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0109375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9890625
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.028125
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.971875
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.034375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.965625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0234375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9765625
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.02631578947368421
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9736842105263158
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.07368421052631578
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9263157894736842
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0225
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9775
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013750000000000002
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013750000000000002
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.98625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9816666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.018333333333333313
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                    "display": "Rheumatoid arthritis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Rheumatoid arthritis (RA) is an autoimmune disease that results in a chronic, systemic inflammatory disorder that may affect many tissues and organs, but principally attacks flexible (synovial) joints. It can be a disabling and painful condition, which can lead to substantial loss of functioning and mobility if not adequately treated.",
+                "Within all the people who go to their doctor with rheumatoid arthritis, 43% report having joint pain, 42% report having knee pain, and 29% report having ache all over. The symptoms that are highly suggestive of rheumatoid arthritis are joint pain, joint swelling, and hand or finger weakness, although you may still have rheumatoid arthritis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.43,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.5700000000000001,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Joint pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "36aa13639a906a81d4e9e327856a8b6e4b984a5b8adfc1ed2b68a54b",
+                "display": "Joint pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Knee pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d093675157fbff9298b5c51408e66417cd677f5a944ec1361d5edfc0",
+                "display": "Knee pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.29,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.71,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Ache all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "578cf375931714cd6e15e58438a0250d2088d84c3f927500eae9ed83",
+                "display": "Ache all over (finding)"
+            },
+            "remarks": [
+                "Myalgia, or muscle pain, is a symptom of many diseases and disorders. The most common causes are the overuse or over-stretching of a muscle or group of muscles. Myalgia without a traumatic history is often due to viral infections. Longer-term myalgias may be indicative of a metabolic myopathy, some nutritional deficiencies or chronic fatigue syndrome."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.28,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.72,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Hand or finger pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3ca78b21ceb10d94f111682530f05c59501c2bb6856d84705ef2d2dc",
+                "display": "Hand or finger pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Wrist pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1c041889187bf4d3a2a4d3e07aaeca7f4c4cc535002bc398aef4c422",
+                "display": "Wrist pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1c041889187bf4d3a2a4d3e07aaeca7f4c4cc535002bc398aef4c422",
+                "display": "Wrist pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.13,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.87,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Peripheral edema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "87f0ba940716ae5cf22b6453690625a81328c2a0d75ad2900d0c35b0",
+                "display": "Peripheral edema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.09,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.91,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Hand or finger swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "10d3045ab5f6b28962f66eb142f026e29440061788e3e070bd64c094",
+                "display": "Hand or finger swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "10d3045ab5f6b28962f66eb142f026e29440061788e3e070bd64c094",
+                "display": "Hand or finger swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.05,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.95,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Joint swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "500d581fe1745f9bfc7605bd608b9e1b6d17951d274b6ac0609ac815",
+                "display": "Joint swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "500d581fe1745f9bfc7605bd608b9e1b6d17951d274b6ac0609ac815",
+                "display": "Joint swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Hand or finger weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "858332075a98c33310e5de37dc4290c3552a07c39e394631e011a5fe",
+                "display": "Hand or finger weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "858332075a98c33310e5de37dc4290c3552a07c39e394631e011a5fe",
+                "display": "Hand or finger weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.04,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.96,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Elbow swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "13f0347d45dcb52be8e1a7106877695a1d190eab69abc907ebca2602",
+                "display": "Elbow swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "13f0347d45dcb52be8e1a7106877695a1d190eab69abc907ebca2602",
+                "display": "Elbow swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Wrist swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "73069be93b329f19709df9e5fadcbbb3b35e1e1553b3f3aebac891b3",
+                "display": "Wrist swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "73069be93b329f19709df9e5fadcbbb3b35e1e1553b3f3aebac891b3",
+                "display": "Wrist swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Stiffness all over",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "c3048ea561b383ffc6d94bc5e74c0a5f40250b3f3ba78df93debce8f",
+                "display": "Rheumatoid arthritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "aeb52985328d38f37279d063ae81f0bcdca2232c7468b5f69591a7cb",
+                "display": "Stiffness all over"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "aeb52985328d38f37279d063ae81f0bcdca2232c7468b5f69591a7cb",
+                "display": "Stiffness all over (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Rheumatoid arthritis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

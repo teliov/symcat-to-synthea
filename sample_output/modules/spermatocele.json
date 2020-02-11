@@ -1,0 +1,868 @@
+{
+    "name": "Spermatocele",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.008771929824561403
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9912280701754386
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.015789473684210527
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9842105263157894
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.043859649122807015
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.956140350877193
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01929824561403509
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.980701754385965
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.012280701754385965
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.987719298245614
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.09999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.006060606060606061
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9939393939393939
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015151515151515152
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9848484848484849
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.04242424242424242
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9575757575757575
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9818181818181818
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01818181818181818
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9818181818181818
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9757575757575757
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.024242424242424288
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                    "display": "Spermatocele"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Spermatocele (/sp\u025cr\u02c8m\u00e6t\u0259si\u02d0l/) is a retention cyst of a tubule of the rete testis or the head of the epididymis distended with barely watery fluid that contains spermatozoa. Spermatoceles are the most common cystic condition encountered within the scrotum. They vary in size from several millimeters to many centimeters. Spermatoceles are generally not painful. However, some men may experience discomfort from larger spermatoceles. They are harmless.",
+                "Within all the people who go to their doctor with spermatocele, 75% report having pain in testicles, 60% report having mass in scrotum, and 41% report having swelling of scrotum. The symptoms that are highly suggestive of spermatocele are pain in testicles, mass in scrotum, swelling of scrotum, retention of urine, groin pain, impotence, leg lump or mass, muscle swelling, low back weakness, and elbow weakness, although you may still have spermatocele without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.75,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.25,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Pain in testicles",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fd42985ea19c7dffd6b22d18c4279f3a1c9e2193f01d6d2a6f1ad944",
+                "display": "Pain in testicles"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fd42985ea19c7dffd6b22d18c4279f3a1c9e2193f01d6d2a6f1ad944",
+                "display": "Pain in testicles (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.6,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.4,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Mass in scrotum",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "fc91229b566e3c4d36bead9a18fe11de98cf48c1828f83db5a0783ca",
+                "display": "Mass in scrotum"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "fc91229b566e3c4d36bead9a18fe11de98cf48c1828f83db5a0783ca",
+                "display": "Mass in scrotum (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Swelling of scrotum",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "eff5873b3091cbd4b9e86c684c7f0297e5a2518b8d6e4cab54e3943c",
+                "display": "Swelling of scrotum"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "eff5873b3091cbd4b9e86c684c7f0297e5a2518b8d6e4cab54e3943c",
+                "display": "Swelling of scrotum (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Retention of urine",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "65cf27f0990fc011a797a3657ef5602d968d838f304feeb82900e148",
+                "display": "Retention of urine (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.41,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.5900000000000001,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Groin pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Frequent urination",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9fc95fa89a9f8756ae27b6824034373d88652b09a934eebaf7ec1c49",
+                "display": "Frequent urination (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Skin growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "16f017cd17bc6573e35610984e0a362e0dce7cd47663a9dfdb7c5c59",
+                "display": "Skin growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "16f017cd17bc6573e35610984e0a362e0dce7cd47663a9dfdb7c5c59",
+                "display": "Skin growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Impotence",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3fb832b201f13088f92d8791bd918471622d0090662f1e3ec60da957",
+                "display": "Impotence (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Leg lump or mass",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a2617ffd6e36ecb07e82cc458db5a3b374a746aada9b40b393a787b0",
+                "display": "Leg lump or mass"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a2617ffd6e36ecb07e82cc458db5a3b374a746aada9b40b393a787b0",
+                "display": "Leg lump or mass (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Muscle swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "49d55a1583e5c5c2b5f641e21ebe344dae9b12de07aceec7adf0e109",
+                "display": "Muscle swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "49d55a1583e5c5c2b5f641e21ebe344dae9b12de07aceec7adf0e109",
+                "display": "Muscle swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Low back weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "476bad35e8a32319824e7a0653397cce0437e215b7c077b8bb7edb09",
+                "display": "Low back weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "476bad35e8a32319824e7a0653397cce0437e215b7c077b8bb7edb09",
+                "display": "Low back weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.02,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.98,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Elbow weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "a7be7edaec17421d2953df5fd912a5646bde485357fded1c25c2fbe0",
+                "display": "Spermatocele"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3e7166f6b9c7f979748fa0e224454da80a0b3d4d608a1422f5caed8f",
+                "display": "Elbow weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3e7166f6b9c7f979748fa0e224454da80a0b3d4d608a1422f5caed8f",
+                "display": "Elbow weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Spermatocele_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

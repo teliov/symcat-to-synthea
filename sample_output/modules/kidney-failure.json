@@ -1,0 +1,868 @@
+{
+    "name": "Kidney failure",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014492753623188406
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985507246376811
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002898550724637681
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9971014492753624
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.002898550724637681
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9971014492753624
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.010144927536231883
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9898550724637681
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.021739130434782608
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9782608695652174
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030434782608695653
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9695652173913043
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.030434782608695653
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9695652173913043
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06190476190476191
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9380952380952381
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0380952380952381
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9619047619047619
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.032
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.968
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022000000000000002
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.978
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.013999999999999999
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.986
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.984
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.016
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.984
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9786666666666667
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.021333333333333315
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                    "display": "Kidney failure"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Renal failure (also kidney failure or renal insufficiency) is a medical condition in which the kidneys fail to adequately filter waste products from the blood. The two main forms are acute kidney injury, which is often reversible with adequate treatment, and chronic kidney disease, which is often not reversible. In both cases, there is usually an underlying cause.",
+                "Within all the people who go to their doctor with kidney failure, 43% report having shortness of breath, 26% report having nausea, and 25% report having weakness. The symptoms that are highly suggestive of kidney failure are symptoms of the kidneys, although you may still have kidney failure without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.43,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.5700000000000001,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Shortness of breath",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5735a067988a40cacdab9d1b8a5d148e5a739979634a5f0974122f17",
+                "display": "Shortness of breath (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.26,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.74,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Nausea",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1b4c06c3ea6ab83d933b1980b6738a683aec3825b3f73a390c0c741",
+                "display": "Nausea (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "88e3734465cfa73e79558a79b395d4492318ce1decdecd7409af6134",
+                "display": "Weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Sharp chest pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "23aa4195d51eb504527500d89651b974ff771aa140a2b204c631682f",
+                "display": "Sharp chest pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.24,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.76,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.11,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.89,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Symptoms of the kidneys",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.09,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.91,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Arm swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6bd28415c30cdde6de027574aa79c61dbfd3335349a9f11feb741d84",
+                "display": "Arm swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6bd28415c30cdde6de027574aa79c61dbfd3335349a9f11feb741d84",
+                "display": "Arm swelling (finding)"
+            },
+            "remarks": [
+                "Arm swelling is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Leg swelling",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e63f20ea0b9ced31e9f46abf863908a9bf9da37b62e025c48a515647",
+                "display": "Leg swelling"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e63f20ea0b9ced31e9f46abf863908a9bf9da37b62e025c48a515647",
+                "display": "Leg swelling (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Muscle cramps, contractures, or spasms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "546eb8f1cb9689d1bc3955d92051f66b431f64522f1c4683923d47bc",
+                "display": "Muscle cramps, contractures, or spasms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Swollen abdomen",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "16c962bc1abd3c2557f4d0e94e3dc1c98f63b06f9b31a924380a8566",
+                "display": "Swollen abdomen"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "16c962bc1abd3c2557f4d0e94e3dc1c98f63b06f9b31a924380a8566",
+                "display": "Swollen abdomen (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Leg weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "389ecbd4673a240798c23a80ef278bc55f0e9b2fc01d004010addc33",
+                "display": "Leg weakness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.03,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.97,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Lymphedema",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "5efbfbaf271983ade51433c51ddd7b21dc9981e2d0920f1e27720ab7",
+                "display": "Kidney failure"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "814cedacea819158682c930c78298928073ac20e89f6a99e2f739274",
+                "display": "Lymphedema"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "814cedacea819158682c930c78298928073ac20e89f6a99e2f739274",
+                "display": "Lymphedema (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Kidney failure_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

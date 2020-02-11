@@ -1,0 +1,868 @@
+{
+    "name": "Scleritis",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005797101449275362
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9942028985507246
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007246376811594203
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9927536231884058
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.011594202898550725
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9884057971014493
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.014492753623188406
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9855072463768116
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.01594202898550725
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9840579710144928
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.024637681159420288
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9753623188405797
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.020289855072463767
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9797101449275363
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.045
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.955
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05500000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.945
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.03255813953488372
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9674418604651163
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025581395348837212
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9744186046511628
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.020930232558139535
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9790697674418605
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010465116279069767
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9895348837209302
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.010465116279069767
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9895348837209302
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.986046511627907
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.013953488372092981
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                    "display": "Scleritis"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Scleritis is a serious inflammatory disease that affects the white outer coating of the eye, known as the sclera. The disease is often contracted through association with other diseases of the body, such as Wegener's granulomatosis or rheumatoid arthritis; it can also be attained through disorders of menstruation. For this reason, scleritis occurs frequently among young women. There are three types of scleritis: diffuse scleritis (the most common), nodular scleritis, and necrotizing scleritis (the most severe). Scleritis may be the first symptom of onset of connective tissue disease.",
+                "Within all the people who go to their doctor with scleritis, 83% report having pain in eye, 76% report having eye redness, and 42% report having lacrimation. The symptoms that are highly suggestive of scleritis are pain in eye, eye redness, lacrimation, spots or clouds in vision, cloudy eye, vaginal itching, and foreign body sensation in eye, although you may still have scleritis without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.83,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.17000000000000004,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Pain in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "44a1037a8a49395b152add4595ca1e6cb134f491f0dc9c376f0e3519",
+                "display": "Pain in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.76,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.24,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Eye redness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "921789127595258319f67eb0b8cd618a572006e641165e03b13bfb32",
+                "display": "Eye redness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Headache",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "67fe1b0607dced2d78d47eb7b8f2b599c0823043d54f0d875d9e5505",
+                "display": "Headache (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.42,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.5800000000000001,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Lacrimation",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0df780436d68b44d03ff08ef12a43dcca5b9f8fd4e87ce1e5c90263b",
+                "display": "Lacrimation"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0df780436d68b44d03ff08ef12a43dcca5b9f8fd4e87ce1e5c90263b",
+                "display": "Lacrimation (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.32,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.6799999999999999,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Spots or clouds in vision",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "e119b3e5d79a3d8375dcf913bafd96a64199eadcff708fc6d55002b6",
+                "display": "Spots or clouds in vision (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Cloudy eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "004d2a1bcadec845497c95a165b4fa4ba673cc051a2f58114483cea9",
+                "display": "Cloudy eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "004d2a1bcadec845497c95a165b4fa4ba673cc051a2f58114483cea9",
+                "display": "Cloudy eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Symptoms of eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "04d688fc065c8ae55a11c4e3d16222149a78878253d00a238bef69cb",
+                "display": "Symptoms of eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Vaginal itching",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "9ddf38bbb42835924a1acd338b091e5c9d0e92259981b4c47ea3d71a",
+                "display": "Vaginal itching"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "9ddf38bbb42835924a1acd338b091e5c9d0e92259981b4c47ea3d71a",
+                "display": "Vaginal itching (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Pain during pregnancy",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8e2bb984769cf137429d4e251d7a90803937c8e893584aa41ca5798f",
+                "display": "Pain during pregnancy (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Abnormal appearing skin",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "5c94f181def3220a5ab03fdcc58150df5cacfb332acb0c647c18c49c",
+                "display": "Abnormal appearing skin (finding)"
+            },
+            "remarks": [
+                "\"Birthmarks\" is the fourth episode of the fifth season of House and the ninetieth episode overall. It aired on October 14, 2008."
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Foreign body sensation in eye",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "b2e6283fc2fd75907247409f23150b1a24ef4a75c5f45d628b42d135",
+                "display": "Foreign body sensation in eye"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "b2e6283fc2fd75907247409f23150b1a24ef4a75c5f45d628b42d135",
+                "display": "Foreign body sensation in eye (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.19,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.81,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Abnormal involuntary movements",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b6fcf47e190210834b33e9da4e6f8610830011d27f7fa1f03a3d2d0",
+                "display": "Scleritis"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "751cf0c0b031c70d33facce81fe1351d40441b0fce96dc16c9010d76",
+                "display": "Abnormal involuntary movements"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "751cf0c0b031c70d33facce81fe1351d40441b0fce96dc16c9010d76",
+                "display": "Abnormal involuntary movements (finding)"
+            },
+            "remarks": [
+                "Movement disorders include:"
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Scleritis_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

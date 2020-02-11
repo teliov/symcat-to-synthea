@@ -1,0 +1,868 @@
+{
+    "name": "Poisoning due to opioids",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.005454545454545454
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9945454545454545
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.038181818181818185
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9618181818181818
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02727272727272727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9727272727272728
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.021818181818181816
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9781818181818182
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.007272727272727273
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9927272727272727
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.07272727272727274
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9272727272727272
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.02727272727272727
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9727272727272728
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.025
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.975
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.040625
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.959375
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.034375
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.965625
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 1.0
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 1.0
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.0
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                    "display": "Poisoning due to opioids"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Poisoning due to opioids is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
+                "Within all the people who go to their doctor with poisoning due to opioids, 51% report having depressive or psychotic symptoms, 47% report having drug abuse, and 25% report having slurring words. The symptoms that are highly suggestive of poisoning due to opioids are drug abuse, slurring words, difficulty speaking, and arm weakness, although you may still have poisoning due to opioids without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.51,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.49,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Depressive or psychotic symptoms",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3b117c6435324926c1ade3e3a3d0799577f8f66677ea194a1fbdbc4f",
+                "display": "Depressive or psychotic symptoms"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3b117c6435324926c1ade3e3a3d0799577f8f66677ea194a1fbdbc4f",
+                "display": "Depressive or psychotic symptoms (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.47,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.53,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Drug abuse",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "a1e497bd0957305231d83d4455132d90991c916c5b96735c3ea786b5",
+                "display": "Drug abuse"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "a1e497bd0957305231d83d4455132d90991c916c5b96735c3ea786b5",
+                "display": "Drug abuse (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Arm pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "40ec99bf7189c7abde851a3a491f7df312f008ecef8fa64237a0743f",
+                "display": "Arm pain (finding)"
+            },
+            "remarks": [
+                "Arm pain is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Slurring words",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "f46c12c92d2faaf1a289e2d42d281b825b3b6571f4c7eb742f0f043a",
+                "display": "Slurring words (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.25,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.75,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Vomiting",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7d063801e12b750d1176a339c4a5eebf4a39554e7502734e1355ec3d",
+                "display": "Vomiting (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Difficulty speaking",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7757e67bd399478fd93d37dbc1b7da8d0ed11bd382408e6d2ae7ba51",
+                "display": "Difficulty speaking"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7757e67bd399478fd93d37dbc1b7da8d0ed11bd382408e6d2ae7ba51",
+                "display": "Difficulty speaking (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Abusing alcohol",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "36c572503a8f8b783f0da9493c35a8770c9076d6506c63b6eef37e71",
+                "display": "Abusing alcohol"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "36c572503a8f8b783f0da9493c35a8770c9076d6506c63b6eef37e71",
+                "display": "Abusing alcohol (finding)"
+            },
+            "remarks": [
+                "Alcohol abuse, as described in the DSM-IV, is a psychiatric diagnosis describing the recurring use of alcoholic beverages despite its negative consequences. Alcohol abuse is sometimes referred to by the less specific term alcoholism. However, many definitions of alcoholism exist, and only some are compatible with alcohol abuse. There are two types of alcoholics: those who have anti social and pleasure-seeking tendencies, and those who are anxiety-ridden- people who are able to go without drinking for long periods of time but are unable to control themselves once they start.Binge drinking is another form of alcohol abuse. Frequent binge drinking or getting severely drunk more than twice is classed as alcohol misuse. According to research done through international surveys, the heaviest drinkers happen to be the United Kingdom's adolescent generation."
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Feeling ill",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "1b1f54cbd95bfc714772f25c7b5838d918fc4f5a22940763cbae7937",
+                "display": "Feeling ill"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "1b1f54cbd95bfc714772f25c7b5838d918fc4f5a22940763cbae7937",
+                "display": "Feeling ill (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Sleepiness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "6a77a6ea87ea954cdf3daa4bca52c47a3033aacfa45947d2e234c212",
+                "display": "Sleepiness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "6a77a6ea87ea954cdf3daa4bca52c47a3033aacfa45947d2e234c212",
+                "display": "Sleepiness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Arm weakness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "2287055583c0f1f51a8b13906a81ec1104159d1c457d465511aeada6",
+                "display": "Arm weakness (finding)"
+            },
+            "remarks": [
+                "Arm weakness is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest."
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.14,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.86,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Problems with movement",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "9b1b6ff86ff37ed5f482e6d8b975751942cecd3f0517e535a7f741ff",
+                "display": "Poisoning due to opioids"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "192a07d43a6ccaa88d2e4915a22422335137d568ef9489deb5fc4cd8",
+                "display": "Problems with movement (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Poisoning due to opioids_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

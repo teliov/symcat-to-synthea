@@ -1,0 +1,708 @@
+{
+    "name": "Adrenal cancer",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.019565217391304346
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9804347826086957
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.04637681159420289
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9536231884057971
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.023913043478260863
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9760869565217392
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0021739130434782605
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9978260869565218
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0014492753623188404
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9985507246376811
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0028985507246376808
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9971014492753624
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0007246376811594202
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9992753623188406
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0028985507246376808
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9971014492753624
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.05714285714285714
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9428571428571428
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.04285714285714286
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9571428571428572
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.023076923076923078
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9769230769230769
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.015384615384615387
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9846153846153846
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.05000000000000001
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.95
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0057692307692307696
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9942307692307693
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.0057692307692307696
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9942307692307693
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9923076923076923
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.007692307692307665
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                    "display": "Adrenal cancer"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "The term adrenal tumor can refer to one of several benign and malignant neoplasms of the adrenal gland, several of which are notable for their tendency to overproduce endocrine hormones. Adrenal cancer specifically refers to malignant adrenal tumors, which include neuroblastoma, adrenocortical carcinoma, and a minority of adrenal pheochromocytomas. Most adrenal pheochromocytomas and all adrenocortical adenomas are benign tumors, which do not metastasize or invade nearby tissues, but which may still cause significant health problems by giving rise to hormonal imbalances.",
+                "Within all the people who go to their doctor with adrenal cancer, 27% report having skin rash, 27% report having dizziness, and 27% report having cough. The symptoms that are highly suggestive of adrenal cancer are diaper rash, although you may still have adrenal cancer without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Skin rash",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "8666a538fa7d128654725f1fa34e6c44a6091ed458d644d5bbfd753a",
+                "display": "Skin rash"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "8666a538fa7d128654725f1fa34e6c44a6091ed458d644d5bbfd753a",
+                "display": "Skin rash (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Dizziness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "d7c0ea72732278558c9a03c6f9be91b43fae4c51d1f5f355a98bdab0",
+                "display": "Dizziness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.27,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.73,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Cough",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "63a9eea4be08b44d2a55851478530318d0e7434c2a89007eb9109ddd",
+                "display": "Cough (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Diaper rash",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "c85f1942bfa61983437cb3c8e44ebd826055d28f9e7c724c73ee7a2e",
+                "display": "Diaper rash"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "c85f1942bfa61983437cb3c8e44ebd826055d28f9e7c724c73ee7a2e",
+                "display": "Diaper rash (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Sweating",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "22d34b7fa25d9421e77484f2367619a33230b4d591fb658a7a64c0cb",
+                "display": "Sweating (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Chills",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "da019821bdd6e2f2f218d167eb784c9b6ae5862d2496ab439682f29c",
+                "display": "Chills"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "da019821bdd6e2f2f218d167eb784c9b6ae5862d2496ab439682f29c",
+                "display": "Chills (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.16,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.84,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Nosebleed",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f612b75d728cd7ee64a5d7b2577048297123c0fbbbdd3007eab606b3",
+                "display": "Adrenal cancer"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "da40e27287ddac4ae4f52c7148dd9d9141e216783d72a8640c0f52f7",
+                "display": "Nosebleed"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "da40e27287ddac4ae4f52c7148dd9d9141e216783d72a8640c0f52f7",
+                "display": "Nosebleed (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Adrenal cancer_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}

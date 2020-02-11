@@ -1,0 +1,868 @@
+{
+    "name": "Congenital malformation syndrome",
+    "states": {
+        "Initial": {
+            "type": "Initial",
+            "direct_transition": "Age_Transition"
+        },
+        "Age_Transition": {
+            "type": "delay",
+            "exact": {
+                "quantity": 1,
+                "unit": "months"
+            },
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.013445378151260505
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9865546218487395
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "1"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "4"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.03949579831932773
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9605042016806723
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "5"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "14"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.02857142857142857
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9714285714285714
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "15"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "29"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.010084033613445377
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9899159663865547
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "30"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "44"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0016806722689075631
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9983193277310924
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "45"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "59"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0016806722689075631
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9983193277310924
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": "60"
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": "74"
+                        }
+                    ],
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0025210084033613443
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9974789915966387
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Sex_Transition",
+                            "distribution": 0.0025210084033613443
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9974789915966387
+                        }
+                    ]
+                }
+            ]
+        },
+        "Sex_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "M"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.06190476190476191
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9380952380952381
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Gender",
+                        "gender": "F"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "Race_Transition",
+                            "distribution": 0.0380952380952381
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9619047619047619
+                        }
+                    ]
+                }
+            ]
+        },
+        "Race_Transition": {
+            "type": "Simple",
+            "complex_transition": [
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Black"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.01276595744680851
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9872340425531915
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Hispanic"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.019148936170212766
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9808510638297873
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "White"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.02340425531914894
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9765957446808511
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Native"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022340425531914895
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9776595744680852
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Asian"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.022340425531914895
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.9776595744680852
+                        }
+                    ]
+                },
+                {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": "Other"
+                    },
+                    "distributions": [
+                        {
+                            "transition": "ConditionOnset",
+                            "distribution": 0.9702127659574468
+                        },
+                        {
+                            "transition": "Age_Transition",
+                            "distribution": 0.029787234042553234
+                        }
+                    ]
+                }
+            ]
+        },
+        "ConditionOnset": {
+            "type": "ConditionOnset",
+            "codes": [
+                {
+                    "system": "sha224",
+                    "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                    "display": "Congenital malformation syndrome"
+                }
+            ],
+            "target_encounter": "Doctor_Visit",
+            "remarks": [
+                "Dysmorphic feature is a medical term referring to a difference of body structure that is suggestive of a congenital disorder, genetic syndrome, or birth defect. A dysmorphic feature can be a minor and isolated birth defect (e.g., clinodactyly, not accompanied by other features or problems). Alternatively it can be one of a combination of features signaling a serious multi-system syndrome (e.g., the epicanthal folds of Down's syndrome). Another example would be sparse eyebrows, which are indicative of cardiofaciocutaneous syndrome, also known as CFC.",
+                "Within all the people who go to their doctor with congenital malformation syndrome, 39% report having lack of growth, 31% report having seizures, and 15% report having gum pain. The symptoms that are highly suggestive of congenital malformation syndrome are lack of growth, gum pain, leg stiffness or tightness, symptoms of the kidneys, and difficulty eating, although you may still have congenital malformation syndrome without those symptoms."
+            ],
+            "direct_transition": "Simple_Symptom_1"
+        },
+        "Simple_Transition_1": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.39,
+                    "transition": "Symptom_1"
+                },
+                {
+                    "distribution": 0.61,
+                    "transition": "Simple_Transition_2"
+                }
+            ]
+        },
+        "Symptom_1": {
+            "type": "Symptom",
+            "symptom": "Lack of growth",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "7b152bae63092dc826ed8ff7ac1fad003cf37635b4be106769c41a75",
+                "display": "Lack of growth (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_2"
+        },
+        "Simple_Transition_2": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.31,
+                    "transition": "Symptom_2"
+                },
+                {
+                    "distribution": 0.69,
+                    "transition": "Simple_Transition_3"
+                }
+            ]
+        },
+        "Symptom_2": {
+            "type": "Symptom",
+            "symptom": "Seizures",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "619774facd5899d35dd246076889e2445bc588a513310d0e7e903510",
+                "display": "Seizures"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "619774facd5899d35dd246076889e2445bc588a513310d0e7e903510",
+                "display": "Seizures (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_3"
+        },
+        "Simple_Transition_3": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.15,
+                    "transition": "Symptom_3"
+                },
+                {
+                    "distribution": 0.85,
+                    "transition": "Simple_Transition_4"
+                }
+            ]
+        },
+        "Symptom_3": {
+            "type": "Symptom",
+            "symptom": "Gum pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0cbfc8283b3a0f93663673251e9e64943cacc8fe2248c1a0aee5e66c",
+                "display": "Gum pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0cbfc8283b3a0f93663673251e9e64943cacc8fe2248c1a0aee5e66c",
+                "display": "Gum pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_4"
+        },
+        "Simple_Transition_4": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_4"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_5"
+                }
+            ]
+        },
+        "Symptom_4": {
+            "type": "Symptom",
+            "symptom": "Diminished hearing",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "59bfe7254d927e37c493e2f0fb50ab39999c42ec709e86cf7b235f72",
+                "display": "Diminished hearing (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_5"
+        },
+        "Simple_Transition_5": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_5"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_6"
+                }
+            ]
+        },
+        "Symptom_5": {
+            "type": "Symptom",
+            "symptom": "Leg stiffness or tightness",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "3ee6a7b5a1d5da3a9a069e262afdb0afc5955a2577d477d5fe13a279",
+                "display": "Leg stiffness or tightness"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "3ee6a7b5a1d5da3a9a069e262afdb0afc5955a2577d477d5fe13a279",
+                "display": "Leg stiffness or tightness (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_6"
+        },
+        "Simple_Transition_6": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_6"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_7"
+                }
+            ]
+        },
+        "Symptom_6": {
+            "type": "Symptom",
+            "symptom": "Rib pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "76c0b503ad830cb80a2ba2ec4fc9a394845b73b9a34d9e277d8c3b33",
+                "display": "Rib pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "76c0b503ad830cb80a2ba2ec4fc9a394845b73b9a34d9e277d8c3b33",
+                "display": "Rib pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_7"
+        },
+        "Simple_Transition_7": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_7"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_8"
+                }
+            ]
+        },
+        "Symptom_7": {
+            "type": "Symptom",
+            "symptom": "Fluid retention",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "ded06d7c33248317975b8bef8f52f270714db6b126a96a684e5f5c79",
+                "display": "Fluid retention"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "ded06d7c33248317975b8bef8f52f270714db6b126a96a684e5f5c79",
+                "display": "Fluid retention (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_8"
+        },
+        "Simple_Transition_8": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_8"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_9"
+                }
+            ]
+        },
+        "Symptom_8": {
+            "type": "Symptom",
+            "symptom": "Ringing in ear",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "811e76e05728742ba772c6d9b0828138c7c16b25ba394b2e6d456bd0",
+                "display": "Ringing in ear (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_9"
+        },
+        "Simple_Transition_9": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_9"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_10"
+                }
+            ]
+        },
+        "Symptom_9": {
+            "type": "Symptom",
+            "symptom": "Delusions or hallucinations",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "85e3b85b581eae22180c8cf5ae744166e70f1b2002da60a8e1c53e97",
+                "display": "Delusions or hallucinations"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "85e3b85b581eae22180c8cf5ae744166e70f1b2002da60a8e1c53e97",
+                "display": "Delusions or hallucinations (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_10"
+        },
+        "Simple_Transition_10": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_10"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_11"
+                }
+            ]
+        },
+        "Symptom_10": {
+            "type": "Symptom",
+            "symptom": "Symptoms of the kidneys",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "0f4472ecb6a7ba8179a20470e735dd6b8a078c17f6e2f7021cda6553",
+                "display": "Symptoms of the kidneys (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_11"
+        },
+        "Simple_Transition_11": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_11"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Simple_Transition_12"
+                }
+            ]
+        },
+        "Symptom_11": {
+            "type": "Symptom",
+            "symptom": "Difficulty eating",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "52f3a3bc07de76212047ef199d68fc1934b595c7e0a73a11d2bf7785",
+                "display": "Difficulty eating"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "52f3a3bc07de76212047ef199d68fc1934b595c7e0a73a11d2bf7785",
+                "display": "Difficulty eating (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Simple_Transition_12"
+        },
+        "Simple_Transition_12": {
+            "type": "Simple",
+            "distributed_transition": [
+                {
+                    "distribution": 0.08,
+                    "transition": "Symptom_12"
+                },
+                {
+                    "distribution": 0.92,
+                    "transition": "Doctor_Visit"
+                }
+            ]
+        },
+        "Symptom_12": {
+            "type": "Symptom",
+            "symptom": "Groin pain",
+            "range": {
+                "low": 25,
+                "high": 50
+            },
+            "condition_code": {
+                "system": "sha224",
+                "code": "f53ff1c002e0e67460a1d3671e16a26f9b85f0277d54f9b19e649e36",
+                "display": "Congenital malformation syndrome"
+            },
+            "symptom_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain"
+            },
+            "value_code": {
+                "system": "sha224",
+                "code": "abffb97bd90761124d1420bd86bc45bbae0411de416408e7c6851829",
+                "display": "Groin pain (finding)"
+            },
+            "remarks": [
+                ""
+            ],
+            "direct_transition": "Doctor_Visit"
+        },
+        "Doctor_Visit": {
+            "type": "Encounter",
+            "encounter_class": "ambulatory",
+            "reason": "Congenital malformation syndrome_Infection",
+            "codes": [
+                {
+                    "system": "SNOMED-CT",
+                    "code": "185345009",
+                    "display": "Encounter for symptom"
+                }
+            ],
+            "direct_transition": "TreatmentComplete"
+        },
+        "Treatment": {
+            "type": "Delay",
+            "exact": {
+                "quantity": 6,
+                "unit": "months"
+            },
+            "direct_transition": "Terminal"
+        },
+        "Terminal": {
+            "type": "Terminal"
+        }
+    }
+}
