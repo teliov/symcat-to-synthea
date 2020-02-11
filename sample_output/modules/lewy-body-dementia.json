@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dementia with Lewy bodies (DLB), also known under a variety of other names including Lewy body dementia, diffuse Lewy body disease, cortical Lewy body disease, and senile dementia of Lewy type, is a type of dementia closely associated with both Alzheimer's and Parkinson's diseases. It is characterized anatomically by the presence of Lewy bodies, clumps of alpha-synuclein and ubiquitin protein in neurons, detectable in post mortem brain histology. Lewy body dementia affects 1.3 million individuals in the United States alone.",
                 "Within all the people who go to their doctor with lewy body dementia, 68% report having disturbance of memory, 59% report having delusions or hallucinations, and 53% report having problems with movement. The symptoms that are highly suggestive of lewy body dementia are disturbance of memory, delusions or hallucinations, abnormal involuntary movements, problems with movement, and hostile behavior, although you may still have lewy body dementia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

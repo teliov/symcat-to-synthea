@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Leukoplakia (also termed leucoplakia, leukokeratosis, leukoplasia, idiopathic leukoplakia, idiopathic keratosis, or idiopathic white patch), is a condition where areas of keratosis appear as adherent white patches on the mucous membranes of the oral cavity. Leukoplakia may affect other gastrointestinal tract mucosal sites, or mucosal surfaces of the urinary tract and genitals. When leukoplakia occurs in the mouth, it is sometimes termed oral leukoplakia, which is defined as \"a predominantly white lesion of the oral mucosa that cannot be characterized as any other definable lesion\". Leukoplakia literally means \"white patch\" and is a descriptive clinical term that is only correctly used once all other possible causes have been ruled out (a diagnosis of exclusion). As such, leukoplakia is not a specific disease entity, and the clinical and histologic appearance are variable, i.e. the term has no specific histologic implications. Leukoplakia may be confused with other common causes of white patches in the mouth, such as oral candidiasis or lichen planus. The lesions of leukoplakia cannot be rubbed off, as would be the case in pseudomembraneous candidiasis (oral thrush).",
                 "Within all the people who go to their doctor with oral leukoplakia, 73% report having tongue lesions, 45% report having mouth pain, and 45% report having gum pain. The symptoms that are highly suggestive of oral leukoplakia are tongue lesions, hemoptysis, skin swelling, gum pain, mouth pain, elbow cramps or spasms, elbow weakness, excessive growth, underweight, low back weakness, and wrist weakness, although you may still have oral leukoplakia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

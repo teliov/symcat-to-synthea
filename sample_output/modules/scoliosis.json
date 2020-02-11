@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Scoliosis (from Ancient Greek: \u03c3\u03ba\u03bf\u03bb\u03af\u03c9\u03c3\u03b9\u03c2 skoliosis \"obliquity, bending\") is a medical condition in which a person's spine is curved from side to side. Although it is a complex three-dimensional deformity, on an X-ray, viewed from the rear, the spine of an individual with scoliosis may look more like an \"S\" or a \"C\", rather than a straight line.",
                 "Within all the people who go to their doctor with scoliosis, 66% report having back pain, 51% report having low back pain, and 31% report having leg pain. The symptoms that are highly suggestive of scoliosis are foot or toe stiffness or tightness, although you may still have scoliosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

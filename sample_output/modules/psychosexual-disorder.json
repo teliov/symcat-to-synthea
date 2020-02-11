@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Psychosexual disorder is a term which may simply refer to a sexual problem that is psychological, rather than physiological, in origin.",
                 "Within all the people who go to their doctor with psychosexual disorder, 66% report having impotence, 54% report having premature ejaculation, and 49% report having loss of sex drive. The symptoms that are highly suggestive of psychosexual disorder are impotence, premature ejaculation, loss of sex drive, pain during intercourse, fears and phobias, problems with orgasm, and symptoms of prostate, although you may still have psychosexual disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

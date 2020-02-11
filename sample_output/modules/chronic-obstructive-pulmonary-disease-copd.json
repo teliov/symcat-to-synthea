@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chronic obstructive pulmonary disease (COPD), also known as chronic obstructive lung disease (COLD), chronic obstructive airway disease (COAD), chronic airflow limitation (CAL) and chronic obstructive respiratory disease (CORD), is the occurrence of chronic bronchitis or emphysema, a pair of commonly co-existing diseases of the lungs in which the airways narrow over time. This limits airflow to and from the lungs, causing shortness of breath (dyspnea). In clinical practice, COPD is defined by its characteristically low airflow on lung function tests. In contrast to asthma, this limitation is poorly reversible and usually gets increasingly worse over time.",
                 "Within all the people who go to their doctor with chronic obstructive pulmonary disease (copd), 83% report having cough, 70% report having shortness of breath, and 54% report having nasal congestion. The symptoms that are highly suggestive of chronic obstructive pulmonary disease (copd) are coughing up sputum and congestion in chest, although you may still have chronic obstructive pulmonary disease (copd) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Alopecia (/\u02cc\u00e6l\u0259\u02c8pi\u02d0\u0283\u0259/, from Classical Greek \u1f00\u03bb\u03ce\u03c0\u03b7\u03be, al\u014dp\u0113x, meaning \"fox\") means loss of hair from the head or body. Alopecia can mean baldness, a term generally reserved for pattern alopecia or androgenic alopecia. Compulsive pulling of hair (trichotillomania) can also induce hair loss. Hairstyling routines such as tight ponytails or braids may cause traction alopecia. Both hair relaxer solutions, and hot hair irons can also induce hair loss. In some cases, alopecia is due to underlying medical conditions, such as iron deficiency.",
                 "Within all the people who go to their doctor with alopecia, 94% report having too little hair, 28% report having irregular appearing scalp, and 26% report having skin rash. The symptoms that are highly suggestive of alopecia are too little hair, irregular appearing scalp, dry or flaky scalp, and itchy scalp, although you may still have alopecia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bone spur of the calcaneous is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with bone spur of the calcaneous, 94% report having foot or toe pain, 50% report having ankle pain, and 32% report having foot or toe swelling. The symptoms that are highly suggestive of bone spur of the calcaneous are foot or toe pain, ankle pain, foot or toe swelling, and muscle pain, although you may still have bone spur of the calcaneous without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

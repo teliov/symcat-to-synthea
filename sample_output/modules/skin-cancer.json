@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Skin cancers (skin neoplasms) are named after the type of skin cell from which they arise. Basal cell cancer originates from the lowest layer of the epidermis, and is the most common but least dangerous skin cancer. Squamous cell cancer originates from the middle layer, and is less common but more likely to spread and, if untreated, become fatal. Melanoma, which originates in the pigment-producing cells (melanocytes), is the least common, but most aggressive, most likely to spread and, if untreated, become fatal. Still, melanoma has one of the higher survival rates among major cancer, with over 75% of patients surviving 10 years in the UK during 2005-2007.",
                 "Within all the people who go to their doctor with skin cancer, 67% report having skin lesion, 55% report having abnormal appearing skin, and 29% report having skin moles. The symptoms that are highly suggestive of skin cancer are skin lesion, abnormal appearing skin, skin moles, skin dryness, peeling, scaliness, or roughness, and irregular appearing scalp, although you may still have skin cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sensorineural hearing loss (SNHL) is a type of hearing loss in which the root cause lies in the vestibulocochlear nerve (cranial nerve VIII), the inner ear, or central processing centers of the brain. Sensorineural hearing loss can be mild, moderate, or severe, including total deafness.",
                 "Within all the people who go to their doctor with sensorineural hearing loss, 90% report having diminished hearing, 57% report having plugged feeling in ear, and 49% report having ringing in ear. The symptoms that are highly suggestive of sensorineural hearing loss are diminished hearing, plugged feeling in ear, ringing in ear, and itchy ear(s), although you may still have sensorineural hearing loss without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Scurvy is a disease resulting from a deficiency of vitamin C, which is required for the synthesis of collagen in humans. The chemical name for vitamin C, ascorbic acid, is derived from the Latin name of scurvy, scorbutus, which also provides the adjective scorbutic (\"of, characterized by or having to do with scurvy\"). Scurvy often presents itself initially as symptoms of malaise and lethargy, followed by formation of spots on the skin, spongy gums, and bleeding from the mucous membranes. Spots are most abundant on the thighs and legs, and a person with the ailment looks pale, feels depressed, and is partially immobilized. As scurvy advances, there can be open, suppurating wounds, loss of teeth, jaundice, fever, neuropathy and death.",
                 "Within all the people who go to their doctor with scurvy, 91% report having skin moles, 91% report having sharp abdominal pain, and 20% report having preoccupation with sex. The symptoms that are highly suggestive of scurvy are skin moles, knee lump or mass, excessive growth, pelvic pressure, vulvar sore, loss of sex drive, bedwetting, neck cramps or spasms, shoulder swelling, eye strain, and joint stiffness or tightness, although you may still have scurvy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

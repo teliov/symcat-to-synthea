@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bursitis is the inflammation of one or more bursae (small sacs) of synovial fluid in the body. The bursae rest at the points where internal functionaries, such as muscles and tendons, slide across bone. Healthy bursae create a smooth, almost frictionless functional gliding surface making normal movement painless. When bursitis occurs, however, movement relying upon the inflamed bursa becomes difficult and painful. Moreover, movement of tendons and muscles over the inflamed bursa aggravates its inflammation, perpetuating the problem. Muscle can also be stiffened.",
                 "Within all the people who go to their doctor with bursitis, 88% report having shoulder pain, 55% report having knee pain, and 47% report having elbow pain. The symptoms that are highly suggestive of bursitis are shoulder pain, elbow pain, elbow swelling, knee swelling, shoulder stiffness or tightness, and arm stiffness or tightness, although you may still have bursitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

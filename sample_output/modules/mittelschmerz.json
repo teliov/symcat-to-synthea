@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Mittelschmerz (German: \"middle pain\") is a medical term for \"ovulation pain\" or \"midcycle pain\". About 20% of women experience mittelschmerz, some every cycle, some intermittently.",
                 "Within all the people who go to their doctor with mittelschmerz, 84% report having sharp abdominal pain, 74% report having lower abdominal pain, and 68% report having pelvic pain. The symptoms that are highly suggestive of mittelschmerz are lower abdominal pain, pelvic pain, painful menstruation, long menstrual periods, acne or pimples, and involuntary urination, although you may still have mittelschmerz without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

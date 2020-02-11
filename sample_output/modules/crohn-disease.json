@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Crohn's disease, also known as Crohn syndrome and regional enteritis, is a type of inflammatory bowel disease that may affect any part of the gastrointestinal tract from mouth to anus, causing a wide variety of symptoms. It primarily causes abdominal pain, diarrhea (which may be bloody if inflammation is at its worst), vomiting (can be continuous), or weight loss, but may also cause complications outside the gastrointestinal tract such as skin rashes, arthritis, inflammation of the eye, tiredness, and lack of concentration. Crohn's disease is caused by interactions between environmental, immunological and bacterial factors in genetically susceptible individuals. This results in a chronic inflammatory disorder, in which the body's immune system attacks the gastrointestinal tract possibly directed at microbial antigens. Crohn's disease has wrongly been described as an autoimmune disease in the past; recent investigators have described it as an immune deficiency state.",
                 "Within all the people who go to their doctor with crohn disease, 74% report having sharp abdominal pain, 42% report having diarrhea, and 38% report having vomiting."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

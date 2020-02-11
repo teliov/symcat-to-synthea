@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Herpes labialis, or orolabial herpes,:368 is an infection of the lip by herpes simplex virus (HSV-1). An outbreak typically causes small blisters or sores on or around the mouth commonly known as cold sores or fever blisters. The sores typically heal within 2\u20133 weeks, but the herpes virus remains dormant in the facial nerves, following orofacial infection, periodically reactivating (in symptomatic people) to create sores in the same area of the mouth or face at the site of the original infection.",
                 "Within all the people who go to their doctor with cold sore, 50% report having skin rash, 38% report having lip sore, and 35% report having mouth ulcer. The symptoms that are highly suggestive of cold sore are lip sore, mouth ulcer, and lip swelling, although you may still have cold sore without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

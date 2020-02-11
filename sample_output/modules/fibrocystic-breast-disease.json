@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Fibrocystic breast or fibrocystic breast disease is a condition of breast tissue affecting an estimated 30-60% of women and at least 50% of women of childbearing age. It is characterized by noncancerous breast lumps in the breast which can sometimes cause discomfort, often periodically related to hormonal influences from the menstrual cycle.",
                 "Within all the people who go to their doctor with fibrocystic breast disease, 77% report having lump or mass of breast, 58% report having pain or soreness of breast, and 16% report having bleeding or discharge from nipple. The symptoms that are highly suggestive of fibrocystic breast disease are lump or mass of breast, pain or soreness of breast, bleeding or discharge from nipple, and frequent menstruation, although you may still have fibrocystic breast disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

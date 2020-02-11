@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Fetal alcohol syndrome (FAS) is a pattern of mental and physical defects that can develop in a fetus in association with high levels of alcohol consumption during pregnancy. Alcohol crosses the placental barrier and can stunt fetal growth or weight, create distinctive facial stigmata, damage neurons and brain structures, which can result in psychological or behavioral problems, and cause other physical damage. The main effect of FAS is permanent central nervous system damage, especially to the brain. Developing brain cells and structures can be malformed or have development interrupted by prenatal alcohol exposure; this can create an array of primary cognitive and functional disabilities (including poor memory, attention deficits, impulsive behavior, and poor cause-effect reasoning) as well as secondary disabilities (for example, predispositions to mental health problems and drug addiction). Alcohol exposure presents a risk of fetal brain damage at any point during a pregnancy, since brain development is ongoing throughout pregnancy.",
                 "Within all the people who go to their doctor with fetal alcohol syndrome, 58% report having excessive anger, 58% report having temper problems, and 40% report having smoking problems. The symptoms that are highly suggestive of fetal alcohol syndrome are excessive anger, temper problems, lack of growth, hostile behavior, smoking problems, wrist weakness, eye strain, and emotional symptoms, although you may still have fetal alcohol syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

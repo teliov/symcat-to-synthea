@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypertension (HTN) or high blood pressure, sometimes called arterial hypertension, is a chronic medical condition in which the blood pressure in the arteries is elevated. This requires the heart to work harder than normal to circulate blood through the blood vessels. Blood pressure is summarised by two measurements, systolic and diastolic, which depend on whether the heart muscle is contracting (systole) or relaxed between beats (diastole) and equate to a maximum and minimum pressure, respectively. Normal blood pressure at rest is within the range of 100-140mmHg systolic (top reading) and 60-90mmHg diastolic (bottom reading). High blood pressure is said to be present if it is persistently at or above 140/90 mmHg.",
                 "Within all the people who go to their doctor with high blood pressure, 29% report having sharp chest pain and 26% report having headache."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -453,7 +453,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

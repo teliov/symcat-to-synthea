@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Oppositional defiant disorder (ODD) is a childhood disorder described by the Diagnostic and Statistical Manual of Mental Disorders (DSM) as an ongoing pattern of anger-guided disobedience, hostility, and defiant behavior toward authority figures which goes beyond the bounds of normal childhood behavior. Children suffering from this disorder may appear very stubborn and often angry. A diagnosis of ODD cannot be given if the child presents with conduct disorder (CD).",
                 "Within all the people who go to their doctor with oppositional disorder, 57% report having depressive or psychotic symptoms, 42% report having excessive anger, and 40% report having hostile behavior. The symptoms that are highly suggestive of oppositional disorder are excessive anger, hostile behavior, restlessness, antisocial behavior, obsessions and compulsions, and nightmares, although you may still have oppositional disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

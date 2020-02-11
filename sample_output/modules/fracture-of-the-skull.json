@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A skull fracture is a break in one or more of the eight bones that form the cranial portion of the skull, usually occurring as a result of blunt force trauma. If the force of the impact is excessive, the bone may fracture at or near the site of the impact and cause damage to the underlying physical structures contained within the skull such as the membranes, blood vessels, and brain, even in the absence of a fracture.",
                 "Within all the people who go to their doctor with fracture of the skull, 54% report having headache, 30% report having facial pain, and 30% report having vomiting."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

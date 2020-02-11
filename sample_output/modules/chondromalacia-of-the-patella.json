@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Treatment of knee problems depends on the cause. In some cases your doctor may recommend knee replacement.",
                 "Within all the people who go to their doctor with chondromalacia of the patella, 95% report having knee pain, 26% report having leg pain, and 22% report having knee swelling. The symptoms that are highly suggestive of chondromalacia of the patella are knee pain, knee swelling, knee stiffness or tightness, and knee weakness, although you may still have chondromalacia of the patella without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

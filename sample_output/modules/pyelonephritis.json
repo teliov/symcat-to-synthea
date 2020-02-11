@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pyelonephritis (from Greek \u03c0\u03ae\u03bb\u03b7\u03be \u2013 pyelum, meaning \"renal pelvis\", \u03bd\u03b5\u03c6\u03c1\u03cc\u03c2 \u2013 nephros, meaning \"kidney\", and -itis, meaning \"inflammation\") is an ascending urinary tract infection that has reached the pyelum or pelvis of the kidney. It is a form of nephritis that is also referred to as pyelitis. Severe cases of pyelonephritis can lead to pyonephrosis (pus accumulation around the kidney), urosepsis (a systemic inflammatory response of the body to infection), kidney failure and even death.",
                 "Within all the people who go to their doctor with pyelonephritis, 75% report having side pain, 70% report having fever, and 70% report having sharp abdominal pain. The symptoms that are highly suggestive of pyelonephritis are side pain and painful urination, although you may still have pyelonephritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

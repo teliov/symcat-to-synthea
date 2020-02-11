@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Anemia due to chronic kidney disease is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with anemia due to chronic kidney disease, 67% report having fatigue, 38% report having weakness, and 24% report having shortness of breath. The symptoms that are highly suggestive of anemia due to chronic kidney disease are fatigue, recent weight loss, polyuria, and feeling cold, although you may still have anemia due to chronic kidney disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

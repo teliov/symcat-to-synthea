@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Knee ligament or meniscus tear is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with knee ligament or meniscus tear, 93% report having knee pain, 31% report having knee swelling, and 22% report having knee stiffness or tightness. The symptoms that are highly suggestive of knee ligament or meniscus tear are knee pain, knee swelling, knee stiffness or tightness, knee weakness, leg stiffness or tightness, joint swelling, foot or toe cramps or spasms, and knee cramps or spasms, although you may still have knee ligament or meniscus tear without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

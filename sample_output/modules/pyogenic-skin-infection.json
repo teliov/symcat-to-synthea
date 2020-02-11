@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pyoderma means any skin disease that is pyogenic. These include superficial bacterial infections such as impetigo, impetigo contagiosa, ecthyma, folliculitis, Bockhart's impetigo, furuncle, carbuncle, tropical ulcer, etc. Autoimmune conditions include pyoderma gangrenosum. Pyoderma affects more than 111 million children worldwide, making it one of the three most common skin disorders in children along with scabies and tinea.",
                 "Within all the people who go to their doctor with pyogenic skin infection, 46% report having abnormal appearing skin, 35% report having skin lesion, and 30% report having leg pain. The symptoms that are highly suggestive of pyogenic skin infection are abnormal appearing skin and skin on leg or foot looks infected, although you may still have pyogenic skin infection without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

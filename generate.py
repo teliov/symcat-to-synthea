@@ -183,6 +183,11 @@ def generate_transition_for_race(race_distribution, prev_state, next_state):
 
 
 def generate_synthea_module(symptom_dict, test_condition):
+
+    ## check that symptoms do exist for this module!?
+    if not test_condition.get("symptoms"):
+        return None
+
     condition_name = test_condition.get("condition_name")
 
     states = OrderedDict()
@@ -190,12 +195,12 @@ def generate_synthea_module(symptom_dict, test_condition):
     # add the initial onset
     states["Initial"] = {
         "type": "Initial",
-        "direct_transition": "Age_Transition"  # always transition to a potential onset (delay state)
+        "direct_transition": "Age_Transition"  # always transition to a potential onset (Delay state)
     }
 
     # add the potential onset state
     states["Age_Transition"] = {
-        "type": "delay",
+        "type": "Delay",
         "exact": {
             "quantity": 1,
             "unit": "months"
@@ -232,7 +237,7 @@ def generate_synthea_module(symptom_dict, test_condition):
             test_condition.get("condition_description"),
             test_condition.get("condition_remarks")
         ],
-        "direct_transition": "Simple_Symptom_1"
+        "direct_transition": "Simple_Transition_1"
     }
 
     # now we start to model the symptoms, we use
@@ -321,7 +326,7 @@ def generate_synthea_module(symptom_dict, test_condition):
         states[simple_transition_name] = simple_transition
         states[symptom_transition_name] = symptom_transition
 
-    # add the encounter state and the delay state
+    # add the encounter state and the Delay state
     states["Doctor_Visit"] = {
         "type": "Encounter",
         "encounter_class": "ambulatory",
@@ -336,7 +341,7 @@ def generate_synthea_module(symptom_dict, test_condition):
         "direct_transition": "TreatmentComplete"
     }
 
-    states["Treatment"] = {
+    states["TreatmentComplete"] = {
         "type": "Delay",
         "exact": {
             "quantity": 6,
@@ -367,6 +372,8 @@ def generate_synthea_modules(symptom_file, conditions_file, output_dir):
 
     for key, value in conditions_data.items():
         module = generate_synthea_module(symptoms_data, value)
+        if module is None:
+            continue
         filename = os.path.join(output_dir, "%s.json" % key)
 
         with open(filename, "w") as fp:

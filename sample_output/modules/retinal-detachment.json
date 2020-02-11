@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Retinal detachment is a disorder of the eye in which the retina peels away from its underlying layer of support tissue. Initial detachment may be localized, but without rapid treatment the entire retina may detach, leading to vision loss and blindness. It is a medical emergency.",
                 "Within all the people who go to their doctor with retinal detachment, 66% report having spots or clouds in vision, 64% report having diminished vision, and 39% report having blindness. The symptoms that are highly suggestive of retinal detachment are spots or clouds in vision, diminished vision, blindness, symptoms of eye, eye burns or stings, cloudy eye, abnormal movement of eyelid, and bleeding from eye, although you may still have retinal detachment without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

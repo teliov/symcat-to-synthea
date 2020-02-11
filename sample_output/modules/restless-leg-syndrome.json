@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Restless Legs Syndrome (RLS), also known as Willis-Ekbom disease (WED), is a neurological disorder characterized by an irresistible urge to move one's body to stop uncomfortable or odd sensations. It most commonly affects the legs, but can affect the arms, torso, head, and even phantom limbs. Moving the affected body part modulates the sensations, providing temporary relief.",
                 "Within all the people who go to their doctor with restless leg syndrome, 77% report having abnormal involuntary movements, 49% report having leg pain, and 39% report having headache. The symptoms that are highly suggestive of restless leg syndrome are abnormal involuntary movements, sleepiness, and apnea, although you may still have restless leg syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

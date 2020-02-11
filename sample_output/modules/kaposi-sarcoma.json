@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Kaposi sarcoma (KS) is a tumor caused by Human herpesvirus 8 (HHV8), also known as Kaposi sarcoma-associated herpesvirus (KSHV). It was originally described by Moritz Kaposi (KA-p\u0259-shi), a Hungarian dermatologist practicing at the University of Vienna in 1872. It became more widely known as one of the AIDS-defining illnesses in the 1980s. The viral cause for this cancer was discovered in 1994. Although KS is now well-established to be caused by a viral infection, there is widespread lack of awareness of this even among persons at risk for KSHV/HHV-8 infection.",
                 "Within all the people who go to their doctor with kaposi sarcoma, 45% report having lip swelling, 45% report having skin lesion, and 45% report having foot or toe pain. The symptoms that are highly suggestive of kaposi sarcoma are lip swelling, elbow cramps or spasms, elbow weakness, excessive growth, underweight, and low back weakness, although you may still have kaposi sarcoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

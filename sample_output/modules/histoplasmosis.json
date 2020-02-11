@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Histoplasmosis (also known as \"Cave disease,\" \"Darling's disease,\" \"Ohio valley disease,\" \"Reticuloendotheliosis,\" \"Spelunker\u2019s Lung\" and Caver's disease) is a disease caused by the fungus Histoplasma capsulatum. Symptoms of this infection vary greatly, but the disease primarily affects the lungs. Occasionally, other organs are affected; this is called disseminated histoplasmosis, and it can be fatal if left untreated.",
                 "Within all the people who go to their doctor with histoplasmosis, 65% report having lacrimation, 47% report having double vision, and 47% report having decreased appetite. The symptoms that are highly suggestive of histoplasmosis are lacrimation, double vision, eye redness, decreased appetite, elbow cramps or spasms, elbow weakness, excessive growth, low back weakness, and feeling hot and cold, although you may still have histoplasmosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

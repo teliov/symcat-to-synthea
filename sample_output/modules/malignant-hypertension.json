@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A hypertensive emergency (formerly called \"malignant hypertension\") is severe hypertension (high blood pressure) with acute impairment of one or more organ systems (especially the central nervous system, cardiovascular system and/or the renal system) that can result in irreversible organ damage. In a hypertensive emergency, the blood pressure should be substantially lowered over a period of minutes to hours with an antihypertensive agent.",
                 "Within all the people who go to their doctor with malignant hypertension, 66% report having sharp chest pain, 60% report having headache, and 51% report having shortness of breath. The symptoms that are highly suggestive of malignant hypertension are focal weakness, although you may still have malignant hypertension without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

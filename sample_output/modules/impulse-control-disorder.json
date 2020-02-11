@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Impulse control disorder or ICD is a class of psychiatric disorders characterized by impulsivity \u2013 failure to resist a temptation, urge or impulse that may harm oneself or others. Many psychiatric disorders feature impulsivity, including substance-related disorders, paraphilias, attention deficit hyperactivity disorder, antisocial personality disorder, conduct disorder, schizophrenia and mood disorders. The revised fourth edition of the American Psychiatric Association's Diagnostic and statistical manual of mental disorders (DSM-IV-TR) includes the category, \"impulse control disorders not elsewhere classified\", which consists of kleptomania, pathological gambling, pyromania (fire-starting), trichotillomania (a compulsion to pull one's hair out), intermittent explosive disorder, and \"impulse control disorders not otherwise specified\". Other disorders such as, dermatillomania (compulsive skin picking), compulsive buying and compulsive non-paraphilic sexual behaviour have been proposed for inclusion in the category.",
                 "Within all the people who go to their doctor with impulse control disorder, 55% report having depressive or psychotic symptoms, 44% report having hostile behavior, and 44% report having anxiety and nervousness. The symptoms that are highly suggestive of impulse control disorder are hostile behavior, excessive anger, temper problems, obsessions and compulsions, and excessive appetite, although you may still have impulse control disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

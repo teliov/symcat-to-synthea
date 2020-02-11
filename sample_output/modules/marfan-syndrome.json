@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Marfan syndrome (also called Marfan's syndrome) is a genetic disorder of the connective tissue. People with Marfan tend to be unusually tall, with long limbs and long, thin fingers.",
                 "Within all the people who go to their doctor with marfan syndrome, 32% report having itching of the anus, 32% report having stomach bloating, and 32% report having focal weakness. The symptoms that are highly suggestive of marfan syndrome are heartburn, blood in stool, increased heart rate, stomach bloating, itching of the anus, focal weakness, skin swelling, and emotional symptoms, although you may still have marfan syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

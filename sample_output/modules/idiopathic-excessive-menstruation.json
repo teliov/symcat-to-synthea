@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Excessive uterine bleeding during MENSTRUATION.",
                 "Within all the people who go to their doctor with idiopathic excessive menstruation, 77% report having heavy menstrual flow, 33% report having unpredictable menstruation, and 30% report having pelvic pain. The symptoms that are highly suggestive of idiopathic excessive menstruation are heavy menstrual flow, unpredictable menstruation, pelvic pain, painful menstruation, long menstrual periods, intermenstrual bleeding, blood clots during menstrual periods, and frequent menstruation, although you may still have idiopathic excessive menstruation without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

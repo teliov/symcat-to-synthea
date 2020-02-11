@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Stenosing tenosynovitis of the abductor pollicis longus and extensor pollicis brevis tendons in the first dorsal wrist compartment. The presenting symptoms are usually pain and tenderness at the radial styloid. The cause is almost always related to OVERUSE INJURY or is associated with RHEUMATOID ARTHRITIS.",
                 "Within all the people who go to their doctor with de quervain disease, 88% report having wrist pain, 73% report having hand or finger pain, and 43% report having shoulder pain. The symptoms that are highly suggestive of de quervain disease are wrist pain, hand or finger pain, wrist swelling, and wrist stiffness or tightness, although you may still have de quervain disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

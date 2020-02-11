@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dysmenorrhea (dysmenorrhoea or painful periods) is a medical condition of pain during menstruation that interferes with daily activities, as defined by ACOG and others. Still, dysmenorrhea is often defined simply as menstrual pain, or at least menstrual pain that is excessive. This article uses the dysmenorrhea definition of menstrual pain that interferes with daily activities, and uses the term menstrual pain as any pain during menstruation whether it is normal or abnormal.",
                 "Within all the people who go to their doctor with idiopathic painful menstruation, 69% report having painful menstruation, 64% report having sharp abdominal pain, and 44% report having pelvic pain. The symptoms that are highly suggestive of idiopathic painful menstruation are painful menstruation, pelvic pain, heavy menstrual flow, cramps and spasms, long menstrual periods, unpredictable menstruation, blood clots during menstrual periods, and absence of menstruation, although you may still have idiopathic painful menstruation without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

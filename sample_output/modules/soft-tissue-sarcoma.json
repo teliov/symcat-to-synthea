@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A soft-tissue sarcoma is a form of sarcoma that develops in connective tissue, though the term is sometimes applied to elements of the soft tissue that are not currently considered connective tissue.",
                 "Within all the people who go to their doctor with soft tissue sarcoma, 53% report having skin lesion, 42% report having abnormal appearing skin, and 36% report having skin growth. The symptoms that are highly suggestive of soft tissue sarcoma are skin growth, skin moles, leg lump or mass, and change in skin mole size or color, although you may still have soft tissue sarcoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

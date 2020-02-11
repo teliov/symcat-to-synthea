@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Skin polyp is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with skin polyp, 79% report having skin moles, 58% report having skin lesion, and 56% report having abnormal appearing skin. The symptoms that are highly suggestive of skin polyp are skin moles, abnormal appearing skin, skin growth, acne or pimples, change in skin mole size or color, and irregular appearing scalp, although you may still have skin polyp without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

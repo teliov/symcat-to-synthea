@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chickenpox (or chicken pox) is a highly contagious disease caused by primary infection with varicella zoster virus (VZV). It usually starts with vesicular skin rash mainly on the body and head rather than at the periphery and becomes itchy, raw pockmarks, which mostly heal without scarring. On examination, the observer typically finds skin lesions at various stages of healing and also ulcers in the oral cavity & tonsil areas.",
                 "Within all the people who go to their doctor with chickenpox, 93% report having skin rash, 62% report having fever, and 45% report having abnormal appearing skin. The symptoms that are highly suggestive of chickenpox are skin rash and skin swelling, although you may still have chickenpox without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

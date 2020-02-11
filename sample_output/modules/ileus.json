@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Ileus (/\u02c8\u026ali\u0259s/ or /\u02c8\u026al\u026a\u0259s/) is a disruption of the normal propulsive ability of the gastrointestinal tract.",
                 "Within all the people who go to their doctor with ileus, 88% report having sharp abdominal pain, 77% report having vomiting, and 70% report having nausea. The symptoms that are highly suggestive of ileus are constipation and stomach bloating, although you may still have ileus without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

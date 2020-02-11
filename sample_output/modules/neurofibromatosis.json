@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Neurofibromatosis (commonly abbreviated NF; neurofibromatosis type 1 is also known as von Recklinghausen disease) is a genetically-inherited disorder in which the nerve tissue grows tumors (neurofibromas) that may be benign and may cause serious damage by compressing nerves and other tissues. The disorder affects all neural crest cells (Schwann cells, melanocytes and endoneurial fibroblasts). Cellular elements from these cell types proliferate excessively throughout the body, forming tumors; melanocytes also function abnormally in this disease, resulting in disordered skin pigmentation and caf\u00e9 au lait spots. The tumors may cause bumps under the skin, colored spots, skeletal problems, pressure on spinal nerve roots, and other neurological problems.",
                 "Within all the people who go to their doctor with neurofibromatosis, 43% report having headache, 27% report having abnormal appearing skin, and 15% report having diminished hearing. The symptoms that are highly suggestive of neurofibromatosis are incontinence of stool, mass on vulva, groin mass, and foot or toe lump or mass, although you may still have neurofibromatosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

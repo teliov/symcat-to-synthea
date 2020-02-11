@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Patellofemoral pain syndrome (PFPS) is a syndrome characterized by pain or discomfort seemingly originating from the contact of the posterior surface of the patella (back of the kneecap) with the femur (thigh bone). It is the most frequently encountered diagnosis in sports medicine clinics.",
                 "Within all the people who go to their doctor with chronic knee pain, 95% report having knee pain, 47% report having leg pain, and 34% report having knee swelling. The symptoms that are highly suggestive of chronic knee pain are knee pain, knee swelling, knee stiffness or tightness, and knee weakness, although you may still have chronic knee pain without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

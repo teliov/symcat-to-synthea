@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A burn is a type of injury to flesh or skin caused by heat, electricity, chemicals, friction, or radiation. Burns that affect only the superficial skin are known as superficial or first-degree burns. When damage penetrates into some of the underlying layers, it is a partial-thickness or second-degree burn. In a full-thickness or third-degree burn, the injury extends to all layers of the skin. A fourth-degree burn additionally involves injury to deeper tissues, such as muscle or bone.",
                 "Within all the people who go to their doctor with burn, 26% report having knee pain, 24% report having headache, and 19% report having hand or finger pain."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Osteomyelitis (sometimes abbreviated to OM, and derived from Greek words osteon, meaning bone, myelo- meaning marrow, and -itis meaning inflammation) is infection and inflammation of the bone or bone marrow. It can be usefully subclassified on the basis of the causative organism (pyogenic bacteria or mycobacteria), the route, duration and anatomic location of the infection.",
                 "Within all the people who go to their doctor with osteomyelitis, 56% report having skin lesion, 29% report having skin on leg or foot looks infected, and 20% report having hand or finger pain. The symptoms that are highly suggestive of osteomyelitis are skin on leg or foot looks infected, although you may still have osteomyelitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

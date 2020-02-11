@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "The hand is a very complex organ with multiple joints, different types of ligament, tendons and nerves. With constant use, it is no wonder that hand disease injuries are common in society. Hand injuries can result from excessive use, degenerative disorders or trauma.",
                 "Within all the people who go to their doctor with injury to the hand, 82% report having hand or finger pain, 47% report having hand or finger swelling, and 34% report having wrist pain. The symptoms that are highly suggestive of injury to the hand are hand or finger pain, hand or finger swelling, hand or finger stiffness or tightness, muscle stiffness or tightness, pallor, and hand or finger lump or mass, although you may still have injury to the hand without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

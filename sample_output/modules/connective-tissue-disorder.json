@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A connective tissue disease is any disease that has the connective tissues of the body as a target of pathology. Connective tissue is any type of biological tissue with an extensive extracellular matrix that supports, binds together, and protects organs. These tissues form a framework, or matrix, for the body, and are composed of two major structural protein molecules: collagen and elastin. There are many different types of collagen protein in each of the body's tissues. Elastin has the capability of stretching and returning to its original length\u2014like a spring or rubber band. Elastin is the major component of ligaments (tissues that attach bone to bone) and skin. In patients with connective tissue disease, it is common for collagen and elastin to become injured by inflammation. Many connective tissue diseases feature abnormal immune system activity with inflammation in tissues as a result of an immune system that is directed against one's own body tissues (autoimmunity).",
                 "Within all the people who go to their doctor with connective tissue disorder, 46% report having joint pain, 36% report having paresthesia, and 36% report having feeling ill. The symptoms that are highly suggestive of connective tissue disorder are joint pain, paresthesia, and lymphedema, although you may still have connective tissue disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Osteochondroma is a type of benign tumor that consists of cartilage and bone. It is a benign cartilage-capped outgrowth, connected to bone by a stalk.",
                 "Within all the people who go to their doctor with osteochondroma, 48% report having knee pain, 44% report having foot or toe pain, and 32% report having skin growth. The symptoms that are highly suggestive of osteochondroma are skin growth and hand or finger lump or mass, although you may still have osteochondroma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

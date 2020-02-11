@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypervolemia, or fluid overload, is the medical condition where there is too much fluid in the blood. The opposite condition is hypovolemia, which is too little fluid volume in the blood. Fluid volume excess in the intravascular compartment occurs due to an increase in total body sodium content and a consequent increase in extracellular body water. The mechanism usually stems from compromised regulatory mechanisms for sodium handling as seen in congestive heart failure (CHF), kidney failure, and liver failure. It may also be caused by excessive intake of sodium from foods, intravenous (IV) solutions and blood transfusions, medications, or diagnostic contrast dyes.",
                 "Within all the people who go to their doctor with fluid overload, 84% report having shortness of breath, 58% report having peripheral edema, and 47% report having sharp abdominal pain. The symptoms that are highly suggestive of fluid overload are shortness of breath, peripheral edema, fluid retention, and leg swelling, although you may still have fluid overload without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

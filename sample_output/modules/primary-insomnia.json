@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Insomnia, or sleeplessness, is a sleep disorder in which there is an inability to fall asleep or to stay asleep as long as desired. While the term is sometimes used to describe a disorder demonstrated by polysomnographic evidence of disturbed sleep, insomnia is often practically defined as a positive response to either of two questions: \"Do you experience difficulty sleeping?\" or \"Do you have difficulty falling or staying asleep?\"",
                 "Within all the people who go to their doctor with primary insomnia, 76% report having insomnia, 53% report having abnormal breathing sounds, and 51% report having fatigue. The symptoms that are highly suggestive of primary insomnia are insomnia, abnormal breathing sounds, apnea, sleepiness, and sleepwalking, although you may still have primary insomnia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

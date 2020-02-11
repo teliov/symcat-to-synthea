@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Somatization disorder (also Briquet's syndrome or hysteria) is a somatoform disorder characterized by recurring, multiple, clinically significant complaints about pain, gastrointestinal, sexual and pseudoneurological symptoms. Those complaints must begin before the individual turns 30 years of age, and could last for several years, resulting in either treatment seeking behavior or significant treatment. Individuals with somatization disorder typically visit many doctors in pursuit of effective treatment. Somatization disorder also causes challenge and burden on the life of the caregivers or significant others of the patient.",
                 "Within all the people who go to their doctor with somatization disorder, 76% report having anxiety and nervousness, 60% report having depressive or psychotic symptoms, and 60% report having depression. The symptoms that are highly suggestive of somatization disorder are anxiety and nervousness, although you may still have somatization disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Achalasia /e\u026ak\u0259\u02c8le\u026azi\u0259/, also known as esophageal achalasia, achalasia cardiae, cardiospasm, and esophageal aperistalsis, is an esophageal motility disorder involving the smooth muscle layer of the esophagus and the lower esophageal sphincter (LES). It is characterized by incomplete LES relaxation, increased LES tone, and lack of peristalsis of the esophagus (inability of smooth muscle to move food down the esophagus) in the absence of other explanations like cancer or fibrosis.",
                 "Within all the people who go to their doctor with achalasia, 80% report having sharp chest pain, 71% report having difficulty in swallowing, and 31% report having regurgitation. The symptoms that are highly suggestive of achalasia are difficulty in swallowing, regurgitation, hurts to breath, throat feels tight, and lump in throat, although you may still have achalasia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

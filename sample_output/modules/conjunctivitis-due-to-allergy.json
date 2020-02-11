@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Allergic conjunctivitis is inflammation of the conjunctiva (the membrane covering the white part of the eye) due to allergy. Although allergens differ between patients, the most common cause is hay fever. Symptoms consist of redness (mainly due to vasodilation of the peripheral small blood vessels), oedema (swelling) of the conjunctiva, itching and increased lacrimation (production of tears). If this is combined with rhinitis, the condition is termed allergic rhinoconjunctivitis.",
                 "Within all the people who go to their doctor with conjunctivitis due to allergy, 74% report having eye redness, 71% report having itchiness of eye, and 67% report having pain in eye. The symptoms that are highly suggestive of conjunctivitis due to allergy are eye redness, itchiness of eye, pain in eye, lacrimation, swollen eye, eye burns or stings, symptoms of eye, and sneezing, although you may still have conjunctivitis due to allergy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

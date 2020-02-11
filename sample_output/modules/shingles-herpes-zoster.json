@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Herpes zoster (or simply zoster), commonly known as shingles and also known as zona, is a viral disease characterized by a painful skin rash with blisters in a limited area on one side of the body (left or right), often in a stripe. The initial infection with varicella zoster virus (VZV) causes the acute, short-lived illness chickenpox which generally occurs in children and young adults. Once an episode of chickenpox has resolved, the virus is not eliminated from the body but can go on to cause shingles \u2014 an illness with very different symptoms \u2014 often many years after the initial infection. Herpes zoster is not the same disease as herpes simplex, despite the name similarity; both the varicella zoster virus and herpes simplex virus belong to the same viral subfamily Alphaherpesvirinae.",
                 "Within all the people who go to their doctor with shingles (herpes zoster), 82% report having skin rash, 41% report having back pain, and 40% report having skin lesion. The symptoms that are highly suggestive of shingles (herpes zoster) are skin rash, although you may still have shingles (herpes zoster) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

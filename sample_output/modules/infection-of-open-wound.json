@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Infection is the invasion of a host organism's bodily tissues by disease-causing organisms, their multiplication, and the reaction of host tissues to these organisms and the toxins they produce. Infections are caused by microorganisms such as viruses, prions, bacteria, and viroids, and larger organisms like macroparasites and fungi.",
                 "Within all the people who go to their doctor with infection of open wound, 46% report having abnormal appearing skin, 29% report having leg pain, and 29% report having fever. The symptoms that are highly suggestive of infection of open wound are skin on arm or hand looks infected, although you may still have infection of open wound without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

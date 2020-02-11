@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Acanthosis nigricans is a brown to black, poorly defined, velvety hyperpigmentation of the skin. It is usually found in body folds, such as the posterior and lateral folds of the neck, the axilla, groin, umbilicus, forehead, and other areas.",
                 "Within all the people who go to their doctor with acanthosis nigricans, 78% report having weight gain, 34% report having skin lesion, and 17% report having infertility. The symptoms that are highly suggestive of acanthosis nigricans are weight gain, infertility, and unwanted hair, although you may still have acanthosis nigricans without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

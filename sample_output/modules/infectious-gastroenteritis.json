@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gastroenteritis is a medical condition characterized by inflammation (\"-itis\") of the gastrointestinal tract that involves both the stomach (\"gastro\"-) and the small intestine (\"entero\"-), resulting in some combination of diarrhea, vomiting, and abdominal pain and cramping. Gastroenteritis has also been referred to as gastro, stomach bug, and stomach virus. Although unrelated to influenza, it has also been called stomach flu and gastric flu.",
                 "Within all the people who go to their doctor with infectious gastroenteritis, 91% report having vomiting, 89% report having diarrhea, and 72% report having nausea. The symptoms that are highly suggestive of infectious gastroenteritis are vomiting and diarrhea, although you may still have infectious gastroenteritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

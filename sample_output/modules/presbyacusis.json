@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Presbycusis (also spelt presbyacusis, from Greek presbys \u201celder\u201d + akousis \u201chearing\u201d), or age-related hearing loss, is the cumulative effect of aging on hearing. It is a progressive bilateral symmetrical age-related sensorineural hearing loss. The hearing loss is most marked at higher frequencies. Hearing loss that accumulates with age but is caused by factors other than normal aging is not presbycusis, although differentiating the individual effects of multiple causes of hearing loss can be difficult.",
                 "Within all the people who go to their doctor with presbyacusis, 91% report having diminished hearing, 70% report having dizziness, and 59% report having ringing in ear. The symptoms that are highly suggestive of presbyacusis are diminished hearing, ringing in ear, neck stiffness or tightness, elbow weakness, excessive growth, feeling hot and cold, wrist weakness, low back weakness, emotional symptoms, and elbow cramps or spasms, although you may still have presbyacusis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

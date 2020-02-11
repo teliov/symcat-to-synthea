@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Amblyopia, also known as lazy eye, is an eye disorder characterized by an impaired vision in an eye that otherwise appears normal, or out of proportion to associated structural abnormalities of the eye. It has been estimated to affect 1-5% of the population.",
                 "Within all the people who go to their doctor with amblyopia, 70% report having diminished vision, 33% report having eye deviation, and 23% report having pain in eye. The symptoms that are highly suggestive of amblyopia are diminished vision, eye deviation, foreign body sensation in eye, cross-eyed, pus draining from ear, abnormal movement of eyelid, and eye moves abnormally, although you may still have amblyopia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

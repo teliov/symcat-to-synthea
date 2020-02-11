@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Onychomycosis (also known as \"dermatophytic onychomycosis,\" \"ringworm of the nail,\" and \"tinea unguium\") means fungal infection of the nail. It is the most common disease of the nails and constitutes about a half of all nail abnormalities.",
                 "Within all the people who go to their doctor with onychomycosis, 66% report having skin rash, 61% report having irregular appearing nails, and 41% report having foot or toe pain. The symptoms that are highly suggestive of onychomycosis are irregular appearing nails and diaper rash, although you may still have onychomycosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

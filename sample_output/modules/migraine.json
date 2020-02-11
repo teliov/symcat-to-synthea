@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Migraine is a chronic neurological disorder characterized by recurrent moderate to severe headaches often in association with a number of autonomic nervous system symptoms. The word derives from the Greek \u1f21\u03bc\u03b9\u03ba\u03c1\u03b1\u03bd\u03af\u03b1 (hemikrania), \"pain on one side of the head\", from \u1f21\u03bc\u03b9- (hemi-), \"half\", and \u03ba\u03c1\u03b1\u03bd\u03af\u03bf\u03bd (kranion), \"skull\".",
                 "Within all the people who go to their doctor with migraine, 90% report having headache, 46% report having nausea, and 39% report having vomiting. The symptoms that are highly suggestive of migraine are headache, although you may still have migraine without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Optic neuritis is a condition consisting in the inflammation of the optic nerve that may cause a complete or partial loss of vision.",
                 "Within all the people who go to their doctor with optic neuritis, 79% report having diminished vision, 65% report having blindness, and 39% report having spots or clouds in vision. The symptoms that are highly suggestive of optic neuritis are diminished vision, blindness, spots or clouds in vision, symptoms of eye, and eyelid swelling, although you may still have optic neuritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

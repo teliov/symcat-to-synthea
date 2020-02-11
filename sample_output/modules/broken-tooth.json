@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dental trauma refers to trauma to the face, mouth, and especially the teeth, lips and periodontium. The study of dental trauma is called dental traumatology.",
                 "Within all the people who go to their doctor with broken tooth, 88% report having toothache, 37% report having facial pain, and 25% report having gum pain. The symptoms that are highly suggestive of broken tooth are toothache, facial pain, gum pain, lip swelling, mouth pain, bleeding in mouth, bleeding gums, difficulty eating, dry lips, and lump over jaw, although you may still have broken tooth without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A hematoma or haematoma, is a localized collection of blood outside the blood vessels, usually in liquid form within the tissue. An ecchymosis, commonly called a bruise, is a hematoma of the skin larger than 10mm. Internal bleeding is generally considered to be a spreading of blood within the abdomen or skull, not within muscle.",
                 "Within all the people who go to their doctor with hematoma, 37% report having sharp abdominal pain, 25% report having groin pain, and 25% report having ache all over. The symptoms that are highly suggestive of hematoma are groin pain, arm swelling, swelling of scrotum, lymphedema, and abdominal distention, although you may still have hematoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

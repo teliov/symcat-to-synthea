@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Rheumatic fever is an inflammatory disease that occurs following a Streptococcus pyogenes infection, such as streptococcal pharyngitis or scarlet fever. Believed to be caused by antibody cross-reactivity that can involve the heart, joints, skin, and brain, the illness typically develops two to three weeks after a streptococcal infection. Acute rheumatic fever commonly appears in children between the ages of 6 and 15, with only 20% of first-time attacks occurring in adults. The illness is so named because of its similarity in presentation to rheumatism.",
                 "Within all the people who go to their doctor with rheumatic fever, 84% report having itchiness of eye, 14% report having preoccupation with sex, and 14% report having wrist cramps or spasms. The symptoms that are highly suggestive of rheumatic fever are itchiness of eye, knee lump or mass, bedwetting, excessive growth, pelvic pressure, vulvar sore, eye strain, loss of sex drive, neck cramps or spasms, shoulder swelling, joint stiffness or tightness, and nailbiting, although you may still have rheumatic fever without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

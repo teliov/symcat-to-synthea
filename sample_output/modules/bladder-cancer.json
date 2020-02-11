@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bladder cancer is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with bladder cancer, 44% report having blood in urine, 18% report having retention of urine, and 14% report having symptoms of bladder. The symptoms that are highly suggestive of bladder cancer are blood in urine, symptoms of bladder, bladder mass, and kidney mass, although you may still have bladder cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

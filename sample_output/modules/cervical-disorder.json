@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Your healthcare provider may perform a Pap test during your health checkup to look for changes to the cells of the cervix, including cervical cancer. Other problems with the cervix include:",
                 "Within all the people who go to their doctor with cervical disorder, 32% report having vaginal bleeding after menopause, 32% report having sharp abdominal pain, and 22% report having pelvic pain. The symptoms that are highly suggestive of cervical disorder are vaginal bleeding after menopause, intermenstrual bleeding, painful menstruation, pain during intercourse, and hot flashes, although you may still have cervical disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

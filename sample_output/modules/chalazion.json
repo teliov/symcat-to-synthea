@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A chalazion (/k\u0259\u02c8le\u026azi\u0259n/; plural chalazia /k\u0259\u02c8le\u026azi\u0259/), also known as a meibomian gland lipogranuloma, is a cyst in the eyelid that is caused by inflammation of a blocked meibomian gland, usually on the upper eyelid. Chalazia differ from styes (hordeola) in that they are subacute and usually painless nodules. They may become acutely inflamed but, unlike a stye, chalazia usually point inside the lid rather than on the lid margin.",
                 "Within all the people who go to their doctor with chalazion, 84% report having mass on eyelid, 58% report having pain in eye, and 45% report having swollen eye. The symptoms that are highly suggestive of chalazion are mass on eyelid, pain in eye, swollen eye, eye redness, symptoms of eye, eyelid swelling, eyelid lesion or rash, itchiness of eye, and foreign body sensation in eye, although you may still have chalazion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Ocular ischemic syndrome is the constellation of ocular signs and symptoms secondary to severe, chronic arterial hypoperfusion to the eye. Amaurosis fugax is a form of acute vision loss caused by reduced blood flow to the eye that may be a warning sign of an impending stroke. Consequently, those with transient blurring of vision are advised to urgently seek medical attention for a thorough evaluation of the carotid artery. Anterior segment ischemic syndrome is a similar ischemic condition of anterior segment usually seen in post-surgical cases. Retinal arterial occlusion leads to rapid death of retinal cells, thereby resulting in severe loss of vision.",
                 "Within all the people who go to their doctor with central retinal artery or vein occlusion, 83% report having diminished vision, 37% report having blindness, and 34% report having spots or clouds in vision. The symptoms that are highly suggestive of central retinal artery or vein occlusion are diminished vision, blindness, spots or clouds in vision, symptoms of eye, foreign body sensation in eye, eye deviation, and double vision, although you may still have central retinal artery or vein occlusion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

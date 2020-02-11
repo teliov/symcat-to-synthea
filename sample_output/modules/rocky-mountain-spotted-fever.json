@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Rocky Mountain spotted fever is the most lethal and most frequently reported rickettsial illness in the United States. It has been diagnosed throughout the Americas. Some synonyms for Rocky Mountain spotted fever in other countries include \u201ctick typhus,\u201d \u201cTobia fever\u201d (Colombia), \u201cS\u00e3o Paulo fever\u201d or \u201cfebre maculosa\u201d (Brazil), and \u201cfiebre manchada\u201d (Mexico). It is distinct from the viral tick-borne infection, Colorado tick fever. The disease is caused by Rickettsia rickettsii, a species of bacterium that is spread to humans by Dermacentor ticks. Initial signs and symptoms of the disease include sudden onset of fever, headache, and muscle pain, followed by development of rash. The disease can be difficult to diagnose in the early stages, and without prompt and appropriate treatment it can be fatal.",
                 "Within all the people who go to their doctor with rocky mountain spotted fever, 100% report having headache, 32% report having preoccupation with sex, and 32% report having wrist cramps or spasms. The symptoms that are highly suggestive of rocky mountain spotted fever are headache, shoulder cramps or spasms, joint stiffness or tightness, and knee lump or mass, although you may still have rocky mountain spotted fever without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

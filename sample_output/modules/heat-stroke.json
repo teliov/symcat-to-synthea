@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Heat illness or heat-related illness is a spectrum of disorders due to environmental heat exposure. It includes minor conditions such as heat cramps, heat syncope, and heat exhaustion as well as the more severe condition known as heat stroke. Heat stroke is defined as a body temperature of greater than 40.6 \u00b0C (105.1 \u00b0F) due to environmental heat exposure with lack of thermoregulation. This is distinct from a fever, where there is a physiological increase in the temperature set point of the body.",
                 "Within all the people who go to their doctor with heat stroke, 80% report having feeling hot, 63% report having palpitations, and 63% report having chills. The symptoms that are highly suggestive of heat stroke are feeling hot, chills, fainting, palpitations, feeling ill, loss of sensation, and nailbiting, although you may still have heat stroke without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

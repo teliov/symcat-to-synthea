@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Acute kidney injury (AKI), previously called acute renal failure (ARF), is a rapid loss of kidney function.",
                 "Within all the people who go to their doctor with acute kidney injury, 41% report having shortness of breath, 39% report having weakness, and 30% report having vomiting. The symptoms that are highly suggestive of acute kidney injury are kidney mass and symptoms of the kidneys, although you may still have acute kidney injury without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

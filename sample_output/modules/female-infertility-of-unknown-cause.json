@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "National Women's Health Information Center",
                 "Within all the people who go to their doctor with female infertility of unknown cause, 92% report having infertility, 15% report having unpredictable menstruation, and 6% report having long menstrual periods. The symptoms that are highly suggestive of female infertility of unknown cause are infertility, unpredictable menstruation, long menstrual periods, scanty menstrual flow, and unwanted hair, although you may still have female infertility of unknown cause without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

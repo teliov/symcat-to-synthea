@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Osteoporosis (\"porous bones\", from Greek: \u03bf\u03c3\u03c4\u03bf\u03cd\u03bd/ostoun meaning \"bone\" and \u03c0\u03cc\u03c1\u03bf\u03c2/poros meaning \"pore\") is a disease of bones that leads to an increased risk of fracture. In osteoporosis, the bone mineral density (BMD) is reduced, bone microarchitecture deteriorates, and the amount and variety of proteins in bone are altered. Osteoporosis is defined by the World Health Organization (WHO) as a bone mineral density of 2.5 standard deviations or more below the mean peak bone mass (average of young, healthy adults) as measured by dual-energy X-ray absorptiometry; the term \"established osteoporosis\" includes the presence of a fragility fracture. The disease may be classified as primary type 1, primary type 2, or secondary.",
                 "Within all the people who go to their doctor with osteoporosis, 36% report having back pain, 20% report having hip pain, and 15% report having joint pain. The symptoms that are highly suggestive of osteoporosis are low back stiffness or tightness and early or late onset of menopause, although you may still have osteoporosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

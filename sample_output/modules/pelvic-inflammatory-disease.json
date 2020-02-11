@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pelvic inflammatory disease (or disorder) (PID) is a term for inflammation of the uterus, fallopian tubes, and/or ovaries as it progresses to scar formation with adhesions to nearby tissues and organs. This can lead to infertility. PID is a vague term and can refer to viral, fungal, parasitic, though most often bacterial infections. PID should be classified by affected organs, the stage of the infection, and the organism(s) causing it. Although a sexually transmitted infection (STI) is often the cause, many other routes are possible, including lymphatic, postpartum, postabortal (either miscarriage or abortion) or intrauterine device (IUD) related, and hematogenous spread. Two thirds of patients with laparoscopic evidence of previous PID were not aware they had PID",
                 "Within all the people who go to their doctor with pelvic inflammatory disease, 84% report having sharp abdominal pain, 60% report having pelvic pain, and 57% report having lower abdominal pain. The symptoms that are highly suggestive of pelvic inflammatory disease are pelvic pain, lower abdominal pain, vaginal discharge, and intermenstrual bleeding, although you may still have pelvic inflammatory disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

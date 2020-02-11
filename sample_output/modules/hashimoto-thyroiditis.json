@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hashimoto's thyroiditis or chronic lymphocytic thyroiditis is an autoimmune disease in which the thyroid gland is attacked by a variety of cell- and antibody-mediated immune processes. It was the first disease to be recognized as an autoimmune disease. It was first described by the Japanese specialist Hakaru Hashimoto in Germany in 1912.",
                 "Within all the people who go to their doctor with hashimoto thyroiditis, 19% report having weight gain, 19% report having constipation, and 11% report having premenstrual tension or irritability. The symptoms that are highly suggestive of hashimoto thyroiditis are premenstrual tension or irritability, too little hair, and feeling hot, although you may still have hashimoto thyroiditis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

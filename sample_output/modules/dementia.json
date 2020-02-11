@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dementia (taken from Latin, originally meaning \"madness\", from de- \"without\" + ment, the root of mens \"mind\") is a serious loss of global cognitive ability in a previously unimpaired person, beyond what might be expected from normal ageing. It may be static, the result of a unique global brain injury, or progressive, resulting in long-term decline due to damage or disease in the body. Although dementia is far more common in the geriatric population, it can occur before the age of 65, in which case it is termed \"early onset dementia\".",
                 "Within all the people who go to their doctor with dementia, 53% report having disturbance of memory, 45% report having problems with movement, and 32% report having depressive or psychotic symptoms. The symptoms that are highly suggestive of dementia are disturbance of memory, problems with movement, hostile behavior, and disturbance of smell or taste, although you may still have dementia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

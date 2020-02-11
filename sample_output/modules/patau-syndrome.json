@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Patau syndrome /\u02c8p\u00e6ta\u028a/ is a syndrome caused by a chromosomal abnormality, in which some or all of the cells of the body contain extra genetic material from chromosome 13. This can occur either because each cell contains a full extra copy of chromosome 13 (a disorder known as trisomy 13 or trisomy D), or because each cell contains an extra partial copy of the chromosome (i.e., Robertsonian translocation) or because of mosaic Patau syndrome. Full trisomy 13 is caused by nondisjunction of chromosomes during meiosis (the mosaic form is caused by nondisjunction during mitosis). The extra genetic material from chromosome 13 disrupts the normal course of development, causing multiple and complex organ defects. Like all nondisjunction conditions (such as Down syndrome and Edwards syndrome), the risk of this syndrome in the offspring increases with maternal age at pregnancy, with about 31 years being the average. Patau syndrome affects somewhere between 1 in 10,000 and 1 in 21,700 live births.",
                 "Within all the people who go to their doctor with patau syndrome, 20% report having preoccupation with sex, 20% report having wrist cramps or spasms, and 20% report having joint cramps or spasms. The symptoms that are highly suggestive of patau syndrome are joint stiffness or tightness, knee lump or mass, eye strain, excessive growth, pelvic pressure, vulvar sore, bedwetting, loss of sex drive, neck cramps or spasms, shoulder swelling, nailbiting, and shoulder cramps or spasms, although you may still have patau syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

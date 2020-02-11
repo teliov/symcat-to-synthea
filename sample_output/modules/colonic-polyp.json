@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A colorectal polyp is a polyp (fleshy growth) occurring on the lining of the colon or rectum. Untreated colorectal polyps can develop into colorectal cancer.",
                 "Within all the people who go to their doctor with colonic polyp, 42% report having rectal bleeding, 35% report having blood in stool, and 31% report having constipation. The symptoms that are highly suggestive of colonic polyp are rectal bleeding, blood in stool, and discharge in stools, although you may still have colonic polyp without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cervical cancer is a malignant neoplasm arising from cells originating in the cervix uteri. One of the most common symptoms of cervical cancer is abnormal vaginal bleeding, but in some cases there may be no obvious symptoms until the cancer has progressed to an advanced stage. Treatment usually consists of surgery (including local excision) in early stages, and chemotherapy and/or radiotherapy in more advanced stages of the disease.",
                 "Within all the people who go to their doctor with cervical cancer, 13% report having pelvic pain, 11% report having vaginal discharge, and 6% report having heavy menstrual flow. The symptoms that are highly suggestive of cervical cancer are vulvar irritation and mass on vulva, although you may still have cervical cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

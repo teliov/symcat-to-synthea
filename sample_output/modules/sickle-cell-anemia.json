@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sickle-cell disease (SCD), or sickle-cell anaemia (SCA) or drepanocytosis, is a hereditary blood disorder, characterized by red blood cells that assume an abnormal, rigid, sickle shape. Sickling decreases the cells' flexibility and results in a risk of various complications. The sickling occurs because of a mutation in the haemoglobin gene. Individuals with one copy of the defunct gene display both normal and abnormal haemoglobin. This is an example of codominance.",
                 "Within all the people who go to their doctor with sickle cell anemia, 42% report having ache all over, 37% report having leg pain, and 29% report having fever. The symptoms that are highly suggestive of sickle cell anemia are dry lips, although you may still have sickle cell anemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

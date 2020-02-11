@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A Spinal disc herniation (prolapsus disci intervertebralis) is a medical condition affecting the spine due to trauma, lifting injuries, or idiopathic (unknown) causes, in which a tear in the outer, fibrous ring (annulus fibrosus) of an intervertebral disc (discus intervertebralis) allows the soft, central portion (nucleus pulposus) to bulge out beyond the damaged outer rings. Tears are almost always postero-lateral in nature owing to the presence of the posterior longitudinal ligament in the spinal canal. This tear in the disc ring may result in the release of inflammatory chemical mediators which may directly cause severe pain, even in the absence of nerve root compression.",
                 "Within all the people who go to their doctor with herniated disk, 78% report having low back pain, 76% report having back pain, and 66% report having leg pain. The symptoms that are highly suggestive of herniated disk are low back pain, although you may still have herniated disk without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gas gangrene (also known as \"Clostridial myonecrosis\", and \"Myonecrosis\") is a bacterial infection that produces gas in tissues in gangrene. It is a deadly form of gangrene usually caused by Clostridium perfringens bacteria. It is a medical emergency.",
                 "Within all the people who go to their doctor with gas gangrene, 100% report having sharp abdominal pain, 32% report having preoccupation with sex, and 32% report having wrist cramps or spasms. The symptoms that are highly suggestive of gas gangrene are sharp abdominal pain, shoulder cramps or spasms, joint stiffness or tightness, and knee lump or mass, although you may still have gas gangrene without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

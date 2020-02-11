@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sepsis (/\u02c8s\u025bps\u0268s/; from the Greek \u03c3\u1fc6\u03c8\u03b9\u03c2: the state of putrefaction and decay) is a potentially deadly medical condition characterized by a whole-body inflammatory state (called a systemic inflammatory response syndrome or SIRS) caused by severe infection. Septicemia (or septicaemia or septic\u00e6mia ) is a related medical term referring to the presence of pathogenic organisms in the bloodstream, leading to sepsis. The term has not been sharply defined. It has been inconsistently used in the past by medical professionals, for example as a synonym of bacteremia, causing some confusion.",
                 "Within all the people who go to their doctor with sepsis, 80% report having fever, 52% report having depressive or psychotic symptoms, and 52% report having shortness of breath."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

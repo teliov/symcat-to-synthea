@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Muscular Dystrophy (MD) is a group of muscle diseases that weaken the musculoskeletal system and hamper locomotion. Muscular dystrophies are characterized by progressive skeletal muscle weakness, defects in muscle proteins, and the death of muscle cells and tissue.",
                 "Within all the people who go to their doctor with muscular dystrophy, 48% report having fatigue, 34% report having muscle weakness, and 34% report having headache. The symptoms that are highly suggestive of muscular dystrophy are muscle weakness, double vision, and feeling cold, although you may still have muscular dystrophy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

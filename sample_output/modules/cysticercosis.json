@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cysticercosis refers to tissue infection after exposure to eggs of Taenia solium, the pork tapeworm. The disease is spread via the fecal-oral route through contaminated food and water, and is primarily a food borne disease. After ingestion the eggs pass through the lumen of the intestine into the tissues and migrate preferentially to the brain and muscles. There they form cysts that can persist for years. In some cases the cysts will eventually cause an inflammatory reaction presenting as painful nodules in the muscles and seizures when the cysts are located in the brain. Symptomatic disease from Taenia solium cysts in the brain is referred to as neurocysticercosis and is the most common tapeworm infection of the brain worldwide. Cysticercosis should be differentiated from taeniasis: carriage of the adult tapeworm in the intestine (which is through ingestion of cysts in an intermediate host, not the ingestion of the eggs as in cysticercosis). These represent two different stages of the parasite\u2019s life cycle. Though both forms of infection can potentially occur in the same individual at the same time, they are distinct disease entities and have different treatments and potential outcomes.",
                 "Within all the people who go to their doctor with cysticercosis, 90% report having seizures, 87% report having headache, and 43% report having abnormal involuntary movements. The symptoms that are highly suggestive of cysticercosis are seizures, abnormal involuntary movements, elbow cramps or spasms, elbow weakness, excessive growth, underweight, low back weakness, wrist weakness, and feeling hot and cold, although you may still have cysticercosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Some nerve problems, arthritis, or cancers can affect the entire arm and cause pain, spasms, swelling and trouble moving. You may also have problems or injure specific parts of your arm, such as your hand, wrist, elbow or shoulder.",
                 "Within all the people who go to their doctor with injury to the arm, 80% report having wrist pain, 69% report having elbow pain, and 54% report having arm pain. The symptoms that are highly suggestive of injury to the arm are wrist pain, elbow pain, wrist swelling, elbow swelling, and arm stiffness or tightness, although you may still have injury to the arm without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

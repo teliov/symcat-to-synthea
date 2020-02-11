@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A bone tumor, (also spelled bone tumour), is a neoplastic growth of tissue in bone. Abnormal growths found in the bone can be either benign (noncancerous) or malignant (cancerous).",
                 "Within all the people who go to their doctor with bone cancer, 31% report having low back pain, 27% report having ache all over, and 27% report having leg pain. The symptoms that are highly suggestive of bone cancer are arm lump or mass, although you may still have bone cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

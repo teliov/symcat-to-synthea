@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Osteochondrosis is a family of orthopedic diseases of the joint that occur in children and adolescents and in rapidly growing animals, particularly pigs, horses, and dogs. They are characterized by interruption of the blood supply of a bone, in particular to the epiphysis, followed by localized bony necrosis, and later, regrowth of the bone. This disorder is defined as a focal disturbance of endochondral ossification and is regarded as having a multifactorial etiology, so no one thing accounts for all aspects of this disease.",
                 "Within all the people who go to their doctor with osteochondrosis, 84% report having knee pain, 68% report having foot or toe pain, and 40% report having bowlegged or knock-kneed. The symptoms that are highly suggestive of osteochondrosis are knee pain, foot or toe pain, bowlegged or knock-kneed, bones are painful, knee weakness, and knee lump or mass, although you may still have osteochondrosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

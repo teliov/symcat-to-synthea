@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Abortion is the termination of pregnancy by the removal or expulsion from the uterus of a fetus or embryo prior to viability. An abortion can occur spontaneously, in which case it is usually called a miscarriage, or it can be purposely induced. The term abortion most commonly refers to the induced abortion of a human pregnancy.",
                 "Within all the people who go to their doctor with induced abortion, 67% report having spotting or bleeding during pregnancy, 59% report having sharp abdominal pain, and 54% report having pain during pregnancy. The symptoms that are highly suggestive of induced abortion are spotting or bleeding during pregnancy, pain during pregnancy, cramps and spasms, intermenstrual bleeding, blood clots during menstrual periods, and absence of menstruation, although you may still have induced abortion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Supraventricular tachycardia (SVT) is a rapid heart rhythm originating at or above the atrioventricular node. Supraventricular tachycardias can be contrasted with the potentially more dangerous ventricular tachycardias - rapid rhythms that originate within the ventricular tissue.",
                 "Within all the people who go to their doctor with paroxysmal supraventricular tachycardia, 72% report having palpitations, 70% report having sharp chest pain, and 67% report having increased heart rate. The symptoms that are highly suggestive of paroxysmal supraventricular tachycardia are palpitations, increased heart rate, irregular heartbeat, and bladder mass, although you may still have paroxysmal supraventricular tachycardia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

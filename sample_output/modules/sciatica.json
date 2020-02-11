@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sciatica (/sa\u026a\u02c8\u00e6t\u026ak\u0259/; sciatic neuritis, sciatic neuralgia, or lumbar radiculopathy) is a set of symptoms including pain that may be caused by general compression or irritation of one of five spinal nerve roots that give rise to each sciatic nerve, or by compression or irritation of the left or right or both sciatic nerves. Symptoms include lower back pain, buttock pain, and pain, numbness or weakness in various parts of the leg and foot. Other symptoms include pins and needles or tingling and difficulty in moving or controlling the leg. Typically, the symptoms are only felt on one side of the body. The pain may radiate below the knee, but does not always.",
                 "Within all the people who go to their doctor with sciatica, 81% report having back pain, 81% report having leg pain, and 76% report having low back pain. The symptoms that are highly suggestive of sciatica are leg pain, low back pain, hip pain, lower body pain, and back cramps or spasms, although you may still have sciatica without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

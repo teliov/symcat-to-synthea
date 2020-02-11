@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A congenital heart defect (CHD) is a defect in the structure of the heart and great vessels which is present at birth. Many types of heart defects exist, most of which either obstruct blood flow in the heart or vessels near it, or cause blood to flow through the heart in an abnormal pattern. Other defects, such as long QT syndrome, affect the heart's rhythm. Heart defects are among the most common birth defects and are the leading cause of birth defect-related deaths. Approximately 9 people in 1000 are born with a congenital heart defect. Many defects don't need treatment, but some complex congenital heart defects require medication or surgery.",
                 "Within all the people who go to their doctor with congenital heart defect, 26% report having sharp chest pain, 6% report having lymphedema, and 6% report having lack of growth. The symptoms that are highly suggestive of congenital heart defect are cross-eyed, although you may still have congenital heart defect without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

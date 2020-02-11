@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A hallux abducto valgus deformity, commonly called a bunion, is a deformity characterized by lateral deviation of the great toe, often erroneously described as an enlargement of bone or tissue around the joint at the head of the big toe.",
                 "Within all the people who go to their doctor with bunion, 80% report having foot or toe pain, 31% report having foot or toe lump or mass, and 25% report having knee pain. The symptoms that are highly suggestive of bunion are foot or toe pain, foot or toe lump or mass, skin on leg or foot looks infected, skin moles, and stiffness all over, although you may still have bunion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

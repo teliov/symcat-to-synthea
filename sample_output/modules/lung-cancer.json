@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lung cancer is a disease characterized by uncontrolled cell growth in tissues of the lung. If left untreated, this growth can spread beyond the lung in a process called metastasis into nearby tissue or other parts of the body. Most cancers that start in lung, known as primary lung cancers, are carcinomas that derive from epithelial cells. The main types of lung cancer are small-cell lung carcinoma (SCLC), also called oat cell cancer, and non-small-cell lung carcinoma (NSCLC). The most common symptoms are coughing (including coughing up blood), weight loss and shortness of breath.",
                 "Within all the people who go to their doctor with lung cancer, 44% report having shortness of breath, 30% report having cough, and 24% report having fatigue."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

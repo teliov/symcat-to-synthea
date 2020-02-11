@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Anemia (/\u0259\u02c8ni\u02d0mi\u0259/; also spelled anaemia and an\u00e6mia; from Ancient Greek: \u1f00\u03bd\u03b1\u03b9\u03bc\u03af\u03b1 anaimia, meaning lack of blood, from \u1f00\u03bd- an-, \"not\" + \u03b1\u1f37\u03bc\u03b1 haima, \"blood\") is a decrease in number of red blood cells (RBCs) or less than the normal quantity of hemoglobin in the blood. However, it can include decreased oxygen-binding ability of each hemoglobin molecule due to deformity or lack in numerical development as in some other types of hemoglobin deficiency. Because hemoglobin (found inside RBCs) normally carries oxygen from the lungs to the capillaries, anemia leads to hypoxia (lack of oxygen) in organs. Since all human cells depend on oxygen for survival, varying degrees of anemia can have a wide range of clinical consequences.",
                 "Within all the people who go to their doctor with anemia, 32% report having fatigue, 28% report having weakness, and 27% report having dizziness."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

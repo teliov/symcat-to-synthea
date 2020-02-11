@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Mastectomy ( Greek word: breast + removal ) is the medical term for the surgical removal of one or both breasts, partially or completely. Mastectomy is usually done to treat breast cancer; in some cases, women and some men believed to be at high risk of breast cancer have the operation prophylactically, that is, to prevent cancer rather than treat it. It is also the medical procedure carried out to remove breast cancer tissue in males. Alternatively, certain patients can choose to have a wide local excision, also known as a lumpectomy, an operation in which a small volume of breast tissue containing the tumor and some surrounding healthy tissue is removed to conserve the breast. Both mastectomy and lumpectomy are what are referred to as \"local therapies\" for breast cancer, targeting the area of the tumor, as opposed to systemic therapies such as chemotherapy, hormonal therapy, or immunotherapy.",
                 "Within all the people who go to their doctor with mastectomy, 21% report having pain or soreness of breast, 21% report having lump or mass of breast, and 8% report having problems with shape or size of breast. The symptoms that are highly suggestive of mastectomy are pain or soreness of breast, problems with shape or size of breast, and burning chest pain, although you may still have mastectomy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

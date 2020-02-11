@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Omphalitis is the medical term for infection of the umbilical cord stump in the neonatal newborn period. While currently an uncommon anatomical location for infection in the newborn in the United States, it has caused significant morbidity and mortality both historically and in areas where health care is less readily available.",
                 "Within all the people who go to their doctor with omphalitis, 86% report having irregular belly button , 27% report having flatulence, and 27% report having jaundice. The symptoms that are highly suggestive of omphalitis are irregular belly button , flatulence, irritable infant, diaper rash, jaundice, low back weakness, back weakness, emotional symptoms, pus in sputum, elbow cramps or spasms, and muscle swelling, although you may still have omphalitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

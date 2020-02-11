@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "BPH may refer to:",
                 "Within all the people who go to their doctor with benign prostatic hyperplasia (bph), 58% report having retention of urine, 48% report having symptoms of prostate, and 42% report having frequent urination. The symptoms that are highly suggestive of benign prostatic hyperplasia (bph) are retention of urine, symptoms of prostate, frequent urination, excessive urination at night, impotence, symptoms of bladder, hesitancy, and low urine output, although you may still have benign prostatic hyperplasia (bph) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

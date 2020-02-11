@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Priapism (/\u02c8pra\u026a\u0259p\u026az\u0259m/) a potentially painful medical condition, in which the erect penis does not return to its flaccid state, despite the absence of both physical and psychological stimulation, within four hours. There are two types of priapism: low-flow and high-flow; 80% to 90% of clinically presented priapisms are low flow disorders. Low-flow involves the blood not adequately returning to the body from the organ. High-flow involves a short-circuit of the vascular system partway along the organ. Treatment is different for each type. Priapism is considered a medical emergency, which should receive proper treatment by a qualified medical practitioner. Early treatment can be beneficial for a functional recovery.",
                 "Within all the people who go to their doctor with priapism, 85% report having penis pain, 51% report having painful urination, and 33% report having premature ejaculation. The symptoms that are highly suggestive of priapism are penis pain, painful urination, pain during intercourse, leg cramps or spasms, impotence, drug abuse, premature ejaculation, and elbow weakness, although you may still have priapism without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hay Fever is a comic play written by No\u00ebl Coward in 1924 and first produced in 1925 with Marie Tempest as the first Judith Bliss. Laura Hope Crews played the role in New York. Best described as a cross between high farce and a comedy of manners, the play is set in an English country house in the 1920s, and deals with the four eccentric members of the Bliss family and their outlandish behaviour when they each invite a guest to spend the weekend. The self-centred behaviour of the hosts finally drives their guests to flee while the Blisses are so engaged in a family row that they do not notice their guests' furtive departure.",
                 "Within all the people who go to their doctor with seasonal allergies (hay fever), 72% report having nasal congestion, 65% report having cough, and 53% report having allergic reaction. The symptoms that are highly suggestive of seasonal allergies (hay fever) are allergic reaction, sneezing, and itchiness of eye, although you may still have seasonal allergies (hay fever) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

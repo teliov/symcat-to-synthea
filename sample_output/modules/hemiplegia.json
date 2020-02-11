@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hemiplegia /he.m\u0259.pli\u02d0.d\u0292i\u0259/ is total paralysis of the arm, leg, and trunk on the same side of the body. Hemiplegia is more severe than hemiparesis, wherein one half of the body has less marked weakness. Hemiplegia and Hemiparesis may be congenital, or they might be acquired conditions resulting from an illness, an injury, or a stroke.",
                 "Within all the people who go to their doctor with hemiplegia, 50% report having seizures, 46% report having headache, and 42% report having focal weakness. The symptoms that are highly suggestive of hemiplegia are focal weakness, slurring words, cramps and spasms, arm weakness, and arm stiffness or tightness, although you may still have hemiplegia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A seborrheic keratosis (also known as \"seborrheic verruca,\" and \"senile wart\":767:637) is a noncancerous benign skin growth that originates in keratinocytes. Like liver spots, seborrheic keratoses are seen more often as people age. In fact, they are sometimes humorously referred to as the \"barnacles of old age\".",
                 "Within all the people who go to their doctor with seborrheic keratosis, 71% report having skin lesion, 70% report having abnormal appearing skin, and 56% report having skin moles. The symptoms that are highly suggestive of seborrheic keratosis are skin lesion, abnormal appearing skin, skin moles, skin growth, skin dryness, peeling, scaliness, or roughness, skin irritation, and irregular appearing scalp, although you may still have seborrheic keratosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

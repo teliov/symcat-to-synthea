@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Carcinoid syndrome refers to the array of symptoms that occur secondary to carcinoid tumors. The syndrome includes flushing and diarrhea, and, less frequently, heart failure and bronchoconstriction. It is caused by endogenous secretion of mainly serotonin and kallikrein.",
                 "Within all the people who go to their doctor with carcinoid syndrome, 77% report having involuntary urination, 11% report having preoccupation with sex, and 11% report having wrist cramps or spasms. The symptoms that are highly suggestive of carcinoid syndrome are involuntary urination, knee lump or mass, neck cramps or spasms, excessive growth, vulvar sore, loss of sex drive, eye strain, shoulder swelling, nailbiting, wrist weakness, joint stiffness or tightness, and itchy eyelid, although you may still have carcinoid syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

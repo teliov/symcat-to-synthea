@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Any injury that results in trauma to the scalp, skull, or brain can be classified as a head injury. The terms traumatic brain injury and head injury are often used interchangeably in medical literature. This broad classification includes neuronal injuries, hemorrhages, vascular injuries, cranial nerve injuries, and subdural hygromas, among many others. These classifications can be further categorized as open (penetrating) or closed head injuries. This depends on if the skull was broken or not. Because head injuries cover such a broad scope of injuries, there are many causes\u2014including accidents, falls, physical assault, or traffic accidents\u2014that can cause head injuries. Many of these are minor, but some can be severe enough to require hospitalization.",
                 "Within all the people who go to their doctor with head injury, 68% report having headache, 36% report having neck pain, and 29% report having dizziness."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Neurosis is a class of functional mental disorders involving distress but neither delusions nor hallucinations, whereby behavior is not outside socially acceptable norms. It is also known as psychoneurosis or neurotic disorder, and thus those suffering from it are said to be neurotic. The term essentially describes an \"invisible injury\" and the resulting condition.",
                 "Within all the people who go to their doctor with neurosis, 75% report having depressive or psychotic symptoms, 55% report having depression, and 37% report having anxiety and nervousness. The symptoms that are highly suggestive of neurosis are depressive or psychotic symptoms, hostile behavior, delusions or hallucinations, excessive anger, and obsessions and compulsions, although you may still have neurosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

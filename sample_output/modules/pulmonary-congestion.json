@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pulmonary edema (American English), or oedema (British English; both words from the Greek \u03bf\u1f34\u03b4\u03b7\u03bc\u03b1), is fluid accumulation in the air spaces and parenchyma of the lungs. It leads to impaired gas exchange and may cause respiratory failure. It is due to either failure of the left ventricle of the heart to adequately remove blood from the pulmonary circulation (\"cardiogenic pulmonary edema\"), or an injury to the lung parenchyma or vasculature of the lung (\"noncardiogenic pulmonary edema\"). Treatment is focused on three aspects: firstly improving respiratory function, secondly, treating the underlying cause, and thirdly avoiding further damage to the lung. Pulmonary edema, especially in the acute setting, can lead to respiratory failure, cardiac arrest due to hypoxia, and death.",
                 "Within all the people who go to their doctor with pulmonary congestion, 85% report having shortness of breath, 65% report having sharp chest pain, and 56% report having difficulty breathing. The symptoms that are highly suggestive of pulmonary congestion are shortness of breath, congestion in chest, and decreased heart rate, although you may still have pulmonary congestion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

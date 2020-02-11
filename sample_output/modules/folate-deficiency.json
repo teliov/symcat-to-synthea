@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Folate deficiency is a lack of folic acid in the diet and the signs are often subtle. Folate deficiency anemia is the medical name given for the condition.",
                 "Within all the people who go to their doctor with folate deficiency, 48% report having shortness of breath, 37% report having sharp chest pain, and 31% report having weakness. The symptoms that are highly suggestive of folate deficiency are vomiting blood and melena, although you may still have folate deficiency without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chronic pancreatitis is a long-standing inflammation of the pancreas that alters its normal structure and functions. It can present as episodes of acute inflammation in a previously injured pancreas, or as chronic damage with persistent pain or malabsorption.",
                 "Within all the people who go to their doctor with chronic pancreatitis, 86% report having sharp abdominal pain, 55% report having vomiting, and 51% report having nausea."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

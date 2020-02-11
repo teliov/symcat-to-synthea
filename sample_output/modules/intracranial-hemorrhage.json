@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "An intracranial hemorrhage (ICH) is a hemorrhage, or bleeding, within the skull.",
                 "Within all the people who go to their doctor with intracranial hemorrhage, 63% report having headache, 32% report having disturbance of memory, and 32% report having problems with movement. The symptoms that are highly suggestive of intracranial hemorrhage are disturbance of memory and joint pain, although you may still have intracranial hemorrhage without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

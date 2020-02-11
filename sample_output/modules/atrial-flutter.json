@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Atrial flutter (AFL) is an abnormal heart rhythm that occurs in the atria of the heart. When it first occurs, it is usually associated with a fast heart rate or tachycardia (beats over 100 per minute), and falls into the category of supra-ventricular tachycardias. While this rhythm occurs most often in individuals with cardiovascular disease (e.g. hypertension, coronary artery disease, and cardiomyopathy) and diabetes, it may occur spontaneously in people with otherwise normal hearts. It is typically not a stable rhythm, and frequently degenerates into atrial fibrillation (AF). However, it does rarely persist for months to years.",
                 "Within all the people who go to their doctor with atrial flutter, 70% report having irregular heartbeat, 50% report having increased heart rate, and 48% report having palpitations. The symptoms that are highly suggestive of atrial flutter are irregular heartbeat, increased heart rate, palpitations, and feeling hot, although you may still have atrial flutter without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

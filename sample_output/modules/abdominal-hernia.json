@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A hernia is the protrusion of an organ or the fascia of an organ through the wall of the cavity that normally contains it. There are different kinds of hernia, each requiring a specific management or treatment.",
                 "Within all the people who go to their doctor with abdominal hernia, 65% report having sharp abdominal pain, 32% report having groin mass, and 29% report having ache all over. The symptoms that are highly suggestive of abdominal hernia are groin mass, irregular belly button , and swollen abdomen, although you may still have abdominal hernia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

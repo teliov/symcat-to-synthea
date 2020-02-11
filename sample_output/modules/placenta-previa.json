@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Placenta praevia (placenta previa AE) is an obstetric complication in which the placenta is inserted partially or wholly in lower uterine segment. It can sometimes occur in the later part of the first trimester, but usually during the second or third. It is a leading cause of antepartum haemorrhage (vaginal bleeding). It affects approximately 0.4-0.5% of all labours.",
                 "Within all the people who go to their doctor with placenta previa, 60% report having spotting or bleeding during pregnancy, 38% report having pain during pregnancy, and 23% report having cramps and spasms. The symptoms that are highly suggestive of placenta previa are spotting or bleeding during pregnancy, pain during pregnancy, cramps and spasms, and uterine contractions, although you may still have placenta previa without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

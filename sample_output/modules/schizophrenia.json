@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Schizophrenia (/\u02ccsk\u026ats\u0275\u02c8fr\u025bni\u0259/ or /\u02ccsk\u026ats\u0275\u02c8fri\u02d0ni\u0259/) is a mental disorder characterized by a breakdown of thought processes and by a deficit of typical emotional responses. Common symptoms include auditory hallucinations, paranoid or bizarre delusions, or disorganized speech and thinking, and it is accompanied by significant social or occupational dysfunction. The onset of symptoms typically occurs in young adulthood, with a global lifetime prevalence of about 0.3\u20130.7%. Diagnosis is based on observed behavior and the patient's reported experiences.",
                 "Within all the people who go to their doctor with schizophrenia, 60% report having depressive or psychotic symptoms, 56% report having delusions or hallucinations, and 43% report having depression. The symptoms that are highly suggestive of schizophrenia are delusions or hallucinations, hostile behavior, fears and phobias, and hysterical behavior, although you may still have schizophrenia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

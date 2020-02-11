@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Acute bronchitis is an inflammation of the large bronchi (medium-size airways) in the lungs that is usually caused by viruses or bacteria and may last several days or weeks. Characteristic symptoms include cough, sputum (phlegm) production, and shortness of breath and wheezing related to the obstruction of the inflamed airways. Diagnosis is by clinical examination and sometimes microbiological examination of the phlegm. Treatment for acute bronchitis is typically symptomatic. As viruses cause most cases of acute bronchitis, antibiotics should not be used unless microscopic examination of gram-stained sputum reveals large numbers of bacteria.",
                 "Within all the people who go to their doctor with acute bronchitis, 92% report having cough, 66% report having nasal congestion, and 63% report having fever. The symptoms that are highly suggestive of acute bronchitis are coughing up sputum and congestion in chest, although you may still have acute bronchitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

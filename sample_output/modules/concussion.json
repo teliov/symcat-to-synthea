@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Concussion, from the Latin concutere (\"to shake violently\") or concussus (\"action of striking together\"), is the most common type of traumatic brain injury. The terms mild brain injury, mild traumatic brain injury (MTBI), mild head injury (MHI), minor head trauma, and concussion may be used interchangeably, although the last is often treated as a narrower category. Although the term \"concussion\" is still used in sports literature as interchangeable with \"MHI\" or \"MTBI\", the general clinical medical literature now uses \"MTBI\" instead. In this article, \"concussion\" and \"MTBI\" are used interchangeably. Frequently defined as a head injury with a temporary loss of brain function, concussion causes a variety of physical, cognitive, and emotional symptoms, which may not be recognized if subtle.",
                 "Within all the people who go to their doctor with concussion, 83% report having headache, 49% report having dizziness, and 45% report having neck pain. The symptoms that are highly suggestive of concussion are disturbance of memory, although you may still have concussion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

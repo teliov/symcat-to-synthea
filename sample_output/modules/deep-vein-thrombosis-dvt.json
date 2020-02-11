@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Deep vein thrombosis, or deep venous thrombosis, (DVT) is the formation of a blood clot (thrombus) in a deep vein, predominantly in the legs. Non-specific signs may include pain, swelling, redness, warmness, and engorged superficial veins. Pulmonary embolism, a potentially life-threatening complication, is caused by the detachment (embolization) of a clot that travels to the lungs. Together, DVT and pulmonary embolism constitute a single disease process known as venous thromboembolism. Post-thrombotic syndrome, another complication, significantly contributes to the health-care cost of DVT.",
                 "Within all the people who go to their doctor with deep vein thrombosis (dvt), 66% report having leg pain, 57% report having leg swelling, and 15% report having abnormal appearing skin. The symptoms that are highly suggestive of deep vein thrombosis (dvt) are leg swelling, leg stiffness or tightness, and disturbance of smell or taste, although you may still have deep vein thrombosis (dvt) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

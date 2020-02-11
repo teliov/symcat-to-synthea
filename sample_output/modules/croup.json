@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Croup (or laryngotracheobronchitis) is a respiratory condition that is usually triggered by an acute viral infection of the upper airway. The infection leads to swelling inside the throat, which interferes with normal breathing and produces the classical symptoms of a \"barking\" cough, stridor, and hoarseness. It may produce mild, moderate, or severe symptoms, which often worsen at night. It is often treated with a single dose of oral steroids; occasionally epinephrine is used in more severe cases. Hospitalization is rarely required.",
                 "Within all the people who go to their doctor with croup, 94% report having cough, 77% report having fever, and 66% report having difficulty breathing. The symptoms that are highly suggestive of croup are difficulty breathing and wheezing, although you may still have croup without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

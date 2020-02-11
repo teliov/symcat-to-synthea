@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A spinal cord injury (SCI) refers to any injury to the spinal cord that is caused by trauma instead of disease. Depending on where the spinal cord and nerve roots are damaged, the symptoms can vary widely, from pain to paralysis to incontinence. Spinal cord injuries are described at various levels of \"incomplete\", which can vary from having no effect on the patient to a \"complete\" injury which means a total loss of function.",
                 "Within all the people who go to their doctor with fracture of the vertebra, 79% report having back pain, 66% report having low back pain, and 47% report having neck pain. The symptoms that are highly suggestive of fracture of the vertebra are bones are painful, leg stiffness or tightness, hip weakness, and muscle stiffness or tightness, although you may still have fracture of the vertebra without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

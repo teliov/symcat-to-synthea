@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "General or unspecified injuries to the soft tissue or bony portions of the face.",
                 "Within all the people who go to their doctor with injury to the face, 53% report having neck pain, 46% report having headache, and 41% report having facial pain. The symptoms that are highly suggestive of injury to the face are facial pain, bleeding from ear, mouth pain, bleeding in mouth, neck stiffness or tightness, and redness in or around nose, although you may still have injury to the face without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

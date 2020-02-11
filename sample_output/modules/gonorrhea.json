@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gonorrhea (colloquially known as the clap) is a common human sexually transmitted infection caused by the bacterium Neisseria gonorrhoeae. The usual symptoms in men are burning with urination and penile discharge. Women, on the other hand, are asymptomatic half the time or have vaginal discharge and pelvic pain. In both men and women if gonorrhea is left untreated, it may spread locally causing epididymitis or pelvic inflammatory disease or throughout the body, affecting joints and heart valves.",
                 "Within all the people who go to their doctor with gonorrhea, 72% report having penile discharge, 48% report having sharp abdominal pain, and 44% report having vaginal discharge. The symptoms that are highly suggestive of gonorrhea are penile discharge, vaginal discharge, vaginal itching, penis redness, and vaginal pain, although you may still have gonorrhea without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

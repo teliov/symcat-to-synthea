@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Phimosis (/f\u026a\u02c8mo\u028as\u0259s/ or /fa\u026a\u02c8mo\u028as\u0259s/), from the Greek phimos (\u03c6\u1fd1\u03bc\u03cc\u03c2 (\"muzzle\")), is a condition where, in men, the foreskin cannot be fully retracted over the glans penis. The term may also refer to clitoral phimosis in women, whereby the clitoral hood cannot be retracted, limiting exposure of the glans clitoridis.",
                 "Within all the people who go to their doctor with phimosis, 44% report having penis pain, 35% report having penis redness, and 24% report having retention of urine. The symptoms that are highly suggestive of phimosis are penis pain, penis redness, bumps on penis, thirst, and symptoms of the scrotum and testes, although you may still have phimosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

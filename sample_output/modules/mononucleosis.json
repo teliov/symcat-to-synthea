@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Mononucleosis (also called \"Mono\", glandular fever, and, colloquially, the \"kissing disease\"), is a disease most commonly caused by the Epstein-Barr virus (EBV). EBV affects the lymphocytes which are white blood cells involved in the adaptive immune system. Mononucleosis can also be caused by cytomegalovirus (HCMV), a herpes virus most commonly found in body fluids. While CMV can cause mononucleosis, 85% of the cases are associated with EBV. The disease can be seen in many populations and age cohorts, but is most commonly contracted by adolescents and young adults ages 15\u201335.",
                 "Within all the people who go to their doctor with mononucleosis, 85% report having sore throat, 70% report having fever, and 57% report having headache. The symptoms that are highly suggestive of mononucleosis are sore throat and swollen lymph nodes, although you may still have mononucleosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

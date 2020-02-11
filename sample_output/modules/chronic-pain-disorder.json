@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pain disorder is chronic pain experienced by a patient in one or more areas, and is thought to be caused by psychological stress. The pain is often so severe that it disables the patient from proper functioning. Duration may be as short as a few days or as long as many years. The disorder may begin at any age, and occurs more frequently in girls than boys. This disorder often occurs after an accident or during an illness that has caused pain, which then takes on a 'life' of its own.",
                 "Within all the people who go to their doctor with chronic pain disorder, 76% report having back pain, 63% report having low back pain, and 48% report having ache all over."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

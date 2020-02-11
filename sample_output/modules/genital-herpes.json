@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Herpes genitalis (or genital herpes) refers to a genital infection by Herpes simplex virus.",
                 "Within all the people who go to their doctor with genital herpes, 47% report having skin rash, 36% report having painful urination, and 33% report having vaginal pain. The symptoms that are highly suggestive of genital herpes are vaginal pain, vaginal discharge, vaginal itching, recent pregnancy, and skin pain, although you may still have genital herpes without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

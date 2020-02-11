@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dental diseases may affect the teeth, the gums, or other tissues and parts of the mouth. Dental diseases can cause much more serious problems than a toothache; they can affect our ability to chew, smile, or speak properly. Their severity may range from a simple aphthous ulcer or a common tooth cavity, to oral cancer.",
                 "Within all the people who go to their doctor with gum disease, 89% report having toothache, 53% report having gum pain, and 46% report having facial pain. The symptoms that are highly suggestive of gum disease are toothache, gum pain, facial pain, peripheral edema, mouth ulcer, mouth pain, bleeding gums, pain in gums, lip swelling, and jaw swelling, although you may still have gum disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

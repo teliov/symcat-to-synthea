@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cardiomyopathy (literally \"heart muscle disease\") is the measurable deterioration of the function of the myocardium (the heart muscle) for any reason, usually leading to heart failure; common symptoms are dyspnea (breathlessness) and peripheral edema (swelling of the legs). People with cardiomyopathy are often at risk of dangerous forms of irregular heart beat and sudden cardiac death. The most common form of cardiomyopathy is dilated cardiomyopathy.",
                 "Within all the people who go to their doctor with cardiomyopathy, 53% report having shortness of breath, 39% report having sharp chest pain, and 27% report having fatigue. The symptoms that are highly suggestive of cardiomyopathy are muscle weakness, although you may still have cardiomyopathy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

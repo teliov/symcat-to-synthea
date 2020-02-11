@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Labyrinthitis is an ailment of the inner ear and a form of unilateral vestibular dysfunction. It derives its name from the labyrinths that house the vestibular system, which senses changes in head position. Labyrinthitis can cause balance disorders, vertigo, hearing loss and tinnitus.",
                 "Within all the people who go to their doctor with labyrinthitis, 97% report having dizziness, 66% report having nausea, and 61% report having vomiting. The symptoms that are highly suggestive of labyrinthitis are dizziness and ringing in ear, although you may still have labyrinthitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

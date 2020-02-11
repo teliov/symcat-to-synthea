@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Primary immunodeficiencies are disorders in which part of the body's immune system is missing or does not function properly. To be considered a primary immunodeficiency, the cause of the immune deficiency must not be secondary in nature (i.e., caused by other disease, drug treatment, or environmental exposure to toxins). Most primary immunodeficiencies are genetic disorders; the majority are diagnosed in children under the age of one, although milder forms may not be recognized until adulthood. About 1 in 500 people is born with a primary immunodeficiency.",
                 "Within all the people who go to their doctor with primary immunodeficiency, 32% report having fatigue, 28% report having cough, and 16% report having frontal headache. The symptoms that are highly suggestive of primary immunodeficiency are arm stiffness or tightness and swollen tongue, although you may still have primary immunodeficiency without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

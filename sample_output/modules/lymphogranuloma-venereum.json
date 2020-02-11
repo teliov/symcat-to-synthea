@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lymphogranuloma venereum (also known as \"Climatic bubo,\" \"Durand\u2013Nicolas\u2013Favre disease,\" \"Poradenitis inguinale,\" and \"Strumous bubo\") is a sexually transmitted disease caused by the invasive serovars L1, L2, L2a or L3 of Chlamydia trachomatis.",
                 "Within all the people who go to their doctor with lymphogranuloma venereum, 100% report having sore throat, 91% report having nosebleed, and 91% report having chills. The symptoms that are highly suggestive of lymphogranuloma venereum are sore throat, nosebleed, chills, ear pain, vulvar sore, pelvic pressure, knee lump or mass, shoulder swelling, neck cramps or spasms, excessive growth, and loss of sex drive, although you may still have lymphogranuloma venereum without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

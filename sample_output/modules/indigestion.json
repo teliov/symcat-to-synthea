@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dyspepsia (from the Greek \u03b4\u03c5\u03c3- dys- and \u03c0\u03ad\u03c8\u03b9\u03c2 pepsis \"digestion\"), also known as indigestion, is a condition of impaired digestion. It is a medical condition characterized by chronic or recurrent pain in the upper abdomen, upper abdominal fullness and feeling full earlier than expected when eating. It can be accompanied by bloating, belching, nausea, or heartburn. Dyspepsia is a common problem and is frequently caused by gastroesophageal reflux disease (GERD) or gastritis. In a small minority it may be the first symptom of peptic ulcer disease (an ulcer of the stomach or duodenum) and occasionally cancer. Hence, unexplained newly onset dyspepsia in people over 55 or the presence of other alarming symptoms may require further investigations.",
                 "Within all the people who go to their doctor with indigestion, 74% report having sharp abdominal pain, 63% report having burning abdominal pain, and 55% report having nausea. The symptoms that are highly suggestive of indigestion are burning abdominal pain, upper abdominal pain, heartburn, and stomach bloating, although you may still have indigestion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

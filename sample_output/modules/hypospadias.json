@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypospadias /ha\u026apo\u028a\u02c8spe\u026ad\u026a\u0259s/ is a birth defect of the urethra in the male that involves an abnormally placed urinary meatus (the opening, or male external urethral orifice). Instead of opening at the tip of the glans of the penis, a hypospadic urethra opens anywhere along a line (the urethral groove) running from the tip along the underside (ventral aspect) of the shaft to the junction of the penis and scrotum or perineum. A distal hypospadias may be suspected even in an uncircumcised boy from an abnormally formed foreskin and downward tilt of the glans.",
                 "Within all the people who go to their doctor with hypospadias, 29% report having retention of urine, 17% report having recent weight loss, and 17% report having symptoms of the scrotum and testes. The symptoms that are highly suggestive of hypospadias are recent weight loss, unusual color or odor to urine, symptoms of the scrotum and testes, penis pain, and jaundice, although you may still have hypospadias without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

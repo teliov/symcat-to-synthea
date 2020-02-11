@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hyponatremia (American English) or hyponatraemia (British English) is an electrolyte disturbance in which the sodium ion concentration in the serum is lower than normal. Sodium is the dominant extracellular cation (positive ion) and cannot freely cross from the interstitial space through the cell membrane, into the cell. Its homeostasis (stability of concentration) inside the cell is vital to the normal function of any cell. Normal serum sodium levels are between 135 and 145 mEq/L. Hyponatremia is defined as a serum level of less than 135 mEq/L and is considered severe when the serum level is below 125 mEq/L.",
                 "Within all the people who go to their doctor with hyponatremia, 55% report having weakness, 53% report having vomiting, and 48% report having nausea."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dysmorphic feature is a medical term referring to a difference of body structure that is suggestive of a congenital disorder, genetic syndrome, or birth defect. A dysmorphic feature can be a minor and isolated birth defect (e.g., clinodactyly, not accompanied by other features or problems). Alternatively it can be one of a combination of features signaling a serious multi-system syndrome (e.g., the epicanthal folds of Down's syndrome). Another example would be sparse eyebrows, which are indicative of cardiofaciocutaneous syndrome, also known as CFC.",
                 "Within all the people who go to their doctor with congenital malformation syndrome, 39% report having lack of growth, 31% report having seizures, and 15% report having gum pain. The symptoms that are highly suggestive of congenital malformation syndrome are lack of growth, gum pain, leg stiffness or tightness, symptoms of the kidneys, and difficulty eating, although you may still have congenital malformation syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

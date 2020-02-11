@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Attention deficit hyperactivity disorder (ADHD, similar to hyperkinetic disorder in the ICD) is a psychiatric disorder or neurobehavioral disorder characterized by significant difficulties either of inattention or hyperactivity and impulsiveness or a combination of the two. According to the Diagnostic and Statistical Manual of Mental Disorders (DSM-IV-TR), symptoms emerge before seven years of age. There are three subtypes of the disorder which consist of it being predominantly inattentive (ADHD-PI or ADHD-I), predominantly hyperactive-impulsive (ADHD-HI or ADHD-H), or the two combined (ADHD-C). Often people refer to ADHD-PI as \"attention deficit disorder\" (ADD), however, the latter has not been officially accepted since the 1994 revision of the DSM. ADHD impacts school-aged children and results in restlessness, acting impulsively, and lack of focus which may impair school performance.",
                 "Within all the people who go to their doctor with attention deficit hyperactivity disorder (adhd), 53% report having depressive or psychotic symptoms, 34% report having depression, and 32% report having anxiety and nervousness. The symptoms that are highly suggestive of attention deficit hyperactivity disorder (adhd) are excessive anger, restlessness, and obsessions and compulsions, although you may still have attention deficit hyperactivity disorder (adhd) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

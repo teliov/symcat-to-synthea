@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A food allergy is an adverse immune response to a food protein. They are distinct from other adverse responses to food, such as food intolerance, pharmacological reactions, and toxin-mediated reactions.",
                 "Within all the people who go to their doctor with food allergy, 85% report having allergic reaction, 62% report having skin rash, and 38% report having itching of skin. The symptoms that are highly suggestive of food allergy are allergic reaction, lip swelling, and sneezing, although you may still have food allergy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

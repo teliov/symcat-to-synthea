@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hyperemesis gravidarum (HG) is a complication of pregnancy characterized by intractable nausea, vomiting, and dehydration and is estimated to affect 0.5-2.0% of pregnant women. Malnutrition and other serious complications, such as fluid or electrolyte imbalances, may result.",
                 "Within all the people who go to their doctor with hyperemesis gravidarum, 93% report having vomiting, 85% report having nausea, and 74% report having problems during pregnancy. The symptoms that are highly suggestive of hyperemesis gravidarum are vomiting, nausea, problems during pregnancy, pain during pregnancy, and vomiting blood, although you may still have hyperemesis gravidarum without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

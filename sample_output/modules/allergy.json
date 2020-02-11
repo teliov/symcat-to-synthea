@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "An allergy is a hypersensitivity disorder of the immune system. Allergic reactions occur when a person's immune system reacts to normally harmless substances in the environment. A substance that causes a reaction is called an allergen. These reactions are acquired, predictable, and rapid. Allergy is one of four forms of hypersensitivity and is formally called type I (or immediate) hypersensitivity. Allergic reactions are distinctive because of excessive activation of certain white blood cells called mast cells and basophils by a type of antibody called Immunoglobulin E (IgE). This reaction results in an inflammatory response which can range from uncomfortable to dangerous.",
                 "Within all the people who go to their doctor with allergy, 85% report having skin rash, 65% report having allergic reaction, and 61% report having itching of skin. The symptoms that are highly suggestive of allergy are skin rash, allergic reaction, itching of skin, swollen eye, lip swelling, and swollen tongue, although you may still have allergy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

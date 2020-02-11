@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Rosacea /ro\u028a\u02c8ze\u026a\u0283i\u0259/ is a chronic condition characterized by facial erythema (redness) and sometimes pimples. Rosacea affects all ages and has four subtypes, three affecting the skin and the fourth affecting the eyes (ocular type). Left untreated it worsens over time. Treatment in the form of topical steroids can aggravate the condition.",
                 "Within all the people who go to their doctor with rosacea, 61% report having abnormal appearing skin, 61% report having skin rash, and 52% report having acne or pimples. The symptoms that are highly suggestive of rosacea are abnormal appearing skin, acne or pimples, skin dryness, peeling, scaliness, or roughness, skin swelling, skin moles, and lymphedema, although you may still have rosacea without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

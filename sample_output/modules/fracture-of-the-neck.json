@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A cervical fracture, commonly called a broken neck, is a catastrophic fracture of any of the seven cervical vertebrae in the neck. Examples of common causes in humans are traffic collisions and diving into shallow water. Abnormal movement of neck bones or pieces of bone can cause a spinal cord injury resulting in loss of sensation, paralysis, or death.",
                 "Within all the people who go to their doctor with fracture of the neck, 83% report having hip pain, 36% report having low back pain, and 29% report having leg pain. The symptoms that are highly suggestive of fracture of the neck are hip pain, symptoms of bladder, and low self-esteem, although you may still have fracture of the neck without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

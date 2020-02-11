@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Atelectasis (from Greek: \u1f00\u03c4\u03b5\u03bb\u03ae\u03c2, \"incomplete\" + \u1f14\u03ba\u03c4\u03b1\u03c3\u03b9\u03c2, \"extension\") is defined as the collapse or closure of the lung resulting in reduced or absent gas exchange . It may affect part or all of one lung. It is a condition where the alveoli are deflated, as distinct from pulmonary consolidation.",
                 "Within all the people who go to their doctor with atelectasis, 64% report having cough, 61% report having shortness of breath, and 53% report having sharp chest pain."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

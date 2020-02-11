@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Myopia (Greek: \u03bc\u03c5\u03c9\u03c0\u03af\u03b1, mu\u014dpia, from myein \"to shut\" \u2013 ops (gen. opos) \"eye\"), commonly known as being nearsighted (American English) and shortsighted (British English), is a condition of the eye where the light that comes in does not directly focus on the retina but in front of it. This causes the image that one sees when looking at a distant object to be out of focus, but in focus when looking at a close object.",
                 "Within all the people who go to their doctor with myopia, 72% report having diminished vision, 31% report having spots or clouds in vision, and 27% report having pain in eye. The symptoms that are highly suggestive of myopia are diminished vision, spots or clouds in vision, foreign body sensation in eye, eye moves abnormally, and eye deviation, although you may still have myopia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

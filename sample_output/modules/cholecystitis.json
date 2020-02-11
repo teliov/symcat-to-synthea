@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cholecystitis (Greek, -cholecyst, \"gallbladder\", combined with the suffix -itis, \"inflammation\") is inflammation of the gallbladder, which occurs most commonly due to obstruction of the cystic duct with gallstones (cholelithiasis). Blockage of the cystic duct with gallstones causes accumulation of bile in the gallbladder and increased pressure within the gallbladder. Concentrated bile, pressure, and sometimes bacterial infection irritate and damage the gallbladder wall, causing inflammation and swelling of the gallbladder. Inflammation and swelling of the gallbladder can reduce normal blood flow to areas of the gallbladder, which can lead to cell death due to insufficient oxygen. Not everyone who has gallstones will go on to develop cholecystitis.",
                 "Within all the people who go to their doctor with cholecystitis, 82% report having sharp abdominal pain, 70% report having upper abdominal pain, and 56% report having nausea. The symptoms that are highly suggestive of cholecystitis are upper abdominal pain, although you may still have cholecystitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

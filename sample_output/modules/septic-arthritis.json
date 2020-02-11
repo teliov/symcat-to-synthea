@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Septic arthritis is the purulent invasion of a joint by an infectious agent which produces arthritis. People with artificial joints are more at risk than the general population but have slightly different symptoms, are infected with different organisms and require different treatment. Septic arthritis is considered a medical emergency. If untreated, it may destroy the joint in a period of days. The infection may also spread to other parts of the body.",
                 "Within all the people who go to their doctor with septic arthritis, 73% report having knee pain, 56% report having knee swelling, and 42% report having fever. The symptoms that are highly suggestive of septic arthritis are knee swelling, skin on arm or hand looks infected, and elbow swelling, although you may still have septic arthritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

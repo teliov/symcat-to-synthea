@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Plantar fasciitis (PF) is a painful inflammatory process of the plantar fascia, the connective tissue on the sole (bottom surface) of the foot. It is often caused by overuse of the plantar fascia or arch tendon of the foot. It is a very common condition and can be difficult to treat if not looked after properly. Another common term for the affliction is \"policeman's heel\".",
                 "Within all the people who go to their doctor with plantar fasciitis, 95% report having foot or toe pain, 36% report having ankle pain, and 24% report having knee pain. The symptoms that are highly suggestive of plantar fasciitis are foot or toe pain, change in skin mole size or color, foot or toe cramps or spasms, and itchy scalp, although you may still have plantar fasciitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lymphangitis is an inflammation or an infection of the lymphatic channels that occurs as a result of infection at a site distal to the channel. The most common cause of lymphangitis in humans is Streptococcus pyogenes (Group A strep), although it can also be caused by the fungus Sporothrix schenckii. Lymphangitis is sometimes mistakenly called \"blood poisoning\". In reality, \"blood poisoning\" is synonymous with septicemia.",
                 "Within all the people who go to their doctor with lymphangitis, 52% report having neck swelling, 52% report having skin on arm or hand looks infected, and 52% report having skin on leg or foot looks infected. The symptoms that are highly suggestive of lymphangitis are skin on arm or hand looks infected, neck swelling, skin on leg or foot looks infected, skin on head or neck looks infected, foot or toe lump or mass, flu-like syndrome, and skin irritation, although you may still have lymphangitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

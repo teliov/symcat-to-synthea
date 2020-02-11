@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "In medicine, amyloidosis refers to a variety of conditions wherein normally soluble proteins become insoluble and are deposited in the extracellular space of various organs or tissues, disrupting normal function. The insoluble fibrous protein aggregates that develop in amyloidosis are known as amyloids. They result from a change in the protein's secondary structure, which causes the protein to take on a particular aggregated insoluble form, similar to the beta-pleated sheet. Symptoms vary widely depending upon where in the body amyloid deposits accumulate. Amyloidosis may be inherited or acquired. Senile systemic amyloidosis was determined to be the primary cause of death for 70% of supercentenarians who have been autopsied.",
                 "Within all the people who go to their doctor with amyloidosis, 72% report having shortness of breath, 43% report having symptoms of the kidneys, and 43% report having congestion in chest. The symptoms that are highly suggestive of amyloidosis are symptoms of the kidneys, congestion in chest, wrist weakness, nailbiting, eye strain, and feeling hot and cold, although you may still have amyloidosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

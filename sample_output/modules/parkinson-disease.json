@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Parkinson's disease (PD also known as idiopathic or primary parkinsonism, hypokinetic rigid syndrome/HRS, or paralysis agitans) is a degenerative disorder of the central nervous system. The motor symptoms of Parkinson's disease result from the death of dopamine-generating cells in the substantia nigra, a region of the midbrain; the cause of this cell death is unknown. Early in the course of the disease, the most obvious symptoms are movement-related; these include shaking, rigidity, slowness of movement and difficulty with walking and gait. Later, thinking and behavioral problems may arise, with dementia commonly occurring in the advanced stages of the disease, whereas depression is the most common psychiatric symptom. Other symptoms include sensory, sleep and emotional problems. Parkinson's disease is more common in the elderly, with most cases occurring after the age of 50.",
                 "Within all the people who go to their doctor with parkinson disease, 64% report having abnormal involuntary movements, 41% report having problems with movement, and 28% report having disturbance of memory. The symptoms that are highly suggestive of parkinson disease are abnormal involuntary movements, problems with movement, disturbance of memory, stiffness all over, and muscle stiffness or tightness, although you may still have parkinson disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

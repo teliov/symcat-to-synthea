@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Tinea capitis (also known as \"Herpes tonsurans\", \"Ringworm of the hair,\" \"Ringworm of the scalp,\" \"Scalp ringworm\", and \"Tinea tonsurans\") is a superficial fungal infection (dermatophytosis) of the scalp. The disease is primarily caused by dermatophytes in the Trichophyton and Microsporum genera that invade the hair shaft. The clinical presentation is typically single or multiple patches of hair loss, sometimes with a 'black dot' pattern (often with broken-off hairs), that may be accompanied by inflammation, scaling, pustules, and itching. Uncommon in adults, tinea capitis is predominantly seen in pre-pubertal children, more often boys than girls.",
                 "Within all the people who go to their doctor with fungal infection of the hair, 79% report having skin rash, 52% report having skin swelling, and 44% report having skin lesion. The symptoms that are highly suggestive of fungal infection of the hair are skin rash, skin swelling, irregular appearing scalp, skin irritation, and itchy scalp, although you may still have fungal infection of the hair without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

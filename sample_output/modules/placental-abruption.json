@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Placental abruption (also known as abruptio placentae) is a complication of pregnancy, wherein the placental lining has separated from the uterus of the mother. It is the most common pathological cause of late pregnancy bleeding. In humans, it refers to the abnormal separation after 20 weeks of gestation and prior to birth. It occurs in 1% of pregnancies worldwide. Placental abruption is a significant contributor to maternal mortality worldwide; early and skilled medical intervention is needed to ensure a good outcome, and this is not available in many parts of the world. Treatment depends on how serious the abruption is and how far along the woman is in her pregnancy.",
                 "Within all the people who go to their doctor with placental abruption, 79% report having spotting or bleeding during pregnancy, 69% report having uterine contractions, and 51% report having cramps and spasms. The symptoms that are highly suggestive of placental abruption are spotting or bleeding during pregnancy, uterine contractions, lower abdominal pain, cramps and spasms, problems during pregnancy, cross-eyed, itchy eyelid, excessive growth, emotional symptoms, elbow cramps or spasms, and wrist weakness, although you may still have placental abruption without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

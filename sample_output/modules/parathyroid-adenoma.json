@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A parathyroid adenoma is a benign tumor of the parathyroid gland. It can cause hyperparathyroidism.",
                 "Within all the people who go to their doctor with parathyroid adenoma, 30% report having shoulder pain, 24% report having weakness, and 24% report having anxiety and nervousness. The symptoms that are highly suggestive of parathyroid adenoma are symptoms of the kidneys, tongue lesions, and flatulence, although you may still have parathyroid adenoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

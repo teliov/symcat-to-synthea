@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Addison\u2019s disease (also chronic adrenal insufficiency, hypocortisolism, and hypoadrenalism) is a rare, chronic endocrine disorder in which the adrenal glands do not produce sufficient steroid hormones (glucocorticoids and often mineralocorticoids). It is characterised by a number of relatively nonspecific symptoms, such as abdominal pain and weakness, but under certain circumstances, these may progress to Addisonian crisis, a severe illness which may include very low blood pressure and coma.",
                 "Within all the people who go to their doctor with glucocorticoid deficiency, 44% report having weakness, 44% report having shortness of breath, and 34% report having problems with movement. The symptoms that are highly suggestive of glucocorticoid deficiency are problems with movement, lack of growth, symptoms of the kidneys, and muscle cramps, contractures, or spasms, although you may still have glucocorticoid deficiency without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

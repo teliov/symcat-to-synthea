@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pulmonary embolism (PE) is a blockage of the main artery of the lung or one of its branches by a substance that has travelled from elsewhere in the body through the bloodstream (embolism). PE most commonly results from deep vein thrombosis (a blood clot in the deep veins of the legs or pelvis) that breaks off and migrates to the lung, a process termed venous thromboembolism (VTE). A small proportion of cases are due to the embolization of air, fat, talc in drugs of intravenous drug abusers or amniotic fluid. The obstruction of the blood flow through the lungs and the resultant pressure on the right ventricle of the heart lead to the symptoms and signs of PE. The risk of PE is increased in various situations, such as cancer or prolonged bed rest.",
                 "Within all the people who go to their doctor with pulmonary embolism, 73% report having shortness of breath, 65% report having sharp chest pain, and 35% report having difficulty breathing. The symptoms that are highly suggestive of pulmonary embolism are hemoptysis, although you may still have pulmonary embolism without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

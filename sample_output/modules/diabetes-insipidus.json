@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Diabetes insipidus (DI) is a condition characterized by excessive thirst and excretion of large amounts of severely diluted urine, with reduction of fluid intake having no effect on the concentration of the urine. There are several different types of DI, each with a different cause. The most common type in humans is central DI, caused by a deficiency of arginine vasopressin (AVP), also known as antidiuretic hormone (ADH). The second common type of DI is nephrogenic diabetes insipidus, which is caused by an insensitivity of the kidneys to ADH. It can also be an iatrogenic artifact of drug use.",
                 "Within all the people who go to their doctor with diabetes insipidus, 51% report having excessive appetite, 51% report having difficulty in swallowing, and 51% report having frequent urination. The symptoms that are highly suggestive of diabetes insipidus are excessive appetite, difficulty in swallowing, frequent urination, itchy eyelid, emotional symptoms, wrist weakness, elbow cramps or spasms, elbow weakness, nailbiting, and hip stiffness or tightness, although you may still have diabetes insipidus without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

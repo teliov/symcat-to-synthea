@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Congenital rubella syndrome (CRS) can occur in a developing fetus of a pregnant woman who has contracted rubella during her first trimester. If infection occurs 0\u201328 days before conception, there is a 43% chance the infant will be affected. If the infection occurs 0\u201312 weeks after conception, there is a 51% chance the infant will be affected.",
                 "Within all the people who go to their doctor with congenital rubella, 91% report having preoccupation with sex, 91% report having wrist cramps or spasms, and 91% report having joint cramps or spasms. The symptoms that are highly suggestive of congenital rubella are pain in eye, shoulder cramps or spasms, facial pain, ankle pain, wrist pain, pain during pregnancy, excessive anger, joint stiffness or tightness, pain or soreness of breast, knee lump or mass, fatigue, and excessive urination at night, although you may still have congenital rubella without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

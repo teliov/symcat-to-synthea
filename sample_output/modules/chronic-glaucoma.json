@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Glaucoma in which the angle of the anterior chamber is open and the trabecular meshwork does not encroach on the base of the iris.",
                 "Within all the people who go to their doctor with chronic glaucoma, 62% report having diminished vision, 30% report having pain in eye, and 28% report having symptoms of eye. The symptoms that are highly suggestive of chronic glaucoma are diminished vision, symptoms of eye, spots or clouds in vision, foreign body sensation in eye, blindness, eye burns or stings, and mass on eyelid, although you may still have chronic glaucoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

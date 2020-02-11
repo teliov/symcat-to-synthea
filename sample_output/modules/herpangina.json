@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Herpangina, also called mouth blisters, is the name of a painful mouth infection caused by coxsackieviruses. Usually, herpangina is produced by one particular strain of coxsackie virus A (and the term \"herpangina virus\" refers to coxsackievirus A) but it can also be caused by coxsackievirus B or echoviruses. Most cases of herpangina occur in the summer, affecting mostly children. However, it occasionally occurs in adolescents and adults. It was first characterized in 1920.",
                 "Within all the people who go to their doctor with herpangina, 92% report having fever, 69% report having skin rash, and 62% report having sore throat. The symptoms that are highly suggestive of herpangina are mouth ulcer, decreased appetite, tongue lesions, and swollen lymph nodes, although you may still have herpangina without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

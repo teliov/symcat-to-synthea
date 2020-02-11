@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dental caries, also known as tooth decay or a cavity, is an infection, bacterial in origin, that causes demineralization and destruction of the hard tissues (enamel, dentin and cementum), usually by production of acid by bacterial fermentation of the food debris accumulated on the tooth surface. If demineralization exceeds saliva and other remineralization factors such as from calcium and fluoridated toothpastes, these hard tissues progressively break down, producing dental caries (cavities, holes in the teeth). The bacteria most responsible for dental cavities are the mutans streptococci, most prominently Streptococcus mutans and Streptococcus sobrinus, and lactobacilli. If left untreated, the disease can lead to pain, tooth loss and infection. Today, caries remain one of the most common diseases throughout the world. Cariology is the study of dental caries.",
                 "Within all the people who go to their doctor with dental caries, 95% report having toothache, 45% report having gum pain, and 40% report having facial pain. The symptoms that are highly suggestive of dental caries are toothache, gum pain, facial pain, mouth pain, jaw swelling, and pain in gums, although you may still have dental caries without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Rheumatoid arthritis (RA) is an autoimmune disease that results in a chronic, systemic inflammatory disorder that may affect many tissues and organs, but principally attacks flexible (synovial) joints. It can be a disabling and painful condition, which can lead to substantial loss of functioning and mobility if not adequately treated.",
                 "Within all the people who go to their doctor with rheumatoid arthritis, 43% report having joint pain, 42% report having knee pain, and 29% report having ache all over. The symptoms that are highly suggestive of rheumatoid arthritis are joint pain, joint swelling, and hand or finger weakness, although you may still have rheumatoid arthritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

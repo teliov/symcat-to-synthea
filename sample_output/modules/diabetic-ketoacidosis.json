@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Diabetic ketoacidosis (DKA) is a potentially life-threatening complication in patients with diabetes mellitus. It happens predominantly in those with type 1 diabetes, but it can occur in those with type 2 diabetes under certain circumstances. DKA results from a shortage of insulin; in response the body switches to burning fatty acids and producing acidic ketone bodies that cause most of the symptoms and complications.",
                 "Within all the people who go to their doctor with diabetic ketoacidosis, 84% report having vomiting, 66% report having nausea, and 46% report having weakness. The symptoms that are highly suggestive of diabetic ketoacidosis are thirst and polyuria, although you may still have diabetic ketoacidosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

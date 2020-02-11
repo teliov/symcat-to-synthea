@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Scleritis is a serious inflammatory disease that affects the white outer coating of the eye, known as the sclera. The disease is often contracted through association with other diseases of the body, such as Wegener's granulomatosis or rheumatoid arthritis; it can also be attained through disorders of menstruation. For this reason, scleritis occurs frequently among young women. There are three types of scleritis: diffuse scleritis (the most common), nodular scleritis, and necrotizing scleritis (the most severe). Scleritis may be the first symptom of onset of connective tissue disease.",
                 "Within all the people who go to their doctor with scleritis, 83% report having pain in eye, 76% report having eye redness, and 42% report having lacrimation. The symptoms that are highly suggestive of scleritis are pain in eye, eye redness, lacrimation, spots or clouds in vision, cloudy eye, vaginal itching, and foreign body sensation in eye, although you may still have scleritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

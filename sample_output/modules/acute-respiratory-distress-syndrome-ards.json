@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Acute respiratory distress syndrome (ARDS), also known as respiratory distress syndrome (RDS) or adult respiratory distress syndrome (in contrast with infant respiratory distress syndrome) is a life-threatening reaction to injuries or acute infection to the lung. ARDS is a severe lung syndrome (not a disease) with direct and indirect causes. Inflammation of the lung parenchyma leads to impaired gas exchange with systemic release of inflammatory mediators, causing inflammation, hypoxemia and frequently multiple organ failure. This condition has a 90% death rate in untreated patients. With treatment, usually mechanical ventilation in an intensive care unit, the death rate is 50%. A less severe form is called acute lung injury (ALI).",
                 "Within all the people who go to their doctor with acute respiratory distress syndrome (ards), 84% report having shortness of breath, 72% report having difficulty breathing, and 45% report having cough. The symptoms that are highly suggestive of acute respiratory distress syndrome (ards) are shortness of breath and difficulty breathing, although you may still have acute respiratory distress syndrome (ards) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

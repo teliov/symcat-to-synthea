@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A lipoma is a benign tumor composed of adipose tissue (body fat). It is the most common form of soft tissue tumor. Lipomas are soft to the touch, usually movable, and are generally painless. Many lipomas are small (under one centimeter diameter) but can enlarge to sizes greater than six centimeters. Lipomas are commonly found in adults from 40 to 60 years of age, but can also be found in younger adults and children. Some sources claim that malignant transformation can occur, while others say this has yet to be convincingly documented.",
                 "Within all the people who go to their doctor with lipoma, 47% report having skin swelling, 37% report having back mass or lump, and 35% report having arm lump or mass. The symptoms that are highly suggestive of lipoma are skin swelling, back mass or lump, arm lump or mass, neck mass, shoulder lump or mass, groin mass, leg lump or mass, and bones are painful, although you may still have lipoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

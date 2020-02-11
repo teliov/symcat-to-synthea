@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Mastoiditis is the result of an infection that extends to the air cells of the skull behind the ear. Specifically, it is an inflammation of the mucosal lining of the mastoid antrum and mastoid air cell system inside the mastoid process, that portion of the temporal bone of the skull that is behind the ear and which contains open, air-containing spaces. It is usually caused by untreated acute otitis media (middle ear infection) and used to be a leading cause of child mortality. With the development of antibiotics, however, mastoiditis has become quite rare in developed countries where surgical treatment is now much less frequent and more conservative, unlike former times. Untreated, the infection can spread to surrounding structures, including the brain, causing serious complications.",
                 "Within all the people who go to their doctor with mastoiditis, 84% report having ear pain, 49% report having dizziness, and 42% report having fluid in ear. The symptoms that are highly suggestive of mastoiditis are ear pain, redness in ear, fluid in ear, diminished hearing, plugged feeling in ear, and ringing in ear, although you may still have mastoiditis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

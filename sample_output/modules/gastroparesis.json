@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gastroparesis, also called delayed gastric emptying, is a medical condition consisting of a paresis (partial paralysis) of the stomach, resulting in food remaining in the stomach for a longer time than normal. Normally, the stomach contracts to move food down into the small intestine for digestion. The vagus nerve controls these contractions. Gastroparesis may occur when the vagus nerve is damaged and the muscles of the stomach and intestines do not work normally. Food then moves slowly or stops moving through the digestive tract.",
                 "Within all the people who go to their doctor with gastroparesis, 85% report having vomiting, 75% report having nausea, and 74% report having sharp abdominal pain. The symptoms that are highly suggestive of gastroparesis are regurgitation and heartburn, although you may still have gastroparesis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

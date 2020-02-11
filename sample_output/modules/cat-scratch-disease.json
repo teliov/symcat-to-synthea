@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cat scratch disease (CSD), also known as cat scratch fever, Teeny's Disease, inoculation lymphoreticulosis, and subacute regional lymphadenitis, is a usually benign infectious disease caused by the intracellular bacterium Bartonella henselae. It is most commonly found in children following a scratch or bite from a cat within about one to two weeks. It was discovered in 1889 by Henri Parinaud.",
                 "Within all the people who go to their doctor with cat scratch disease, 74% report having neck swelling, 74% report having skin swelling, and 57% report having arm lump or mass. The symptoms that are highly suggestive of cat scratch disease are neck swelling, skin swelling, groin mass, arm swelling, swollen eye, arm lump or mass, and itchy eyelid, although you may still have cat scratch disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

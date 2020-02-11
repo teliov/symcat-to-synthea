@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gout (also known as podagra when it involves the big toe) is a medical condition usually characterized by recurrent attacks of acute inflammatory arthritis\u2014a red, tender, hot, swollen joint. The metatarsal-phalangeal joint at the base of the big toe is the most commonly affected (approximately 50% of cases). However, it may also present as tophi, kidney stones, or urate nephropathy. It is caused by elevated levels of uric acid in the blood. The uric acid crystallizes, and the crystals deposit in joints, tendons, and surrounding tissues.",
                 "Within all the people who go to their doctor with gout, 75% report having foot or toe pain, 48% report having knee pain, and 43% report having foot or toe swelling. The symptoms that are highly suggestive of gout are foot or toe pain, foot or toe swelling, and wrist swelling, although you may still have gout without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

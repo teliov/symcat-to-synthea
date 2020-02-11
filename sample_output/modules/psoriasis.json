@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Psoriasis /s\u0275\u02c8ra\u026a.\u0259s\u0268s/ is an immune-mediated disease that affects the skin. It is typically a lifelong condition. There is currently no cure, but various treatments can help to control the symptoms.",
                 "Within all the people who go to their doctor with psoriasis, 64% report having skin rash, 38% report having itching of skin, and 26% report having skin dryness, peeling, scaliness, or roughness. The symptoms that are highly suggestive of psoriasis are skin dryness, peeling, scaliness, or roughness, itchy scalp, and irregular appearing scalp, although you may still have psoriasis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypercalcaemia (British English) or hypercalcemia (American English) is an elevated calcium (Ca+) level in the blood. (Normal range: 9\u201310.5 mg/dL or 2.2\u20132.6 mmol/L). It can be an asymptomatic laboratory finding, but because an elevated calcium level is often indicative of other diseases, a workup should be undertaken if it persists. It can be due to excessive skeletal calcium release, increased intestinal calcium absorption, or decreased renal calcium excretion.",
                 "Within all the people who go to their doctor with hypercalcemia, 39% report having weakness, 28% report having dizziness, and 20% report having loss of sensation. The symptoms that are highly suggestive of hypercalcemia are hand or finger weakness, arm cramps or spasms, and irregular appearing nails, although you may still have hypercalcemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Glaucoma is a term describing a group of ocular disorders with multi-factorial etiology united by a clinically characteristic intraocular pressure-associated optic neuropathy. This can permanently damage vision in the affected eye(s) and lead to blindness if left untreated. It is normally associated with increased fluid pressure in the eye (aqueous humour). The term \"ocular hypertension\" is used for people with consistently raised intraocular pressure (IOP) without any associated optic nerve damage. Conversely, the term 'normal tension' or 'low tension' glaucoma is used for those with optic nerve damage and associated visual field loss, but normal or low IOP.",
                 "Within all the people who go to their doctor with acute glaucoma, 62% report having diminished vision, 41% report having pain in eye, and 36% report having symptoms of eye. The symptoms that are highly suggestive of acute glaucoma are diminished vision, symptoms of eye, spots or clouds in vision, foreign body sensation in eye, itchiness of eye, and blindness, although you may still have acute glaucoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

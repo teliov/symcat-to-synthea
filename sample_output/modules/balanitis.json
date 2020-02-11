@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Balanitis (/b\u00e6l\u0259\u02c8na\u026at\u026as/; from Greek: \u03b2\u03ac\u03bb\u03b1\u03bd\u03bf\u03c2 balanos \"acorn\") is inflammation of the glans penis. When the foreskin is also affected, it is termed balanoposthitis.",
                 "Within all the people who go to their doctor with balanitis, 73% report having penis redness, 53% report having penis pain, and 47% report having diaper rash. The symptoms that are highly suggestive of balanitis are penis redness, penis pain, diaper rash, and penile discharge, although you may still have balanitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

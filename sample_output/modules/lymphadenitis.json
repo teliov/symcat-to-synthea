@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lymphadenopathy is a term meaning \"disease of the lymph nodes.\" It is, however, almost synonymously used with \"swollen/enlarged lymph nodes\". It could be due to infection, auto-immune disease, or malignancy.",
                 "Within all the people who go to their doctor with lymphadenitis, 60% report having sore throat, 55% report having fever, and 53% report having swollen lymph nodes. The symptoms that are highly suggestive of lymphadenitis are swollen lymph nodes, neck mass, and neck swelling, although you may still have lymphadenitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gestational hypertension or pregnancy-induced hypertension (PIH) is defined as the development of new arterial hypertension in a pregnant woman after 20 weeks gestation without the presence of protein in the urine.",
                 "Within all the people who go to their doctor with hypertension of pregnancy, 30% report having problems during pregnancy, 25% report having headache, and 22% report having pain during pregnancy. The symptoms that are highly suggestive of hypertension of pregnancy are problems during pregnancy and pelvic pressure, although you may still have hypertension of pregnancy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

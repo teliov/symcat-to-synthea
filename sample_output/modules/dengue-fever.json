@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dengue fever (UK /\u02c8d\u025b\u014b\u0261e\u026a/ or US /\u02c8d\u025b\u014b\u0261i\u02d0/), also known as breakbone fever, is an infectious tropical disease caused by the dengue virus. Symptoms include fever, headache, muscle and joint pains, and a characteristic skin rash that is similar to measles. In a small proportion of cases the disease develops into the life-threatening dengue hemorrhagic fever, resulting in bleeding, low levels of blood platelets and blood plasma leakage, or into dengue shock syndrome, where dangerously low blood pressure occurs.",
                 "Within all the people who go to their doctor with dengue fever, 100% report having sore throat, 100% report having fever, and 32% report having preoccupation with sex. The symptoms that are highly suggestive of dengue fever are sore throat, fever, shoulder cramps or spasms, joint stiffness or tightness, and knee lump or mass, although you may still have dengue fever without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

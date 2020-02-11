@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Myasthenia gravis (from Greek \u03bc\u03cd\u03c2 \"muscle\", \u1f00\u03c3\u03b8\u03ad\u03bd\u03b5\u03b9\u03b1 \"weakness\", and Latin: gravis \"serious\"; abbreviated MG) is an autoimmune neuromuscular disease leading to fluctuating muscle weakness and fatigability. It is an autoimmune disorder, in which weakness is caused by circulating antibodies that block acetylcholine receptors at the postsynaptic neuromuscular junction, inhibiting the excitatory effects of the neurotransmitter acetylcholine on nicotinic receptors throughout neuromuscular junctions.",
                 "Within all the people who go to their doctor with myasthenia gravis, 50% report having double vision, 48% report having weakness, and 36% report having fatigue. The symptoms that are highly suggestive of myasthenia gravis are double vision, abnormal movement of eyelid, focal weakness, slurring words, and arm weakness, although you may still have myasthenia gravis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

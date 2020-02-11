@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A goitre or goiter (Latin gutteria, struma), is a swelling of the thyroid gland, which can lead to a swelling of the neck or larynx (voice box). Goitre is a term that refers to an enlargement of the thyroid (thyromegaly) and can be associated with a thyroid gland that is functioning properly or not.",
                 "Within all the people who go to their doctor with goiter, 22% report having fatigue, 15% report having weight gain, and 12% report having neck mass. The symptoms that are highly suggestive of goiter are neck mass, neck swelling, lump in throat, and feeling hot and cold, although you may still have goiter without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

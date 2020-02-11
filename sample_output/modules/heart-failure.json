@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Heart failure (HF), often called congestive heart failure (CHF) or congestive cardiac failure (CCF), occurs when the heart is unable to provide sufficient pump action to maintain blood flow to meet the needs of the body. Heart failure can cause a number of symptoms including shortness of breath, leg swelling, and exercise intolerance. The condition is diagnosed by patient physical examination and confirmed with echocardiography. Blood tests help to determine the cause. Treatment depends on severity and cause of heart failure. In a chronic patient already in a stable situation, treatment commonly consists of lifestyle measures such as smoking cessation, light exercise, dietary changes, and medications. Sometimes, depending from etiology, it is treated with implanted devices (pacemakers or ventricular assist devices) and occasionally a heart transplant is required.",
                 "Within all the people who go to their doctor with heart failure, 77% report having shortness of breath, 47% report having sharp chest pain, and 37% report having difficulty breathing."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

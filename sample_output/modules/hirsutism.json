@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hirsutism is the excessive hairiness on women in those parts of the body where terminal hair does not normally occur or is minimal - for example, a beard or chest hair. It refers to a male pattern of body hair (androgenic hair) and it is therefore primarily of cosmetic and psychological concern. Hirsutism is a medical sign rather than a disease and may be a sign of a more serious medical condition, especially if it develops well after puberty. The amount and location of the hair is measured by a Ferriman-Gallwey score.",
                 "Within all the people who go to their doctor with hirsutism, 82% report having unwanted hair, 32% report having unpredictable menstruation, and 32% report having acne or pimples. The symptoms that are highly suggestive of hirsutism are unwanted hair, unpredictable menstruation, acne or pimples, infertility, warts, skin moles, too little hair, and heavy menstrual flow, although you may still have hirsutism without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

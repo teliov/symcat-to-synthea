@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Frozen shoulder, medically referred to as adhesive capsulitis, is a disorder in which the shoulder capsule, the connective tissue surrounding the glenohumeral joint of the shoulder, becomes inflamed and stiff, greatly restricting motion and causing chronic pain.",
                 "Within all the people who go to their doctor with adhesive capsulitis of the shoulder, 94% report having shoulder pain, 56% report having shoulder stiffness or tightness, and 33% report having neck pain. The symptoms that are highly suggestive of adhesive capsulitis of the shoulder are shoulder pain, shoulder stiffness or tightness, shoulder swelling, stiffness all over, and ankle stiffness or tightness, although you may still have adhesive capsulitis of the shoulder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A disease-producing enzyme deficiency subject to many variants, some of which cause a deficiency of GLUCOSE-6-PHOSPHATE DEHYDROGENASE activity in erythrocytes, leading to hemolytic anemia.",
                 "Within all the people who go to their doctor with g6pd enzyme deficiency, 43% report having nasal congestion, 43% report having cough, and 3% report having preoccupation with sex. The symptoms that are highly suggestive of g6pd enzyme deficiency are excessive growth, wrist weakness, elbow weakness, elbow cramps or spasms, feeling hot and cold, emotional symptoms, low back weakness, underweight, nailbiting, and muscle swelling, although you may still have g6pd enzyme deficiency without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

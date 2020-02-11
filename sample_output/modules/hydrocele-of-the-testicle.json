@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Accumulation of serous fluid between the layers of membrane (tunica vaginalis) covering the TESTIS in the SCROTUM.",
                 "Within all the people who go to their doctor with hydrocele of the testicle, 75% report having swelling of scrotum, 68% report having pain in testicles, and 38% report having groin pain. The symptoms that are highly suggestive of hydrocele of the testicle are swelling of scrotum, pain in testicles, groin pain, mass in scrotum, groin mass, excessive urination at night, and symptoms of the scrotum and testes, although you may still have hydrocele of the testicle without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

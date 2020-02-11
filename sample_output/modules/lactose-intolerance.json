@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lactose intolerance, also called lactase deficiency and hypolactasia, is the inability to digest lactose, a sugar found in milk and to a lesser extent milk-derived dairy products. It is not a disorder as such, but a genetically-determined characteristic.",
                 "Within all the people who go to their doctor with lactose intolerance, 56% report having diarrhea, 42% report having burning abdominal pain, and 33% report having nasal congestion. The symptoms that are highly suggestive of lactose intolerance are muscle pain and flatulence, although you may still have lactose intolerance without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

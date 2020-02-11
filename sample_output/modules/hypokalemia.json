@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypokalemia (American English) or hypokalaemia (British English), also hypopotassemia or hypopotassaemia (ICD-9), refers to the condition in which the concentration of potassium (K+) in the blood is low. The prefix hypo- means \"under\" (contrast with hyper-, meaning \"over\"); kal- refers to kalium, the Neo-Latin for potassium, and -emia means \"condition of the blood.\"",
                 "Within all the people who go to their doctor with hypokalemia, 62% report having vomiting, 58% report having nausea, and 53% report having sharp abdominal pain."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

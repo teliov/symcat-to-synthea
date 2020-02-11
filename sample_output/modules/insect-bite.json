@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Insect bites and stings occur when an insect is agitated and seeks to defend itself through its natural defense mechanisms, or when an insect seeks to feed off the bitten person. Some insects inject formic acid, which can cause an immediate skin reaction often resulting in redness and swelling in the injured area. Stings from fire ants, bees, wasps and hornets are usually painful, and may stimulate a dangerous allergic reaction called anaphylaxis for at-risk patients, and some wasps can also have a powerful bite along with a sting. Bites from mosquitoes and fleas are more likely to cause itching than pain.",
                 "Within all the people who go to their doctor with insect bite, 71% report having skin rash, 47% report having abnormal appearing skin, and 46% report having itching of skin. The symptoms that are highly suggestive of insect bite are itching of skin, skin swelling, and arm swelling, although you may still have insect bite without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

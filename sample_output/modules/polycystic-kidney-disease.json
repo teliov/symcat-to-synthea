@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Polycystic kidney disease (PKD or PCKD, also known as polycystic kidney syndrome) is a cystic genetic disorder of the kidneys. There are two types of PKD: autosomal dominant polycystic kidney disease (ADPKD) and the less-common autosomal recessive polycystic kidney disease (ARPKD).",
                 "Within all the people who go to their doctor with polycystic kidney disease, 45% report having side pain, 40% report having blood in urine, and 34% report having sharp abdominal pain. The symptoms that are highly suggestive of polycystic kidney disease are blood in urine, kidney mass, and symptoms of the kidneys, although you may still have polycystic kidney disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sir James Paget, a surgeon and pathologist, described several diseases, including:",
                 "Within all the people who go to their doctor with paget disease, 37% report having ringing in ear, 37% report having delusions or hallucinations, and 37% report having apnea. The symptoms that are highly suggestive of paget disease are abnormal breathing sounds, apnea, sleepiness, ringing in ear, delusions or hallucinations, elbow cramps or spasms, and nailbiting, although you may still have paget disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

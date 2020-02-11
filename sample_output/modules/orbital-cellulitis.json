@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Orbital cellulitis is an inflammation of eye tissues posterior to the orbital septum. It most commonly refers to an acute spread of infection into the eye socket from either the adjacent sinuses or through the blood. When it affects the rear of the eye, it is known as retro-orbital cellulitis.",
                 "Within all the people who go to their doctor with orbital cellulitis, 92% report having swollen eye, 82% report having eye redness, and 69% report having pain in eye. The symptoms that are highly suggestive of orbital cellulitis are swollen eye, eye redness, pain in eye, symptoms of eye, eyelid swelling, and neck swelling, although you may still have orbital cellulitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

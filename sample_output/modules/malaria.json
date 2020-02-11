@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Malaria is a mosquito-borne infectious disease of humans and other animals caused by protists (a type of microorganism) of the genus Plasmodium. It begins with a bite from an infected female Anopheles mosquito, which introduces the protists through saliva into the circulatory system. In the blood, the protists travel to the liver to mature and reproduce. Malaria causes symptoms that typically include fever and headache, which in severe cases can progress to coma or death. The disease is widespread in tropical and subtropical regions in a broad band around the equator, including much of Sub-Saharan Africa, Asia, and the Americas.",
                 "Within all the people who go to their doctor with malaria, 94% report having headache, 87% report having fever, and 72% report having fainting. The symptoms that are highly suggestive of malaria are headache, ache all over, weakness, fainting, vulvar sore, excessive growth, knee lump or mass, itchy eyelid, and wrist weakness, although you may still have malaria without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

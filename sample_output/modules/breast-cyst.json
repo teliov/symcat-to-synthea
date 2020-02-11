@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A breast cyst is a fluid-filled sac within the breast. One breast can have one or more breast cysts. They're often described as round or oval lumps with distinct edges. In texture, a breast cyst usually feels like a soft grape or a water-filled balloon, but sometimes a breast cyst feels firm.",
                 "Within all the people who go to their doctor with breast cyst, 89% report having lump or mass of breast, 56% report having pain or soreness of breast, and 21% report having bleeding or discharge from nipple. The symptoms that are highly suggestive of breast cyst are lump or mass of breast, pain or soreness of breast, bleeding or discharge from nipple, irregular belly button , and vaginal dryness, although you may still have breast cyst without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Aplastic anemia is a disease in which the bone marrow, and the blood stem cells that reside there, are damaged. This causes a deficiency of all three blood cell types (pancytopenia): red blood cells (anemia), white blood cells (leukopenia), and platelets (thrombocytopenia). Aplastic refers to inability of the stem cells to generate the mature blood cells.",
                 "Within all the people who go to their doctor with aplastic anemia, 41% report having fatigue, 36% report having fever, and 29% report having weakness. The symptoms that are highly suggestive of aplastic anemia are slurring words, feeling cold, and mouth dryness, although you may still have aplastic anemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

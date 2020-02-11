@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A rotator cuff tear is a tear of one or more of the tendons of the four rotator cuff muscles. A rotator cuff injury can include any type of irritation or damage to the rotator cuff muscles or tendons.",
                 "Within all the people who go to their doctor with rotator cuff injury, 94% report having shoulder pain, 31% report having arm pain, and 18% report having shoulder stiffness or tightness. The symptoms that are highly suggestive of rotator cuff injury are shoulder pain, shoulder stiffness or tightness, shoulder weakness, arm cramps or spasms, shoulder swelling, and abnormal appearing tongue, although you may still have rotator cuff injury without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

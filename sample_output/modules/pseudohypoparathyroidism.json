@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pseudohypoparathyroidism is a condition associated primarily with resistance to the parathyroid hormone. Patients have a low serum calcium and high phosphate, but the parathyroid hormone level (PTH) is actually appropriately high (due to the hypocalcemia). Its pathogenesis has been linked to dysfunctional G Proteins (in particular, Gs alpha subunit). The condition is extremely rare, with an estimated overall prevalence of 7.2/1,000,000.",
                 "Within all the people who go to their doctor with pseudohypoparathyroidism, 87% report having knee pain, 51% report having wrist pain, and 51% report having foot or toe pain. The symptoms that are highly suggestive of pseudohypoparathyroidism are knee pain, wrist pain, joint pain, wrist swelling, leg swelling, and elbow weakness, although you may still have pseudohypoparathyroidism without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

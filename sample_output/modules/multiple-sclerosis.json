@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Multiple sclerosis (MS), also known as disseminated sclerosis or encephalomyelitis disseminata, is a inflammatory disease in which myelin sheaths around axons of the brain and spinal cord are damaged, leading to loss of myelin and scarring. The cause is not clear, but the underlying mechanism is thought to be either destruction by the immune system or failure of the myelin-producing cells. These changes affect the ability of nerve cells to communicate resulting in a wide range of signs and symptoms. It is more common in women and the onset typically occurs in young adults.",
                 "Within all the people who go to their doctor with multiple sclerosis, 43% report having fatigue, 42% report having loss of sensation, and 31% report having headache. The symptoms that are highly suggestive of multiple sclerosis are leg weakness and leg stiffness or tightness, although you may still have multiple sclerosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

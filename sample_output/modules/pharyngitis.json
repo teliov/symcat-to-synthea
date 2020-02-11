@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pharyngitis /f\u00e6r\u0268n\u02c8d\u0292a\u026at\u0268s/ comes from the Greek word pharynx pharanx meaning throat and the suffix -itis meaning inflammation. It is an inflammation of the throat. In most cases it is quite painful, and is the most common cause of a sore throat.",
                 "Within all the people who go to their doctor with pharyngitis, 88% report having cough, 85% report having fever, and 80% report having sore throat. The symptoms that are highly suggestive of pharyngitis are wheezing, difficulty in swallowing, hoarse voice, and hurts to breath, although you may still have pharyngitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

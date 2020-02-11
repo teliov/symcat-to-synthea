@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dislocation of the hip is a common injury to the hip joint. Dislocation occurs when the ball\u2013shaped head of the femur comes out of the cup\u2013shaped acetabulum set in the pelvis. This may happen to a varying degree. A dislocated hip, much more common in females than in males, is a condition that can either be congenital or acquired. Understanding the epidemiology, anatomy, difference between congenital and acquired, screening, treatments, and rehabilitation are all relevant to the topic.",
                 "Within all the people who go to their doctor with dislocation of the hip, 90% report having hip pain, 24% report having leg pain, and 24% report having knee pain. The symptoms that are highly suggestive of dislocation of the hip are hip pain and hip stiffness or tightness, although you may still have dislocation of the hip without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -653,7 +653,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Thrombocytosis (or thrombocythemia) is the presence of high platelet counts in the blood, and can be either primary (also termed essential and caused by a myeloproliferative disease) or reactive (also termed secondary). Although often symptomless (particularly when it is a secondary reaction), it can predispose to thrombosis in some patients.",
                 "Within all the people who go to their doctor with primary thrombocythemia, 28% report having dizziness, 21% report having fatigue, and 12% report having flatulence. The symptoms that are highly suggestive of primary thrombocythemia are flatulence, although you may still have primary thrombocythemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

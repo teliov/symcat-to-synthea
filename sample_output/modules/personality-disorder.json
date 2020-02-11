@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Personality disorder, according to the current version of the Diagnostic and Statistical Manual (DSM-5), refers to a class of maladaptive personality traits, that is, enduring patterns of behavior, cognitions and inner experience that are exhibited across many contexts and deviate markedly from those accepted by the individual's culture. These patterns are inflexible and are associated with significant distress or disability. The definitions may vary some according to other sources.",
                 "Within all the people who go to their doctor with personality disorder, 70% report having depressive or psychotic symptoms, 68% report having depression, and 51% report having anxiety and nervousness. The symptoms that are highly suggestive of personality disorder are depressive or psychotic symptoms, hostile behavior, excessive anger, low self-esteem, fears and phobias, and obsessions and compulsions, although you may still have personality disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

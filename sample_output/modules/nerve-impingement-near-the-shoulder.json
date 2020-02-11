@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Compression of the rotator cuff tendons and subacromial bursa between the humeral head and structures that make up the coracoacromial arch and the humeral tuberosities. This condition is associated with subacromial bursitis and rotator cuff (largely supraspinatus) and bicipital tendon inflammation, with or without degenerative changes in the tendon. Pain that is most severe when the arm is abducted in an arc between 40 and 120 degrees, sometimes associated with tears in the rotator cuff, is the chief symptom. (From Jablonski's Dictionary of Syndromes and Eponymic Diseases, 2d ed)",
                 "Within all the people who go to their doctor with nerve impingement near the shoulder, 96% report having shoulder pain, 32% report having neck pain, and 32% report having knee pain. The symptoms that are highly suggestive of nerve impingement near the shoulder are shoulder pain, shoulder stiffness or tightness, shoulder weakness, and vulvar irritation, although you may still have nerve impingement near the shoulder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

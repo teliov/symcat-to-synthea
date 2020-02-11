@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "The term adrenal tumor can refer to one of several benign and malignant neoplasms of the adrenal gland, several of which are notable for their tendency to overproduce endocrine hormones. Adrenal cancer specifically refers to malignant adrenal tumors, which include neuroblastoma, adrenocortical carcinoma, and a minority of adrenal pheochromocytomas. Most adrenal pheochromocytomas and all adrenocortical adenomas are benign tumors, which do not metastasize or invade nearby tissues, but which may still cause significant health problems by giving rise to hormonal imbalances.",
                 "Within all the people who go to their doctor with adrenal cancer, 27% report having skin rash, 27% report having dizziness, and 27% report having cough. The symptoms that are highly suggestive of adrenal cancer are diaper rash, although you may still have adrenal cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

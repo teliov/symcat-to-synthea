@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "In physiology and medicine, hypovolemia (also hypovolaemia, oligemia or shock) is a state of decreased blood volume; more specifically, decrease in volume of blood plasma. It is thus the intravascular component of volume contraction (or loss of blood volume due to things such as hemorrhaging or dehydration), but, as it also is the most essential one, hypovolemia and volume contraction are sometimes used synonymously.",
                 "Within all the people who go to their doctor with hypovolemia, 83% report having vomiting, 69% report having diarrhea, and 67% report having nausea. The symptoms that are highly suggestive of hypovolemia are fluid retention, although you may still have hypovolemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

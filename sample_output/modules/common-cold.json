@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "The common cold (also known as nasopharyngitis, rhinopharyngitis, acute coryza, or a cold) is a viral infectious disease of the upper respiratory tract which affects primarily the nose. Symptoms include coughing, sore throat, runny nose, sneezing, and fever which usually resolve in seven to ten days, with some symptoms lasting up to three weeks. Well over 200 viruses are implicated in the cause of the common cold; the rhinoviruses are the most common.",
                 "Within all the people who go to their doctor with common cold, 85% report having cough, 82% report having sore throat, and 78% report having fever. The symptoms that are highly suggestive of common cold are sore throat and coryza, although you may still have common cold without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

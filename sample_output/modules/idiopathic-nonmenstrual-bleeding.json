@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Idiopathic nonmenstrual bleeding is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with idiopathic nonmenstrual bleeding, 63% report having intermenstrual bleeding, 43% report having unpredictable menstruation, and 39% report having long menstrual periods. The symptoms that are highly suggestive of idiopathic nonmenstrual bleeding are intermenstrual bleeding, unpredictable menstruation, long menstrual periods, pelvic pain, heavy menstrual flow, painful menstruation, frequent menstruation, blood clots during menstrual periods, and sweating, although you may still have idiopathic nonmenstrual bleeding without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

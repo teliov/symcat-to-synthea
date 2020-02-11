@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sarcoidosis (from sarc meaning \"flesh\", -oid, \"like\", and -osis, \"diseased or abnormal condition\"), also called sarcoid, Besnier-Boeck disease or Besnier-Boeck-Schaumann disease, is a syndrome involving abnormal collections of chronic inflammatory cells (granulomas) that can form as nodules in multiple organs. The granulomas that appear are usually not of the caseating variety and are most often located in the lungs or the lymph nodes, but virtually any organ can be affected. Onset is usually gradual. Sarcoidosis may be asymptomatic or chronic. It commonly improves or clears up spontaneously. More than two-thirds of people with lung sarcoidosis have no symptoms after 9 years. About 50% have relapses. About 10% develop serious disability. Lung scarring or infection may lead to respiratory failure and death. In chronic cases, symptoms may fluctuate over many years. The causes of sarcoidosis are not completely understood.",
                 "Within all the people who go to their doctor with sarcoidosis, 53% report having cough, 46% report having shortness of breath, and 28% report having fatigue."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

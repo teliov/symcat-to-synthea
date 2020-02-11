@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Psychosis (from the Greek \u03c8\u03c5\u03c7\u03ae \"psyche\", for mind/soul, and -\u03c9\u03c3\u03b9\u03c2 \"-osis\", for abnormal condition or derangement) refers to an abnormal condition of the mind, and is a generic psychiatric term for a mental state often described as involving a \"loss of contact with reality\". People suffering from psychosis are described as psychotic. Psychosis is given to the more severe forms of psychiatric disorder, during which hallucinations and/or delusions, violence and impaired insight may occur.",
                 "Within all the people who go to their doctor with psychotic disorder, 74% report having depressive or psychotic symptoms, 54% report having depression, and 45% report having delusions or hallucinations. The symptoms that are highly suggestive of psychotic disorder are depressive or psychotic symptoms, delusions or hallucinations, hostile behavior, excessive anger, fears and phobias, and hysterical behavior, although you may still have psychotic disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

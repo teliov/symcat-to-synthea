@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "HCM may refer to:",
                 "Within all the people who go to their doctor with hypertrophic obstructive cardiomyopathy (hocm), 64% report having sharp chest pain, 36% report having joint pain, and 36% report having leg swelling. The symptoms that are highly suggestive of hypertrophic obstructive cardiomyopathy (hocm) are leg swelling, joint pain, emotional symptoms, elbow cramps or spasms, nailbiting, muscle swelling, and elbow weakness, although you may still have hypertrophic obstructive cardiomyopathy (hocm) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

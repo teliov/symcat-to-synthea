@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gastrointestinal bleeding or gastrointestinal hemorrhage describes every form of hemorrhage (loss of blood) in the gastrointestinal tract, from the pharynx to the rectum. It has diverse causes, and a medical history, as well as physical examination, generally distinguishes between the main forms. The degree of bleeding can range from nearly undetectable to acute, massive, life-threatening bleeding.",
                 "Within all the people who go to their doctor with gastrointestinal hemorrhage, 75% report having blood in stool, 68% report having rectal bleeding, and 53% report having sharp abdominal pain. The symptoms that are highly suggestive of gastrointestinal hemorrhage are blood in stool, rectal bleeding, melena, vomiting blood, and changes in stool appearance, although you may still have gastrointestinal hemorrhage without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

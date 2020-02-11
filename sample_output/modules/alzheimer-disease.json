@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Alzheimer's disease (AD), also known in medical literature as Alzheimer disease, is the most common form of dementia. There is no cure for the disease, which worsens as it progresses, and eventually leads to death. It was first described by German psychiatrist and neuropathologist Alois Alzheimer in 1906 and was named after him. Most often, AD is diagnosed in people over 65 years of age, although the less-prevalent early-onset Alzheimer's can occur much earlier. In 2006, there were 26.6 million sufferers worldwide. Alzheimer's is predicted to affect 1 in 85 people globally by 2050.",
                 "Within all the people who go to their doctor with alzheimer disease, 73% report having disturbance of memory, 38% report having depressive or psychotic symptoms, and 32% report having depression. The symptoms that are highly suggestive of alzheimer disease are disturbance of memory, although you may still have alzheimer disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

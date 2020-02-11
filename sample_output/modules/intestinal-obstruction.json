@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bowel obstruction (or intestinal obstruction) is a mechanical or functional obstruction of the intestines, preventing the normal transit of the products of digestion. It can occur at any level distal to the duodenum of the small intestine and is a medical emergency. The condition is often treated conservatively over a period of 2\u20135 days with the patient's progress regularly monitored by an assigned physician. Surgical procedures are performed on occasion however, in life-threatening cases, such as when the root cause is a fully lodged foreign object or malignant tumor.",
                 "Within all the people who go to their doctor with intestinal obstruction, 90% report having constipation, 80% report having sharp abdominal pain, and 52% report having diarrhea. The symptoms that are highly suggestive of intestinal obstruction are constipation, retention of urine, pain of the anus, stomach bloating, and incontinence of stool, although you may still have intestinal obstruction without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

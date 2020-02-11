@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cervicitis is inflammation of the uterine cervix. Cervicitis in women has many features in common with urethritis in men and many cases are caused by sexually transmitted infections. Non-infectious causes of cervicitis can include intrauterine devices, contraceptive diaphragms, and allergic reactions to spermicides or latex condoms.",
                 "Within all the people who go to their doctor with cervicitis, 73% report having sharp abdominal pain, 70% report having vaginal discharge, and 46% report having pelvic pain. The symptoms that are highly suggestive of cervicitis are vaginal discharge, pelvic pain, vaginal itching, vaginal pain, and cramps and spasms, although you may still have cervicitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

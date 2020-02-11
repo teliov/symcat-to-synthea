@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypertensive heart disease includes a number of complications of systemic arterial hypertension or high blood pressure that affect the heart. While there are several definitions of hypertensive heart disease in the medical literature, the term is most widely used in the context of the International Classification of Diseases (ICD) coding categories. The definition in the Tenth Revision of the International Classification of Diseases (ICD-10) includes heart failure and other cardiac complications of hypertension when a causal relationship between the heart disease and hypertension is stated or implied on the death certificate. According to ICD-10, hypertensive heart disease (I11), and its subcategories: hypertensive heart disease with heart failure (I11.0) and hypertensive heart disease without heart failure (I11.9) are distinguished from chronic rheumatic heart diseases (I05-I09), other forms of heart disease (I30-I52) and ischemic heart diseases (I20-I25). However, since high blood pressure is a risk factor for atherosclerosis and ischemic heart disease, death rates from hypertensive heart disease provide an incomplete measure of the burden of disease due to high blood pressure.",
                 "Within all the people who go to their doctor with hypertensive heart disease, 48% report having palpitations, 45% report having shortness of breath, and 44% report having sharp chest pain. The symptoms that are highly suggestive of hypertensive heart disease are palpitations, although you may still have hypertensive heart disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

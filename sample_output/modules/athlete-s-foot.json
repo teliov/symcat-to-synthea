@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Athlete's foot (also known as ringworm of the foot and tinea pedis) is a fungal infection of the skin that causes scaling, flaking, and itch of affected areas, and in severe cases, swelling and amputation of the foot. It is caused by fungi in the genus Trichophyton. While it is typically transmitted in moist communal areas where people walk barefoot, such as showers or bathhouses, the disease requires a warm moist environment, such as the inside of a shoe, in order to incubate. Because of this the fungus only affects approximately 0.75% of habitually (frequently) barefoot people.",
                 "Within all the people who go to their doctor with athlete's foot, 65% report having skin rash, 61% report having foot or toe pain, and 48% report having itching of skin. The symptoms that are highly suggestive of athlete's foot are itching of skin, skin dryness, peeling, scaliness, or roughness, skin on leg or foot looks infected, foot or toe swelling, skin irritation, irregular appearing nails, and irregular appearing scalp, although you may still have athlete's foot without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

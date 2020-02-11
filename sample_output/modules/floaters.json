@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Floaters are deposits of various size, shape, consistency, refractive index, and motility within the eye\u2019s vitreous humour, which is normally transparent. At a young age, the vitreous is transparent, but as one ages, imperfections gradually develop. The common type of floater, which is present in most people\u2019s eyes, is due to degenerative changes of the vitreous humour. The perception of floaters is known as myodesopsia, or less commonly as myodaeopsia, myiodeopsia, myiodesopsia. They are also called Muscae volitantes (Latin: \"flying flies\"), or mouches volantes (from the French). Floaters are visible because of the shadows they cast on the retina or refraction of the light that passes through them, and can appear alone or together with several others in one\u2019s visual field. They may appear as spots, threads, or fragments of cobwebs, which float slowly before the observer\u2019s eyes. Since these objects exist within the eye itself, they are not optical illusions but are entoptic phenomena.",
                 "Within all the people who go to their doctor with floaters, 88% report having spots or clouds in vision, 69% report having diminished vision, and 23% report having lacrimation. The symptoms that are highly suggestive of floaters are spots or clouds in vision, diminished vision, lacrimation, eye burns or stings, and foreign body sensation in eye, although you may still have floaters without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

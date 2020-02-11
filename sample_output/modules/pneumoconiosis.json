@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pneumoconiosis is an occupational lung disease and a restrictive lung disease caused by the inhalation of dust, often in mines.",
                 "Within all the people who go to their doctor with pneumoconiosis, 77% report having cough, 70% report having wheezing, and 70% report having shortness of breath. The symptoms that are highly suggestive of pneumoconiosis are wheezing, coughing up sputum, and chest tightness, although you may still have pneumoconiosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

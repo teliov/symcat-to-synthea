@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Scabies (from Latin: scabere, \"to scratch\"), also called Norwegian scabies or colloquially the seven-year itch, is a contagious skin infection caused by the mite Sarcoptes scabiei. The mite is a tiny and usually not directly visible parasite which burrows under the host's skin, causing intense allergic itching. The infection in animals other than humans is caused by a different but related mite species, and is called sarcoptic mange.",
                 "Within all the people who go to their doctor with scabies, 96% report having skin rash, 71% report having itching of skin, and 26% report having skin swelling. The symptoms that are highly suggestive of scabies are skin rash, itching of skin, itchy scalp, pain in gums, and penis redness, although you may still have scabies without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

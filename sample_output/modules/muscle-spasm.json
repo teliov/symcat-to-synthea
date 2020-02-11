@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "In medicine a spasm is a sudden, involuntary contraction of a muscle, a group of muscles, or a hollow organ such as a heart, or a similarly sudden contraction of an orifice. It most commonly refers to a muscle cramp which is often accompanied by a sudden burst of pain, but is usually harmless and ceases after a few minutes. There is a variety of other causes of involuntary muscle contractions, which may be more serious, depending on the cause.",
                 "Within all the people who go to their doctor with muscle spasm, 68% report having neck pain, 62% report having back pain, and 51% report having shoulder pain. The symptoms that are highly suggestive of muscle spasm are leg cramps or spasms and muscle cramps, contractures, or spasms, although you may still have muscle spasm without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

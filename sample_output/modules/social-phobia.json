@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Social anxiety disorder (SAD or SAnD) (DSM-IV 300.23), also known as social phobia, is an anxiety disorder which is one of the most common psychiatric disorders, with a lifetime prevalance of 12%. It is characterized by intense fear in social situations, causing considerable distress and impaired ability to function in at least some parts of daily life. The diagnosis of social anxiety disorder can be of a specific disorder (when only specific social situations are feared) or a generalized disorder. Generalized social anxiety disorder typically involves a persistent, intense, chronic fear of being judged by others and of being embarrassed or humiliated by one's own actions. These fears can be triggered by perceived or actual scrutiny from others. While the fear of social interaction may be recognized by the person as excessive or unreasonable, overcoming it can be quite difficult. Social anxiety disorder is known to appear at an early age in most cases. 50% of those who develop this disorder have developed it by the age of 11 and 80% have developed it by age 20. This early age of onset may lead to people with social anxiety disorder being particularly vulnerable to depressive illnesses, drug abuse and other psychological conflicts. Physical symptoms often accompanying social anxiety disorder include excessive blushing, sweating (hyperhidrosis), trembling, palpitations and nausea. Stammering may be present, along with rapid speech. Panic attacks can also occur under intense fear and discomfort. An early diagnosis may help minimize the symptoms and the development of additional problems, such as depression. Some sufferers may use alcohol or other drugs to reduce fears and inhibitions at social events. It is common for sufferers of social phobia to self-medicate in this fashion, especially if they are undiagnosed, untreated, or both; this can lead to alcoholism, eating disorders or other kinds of substance abuse. SAD is sometimes referred to as an 'illness of lost opportunities'",
                 "Within all the people who go to their doctor with social phobia, 82% report having anxiety and nervousness, 67% report having depression, and 33% report having depressive or psychotic symptoms. The symptoms that are highly suggestive of social phobia are anxiety and nervousness, fears and phobias, and low self-esteem, although you may still have social phobia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

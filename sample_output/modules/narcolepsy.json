@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Narcolepsy is a chronic neurological disorder caused by the brain's inability to regulate sleep-wake cycles normally. It often begins mildly and progresses over a period of time until it reaches full manifestation. People with narcolepsy often experience disturbed nocturnal sleep and an abnormal daytime sleep pattern, which often is confused with insomnia. Narcoleptics, when falling asleep, generally experience the REM stage of sleep within 5 minutes, while most people do not experience REM sleep until an hour or so later. REM sleep is where most dreams occur.",
                 "Within all the people who go to their doctor with narcolepsy, 79% report having sleepiness, 46% report having fatigue, and 41% report having apnea. The symptoms that are highly suggestive of narcolepsy are sleepiness and apnea, although you may still have narcolepsy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

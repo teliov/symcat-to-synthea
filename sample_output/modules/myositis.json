@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Myositis is a general term for inflammation of the muscles. Many such conditions are considered likely to be caused by autoimmune conditions, rather than directly due to infection (although autoimmune conditions can be activated or exacerbated by infections.) It is also a documented side effect of the lipid-lowering drugs statins and fibrates.",
                 "Within all the people who go to their doctor with myositis, 42% report having leg pain, 40% report having knee pain, and 26% report having skin rash. The symptoms that are highly suggestive of myositis are muscle pain and leg weakness, although you may still have myositis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Neuralgia is pain in one or more nerves caused by a change in neurological structure or function of the nerves rather than by excitation of healthy pain receptors. Neuralgia falls into two categories: central neuralgia, where the cause of the pain is located in the spinal cord or brain, and peripheral neuralgia. This unusual pain is thought to be linked to four possible mechanisms: ion channel gate malfunctions; the nerve fibers become mechanically sensitive and create an ectopic signal; signals in touch fibers cross to pain fibers; and malfunction due to damage in the brain and spinal cord.",
                 "Within all the people who go to their doctor with neuralgia, 73% report having back pain, 64% report having leg pain, and 60% report having loss of sensation. The symptoms that are highly suggestive of neuralgia are loss of sensation, although you may still have neuralgia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

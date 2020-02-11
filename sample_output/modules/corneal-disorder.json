@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "The cornea is the transparent front part of the eye that covers the iris, pupil, and anterior chamber. The cornea, with the anterior chamber and lens, refracts light, with the cornea accounting for approximately two-thirds of the eye's total optical power. In humans, the refractive power of the cornea is approximately 43 dioptres. While the cornea contributes most of the eye's focusing power, its focus is fixed. The curvature of the lens, on the other hand, can be adjusted to \"tune\" the focus depending upon the object's distance. Medical terms related to the cornea often start with the prefix \"kerat-\" from the Greek word \u03ba\u03ad\u03c1\u03b1\u03c2, horn.",
                 "Within all the people who go to their doctor with corneal disorder, 76% report having diminished vision, 62% report having pain in eye, and 43% report having eye redness. The symptoms that are highly suggestive of corneal disorder are diminished vision, pain in eye, eye redness, spots or clouds in vision, symptoms of eye, foreign body sensation in eye, lacrimation, itchiness of eye, white discharge from eye, and eyelid lesion or rash, although you may still have corneal disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

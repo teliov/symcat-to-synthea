@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pityriasis rosea (also known as pityriasis rosea Gibert) is a skin rash. It is benign but may inflict substantial discomfort in certain cases. Classically, it begins with a single \"herald patch\" lesion, followed in 1 or 2 weeks by a generalized body rash lasting up to 12 weeks, however usually around 6 - 8.",
                 "Within all the people who go to their doctor with pityriasis rosea, 93% report having skin rash, 67% report having itching of skin, and 45% report having abnormal appearing skin. The symptoms that are highly suggestive of pityriasis rosea are skin rash, itching of skin, warts, excessive appetite, and dry or flaky scalp, although you may still have pityriasis rosea without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

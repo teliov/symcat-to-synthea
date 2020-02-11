@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Atrial fibrillation (AF or A-fib) is where the signal doesn't originate only from the SA node, and so the atrium doesn't contract simultaneously, causing an incredibly high heart beat, as well as lack of atrial systole. It is the most common cardiac arrhythmia (irregular heart beat). It may cause no symptoms, but it is often associated with palpitations, fainting, chest pain, or congestive heart failure. However, in some people atrial fibrillation is caused by otherwise idiopathic or benign conditions.",
                 "Within all the people who go to their doctor with atrial fibrillation, 46% report having shortness of breath, 38% report having sharp chest pain, and 31% report having palpitations. The symptoms that are highly suggestive of atrial fibrillation are palpitations, irregular heartbeat, and increased heart rate, although you may still have atrial fibrillation without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

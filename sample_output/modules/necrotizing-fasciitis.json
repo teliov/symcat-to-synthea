@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Necrotizing fasciitis (/\u02c8n\u025bkr\u0259\u02ccta\u026az\u026a\u014b \u02ccf\u00e6\u0283i\u02c8a\u026at\u026as/ or /\u02ccf\u00e6s-/) or NF, commonly known as flesh-eating disease or flesh-eating bacteria syndrome, is a rare infection of the deeper layers of skin and subcutaneous tissues, easily spreading across the fascial plane within the subcutaneous tissue.",
                 "Within all the people who go to their doctor with necrotizing fasciitis, 61% report having leg pain, 43% report having vaginal pain, and 43% report having arm swelling. The symptoms that are highly suggestive of necrotizing fasciitis are vaginal pain, arm swelling, leg swelling, elbow cramps or spasms, elbow weakness, and excessive growth, although you may still have necrotizing fasciitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

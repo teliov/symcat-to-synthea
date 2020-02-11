@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "You use your fingers and thumbs to do everything from grasping objects to playing musical instruments to typing on a keyboard. When there is something wrong with them, it can make life difficult. Common problems include",
                 "Within all the people who go to their doctor with injury to the finger, 66% report having hand or finger pain, 35% report having hand or finger swelling, and 8% report having hand or finger stiffness or tightness. The symptoms that are highly suggestive of injury to the finger are hand or finger pain, hand or finger swelling, and hand or finger stiffness or tightness, although you may still have injury to the finger without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -613,7 +613,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

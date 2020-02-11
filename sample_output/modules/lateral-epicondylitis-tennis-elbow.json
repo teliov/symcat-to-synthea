@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lateral epicondylitis or lateral epicondylalgia, known colloquially as tennis elbow, shooter's elbow, and archer's elbow or simply lateral elbow pain, is a condition where the outer part of the elbow becomes sore and tender. Since the pathogenesis of this condition is still unknown, there is no single agreed name. While the common name \"tennis elbow\" suggests a strong link to racquet sports, this condition can also be caused by sports such as swimming and climbing, the work of manual workers and waiters, playing guitar and similar instruments, as well as activities of daily living.",
                 "Within all the people who go to their doctor with lateral epicondylitis (tennis elbow), 92% report having elbow pain, 53% report having arm pain, and 38% report having shoulder pain. The symptoms that are highly suggestive of lateral epicondylitis (tennis elbow) are elbow pain, elbow lump or mass, elbow swelling, and irregular belly button , although you may still have lateral epicondylitis (tennis elbow) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

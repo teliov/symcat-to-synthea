@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Prolapse literally means \"to fall out of place\u201a\" from the Latin prolabi meaning \"to fall out.\" In medicine, prolapse is a condition where organs, such as the uterus, fall down or slip out of place. It is used for organs protruding through the vagina or the rectum or for the misalignment of the valves of the heart. A spinal disc herniation is also sometimes called \"disc prolapse.\"",
                 "Within all the people who go to their doctor with pelvic organ prolapse, 62% report having involuntary urination, 36% report having frequent urination, and 28% report having symptoms of bladder. The symptoms that are highly suggestive of pelvic organ prolapse are involuntary urination, symptoms of bladder, vaginal pain, and pelvic pressure, although you may still have pelvic organ prolapse without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

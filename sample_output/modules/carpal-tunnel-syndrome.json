@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Carpal tunnel syndrome (CTS) is a median entrapment neuropathy, that causes paresthesia, pain, numbness, and other symptoms in the distribution of the median nerve due to its compression at the wrist in the carpal tunnel. The pathophysiology is not completely understood but can be considered compression of the median nerve traveling through the carpal tunnel. It appears to be caused by a combination of genetic and environmental factors. Some of the predisposing factors include: diabetes, obesity, pregnancy, hypothyroidism, and heavy manual work or work with vibrating tools. There is, however, little clinical data to prove that lighter, repetitive tasks can cause carpal tunnel syndrome. Other disorders such as bursitis and tendinitis have been associated with repeated motions performed in the course of normal work or other activities.",
                 "Within all the people who go to their doctor with carpal tunnel syndrome, 80% report having loss of sensation, 66% report having hand or finger pain, and 57% report having wrist pain. The symptoms that are highly suggestive of carpal tunnel syndrome are loss of sensation, hand or finger pain, wrist pain, paresthesia, hand or finger weakness, and hand or finger stiffness or tightness, although you may still have carpal tunnel syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

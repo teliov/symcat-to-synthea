@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cryptorchidism (derived from the Greek \u03ba\u03c1\u03c5\u03c0\u03c4\u03cc\u03c2, kryptos, meaning hidden and \u1f44\u03c1\u03c7\u03b9\u03c2, orchis, meaning testicle) is the absence of one or both testes from the scrotum. It is the most common birth defect regarding male genitalia. In unique cases, cryptorchidism can develop later in life, often as late as young adulthood. About 3% of full-term and 30% of premature infant boys are born with at least one undescended testis. However, about 80% of cryptorchid testes descend by the first year of life (the majority within three months), making the true incidence of cryptorchidism around 1% overall. Cryptorchidism is distinct from monorchism the condition of having only one testicle.",
                 "Within all the people who go to their doctor with cryptorchidism, 50% report having symptoms of the scrotum and testes, 16% report having swelling of scrotum, and 9% report having pus draining from ear. The symptoms that are highly suggestive of cryptorchidism are symptoms of the scrotum and testes, swelling of scrotum, flatulence, pus draining from ear, jaundice, mass in scrotum, and white discharge from eye, although you may still have cryptorchidism without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

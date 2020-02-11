@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bone disease refers to the medical conditions which affect the bone.",
                 "Within all the people who go to their doctor with bone disorder, 36% report having back pain, 27% report having knee pain, and 25% report having shoulder pain. The symptoms that are highly suggestive of bone disorder are bones are painful, stiffness all over, and muscle stiffness or tightness, although you may still have bone disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

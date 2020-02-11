@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chancroid (also known as soft chancre and ulcus molle) is a bacterial sexually transmitted infection characterized by painful sores on the genitalia. Chancroid is known to spread from one individual to another solely through sexual contact.",
                 "Within all the people who go to their doctor with chancroid, 32% report having preoccupation with sex, 32% report having wrist cramps or spasms, and 32% report having joint cramps or spasms. The symptoms that are highly suggestive of chancroid are shoulder cramps or spasms, joint stiffness or tightness, and knee lump or mass, although you may still have chancroid without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

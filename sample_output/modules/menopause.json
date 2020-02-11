@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Menopause literally means the \"end of monthly cycles\" (the end of monthly periods aka menstruation), from the Greek word pausis (cessation) and the root men- (month). Menopause is an event that typically (but not always) occurs in women in midlife, during their late 40s or early 50s, and it signals the end of the fertile phase of a woman's life. However, rather than being defined by the state of the uterus and the absence of menstrual flow, menopause is more accurately defined as the permanent cessation of the primary functions of the ovaries: the ripening and release of ova and the release of hormones that cause both the creation of the uterine lining, and the subsequent shedding of the uterine lining (a.k.a. the menses or the period).",
                 "Within all the people who go to their doctor with menopause, 58% report having hot flashes, 23% report having unpredictable menstruation, and 21% report having sweating. The symptoms that are highly suggestive of menopause are hot flashes, unpredictable menstruation, sweating, long menstrual periods, vaginal dryness, and loss of sex drive, although you may still have menopause without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

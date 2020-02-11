@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Inborn errors of metabolism comprise a large class of genetic diseases involving disorders of metabolism. The majority are due to defects of single genes that code for enzymes that facilitate conversion of various substances (substrates) into others (products). In most of the disorders, problems arise due to accumulation of substances which are toxic or interfere with normal function, or to the effects of reduced ability to synthesize essential compounds. Inborn errors of metabolism are now often referred to as congenital metabolic diseases or inherited metabolic diseases.",
                 "Within all the people who go to their doctor with metabolic disorder, 18% report having weight gain, 4% report having mouth dryness, and 4% report having jaundice. The symptoms that are highly suggestive of metabolic disorder are mouth dryness, underweight, and scanty menstrual flow, although you may still have metabolic disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

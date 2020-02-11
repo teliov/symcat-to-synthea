@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Premenstrual syndrome (PMS) (Also known as Perimenstrual syndrome, due to symptoms appearing both before and after menses) is a collection of emotional symptoms, with or without physical symptoms, related to a woman's menstrual cycle. While most women of child-bearing age (up to 85%) report having experienced physical symptoms related to normal ovulatory function, such as bloating or breast tenderness, medical definitions of PMS are limited to a consistent pattern of emotional and physical symptoms occurring only during the luteal phase of the menstrual cycle that are of \"sufficient severity to interfere with some aspects of life\". In particular, emotional symptoms must be present consistently to diagnose PMS. The specific emotional and physical symptoms attributable to PMS vary from woman to woman, but each individual woman's pattern of symptoms is predictable, occurs consistently during the ten days prior to menses, and vanishes either shortly before or shortly after the start of menstrual flow.",
                 "Within all the people who go to their doctor with premenstrual tension syndrome, 64% report having premenstrual tension or irritability, 56% report having headache, and 40% report having unpredictable menstruation. The symptoms that are highly suggestive of premenstrual tension syndrome are premenstrual tension or irritability, unpredictable menstruation, long menstrual periods, painful menstruation, and heavy menstrual flow, although you may still have premenstrual tension syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

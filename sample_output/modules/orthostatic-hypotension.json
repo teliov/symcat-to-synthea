@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Orthostatic hypotension, also known as postural hypotension, orthostasis, and colloquially as head rush or dizzy spell, is a form of hypotension in which a person's blood pressure suddenly falls when standing up or stretching. Medically it is defined as a fall in systolic blood pressure of at least 20mm Hg and diastolic blood pressure of at least 10 mm Hg when a person assumes a standing position.",
                 "Within all the people who go to their doctor with orthostatic hypotension, 86% report having dizziness, 69% report having fainting, and 54% report having weakness. The symptoms that are highly suggestive of orthostatic hypotension are dizziness and fainting, although you may still have orthostatic hypotension without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

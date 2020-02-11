@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypothyroidism /\u02ccha\u026ap\u0275\u02c8\u03b8a\u026a\u0259r\u0254\u026ad\u026az\u0259m/ is a state in which the thyroid gland does not make enough thyroid hormone.",
                 "Within all the people who go to their doctor with hypothyroidism, 30% report having fatigue, 12% report having weight gain, and 4% report having too little hair."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

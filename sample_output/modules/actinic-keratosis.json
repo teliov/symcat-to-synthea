@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Actinic keratosis (also called \"solar keratosis\" and \"senile keratosis\") is a premalignant condition of thick, scaly, or crusty patches of skin.:719 It is more common in fair-skinned people and it is associated with those who are frequently exposed to the sun, as it is usually accompanied by solar damage. They are considered as potentially pre-cancerous, since some of them progress to squamous cell carcinoma, so treatment is recommended. Untreated lesions have up to 20 % risk of progression to squamous cell carcinoma.",
                 "Within all the people who go to their doctor with actinic keratosis, 72% report having abnormal appearing skin, 70% report having skin lesion, and 54% report having skin dryness, peeling, scaliness, or roughness. The symptoms that are highly suggestive of actinic keratosis are abnormal appearing skin, skin lesion, skin dryness, peeling, scaliness, or roughness, skin growth, irregular appearing scalp, skin moles, and skin irritation, although you may still have actinic keratosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

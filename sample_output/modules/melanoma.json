@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Melanoma i/\u02ccm\u025bl\u0259\u02c8no\u028am\u0259/ (from Greek \u03bc\u03ad\u03bb\u03b1\u03c2 \u2014 melas, \"dark\") is a malignant tumor of melanocytes. Melanocytes produce the dark pigment, melanin, which is responsible for the color of skin. These cells predominantly occur in skin, but are also found in other parts of the body, including the bowel and the eye (see uveal melanoma). Melanoma can originate in any part of the body that contains melanocytes.",
                 "Within all the people who go to their doctor with melanoma, 41% report having skin lesion, 35% report having abnormal appearing skin, and 16% report having skin moles. The symptoms that are highly suggestive of melanoma are irregular appearing scalp, back mass or lump, and itchy eyelid, although you may still have melanoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

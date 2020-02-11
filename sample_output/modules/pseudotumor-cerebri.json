@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Idiopathic intracranial hypertension (IIH), sometimes called by the older names benign intracranial hypertension (BIH) or pseudotumor cerebri (PTC), is a neurological disorder that is characterized by increased intracranial pressure (pressure around the brain) in the absence of a tumor or other diseases. The main symptoms are headache, nausea, and vomiting, as well as pulsatile tinnitus (buzzing in the ears synchronous with the pulse), double vision and other visual symptoms. If untreated, it may lead to swelling of the optic disc in the eye, which can progress to vision loss.",
                 "Within all the people who go to their doctor with pseudotumor cerebri, 88% report having headache, 50% report having diminished vision, and 26% report having dizziness. The symptoms that are highly suggestive of pseudotumor cerebri are hot flashes and slurring words, although you may still have pseudotumor cerebri without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

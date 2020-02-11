@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Rhabdomyolysis /\u02ccr\u00e6bd\u0275ma\u026a\u02c8\u0252l\u0268s\u026as/ is a condition in which damaged skeletal muscle tissue (Greek: \u1fe5\u03b1\u03b2\u03b4\u03c9 rhabdo- striped \u03bc\u03c5\u03c2 myo- muscle) breaks down (Greek: \u03bb\u03cd\u03c3\u03b9\u03c2 \u2013lysis) rapidly. Breakdown products of damaged muscle cells are released into the bloodstream; some of these, such as the protein myoglobin, are harmful to the kidneys and may lead to kidney failure. The severity of the symptoms, which may include muscle pains, vomiting and confusion, depends on the extent of muscle damage and whether kidney failure develops. The muscle damage may be caused by physical factors (e.g. crush injury, strenuous exercise), medications, drug abuse, and infections. Some people have a hereditary muscle condition that increases the risk of rhabdomyolysis. The diagnosis is usually made with blood tests and urinalysis. The mainstay of treatment is generous quantities of intravenous fluids, but may include dialysis or hemofiltration in more severe cases.",
                 "Within all the people who go to their doctor with rhabdomyolysis, 59% report having sharp chest pain, 54% report having depressive or psychotic symptoms, and 48% report having arm pain. The symptoms that are highly suggestive of rhabdomyolysis are hoarse voice, although you may still have rhabdomyolysis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

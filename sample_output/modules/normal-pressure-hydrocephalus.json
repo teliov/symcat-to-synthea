@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Normal pressure hydrocephalus (NPH), also termed symptomatic hydrocephalus, occurs when there is an increase in intracranial pressure (ICP) due to an abnormal accumulation of cerebrospinal fluid (CSF) in the ventricles of the brain, which can cause ventriculomegaly. The ICP gradually falls but still maintains a slightly elevated level and the CSF pressure reaches a high normal level of 150 to 200 mmH2O. Measurements of ICP, therefore, are not usually elevated. Because of this equilibration, patients do not exhibit the classic signs that accompany increased intracranial pressure such as headache, nausea, vomiting, or altered consciousness, although some studies have shown pressure elevations to occur intermittently. However, the enlarged ventricles put increased pressure on the adjacent cortical tissue and cause myriad effects in the patient. The classic symptom triad (gait disturbance, urinary incontinence, and dementia or mental decline) was first described by Hakim and Adams in 1965. NPH is often misdiagnosed as Parkinson's disease, Alzheimer's disease, or dementia, due to its chronic nature and nonspecific presenting symptoms . Although the exact mechanism is unknown, normal-pressure hydrocephalus is thought to be a form of communicating hydrocephalus with impaired CSF reabsorption at the arachnoid granulations.",
                 "Within all the people who go to their doctor with normal pressure hydrocephalus, 65% report having problems with movement, 54% report having headache, and 36% report having disturbance of memory. The symptoms that are highly suggestive of normal pressure hydrocephalus are problems with movement, disturbance of memory, difficulty speaking, hip lump or mass, and drainage in throat, although you may still have normal pressure hydrocephalus without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

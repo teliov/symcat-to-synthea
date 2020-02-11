@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A sebaceous cyst /s\u026a\u02c8be\u026a\u0283\u0259s s\u026ast/ is a term that loosely refers to either epidermoid cysts (also known as epidermal cysts; L72.0) or pilar cysts (also known as trichilemmal cysts; L72.1). Because an epidermoid cyst originates in the epidermis and a pilar cyst originates from hair follicles, by definition, neither type of cyst is strictly a sebaceous cyst. The name is regarded as a misnomer as the fatty, white, semi-solid material in both of these cyst entities is not sebum, but keratin. Furthermore, under the microscope neither entity contains sebaceous glands. In practice, however, the terms are often used interchangeably.",
                 "Within all the people who go to their doctor with sebaceous cyst, 80% report having skin growth, 43% report having skin swelling, and 31% report having skin lesion. The symptoms that are highly suggestive of sebaceous cyst are skin growth, skin swelling, neck mass, back mass or lump, arm lump or mass, irregular appearing scalp, and hand or finger lump or mass, although you may still have sebaceous cyst without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

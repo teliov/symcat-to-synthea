@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Liver cancer or hepatic cancer (from the Greek h\u0113par, meaning liver) is a cancer that originates in the liver. Liver cancers are malignant tumors that grow on the surface or inside the liver. Liver tumors are discovered on medical imaging equipment (often by accident) or present themselves symptomatically as an abdominal mass, abdominal pain, jaundice, nausea or liver dysfunction. Liver cancers should not be confused with liver metastases, which are cancers that originate from organs elsewhere in the body and migrate to the liver.",
                 "Within all the people who go to their doctor with liver cancer, 33% report having sharp abdominal pain, 31% report having upper abdominal pain, and 13% report having stomach bloating. The symptoms that are highly suggestive of liver cancer are stomach bloating, changes in stool appearance, kidney mass, and leg stiffness or tightness, although you may still have liver cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

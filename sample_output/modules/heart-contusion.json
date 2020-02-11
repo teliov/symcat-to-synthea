@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A myocardial contusion is a general term for a contusion (bruise) of the cardiac muscle (heart muscle). It is usually a consequence of blunt trauma to the anterior chest wall, and the right heart is thought to be most commonly affected due to its anatomic location as the most anterior surface of the heart. Myocardial contusion is not a specific diagnosis and the extent of the injury can vary greatly. Usually, there are associated injuries such as sternal and/or rib fracture. When a myocardial contusion is suspected, consideration must be given to an aortic rupture, which will likely be determined by clinical signs, tests, and imaging.",
                 "Within all the people who go to their doctor with heart contusion, 51% report having apnea, 51% report having fainting, and 51% report having depression. The symptoms that are highly suggestive of heart contusion are apnea, fainting, itchy eyelid, cross-eyed, excessive growth, elbow cramps or spasms, wrist weakness, elbow weakness, hip stiffness or tightness, and nailbiting, although you may still have heart contusion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

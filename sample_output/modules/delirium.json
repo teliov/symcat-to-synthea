@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Delirium, or acute confusional state, is a syndrome that presents as severe confusion and disorientation, developing with relatively rapid onset and fluctuating in intensity. It is a syndrome which occurs more frequently in people in their later years. Delirium represents an organically caused decline from a previously-attained baseline level of cognitive function. It is typified by fluctuating course, attentional deficits and generalized severe disorganization of behavior. It typically involves other cognitive deficits, changes in arousal (hyperactive, hypoactive, or mixed), perceptual deficits, altered sleep-wake cycle, and psychotic features such as hallucinations and delusions. Delirium itself is not a disease, but rather a clinical syndrome (a set of symptoms), which result from an underlying disease, from medications administered during treatment of that disease in a critical phase, from a new problem with mentation or from varying combinations of two or more of these factors.",
                 "Within all the people who go to their doctor with delirium, 52% report having disturbance of memory, 48% report having depressive or psychotic symptoms, and 31% report having depression. The symptoms that are highly suggestive of delirium are disturbance of memory, although you may still have delirium without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

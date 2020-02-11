@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gallbladder cancer is a relatively uncommon cancer. It has peculiar geographical distribution being common in central and South America, central and eastern Europe, Japan and northern India; it is also common in certain ethnic groups e.g. Native American Indians and Hispanics. If it is diagnosed early enough, it can be cured by removing the gallbladder, part of the liver and associated lymph nodes. Most often it is found after symptoms such as abdominal pain, jaundice and vomiting occur, and it has spread to other organs such as the liver. The incidence of gall bladder cancer is increasing in China as well as north central India.",
                 "Within all the people who go to their doctor with gallbladder cancer, 68% report having nausea, 60% report having vomiting, and 49% report having sharp abdominal pain. The symptoms that are highly suggestive of gallbladder cancer are fluid retention, emotional symptoms, infrequent menstruation, elbow cramps or spasms, and itching of scrotum, although you may still have gallbladder cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

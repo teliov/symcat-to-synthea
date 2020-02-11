@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Acute stress disorder (formerly called acute stress reaction, psychological shock, mental shock, or simply shock) is a psychological condition arising in response to a terrifying or traumatic event. It should not be confused with the unrelated circulatory condition of shock, or the concept of shock value.",
                 "Within all the people who go to their doctor with acute stress reaction, 77% report having anxiety and nervousness, 47% report having sharp chest pain, and 45% report having headache. The symptoms that are highly suggestive of acute stress reaction are anxiety and nervousness, although you may still have acute stress reaction without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypertensive nephropathy (or \"hypertensive nephrosclerosis\", or \"Hypertensive renal disease\") is a medical condition referring to damage to the kidney due to chronic high blood pressure.",
                 "Within all the people who go to their doctor with kidney disease due to longstanding hypertension, 31% report having shortness of breath, 24% report having symptoms of the kidneys, and 3% report having difficulty speaking. The symptoms that are highly suggestive of kidney disease due to longstanding hypertension are symptoms of the kidneys, foot or toe cramps or spasms, polyuria, and stuttering or stammering, although you may still have kidney disease due to longstanding hypertension without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

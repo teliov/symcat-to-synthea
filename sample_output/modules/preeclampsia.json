@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pre-eclampsia or preeclampsia is a medical condition characterized by high blood pressure and significant amounts of protein in the urine of a pregnant woman. If left untreated, it can develop into eclampsia, the life-threatening occurrence of seizures during pregnancy.",
                 "Within all the people who go to their doctor with preeclampsia, 39% report having headache, 34% report having pain during pregnancy, and 31% report having problems during pregnancy. The symptoms that are highly suggestive of preeclampsia are problems during pregnancy, uterine contractions, recent pregnancy, and vaginal redness, although you may still have preeclampsia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

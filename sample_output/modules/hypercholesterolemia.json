@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypercholesterolemia (also spelled hypercholesterolaemia) is the presence of high levels of cholesterol in the blood. It is a form of \"hyperlipidemia\" (elevated levels of lipids in the blood) and \"hyperlipoproteinemia\" (elevated levels of lipoproteins in the blood).",
                 "Within all the people who go to their doctor with hypercholesterolemia, 26% report having sharp chest pain, 12% report having palpitations, and 8% report having weight gain."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -573,7 +573,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

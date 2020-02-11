@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Anemia of chronic disease, also referred to as anemia of inflammatory response, or ACD, is a form of anemia seen in chronic illness, e.g. from chronic infection, chronic immune activation, or malignancy. New discoveries suggest that the syndrome is likely largely the result of the body's production of hepcidin, a master regulator of human iron metabolism.",
                 "Within all the people who go to their doctor with anemia of chronic disease, 52% report having weakness, 34% report having fatigue, and 34% report having diarrhea. The symptoms that are highly suggestive of anemia of chronic disease are low back weakness and emotional symptoms, although you may still have anemia of chronic disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

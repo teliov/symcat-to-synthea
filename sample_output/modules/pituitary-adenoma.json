@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pituitary adenomas are noncancerous tumors that occur in the pituitary gland. Pituitary adenomas are generally divided into three categories dependant upon their biological functioning: benign adenoma, invasive adenoma or carcinomas, with carcinomas accounting for 0.1% to 0.2%, approximately 35% being invasive adenomas and most being benign adenomas. Pituitary adenomas represent from 10% to 25% of all intracranial neoplasms and the estimated prevalence rate in the general population is approximately 17%.",
                 "Within all the people who go to their doctor with pituitary adenoma, 56% report having headache, 33% report having diminished vision, and 33% report having loss of sensation. The symptoms that are highly suggestive of pituitary adenoma are long menstrual periods and muscle swelling, although you may still have pituitary adenoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

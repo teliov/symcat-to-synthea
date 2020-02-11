@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Flat feet (also called pes planus or fallen arches) is a formal reference to a medical condition in which the arch of the foot collapses, with the entire sole of the foot coming into complete or near-complete contact with the ground. In some individuals (an estimated 20\u201330% of the general population) the arch simply never develops in one foot (unilaterally) or both feet (bilaterally).",
                 "Within all the people who go to their doctor with flat feet, 74% report having foot or toe pain, 43% report having knee pain, and 31% report having ankle pain. The symptoms that are highly suggestive of flat feet are foot or toe pain, cramps and spasms, feet turned in, and foot or toe stiffness or tightness, although you may still have flat feet without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

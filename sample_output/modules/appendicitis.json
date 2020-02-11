@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Appendicitis is a condition characterized by inflammation of the appendix. It is classified as a medical emergency and many cases requires removal of the inflamed appendix, either by laparotomy or laparoscopy. Untreated, mortality is high, mainly because of the risk of rupture leading to infection and inflammation of the intestinal lining (peritoneum) and eventual sepsis, clinically known as peritonitis which can lead to circulatory shock. Reginald Fitz first described acute and chronic appendicitis in 1886, and it has been recognized as one of the most common causes of severe acute abdominal pain worldwide. A correctly diagnosed non-acute form of appendicitis is known as \"rumbling appendicitis\".",
                 "Within all the people who go to their doctor with appendicitis, 91% report having sharp abdominal pain, 64% report having lower abdominal pain, and 57% report having vomiting. The symptoms that are highly suggestive of appendicitis are sharp abdominal pain and lower abdominal pain, although you may still have appendicitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

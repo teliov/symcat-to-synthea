@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cushing's syndrome describes the signs and symptoms associated with prolonged exposure to inappropriately high levels of the hormone cortisol. This can be caused by taking glucocorticoid drugs, or diseases that result in excess cortisol, adrenocorticotropic hormone (ACTH), or CRH levels.",
                 "Within all the people who go to their doctor with cushing syndrome, 34% report having decreased heart rate, 34% report having weight gain, and 34% report having shoulder pain. The symptoms that are highly suggestive of cushing syndrome are decreased heart rate, weight gain, nailbiting, elbow cramps or spasms, emotional symptoms, elbow weakness, muscle swelling, itching of scrotum, infrequent menstruation, low back weakness, and bladder mass, although you may still have cushing syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

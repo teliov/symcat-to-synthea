@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Panic attacks are periods of intense fear or apprehension that are of sudden onset and of variable duration from minutes to hours. Panic attacks usually begin abruptly, may reach a peak within 10 minutes, but may continue for much longer if the sufferer had the attack triggered by a situation from which they are not able to escape. In panic attacks that continue unabated, and are triggered by a situation from which the sufferer desires to escape, some sufferers may make frantic efforts to escape, which may be violent if others attempt to contain the sufferer. Some panic attacks can subside on their own over the next several hours. Often, those afflicted will experience significant anticipatory anxiety and limited symptom attacks in between attacks, in situations where attacks have previously occurred. The effects of a panic attack vary. Some, notably first-time sufferers, may call for emergency services. Many who experience a panic attack, mostly for the first time, fear they are having a heart attack or a nervous breakdown. Experiencing a panic attack has been said to be one of the most intensely frightening, upsetting, and uncomfortable experiences of a person's life and may take days to initially recover from. Repeated panic attacks are considered a symptom of panic disorder. Screening tools like Panic Disorder Severity Scale can be used to detect possible cases of disorder, and suggest the need for a formal diagnostic assessment.",
                 "Within all the people who go to their doctor with panic attack, 77% report having shortness of breath, 67% report having dizziness, and 67% report having sharp chest pain. The symptoms that are highly suggestive of panic attack are loss of sensation, breathing fast, fainting, chest tightness, and irregular heartbeat, although you may still have panic attack without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

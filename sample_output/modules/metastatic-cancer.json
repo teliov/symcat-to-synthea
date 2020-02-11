@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Metastasis, or metastatic disease, is the spread of a cancer from one organ or part to another non-adjacent organ or part. The new occurrences of disease thus generated are referred to as metastases (sometimes abbreviated mets) It was previously thought that only malignant tumor cells and infections have the capacity to metastasize; however, this is being reconsidered due to new research. In origin metastasis is a Greek word meaning \"displacement\", from \u03bc\u03b5\u03c4\u03ac, meta, \"next\", and \u03c3\u03c4\u03ac\u03c3\u03b9\u03c2, stasis, \"placement\". The plural is metastases.",
                 "Within all the people who go to their doctor with metastatic cancer, 21% report having fatigue, 9% report having decreased appetite, and 4% report having focal weakness. The symptoms that are highly suggestive of metastatic cancer are vaginal dryness, although you may still have metastatic cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

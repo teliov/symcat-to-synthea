@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Nonspecific low back pain or lumbago /l\u028cm\u02c8be\u026a\u0261o\u028a/ is a common musculoskeletal disorder affecting 80% of people at some point in their lives. In the United States it is the most common cause of job-related disability, a leading contributor to missed work, and the second most common neurological ailment \u2014 only headache is more common. It can be either acute, subacute or chronic in duration. With conservative measures, the symptoms of low back pain typically show significant improvement within a few weeks from onset.",
                 "Within all the people who go to their doctor with lumbago, 85% report having low back pain, 84% report having back pain, and 48% report having leg pain. The symptoms that are highly suggestive of lumbago are low back pain, back cramps or spasms, low back stiffness or tightness, and low back cramps or spasms, although you may still have lumbago without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

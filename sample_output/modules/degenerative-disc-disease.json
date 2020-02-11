@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Degeneration of one or more intervertebral disc(s) of the spine, often called \"degenerative disc disease\" (DDD) or \"degenerative disc disorder,\" is a condition that can be painful and can greatly affect the quality of one's life. While disc degeneration is a normal part of aging and for most people is not a problem, for certain individuals a degenerated disc can cause severe chronic pain if left untreated.",
                 "Within all the people who go to their doctor with degenerative disc disease, 78% report having back pain, 77% report having low back pain, and 61% report having leg pain. The symptoms that are highly suggestive of degenerative disc disease are low back pain, although you may still have degenerative disc disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

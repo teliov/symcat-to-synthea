@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Mucositis is the painful inflammation and ulceration of the mucous membranes lining the digestive tract, usually as an adverse effect of chemotherapy and radiotherapy treatment for cancer. Mucositis can occur anywhere along the gastrointestinal (GI) tract, but oral mucositis refers to the particular inflammation and ulceration that occurs in the mouth. Oral mucositis is a common and often debilitating complication of cancer treatment.",
                 "Within all the people who go to their doctor with mucositis, 83% report having fever, 77% report having mouth ulcer, and 60% report having sore throat. The symptoms that are highly suggestive of mucositis are mouth ulcer, decreased appetite, mouth pain, tongue lesions, gum pain, irritable infant, swollen tongue, and tongue pain, although you may still have mucositis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

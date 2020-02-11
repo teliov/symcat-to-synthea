@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Diabetic retinopathy, () is retinopathy (damage to the retina) caused by complications of diabetes, which can eventually lead to blindness. It is an ocular manifestation of diabetes, a systemic disease, which affects up to 80 percent of all patients who have had diabetes for 10 years or more. Despite these intimidating statistics, research indicates that at least 90% of these new cases could be reduced if there was proper and vigilant treatment and monitoring of the eyes. The longer a person has diabetes, the higher his or her chances of developing diabetic retinopathy.",
                 "Within all the people who go to their doctor with diabetic retinopathy, 71% report having diminished vision, 33% report having spots or clouds in vision, and 25% report having pain in eye. The symptoms that are highly suggestive of diabetic retinopathy are diminished vision, spots or clouds in vision, lacrimation, foreign body sensation in eye, blindness, bleeding from eye, and abnormal movement of eyelid, although you may still have diabetic retinopathy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Frostbite (congelatio in medical terminology) is the medical condition where localized damage is caused to skin and other tissues due to freezing. Frostbite is most likely to happen in body parts farthest from the heart and those with large exposed areas. The initial stages of frostbite are sometimes called \"frost nip\".",
                 "Within all the people who go to their doctor with frostbite, 55% report having loss of sensation, 55% report having foot or toe pain, and 37% report having hand or finger swelling. The symptoms that are highly suggestive of frostbite are hand or finger swelling, elbow cramps or spasms, nailbiting, low back weakness, feeling hot and cold, and elbow weakness, although you may still have frostbite without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

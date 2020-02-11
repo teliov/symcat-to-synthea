@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Aphakia is the absence of the lens of the eye, due to surgical removal, a perforating wound or ulcer, or congenital anomaly. It causes a loss of accommodation, far sightedness (hyperopia), and a deep anterior chamber. Complications include detachment of the vitreous or retina, and glaucoma.",
                 "Within all the people who go to their doctor with aphakia, 73% report having diminished vision, 28% report having itchiness of eye, and 28% report having symptoms of eye. The symptoms that are highly suggestive of aphakia are diminished vision, symptoms of eye, itchiness of eye, spots or clouds in vision, eye burns or stings, and mass on eyelid, although you may still have aphakia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -693,7 +693,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A callus (or callosity) is a toughened area of skin which has become relatively thick and hard in response to repeated friction, pressure, or other irritation. Rubbing that is too frequent or forceful will cause blisters rather than allow calluses to form. Since repeated contact is required, calluses are most often found on feet because of frequent walking. Calluses are generally not harmful, but may sometimes lead to other problems, such as skin ulceration or infection.",
                 "Within all the people who go to their doctor with callus, 63% report having skin growth, 62% report having foot or toe pain, and 52% report having skin rash. The symptoms that are highly suggestive of callus are skin growth, foot or toe pain, acne or pimples, warts, skin dryness, peeling, scaliness, or roughness, skin swelling, and irregular appearing nails, although you may still have callus without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

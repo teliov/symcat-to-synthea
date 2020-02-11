@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Scars are areas of fibrous tissue (fibrosis) that replace normal skin after injury. A scar results from the biological process of wound repair in the skin and other tissues of the body. Thus, scarring is a natural part of the healing process. With the exception of very minor lesions, every wound (e.g. after accident, disease, or surgery) results in some degree of scarring. An exception to this is animals with regeneration, which do not form scars and the tissue will grow back exactly as before.",
                 "Within all the people who go to their doctor with scar, 34% report having acne or pimples, 34% report having skin lesion, and 26% report having abnormal appearing skin. The symptoms that are highly suggestive of scar are acne or pimples, skin pain, and mass on ear, although you may still have scar without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

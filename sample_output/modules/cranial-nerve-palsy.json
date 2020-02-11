@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Disorders of one or more of the twelve cranial nerves. With the exception of the optic and olfactory nerves, this includes disorders of the brain stem nuclei from which the cranial nerves originate or terminate.",
                 "Within all the people who go to their doctor with cranial nerve palsy, 53% report having double vision, 40% report having headache, and 35% report having diminished vision. The symptoms that are highly suggestive of cranial nerve palsy are double vision, symptoms of the face, abnormal movement of eyelid, and pupils unequal, although you may still have cranial nerve palsy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

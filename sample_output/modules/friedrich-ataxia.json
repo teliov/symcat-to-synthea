@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "NIH: National Institute of Neurological Disorders and Stroke",
                 "Within all the people who go to their doctor with friedrich ataxia, 87% report having ear pain, 72% report having arm weakness, and 72% report having flatulence. The symptoms that are highly suggestive of friedrich ataxia are ear pain, flatulence, peripheral edema, wheezing, arm weakness, arm pain, shoulder swelling, vulvar sore, knee lump or mass, back stiffness or tightness, and itchy eyelid, although you may still have friedrich ataxia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

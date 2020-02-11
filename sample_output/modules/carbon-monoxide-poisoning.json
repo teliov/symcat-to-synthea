@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Carbon monoxide poisoning occurs after enough inhalation of carbon monoxide (CO). Carbon monoxide is a toxic gas, but, being colorless, odorless, tasteless, and initially non-irritating, it is very difficult for people to detect. Carbon monoxide is a product of incomplete combustion of organic matter due to insufficient oxygen supply to enable complete oxidation to carbon dioxide (CO2). It is often produced in domestic or industrial settings by older motor vehicles and other gasoline-powered tools, heaters, and cooking equipment. Exposures at 100 ppm or greater can be dangerous to human health.",
                 "Within all the people who go to their doctor with carbon monoxide poisoning, 81% report having headache, 72% report having nausea, and 53% report having dizziness. The symptoms that are highly suggestive of carbon monoxide poisoning are frontal headache, low back weakness, emotional symptoms, and elbow cramps or spasms, although you may still have carbon monoxide poisoning without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

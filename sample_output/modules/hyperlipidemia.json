@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hyperlipidemia, hyperlipoproteinemia, or hyperlipidaemia (British English) involves abnormally elevated levels of any or all lipids and/or lipoproteins in the blood. It is the most common form of dyslipidemia (which also includes any decreased lipid levels).",
                 "Within all the people who go to their doctor with hyperlipidemia, 25% report having sharp chest pain, 10% report having weight gain, and 2% report having smoking problems."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -573,7 +573,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

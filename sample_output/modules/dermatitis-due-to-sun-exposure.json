@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Dermatitis due to sun exposure is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with dermatitis due to sun exposure, 74% report having abnormal appearing skin, 51% report having skin lesion, and 45% report having skin rash. The symptoms that are highly suggestive of dermatitis due to sun exposure are abnormal appearing skin, skin moles, skin dryness, peeling, scaliness, or roughness, irregular appearing scalp, and itchy scalp, although you may still have dermatitis due to sun exposure without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

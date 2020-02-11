@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pregnancy is the fertilization and development of one or more offspring, known as an embryo or fetus, in a woman's uterus. In a pregnancy, there can be multiple gestations, as in the case of twins or triplets. Childbirth usually occurs about 38 weeks after conception; in women who have a menstrual cycle length of four weeks, this is approximately 40 weeks from the start of the last normal menstrual period (LNMP). Human pregnancy is the most studied of all mammalian pregnancies. Conception can be achieved through sexual intercourse or assisted reproductive technology.",
                 "Within all the people who go to their doctor with pregnancy, 27% report having uterine contractions, 25% report having pain during pregnancy, and 24% report having problems during pregnancy. The symptoms that are highly suggestive of pregnancy are uterine contractions and pelvic pressure, although you may still have pregnancy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -613,7 +613,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

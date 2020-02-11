@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Reactive arthritis is classified as an autoimmune condition that develops in response to an infection in another part of the body (cross-reactivity). Coming into contact with bacteria and developing an infection can trigger the disease. By the time the patient presents with symptoms, oftentimes the \"trigger\" infection has been cured or is in remission in chronic cases, thus making determination of the initial cause difficult.",
                 "Within all the people who go to their doctor with reactive arthritis, 77% report having hip pain, 77% report having ache all over, and 77% report having knee pain. The symptoms that are highly suggestive of reactive arthritis are knee pain, ache all over, hip pain, vulvar sore, loss of sex drive, knee lump or mass, nailbiting, excessive growth, wrist weakness, shoulder swelling, and neck cramps or spasms, although you may still have reactive arthritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

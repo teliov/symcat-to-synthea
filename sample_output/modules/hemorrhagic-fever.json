@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "The viral hemorrhagic (or haemorrhagic) fevers (VHFs) are a diverse group of animal and human illnesses that may be caused by five distinct families of RNA viruses: the families Arenaviridae, Filoviridae, Bunyaviridae, Flaviviridae, and Rhabdoviridae. All types of VHF are characterized by fever and bleeding disorders and all can progress to high fever, shock and death in many cases. Some of the VHF agents cause relatively mild illnesses, such as the Scandinavian nephropathia epidemica, while others, such as the African Ebola virus, can cause severe, life-threatening disease.",
                 "Within all the people who go to their doctor with hemorrhagic fever, 91% report having preoccupation with sex, 91% report having wrist cramps or spasms, and 91% report having joint cramps or spasms. The symptoms that are highly suggestive of hemorrhagic fever are pain in eye, shoulder cramps or spasms, facial pain, ankle pain, wrist pain, pain during pregnancy, excessive anger, joint stiffness or tightness, pain or soreness of breast, knee lump or mass, fatigue, and excessive urination at night, although you may still have hemorrhagic fever without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

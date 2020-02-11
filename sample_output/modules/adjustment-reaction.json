@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "An adjustment disorder occurs when an individual is unable to adjust to or cope with a particular stressor, like a major life event. Since people with this disorder normally have symptoms that depressed people do, such as general loss of interest, feelings of hopelessness and crying, this disorder is also sometimes known as situational depression. Unlike major depression however, the disorder is caused by an outside stressor and generally resolves once the individual is able to adapt to the situation. One hypothesis for adjustment disorder is that it may represent a sub-threshold clinical syndrome.",
                 "Within all the people who go to their doctor with adjustment reaction, 60% report having depressive or psychotic symptoms, 60% report having depression, and 59% report having anxiety and nervousness. The symptoms that are highly suggestive of adjustment reaction are excessive anger, low self-esteem, and nightmares, although you may still have adjustment reaction without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

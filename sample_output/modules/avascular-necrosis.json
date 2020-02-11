@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Avascular necrosis (also osteonecrosis, bone infarction, aseptic necrosis, ischemic bone necrosis, and AVN) is a disease where there is cellular death (necrosis) of bone components due to interruption of the blood supply. Without blood, the bone tissue dies and the bone collapses. If avascular necrosis involves the bones of a joint, it often leads to destruction of the joint articular surfaces. (see Osteochondritis dissecans).",
                 "Within all the people who go to their doctor with avascular necrosis, 86% report having hip pain, 53% report having knee pain, and 45% report having shoulder pain. The symptoms that are highly suggestive of avascular necrosis are hip pain, bowlegged or knock-kneed, shoulder stiffness or tightness, and shoulder weakness, although you may still have avascular necrosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -653,7 +653,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

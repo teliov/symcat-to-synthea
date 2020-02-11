@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypernatremia or hypernatraemia (see American and British English spelling differences) is an electrolyte disturbance that is defined by an elevated sodium level in the blood. Hypernatremia is generally not caused by an excess of sodium, but rather by a relative deficit of free water in the body. For this reason, hypernatremia is often synonymous with the less precise term, dehydration.",
                 "Within all the people who go to their doctor with hypernatremia, 64% report having weakness, 53% report having difficulty breathing, and 45% report having fluid retention. The symptoms that are highly suggestive of hypernatremia are weakness, fluid retention, and heavy menstrual flow, although you may still have hypernatremia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

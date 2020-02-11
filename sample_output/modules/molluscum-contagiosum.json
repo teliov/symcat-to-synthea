@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Molluscum contagiosum (MC) is a viral infection of the skin or occasionally of the mucous membranes, sometimes called water warts. It is caused by a DNA poxvirus called the molluscum contagiosum virus (MCV). MCV has no nonhuman-animal reservoir (infecting only humans). There are four types of MCV, MCV-1 to -4; MCV-1 is the most prevalent and MCV-2 is seen usually in adults. The virus that causes molluscum is spread from person to person by touching the affected skin. The virus may also be spread by touching a surface with the virus on it, such as a towel, clothing, or toys. Once someone has the virus, the bumps can spread to other parts of their body by touching or scratching a bump and then touching another part of the body. Molluscum can be spread from one person to another by sexual contact. This common viral disease has a higher incidence in children, sexually active adults, and those who are immunodeficient, and the infection is most common in children aged one to ten years old. MC can affect any area of the skin but is most common on the trunk of the body, arms, groin, and legs. It is spread through direct contact or shared items such as clothing or towels. There is evidence that molluscum infections have globally been on the rise since 1966, but these infections are not routinely monitored because they are seldom serious and routinely disappear without treatment. The virus commonly spreads through skin-to-skin contact. This includes sexual contact or touching or scratching the bumps and then touching the skin. Handling objects that have the virus on them (fomites), such as a towel, can also result in infection. The virus can spread from one part of the body to another or to other people. The virus can be spread among children at day care or at school. Molluscum contagiosum is contagious until the bumps are gone. Some growths may remain for up to 4 years if not treated.",
                 "Within all the people who go to their doctor with molluscum contagiosum, 76% report having skin rash, 56% report having skin swelling, and 54% report having skin lesion. The symptoms that are highly suggestive of molluscum contagiosum are skin swelling, warts, arm lump or mass, bumps on penis, and knee lump or mass, although you may still have molluscum contagiosum without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

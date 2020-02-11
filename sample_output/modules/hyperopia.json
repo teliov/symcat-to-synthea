@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hyperopia, commonly known as being farsighted (American English), being longsighted (British English), or hypermetropia, is a defect of vision caused by an imperfection in the eye (often when the eyeball is too short or the lens cannot become round enough), causing difficulty focusing on near objects, and in extreme cases causing a sufferer to be unable to focus on objects at any distance. As an object moves toward the eye, the eye must increase its optical power to keep the image in focus on the retina. If the power of the cornea and lens is insufficient, as in hyperopia, the image will appear blurred.",
                 "Within all the people who go to their doctor with hyperopia, 70% report having diminished vision, 24% report having abnormal movement of eyelid, and 24% report having symptoms of eye. The symptoms that are highly suggestive of hyperopia are diminished vision, abnormal movement of eyelid, itchiness of eye, eye deviation, spots or clouds in vision, eye moves abnormally, and neck cramps or spasms, although you may still have hyperopia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

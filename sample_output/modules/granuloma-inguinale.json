@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Granuloma inguinale is a bacterial disease caused by Klebsiella granulomatis characterized by ulcerative genital lesions. It is endemic in many less developed regions. It is also known as donovanosis, granuloma genitoinguinale, granuloma inguinale tropicum, granuloma venereum, granuloma venereum genitoinguinale, lupoid form of groin ulceration, serpiginous ulceration of the groin, ulcerating granuloma of the pudendum and ulcerating sclerosing granuloma.",
                 "Within all the people who go to their doctor with granuloma inguinale, 77% report having vaginal pain, 77% report having groin pain, and 77% report having nausea. The symptoms that are highly suggestive of granuloma inguinale are groin pain, vaginal pain, vulvar sore, loss of sex drive, knee lump or mass, nailbiting, excessive growth, wrist weakness, shoulder swelling, and neck cramps or spasms, although you may still have granuloma inguinale without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

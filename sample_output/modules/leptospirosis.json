@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Leptospirosis (also known as Weil's syndrome, canicola fever, canefield fever, nanukayami fever, 7-day fever, Rat Catcher's Yellows, Fort Bragg fever, black jaundice, and Pretibial fever:290) is caused by infection with bacteria of the genus Leptospira and affects humans as well as other animals.",
                 "Within all the people who go to their doctor with leptospirosis, 91% report having preoccupation with sex, 91% report having wrist cramps or spasms, and 91% report having joint cramps or spasms. The symptoms that are highly suggestive of leptospirosis are pain in eye, shoulder cramps or spasms, facial pain, ankle pain, wrist pain, pain during pregnancy, excessive anger, joint stiffness or tightness, pain or soreness of breast, knee lump or mass, fatigue, and excessive urination at night, although you may still have leptospirosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

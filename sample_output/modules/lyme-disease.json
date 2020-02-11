@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lyme disease (Lyme borreliosis) is an infectious disease caused by at least three species of bacteria belonging to the genus Borrelia. Borrelia burgdorferi sensu stricto is the main cause of Lyme disease in North America, whereas Borrelia afzelii and Borrelia garinii cause most European cases. The disease is named after the towns of Lyme and Old Lyme, Connecticut, US, where a number of cases were identified in 1975. Although Allen Steere realized that Lyme disease was a tick-borne disease in 1978, the cause of the disease remained a mystery until 1981, when B. burgdorferi was identified by Willy Burgdorfer.",
                 "Within all the people who go to their doctor with lyme disease, 49% report having fever, 46% report having skin rash, and 46% report having headache."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cytomegalovirus (from the Greek cyto-, \"cell\", and -megalo-, \"large\") is a viral genus of the viral family known as Herpesviridae or herpesviruses. It is typically abbreviated as CMV. The species that infects humans is commonly known as human CMV (HCMV) or human herpesvirus-5 (HHV-5), and is the most studied of all cytomegaloviruses. Within Herpesviridae, CMV belongs to the Betaherpesvirinae subfamily, which also includes the genera Muromegalovirus and Roseolovirus (HHV-6 and HHV-7). It is related to other herpesviruses within the subfamilies of Alphaherpesvirinae that includes herpes simplex viruses (HSV)-1 and -2 and varicella-zoster virus (VZV), and the Gammaherpesvirinae subfamily that includes Epstein\u2013Barr virus. All herpesviruses share a characteristic ability to remain latent within the body over long periods. Although they may be found throughout the body, CMV infections are frequently associated with the salivary glands in humans and other mammals. Other CMV viruses are found in several mammal species, but species isolated from animals differ from HCMV in terms of genomic structure, and have not been reported to cause human disease.",
                 "Within all the people who go to their doctor with cytomegalovirus infection, 91% report having preoccupation with sex, 91% report having wrist cramps or spasms, and 91% report having joint cramps or spasms. The symptoms that are highly suggestive of cytomegalovirus infection are pain in eye, shoulder cramps or spasms, facial pain, ankle pain, wrist pain, pain during pregnancy, excessive anger, joint stiffness or tightness, pain or soreness of breast, knee lump or mass, fatigue, and excessive urination at night, although you may still have cytomegalovirus infection without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

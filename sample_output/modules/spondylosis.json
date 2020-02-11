@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Spondylosis is a term referring to degenerative osteoarthritis of the joints between the centre of the spinal vertebrae and/or neural foraminae. If this condition occurs in the zygapophysial joints, it can be considered facet syndrome. If severe, it may cause pressure on nerve roots with subsequent sensory and/or motor disturbances, such as pain, paresthesia, or muscle weakness in the limbs.",
                 "Within all the people who go to their doctor with spondylosis, 77% report having low back pain, 70% report having back pain, and 66% report having neck pain. The symptoms that are highly suggestive of spondylosis are low back pain, although you may still have spondylosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

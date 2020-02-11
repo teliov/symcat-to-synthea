@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Atherosclerosis (also known as arteriosclerotic vascular disease or ASVD) is a condition in which an artery wall thickens as a result of the accumulation of fatty materials such as cholesterol and triglyceride. It is a syndrome affecting arterial blood vessels, a chronic inflammatory response in the walls of arteries, caused largely by the accumulation of macrophage white blood cells and promoted by low-density lipoproteins (LDL, plasma proteins that carry cholesterol and triglycerides) without adequate removal of fats and cholesterol from the macrophages by functional high-density lipoproteins (HDL) (see apoA-1 Milano). It is commonly referred to as a hardening or furring of the arteries. It is caused by the formation of multiple plaques within the arteries.",
                 "Within all the people who go to their doctor with coronary atherosclerosis, 55% report having sharp chest pain, 41% report having shortness of breath, and 20% report having fatigue."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

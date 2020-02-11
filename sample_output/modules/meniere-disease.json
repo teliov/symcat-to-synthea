@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "NIH: National Institute on Deafness and Other Communication Disorders",
                 "Within all the people who go to their doctor with meniere disease, 84% report having dizziness, 66% report having diminished hearing, and 52% report having ringing in ear. The symptoms that are highly suggestive of meniere disease are dizziness, diminished hearing, ringing in ear, plugged feeling in ear, and bleeding from ear, although you may still have meniere disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

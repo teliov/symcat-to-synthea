@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Spermatocele (/sp\u025cr\u02c8m\u00e6t\u0259si\u02d0l/) is a retention cyst of a tubule of the rete testis or the head of the epididymis distended with barely watery fluid that contains spermatozoa. Spermatoceles are the most common cystic condition encountered within the scrotum. They vary in size from several millimeters to many centimeters. Spermatoceles are generally not painful. However, some men may experience discomfort from larger spermatoceles. They are harmless.",
                 "Within all the people who go to their doctor with spermatocele, 75% report having pain in testicles, 60% report having mass in scrotum, and 41% report having swelling of scrotum. The symptoms that are highly suggestive of spermatocele are pain in testicles, mass in scrotum, swelling of scrotum, retention of urine, groin pain, impotence, leg lump or mass, muscle swelling, low back weakness, and elbow weakness, although you may still have spermatocele without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

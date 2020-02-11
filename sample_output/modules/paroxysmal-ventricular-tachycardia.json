@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "VT or Vt may refer to:",
                 "Within all the people who go to their doctor with paroxysmal ventricular tachycardia, 43% report having shortness of breath, 34% report having sharp chest pain, and 32% report having palpitations. The symptoms that are highly suggestive of paroxysmal ventricular tachycardia are palpitations, irregular heartbeat, and decreased heart rate, although you may still have paroxysmal ventricular tachycardia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

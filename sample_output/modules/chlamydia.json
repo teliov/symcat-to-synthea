@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chlamydia may refer to:",
                 "Within all the people who go to their doctor with chlamydia, 59% report having penile discharge, 59% report having vaginal discharge, and 49% report having painful urination. The symptoms that are highly suggestive of chlamydia are penile discharge, vaginal discharge, painful urination, vaginal pain, vaginal itching, and penis pain, although you may still have chlamydia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Spondylolisthesis is the anterior or posterior displacement of a vertebra or the vertebral column in relation to the vertebrae below. The variant \"listhesis,\" resulting from misdivision of this compound word, is sometimes applied in conjunction with scoliosis. These \"slips\" (aka \"step-offs\") occur most commonly in the lumbar spine. Spondylolysis (a defect or fracture of the pars interarticularis of the vertebral arch) is the most common cause of spondylolisthesis.",
                 "Within all the people who go to their doctor with spondylolisthesis, 80% report having low back pain, 79% report having back pain, and 74% report having leg pain. The symptoms that are highly suggestive of spondylolisthesis are low back pain and lower body pain, although you may still have spondylolisthesis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

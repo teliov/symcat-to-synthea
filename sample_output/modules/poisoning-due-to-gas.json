@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chemical warfare (CW) involves using the toxic properties of chemical substances as weapons. This type of warfare is distinct from nuclear warfare and biological warfare, which together make up NBC, the military acronym for nuclear, biological, and chemical (warfare or weapons), all of which are considered \"weapons of mass destruction\" (WMD). None of these fall under the term conventional weapons which are primarily effective due to their destructive potential. Chemical warfare does not depend upon explosive force to achieve an objective. Rather it depends upon the unique properties of the chemical agent weaponized. A lethal agent is designed to injure or incapacitate the enemy, or deny unhindered use of a particular area of terrain. Defoliants are used to quickly kill vegetation and deny its use for cover and concealment. It can also be used against agriculture and livestock to promote hunger and starvation. With proper protective equipment, training, and decontamination measures, the primary effects of chemical weapons can be overcome. Many nations possess vast stockpiles of weaponized agents in preparation for wartime use. The threat and the perceived threat have become strategic tools in planning both measures, and counter\u2013measures.",
                 "Within all the people who go to their doctor with poisoning due to gas, 62% report having shortness of breath, 59% report having cough, and 49% report having nausea. The symptoms that are highly suggestive of poisoning due to gas are drainage in throat, although you may still have poisoning due to gas without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

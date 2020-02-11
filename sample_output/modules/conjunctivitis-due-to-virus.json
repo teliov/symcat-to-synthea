@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Conjunctivitis (also called pink eye or madras eye) is inflammation of the conjunctiva (the outermost layer of the eye and the inner surface of the eyelids). It is most commonly due to an infection (usually viral, but sometimes bacterial) or an allergic reaction.",
                 "Within all the people who go to their doctor with conjunctivitis due to virus, 91% report having eye redness, 66% report having pain in eye, and 54% report having itchiness of eye. The symptoms that are highly suggestive of conjunctivitis due to virus are eye redness, pain in eye, itchiness of eye, swollen eye, white discharge from eye, lacrimation, and eye burns or stings, although you may still have conjunctivitis due to virus without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

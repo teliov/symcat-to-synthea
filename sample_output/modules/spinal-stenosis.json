@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Spinal stenosis is an abnormal narrowing (stenosis) of the spinal canal that may occur in any of the regions of the spine. This narrowing causes a restriction to the spinal canal, resulting in a neurological deficit. Symptoms include pain, numbness, paraesthesia, and loss of motor control. The location of the stenosis determines which area of the body is affected. With spinal stenosis, the spinal canal is narrowed at the vertebral canal, which is a foramen between the vertebrae where the spinal cord (in the cervical or thoracic spine) or nerve roots (in the lumbar spine) pass through. There are several types of spinal stenosis: lumbar stenosis and cervical stenosis being the most frequent. While lumbar spinal stenosis is more common, cervical spinal stenosis is more dangerous because it involves compression of the spinal cord whereas the lumbar spinal stenosis involves compression of the cauda equina.",
                 "Within all the people who go to their doctor with spinal stenosis, 87% report having neck pain, 71% report having back pain, and 52% report having low back pain. The symptoms that are highly suggestive of spinal stenosis are neck pain, although you may still have spinal stenosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

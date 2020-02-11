@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Aspergillosis is the name given to a wide variety of diseases caused by infection by fungi of the genus Aspergillus. The most common forms are allergic bronchopulmonary aspergillosis, pulmonary aspergilloma, and invasive aspergillosis. Most humans inhale Aspergillus spores every day. Aspergillosis develops mainly in individuals who are immunocompromised, either from disease or from immunosuppressive drugs, and is a leading cause of death in acute leukemia and hematopoietic stem cell transplantation. The most common cause is Aspergillus fumigatus.",
                 "Within all the people who go to their doctor with aspergillosis, 77% report having vomiting blood, 77% report having diminished hearing, and 77% report having shortness of breath. The symptoms that are highly suggestive of aspergillosis are diminished hearing, vomiting blood, vulvar sore, loss of sex drive, knee lump or mass, nailbiting, excessive growth, wrist weakness, shoulder swelling, and neck cramps or spasms, although you may still have aspergillosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

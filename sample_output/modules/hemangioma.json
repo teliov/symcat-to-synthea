@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A hemangioma is a benign, and usually a self-involuting tumor, (swelling or growth) of the endothelial cells that line blood vessels and is characterised by increased number of normal or abnormal vessels filled with blood. It usually appears during the first weeks of life and generally resolves by age 10. In more severe cases hemangiomas may leave residual tissue damage. In infancy, it is the most common tumor. The word \"hemangioma\" comes from the Greek haema- (\u03b1\u03af\u03bc\u03b1), \"blood\"; angeio (\u03b1\u03b3\u03b3\u03b5\u03af\u03bf), \"vessel\"; -oma (-\u03c9\u03bc\u03b1), \"tumor\".",
                 "Within all the people who go to their doctor with hemangioma, 64% report having abnormal appearing skin, 50% report having skin lesion, and 38% report having skin moles. The symptoms that are highly suggestive of hemangioma are abnormal appearing skin, skin moles, skin growth, lymphedema, skin swelling, and skin dryness, peeling, scaliness, or roughness, although you may still have hemangioma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

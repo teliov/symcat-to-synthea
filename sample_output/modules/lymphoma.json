@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lymphoma is a type of blood cancer that occurs when B or T lymphocytes, the white blood cells that form a part of the immune system and help protect the body from infection and disease, divide faster than normal cells or live longer than they are supposed to. Lymphoma may develop in the lymph nodes, spleen, bone marrow, blood or other organs and eventually they form a tumor.",
                 "Within all the people who go to their doctor with lymphoma, 24% report having fatigue, 5% report having neck mass, and 4% report having regurgitation."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

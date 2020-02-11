@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Impetigo /\u026amp\u0268\u02c8ta\u026a\u0261o\u028a/ is a highly contagious bacterial skin infection most common among pre-school children. People who play close contact sports such as rugby, American football and wrestling are also susceptible, regardless of age. Impetigo is not as common in adults. The name derives from the Latin impetere (\"assail\"). It is also known as school sores.",
                 "Within all the people who go to their doctor with impetigo, 86% report having skin rash, 53% report having skin lesion, and 40% report having fever. The symptoms that are highly suggestive of impetigo are skin rash, skin on head or neck looks infected, mouth ulcer, and sore in nose, although you may still have impetigo without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

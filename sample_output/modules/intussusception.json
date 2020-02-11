@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Intussusception may refer to:",
                 "Within all the people who go to their doctor with intussusception, 85% report having sharp abdominal pain, 51% report having regurgitation, and 51% report having blood in stool. The symptoms that are highly suggestive of intussusception are regurgitation, constipation, upper abdominal pain, blood in stool, cross-eyed, itchy eyelid, excessive growth, and emotional symptoms, although you may still have intussusception without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

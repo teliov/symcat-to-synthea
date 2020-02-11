@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Obsessive\u2013compulsive disorder (OCD) is an anxiety disorder characterized by intrusive thoughts that produce uneasiness, apprehension, fear, or worry; by repetitive behaviors aimed at reducing the associated anxiety; or by a combination of such obsessions and compulsions. Symptoms of the disorder include excessive washing or cleaning; repeated checking; extreme hoarding; preoccupation with sexual, violent or religious thoughts; relationship-related obsessions; aversion to particular numbers; and nervous rituals, such as opening and closing a door a certain number of times before entering or leaving a room. These symptoms can be alienating and time-consuming, and often cause severe emotional and financial distress. The acts of those who have OCD may appear paranoid and potentially psychotic. However, OCD sufferers generally recognize their obsessions and compulsions as irrational, and may become further distressed by this realization.",
                 "Within all the people who go to their doctor with obsessive compulsive disorder (ocd), 68% report having anxiety and nervousness, 56% report having depression, and 47% report having depressive or psychotic symptoms. The symptoms that are highly suggestive of obsessive compulsive disorder (ocd) are obsessions and compulsions, low self-esteem, fears and phobias, and hysterical behavior, although you may still have obsessive compulsive disorder (ocd) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

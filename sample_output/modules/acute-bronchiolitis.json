@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bronchiolitis is inflammation of the bronchioles, the smallest air passages of the lungs. It usually occurs in children less than two years of age with the majority being aged between three and six months. It presents with coughing, wheezing and shortness of breath which can cause some children difficulty feeding. This inflammation is usually caused by respiratory syncytial virus (70% of cases) and is much more common in the winter months. Treatment is typically supportive and may involve the use of nebulized epinephrine or hypertonic saline. Bronchiolitis is common with up to one third of children being affected in their first year of life.",
                 "Within all the people who go to their doctor with acute bronchiolitis, 91% report having cough, 78% report having fever, and 76% report having nasal congestion. The symptoms that are highly suggestive of acute bronchiolitis are wheezing, although you may still have acute bronchiolitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

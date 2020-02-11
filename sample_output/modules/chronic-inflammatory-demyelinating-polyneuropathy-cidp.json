@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chronic inflammatory demyelinating polyneuropathy (CIDP) is an acquired immune-mediated inflammatory disorder of the peripheral nervous system. The disorder is sometimes called chronic relapsing polyneuropathy or chronic inflammatory demyelinating polyradiculoneuropathy (because it involves the nerve roots). CIDP is closely related to Guillain-Barr\u00e9 syndrome and it is considered the chronic counterpart of that acute disease. Its symptoms are also similar to progressive inflammatory neuropathy. An asymmetrical variant of CIDP is known as Lewis-Sumner syndrome.",
                 "Within all the people who go to their doctor with chronic inflammatory demyelinating polyneuropathy (cidp), 78% report having loss of sensation, 67% report having weakness, and 53% report having leg weakness. The symptoms that are highly suggestive of chronic inflammatory demyelinating polyneuropathy (cidp) are loss of sensation, weakness, problems with movement, leg weakness, leg cramps or spasms, hand or finger weakness, and focal weakness, although you may still have chronic inflammatory demyelinating polyneuropathy (cidp) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

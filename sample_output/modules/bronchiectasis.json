@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bronchiectasis is a disease state defined by localized, irreversible dilation of part of the bronchial tree caused by destruction of the muscle and elastic tissue. It is classified as an obstructive lung disease, along with emphysema, bronchitis, asthma, and cystic fibrosis. Involved bronchi are dilated, inflamed, and easily collapsible, resulting in airflow obstruction and impaired clearance of secretions. Bronchiectasis is associated with a wide range of disorders, but it usually results from bacterial infections, such as infections caused by the Staphylococcus or Klebsiella species, or Bordetella pertussis.",
                 "Within all the people who go to their doctor with bronchiectasis, 74% report having cough, 56% report having shortness of breath, and 47% report having hemoptysis. The symptoms that are highly suggestive of bronchiectasis are hemoptysis, coughing up sputum, and drainage in throat, although you may still have bronchiectasis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

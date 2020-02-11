@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A cerebral hemorrhage or haemorrhage (or intracerebral hemorrhage, ICH) is a subtype of intracranial hemorrhage that occurs within the brain tissue itself. Intracerebral hemorrhage can be caused by brain trauma, or it can occur spontaneously in hemorrhagic stroke. Non-traumatic intracerebral hemorrhage is a spontaneous bleeding into the brain tissue.",
                 "Within all the people who go to their doctor with intracerebral hemorrhage, 63% report having headache, 57% report having dizziness, and 53% report having weakness. The symptoms that are highly suggestive of intracerebral hemorrhage are focal weakness, slurring words, and blindness, although you may still have intracerebral hemorrhage without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

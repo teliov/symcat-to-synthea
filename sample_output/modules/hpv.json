@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Human papillomavirus (HPV) is a virus from the papillomavirus family that is capable of infecting humans. Like all papillomaviruses, HPVs establish productive infections only in keratinocytes of the skin or mucous membranes. While the majority of the known types of HPV cause no symptoms in most people, some types can cause warts (verrucae), while others can\u2014in a minority of cases\u2014lead to cancers of the cervix, vulva, vagina, penis, oropharynx and anus. Recently, HPV has been linked with an increased risk of cardiovascular disease. In addition, HPV 16 and 18 infections are strongly associated with an increased odds ratio of developing oropharyngeal (throat) cancer.",
                 "Within all the people who go to their doctor with hpv, 28% report having warts, 12% report having vaginal itching, and 12% report having vaginal discharge. The symptoms that are highly suggestive of hpv are warts, hand or finger lump or mass, mass or swelling around the anus, and eyelid lesion or rash, although you may still have hpv without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

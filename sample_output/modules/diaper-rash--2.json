@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Irritant diaper dermatitis, also known as \"diaper dermatitis\" and \"napkin dermatitis\":80 and commonly known as diaper rash (U.S.) or nappy rash (UK, AUS), is a generic term applied to skin rashes in the diaper area that are caused by various skin disorders and/or irritants.",
                 "Within all the people who go to their doctor with diaper rash, 81% report having diaper rash, 64% report having skin rash, and 56% report having diarrhea. The symptoms that are highly suggestive of diaper rash are diaper rash and irritable infant, although you may still have diaper rash without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

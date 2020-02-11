@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Osa may refer to:",
                 "Within all the people who go to their doctor with obstructive sleep apnea (osa), 83% report having abnormal breathing sounds, 77% report having apnea, and 76% report having sleepiness. The symptoms that are highly suggestive of obstructive sleep apnea (osa) are abnormal breathing sounds, apnea, sleepiness, insomnia, and mouth dryness, although you may still have obstructive sleep apnea (osa) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

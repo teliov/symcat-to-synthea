@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Alcohol withdrawal syndrome is the set of symptoms seen when an individual reduces or stops alcohol consumption after prolonged periods of excessive alcohol intake. Excessive use of alcohol leads to tolerance, physical dependence, and an alcohol withdrawal syndrome. The withdrawal syndrome is largely due to the central nervous system being in a hyper-excitable state. The withdrawal syndrome can include seizures and delirium tremens and may lead to excito-neurotoxicity.",
                 "Within all the people who go to their doctor with alcohol withdrawal, 67% report having abusing alcohol, 66% report having seizures, and 55% report having abnormal involuntary movements. The symptoms that are highly suggestive of alcohol withdrawal are abusing alcohol, seizures, abnormal involuntary movements, and antisocial behavior, although you may still have alcohol withdrawal without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Meningitis is inflammation of the protective membranes covering the brain and spinal cord, known collectively as the meninges. The inflammation may be caused by infection with viruses, bacteria, or other microorganisms, and less commonly by certain drugs. Meningitis can be life-threatening because of the inflammation's proximity to the brain and spinal cord; therefore, the condition is classified as a medical emergency.",
                 "Within all the people who go to their doctor with meningitis, 87% report having headache, 80% report having fever, and 53% report having vomiting. The symptoms that are highly suggestive of meningitis are neck stiffness or tightness, although you may still have meningitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

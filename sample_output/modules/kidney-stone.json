@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A kidney stone, also known as a renal calculus (from the Latin r\u0113n\u0113s, \"kidneys\" and calculus, \"pebble\") is a solid concretion or crystal aggregation formed in the kidneys from dietary minerals in the urine.",
                 "Within all the people who go to their doctor with kidney stone, 80% report having side pain, 62% report having sharp abdominal pain, and 51% report having back pain. The symptoms that are highly suggestive of kidney stone are side pain and blood in urine, although you may still have kidney stone without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

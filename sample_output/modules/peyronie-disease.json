@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Peyronie's Disease (also known as \"Induratio penis plastica\", or more recently Chronic Inflammation of the Tunica Albuginea (CITA), is a connective tissue disorder involving the growth of fibrous plaques in the soft tissue of the penis affecting up to 10% of men. Specifically, scar tissue forms in the tunica albuginea, the thick sheath of tissue surrounding the corpora cavernosa causing pain, abnormal curvature, erectile dysfunction, indentation, loss of girth and shortening. A variety of treatments have been used, but none have been especially effective.",
                 "Within all the people who go to their doctor with peyronie disease, 67% report having impotence, 58% report having penis pain, and 34% report having symptoms of prostate. The symptoms that are highly suggestive of peyronie disease are impotence, penis pain, symptoms of prostate, mass in scrotum, sweating, infertility, warts, bumps on penis, and emotional symptoms, although you may still have peyronie disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

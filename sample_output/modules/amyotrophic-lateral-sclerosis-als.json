@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Amyotrophic lateral sclerosis (ALS) \u2013 also referred to as motor neurone disease in some Commonwealth of Nations countries and as Lou Gehrig's disease in the United States \u2013 is a debilitating disease with varied etiology characterized by rapidly progressive weakness, muscle atrophy and fasciculations, muscle spasticity, difficulty speaking (dysarthria), difficulty swallowing (dysphagia), and difficulty breathing (dyspnea). ALS is the most common of the five motor neuron diseases.",
                 "Within all the people who go to their doctor with amyotrophic lateral sclerosis (als), 58% report having weakness, 42% report having leg weakness, and 42% report having difficulty speaking. The symptoms that are highly suggestive of amyotrophic lateral sclerosis (als) are leg weakness, difficulty speaking, problems with movement, difficulty in swallowing, hand or finger weakness, muscle weakness, and leg cramps or spasms, although you may still have amyotrophic lateral sclerosis (als) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

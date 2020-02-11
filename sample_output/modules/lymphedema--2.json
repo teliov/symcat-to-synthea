@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lymphedema (lymphoedema in British English), also known as lymphatic obstruction, is a condition of localized fluid retention and tissue swelling caused by a compromised lymphatic system. The lymphatic system returns the interstitial fluid to the thoracic duct and then to the bloodstream, where it is recirculated back to the tissues. Tissues with lymphedema are at risk of infection.",
                 "Within all the people who go to their doctor with lymphedema, 56% report having skin lesion, 49% report having leg swelling, and 45% report having peripheral edema. The symptoms that are highly suggestive of lymphedema are leg swelling, peripheral edema, and lymphedema, although you may still have lymphedema without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

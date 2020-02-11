@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Proteins are essential nutrients for the human body. They are one of the building blocks of body tissue, and can also serve as a fuel source. As fuel, proteins contain 4 kcal per gram, just like carbohydrates and unlike lipids, which contain 9 kcal per gram.",
                 "Within all the people who go to their doctor with protein deficiency, 52% report having weakness, 42% report having nausea, and 34% report having decreased appetite. The symptoms that are highly suggestive of protein deficiency are decreased appetite and smoking problems, although you may still have protein deficiency without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A peptic ulcer, also known as peptic ulcer disease (PUD), is the most common ulcer of an area of the gastrointestinal tract that is usually acidic and thus extremely painful. It is defined as mucosal erosions equal to or greater than 0.5 cm. As many as 70\u201390% of such ulcers are associated with Helicobacter pylori, a helical-shaped bacterium that lives in the acidic environment of the stomach; however, only 40% of those cases go to a doctor. Ulcers can also be caused or worsened by drugs such as aspirin, ibuprofen, and other NSAIDs.",
                 "Within all the people who go to their doctor with gastroduodenal ulcer, 79% report having sharp abdominal pain, 52% report having vomiting, and 51% report having nausea. The symptoms that are highly suggestive of gastroduodenal ulcer are upper abdominal pain, vomiting blood, blood in stool, changes in stool appearance, melena, and heartburn, although you may still have gastroduodenal ulcer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

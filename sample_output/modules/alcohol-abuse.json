@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Alcohol abuse, as described in the DSM-IV, is a psychiatric diagnosis describing the recurring use of alcoholic beverages despite its negative consequences. Alcohol abuse is sometimes referred to by the less specific term alcoholism. However, many definitions of alcoholism exist, and only some are compatible with alcohol abuse. There are two types of alcoholics: those who have anti social and pleasure-seeking tendencies, and those who are anxiety-ridden- people who are able to go without drinking for long periods of time but are unable to control themselves once they start. Binge drinking is another form of alcohol abuse. Frequent binge drinking or getting severely drunk more than twice is classed as alcohol misuse. According to research done through international surveys, the heaviest drinkers happen to be the United Kingdom's adolescent generation.",
                 "Within all the people who go to their doctor with alcohol abuse, 75% report having abusing alcohol, 49% report having depressive or psychotic symptoms, and 41% report having drug abuse. The symptoms that are highly suggestive of alcohol abuse are abusing alcohol and drug abuse, although you may still have alcohol abuse without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

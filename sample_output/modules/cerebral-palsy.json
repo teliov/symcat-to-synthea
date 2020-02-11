@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cerebral palsy (CP) is an umbrella term denoting a group of non-progressive, non-contagious motor conditions that cause physical disability in human development, chiefly in the various areas of body movement. Scientific consensus still holds that CP is neither genetic nor a 'disease', and it is also understood that the vast majority of cases are congenital, coming at or about the time of birth, and/or are diagnosed at a very young age rather than during adolescence or adulthood.",
                 "Within all the people who go to their doctor with cerebral palsy, 51% report having seizures, 29% report having problems with movement, and 14% report having cramps and spasms. The symptoms that are highly suggestive of cerebral palsy are difficulty eating, back cramps or spasms, and lip sore, although you may still have cerebral palsy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

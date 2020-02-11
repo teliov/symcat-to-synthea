@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A bone fracture (sometimes abbreviated FRX or Fx, Fx, or #) is a medical condition in which there is a break in the continuity of the bone. A bone fracture can be the result of high force impact or stress, or trivial injury as a result of certain medical conditions that weaken the bones, such as osteoporosis, bone cancer, or osteogenesis imperfecta, where the fracture is then properly termed a pathologic fracture.",
                 "Within all the people who go to their doctor with fracture of the foot, 84% report having foot or toe pain, 49% report having ankle pain, and 42% report having foot or toe swelling. The symptoms that are highly suggestive of fracture of the foot are foot or toe pain, ankle pain, foot or toe swelling, ankle swelling, foot or toe weakness, and foot or toe stiffness or tightness, although you may still have fracture of the foot without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -613,7 +613,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

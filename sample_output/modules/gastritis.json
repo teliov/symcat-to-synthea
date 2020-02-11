@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gastritis is an inflammation of the lining of the stomach, and has many possible causes. The main acute causes are excessive alcohol consumption or prolonged use of nonsteroidal anti-inflammatory drugs (also known as NSAIDs) such as aspirin or ibuprofen. Sometimes gastritis develops after major surgery, traumatic injury, burns, or severe infections. Gastritis may also occur in those who have had weight loss surgery resulting in the banding or reconstruction of the digestive tract. Chronic causes are infection with bacteria, primarily Helicobacter pylori, chronic bile reflux, and stress; certain autoimmune disorders can cause gastritis as well. The most common symptom is abdominal upset or pain. Other symptoms are indigestion, abdominal bloating, nausea, and vomiting and pernicious anemia. Some may have a feeling of fullness or burning in the upper abdomen. A gastroscopy, blood test, complete blood count test, or a stool test may be used to diagnose gastritis. Treatment includes taking antacids or other medicines, such as proton pump inhibitors or antibiotics, and avoiding hot or spicy foods. For those with pernicious anemia, B12 injections are given, but more often oral B12 supplements are recommended.",
                 "Within all the people who go to their doctor with gastritis, 82% report having sharp abdominal pain, 75% report having vomiting, and 65% report having nausea. The symptoms that are highly suggestive of gastritis are burning abdominal pain, upper abdominal pain, heartburn, and vomiting blood, although you may still have gastritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

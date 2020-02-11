@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A blepharospasm (from Greek: blepharo, eyelid, and spasm, an uncontrolled muscle contraction), is any abnormal contraction or twitch of the eyelid.",
                 "Within all the people who go to their doctor with blepharospasm, 79% report having abnormal movement of eyelid, 43% report having diminished vision, and 27% report having eye moves abnormally. The symptoms that are highly suggestive of blepharospasm are abnormal movement of eyelid, eye moves abnormally, leg weakness, pain during intercourse, eyelid lesion or rash, arm weakness, muscle cramps, contractures, or spasms, cramps and spasms, blindness, and low back weakness, although you may still have blepharospasm without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

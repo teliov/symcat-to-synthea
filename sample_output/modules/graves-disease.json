@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Graves' disease is an autoimmune disease. It most commonly affects the thyroid, frequently causing it to enlarge to twice its size or more (goiter), become overactive, with related hyperthyroid symptoms such as increased heartbeat, muscle weakness, disturbed sleep, and irritability. It can also affect the eyes, causing bulging eyes (exophthalmos). It affects other systems of the body, including the skin, heart, circulation and nervous system.",
                 "Within all the people who go to their doctor with graves disease, 27% report having fatigue, 27% report having dizziness, and 21% report having palpitations."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

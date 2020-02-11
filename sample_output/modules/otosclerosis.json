@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Otosclerosis is an abnormal growth of bone near the middle ear. It can result in hearing loss.",
                 "Within all the people who go to their doctor with otosclerosis, 94% report having diminished hearing, 53% report having plugged feeling in ear, and 53% report having ear pain. The symptoms that are highly suggestive of otosclerosis are diminished hearing, plugged feeling in ear, elbow weakness, nailbiting, low back weakness, emotional symptoms, elbow cramps or spasms, underweight, wrist weakness, and muscle swelling, although you may still have otosclerosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

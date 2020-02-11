@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypoglycemia (also spelled hypoglycaemia or hypoglyc\u00e6mia, not to be confused with hyperglycemia) is an abnormally diminished content of glucose in the blood. The term literally means \"low sugar blood\" (Gr. \u1f51\u03c0\u03bf\u03b3\u03bb\u03c5\u03ba\u03b1\u03b9\u03bc\u03af\u03b1, from hypo-, glykys, haima). It can produce a variety of symptoms and effects but the principal problems arise from an inadequate supply of glucose to the brain, resulting in impairment of function (neuroglycopenia). Effects can range from mild dysphoria to more serious issues such as seizures, unconsciousness, and (rarely) permanent brain damage or death.",
                 "Within all the people who go to their doctor with hypoglycemia, 49% report having depressive or psychotic symptoms, 45% report having weakness, and 39% report having dizziness."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

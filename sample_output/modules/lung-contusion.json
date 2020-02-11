@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A pulmonary contusion (or lung contusion) is a contusion (bruise) of the lung, caused by chest trauma. As a result of damage to capillaries, blood and other fluids accumulate in the lung tissue. The excess fluid interferes with gas exchange, potentially leading to inadequate oxygen levels (hypoxia). Unlike pulmonary laceration, another type of lung injury, pulmonary contusion does not involve a cut or tear of the lung tissue.",
                 "Within all the people who go to their doctor with lung contusion, 63% report having back pain, 55% report having sharp chest pain, and 44% report having rib pain. The symptoms that are highly suggestive of lung contusion are rib pain, hurts to breath, and fluid retention, although you may still have lung contusion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

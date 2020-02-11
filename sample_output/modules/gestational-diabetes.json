@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gestational diabetes (or gestational diabetes mellitus, GDM) is a condition in which women without previously diagnosed diabetes exhibit high blood glucose levels during pregnancy (especially during their third trimester). There is some question whether the condition is natural during pregnancy. Gestational diabetes is caused when the insulin receptors do not function properly. This is likely due to pregnancy related factors such as the presence of human placental lactogen that interferes with susceptible insulin receptors. This in turn causes inappropriately elevated blood sugar levels.",
                 "Within all the people who go to their doctor with gestational diabetes, 24% report having problems during pregnancy, 18% report having pain during pregnancy, and 15% report having uterine contractions. The symptoms that are highly suggestive of gestational diabetes are hip stiffness or tightness and mass on vulva, although you may still have gestational diabetes without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

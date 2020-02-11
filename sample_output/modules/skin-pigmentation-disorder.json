@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "If your body makes too much melanin, your skin gets darker. Pregnancy, Addison's disease and sun exposure all can make your skin darker. If your body makes too little melanin, your skin gets lighter. Vitiligo is a condition that causes patches of light skin. Albinism is a genetic condition affecting all of a person's skin. Infections, blisters and burns can cause lighter skin.",
                 "Within all the people who go to their doctor with skin pigmentation disorder, 79% report having abnormal appearing skin, 52% report having skin rash, and 46% report having skin lesion. The symptoms that are highly suggestive of skin pigmentation disorder are abnormal appearing skin, skin moles, acne or pimples, skin dryness, peeling, scaliness, or roughness, too little hair, and irregular appearing scalp, although you may still have skin pigmentation disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

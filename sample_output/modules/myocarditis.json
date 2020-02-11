@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Myocarditis or inflammatory cardiomyopathy is inflammation of heart muscle (myocardium).",
                 "Within all the people who go to their doctor with myocarditis, 67% report having palpitations, 56% report having chest tightness, and 56% report having ache all over. The symptoms that are highly suggestive of myocarditis are palpitations, chest tightness, and coughing up sputum, although you may still have myocarditis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

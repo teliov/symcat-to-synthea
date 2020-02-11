@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Rabies (/\u02c8re\u026abi\u02d0z/; from Latin: rabies, \"madness\") is a viral disease that causes acute encephalitis in warm-blooded animals. The disease is zoonotic, meaning it can be transmitted from one species to another, such as from dogs to humans, commonly by a bite from an infected animal. For a human, rabies is almost invariably fatal if postexposure prophylaxis is not administered prior to the onset of severe symptoms. The rabies virus infects the central nervous system, ultimately causing disease in the brain and death.",
                 "Within all the people who go to their doctor with rabies, 91% report having preoccupation with sex, 91% report having wrist cramps or spasms, and 91% report having joint cramps or spasms. The symptoms that are highly suggestive of rabies are pain in eye, shoulder cramps or spasms, facial pain, ankle pain, wrist pain, pain during pregnancy, excessive anger, joint stiffness or tightness, pain or soreness of breast, knee lump or mass, fatigue, and excessive urination at night, although you may still have rabies without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

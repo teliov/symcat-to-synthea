@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Spinocerebellar ataxia (SCA) is a progressive, degenerative, genetic disease with multiple types, each of which could be considered a disease in its own right. An estimated 150,000 people in the United States are diagnosed with Ataxia, SCA's are the largest group of this hereditary, progressive, degenerative and often fatal neurodegenerative disorders. There is no known effective treatment or cure. Ataxia can affect anyone of any age. It is caused by either a recessive or dominant gene. Many times people are not aware that they carry the ataxia gene until they have children who begin to show signs of having the disorder.",
                 "Within all the people who go to their doctor with spinocerebellar ataxia, 72% report having problems with movement, 53% report having dizziness, and 42% report having abnormal involuntary movements. The symptoms that are highly suggestive of spinocerebellar ataxia are problems with movement, abnormal involuntary movements, difficulty speaking, and disturbance of memory, although you may still have spinocerebellar ataxia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

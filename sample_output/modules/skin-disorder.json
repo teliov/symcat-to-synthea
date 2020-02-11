@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A cutaneous condition is any medical condition that affects the integumentary system \u2014 the organ system that encloses the body and includes skin, hair, nails, and related muscle and glands. The major function of this system is as a barrier against the external environment.",
                 "Within all the people who go to their doctor with skin disorder, 75% report having skin lesion, 44% report having abnormal appearing skin, and 44% report having skin rash. The symptoms that are highly suggestive of skin disorder are skin lesion, skin moles, and irregular appearing scalp, although you may still have skin disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

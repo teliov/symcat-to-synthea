@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Osteoarthritis (OA) also known as degenerative arthritis or degenerative joint disease or osteoarthrosis, is a group of mechanical abnormalities involving degradation of joints, including articular cartilage and subchondral bone. Symptoms may include joint pain, tenderness, stiffness, locking, and sometimes an effusion. A variety of causes\u2014hereditary, developmental, metabolic, and mechanical deficits\u2014may initiate processes leading to loss of cartilage. When bone surfaces become less well protected by cartilage, bone may be exposed and damaged. As a result of decreased movement secondary to pain, regional muscles may atrophy, and ligaments may become more lax.",
                 "Within all the people who go to their doctor with osteoarthritis, 77% report having knee pain, 41% report having hip pain, and 41% report having shoulder pain. The symptoms that are highly suggestive of osteoarthritis are knee pain, joint pain, knee swelling, and knee weakness, although you may still have osteoarthritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

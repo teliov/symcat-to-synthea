@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Irritable bowel syndrome (IBS, or spastic colon) is a symptom-based diagnosis characterized by chronic abdominal pain, discomfort, bloating, and alteration of bowel habits. As a functional bowel disorder, IBS has no known organic cause. Diarrhea or constipation may predominate, or they may alternate (classified as IBS-D, IBS-C or IBS-A, respectively). Historically a diagnosis of exclusion, a diagnosis of IBS can now be made on the basis of symptoms alone, in the absence of alarm features such as age of onset greater than 50 years, weight loss, gross hematochezia, systemic signs of infection or colitis, or family history of inflammatory bowel disease. Onset of IBS is more likely to occur after an infection (post-infectious, IBS-PI), a stressful life event, or onset of maturity.",
                 "Within all the people who go to their doctor with irritable bowel syndrome, 73% report having sharp abdominal pain, 63% report having diarrhea, and 38% report having burning abdominal pain. The symptoms that are highly suggestive of irritable bowel syndrome are flatulence, although you may still have irritable bowel syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Scarlet fever (also called scarlatina in older literature) is an infectious disease which most commonly affects 4-8 year old children. Symptoms include sore throat, fever and a characteristic red rash. Scarlet fever is usually spread by inhalation. There is no vaccine, but the disease is effectively treated with antibiotics. Most of the clinical features are caused by erythrogenic toxin, a substance produced by the bacterium Streptococcus pyogenes (group A strep.) when infected by a certain bacteriophage.",
                 "Within all the people who go to their doctor with scarlet fever, 94% report having skin rash, 86% report having fever, and 81% report having sore throat. The symptoms that are highly suggestive of scarlet fever are skin rash, penis pain, and throat swelling, although you may still have scarlet fever without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

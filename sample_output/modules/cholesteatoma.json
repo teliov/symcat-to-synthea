@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cholesteatoma is a destructive and expanding growth consisting of keratinizing squamous epithelium in the middle ear and/or mastoid process.",
                 "Within all the people who go to their doctor with cholesteatoma, 63% report having diminished hearing, 63% report having ear pain, and 34% report having mass on ear. The symptoms that are highly suggestive of cholesteatoma are diminished hearing, fluid in ear, redness in ear, mass on ear, plugged feeling in ear, bleeding from ear, pus draining from ear, and muscle swelling, although you may still have cholesteatoma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

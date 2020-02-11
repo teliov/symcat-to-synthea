@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Fibromyalgia (FM or FMS) is characterised by chronic widespread pain and allodynia (a heightened and painful response to pressure). Its exact cause is unknown but is believed to involve psychological, genetic, neurobiological and environmental factors. Fibromyalgia symptoms are not restricted to pain, leading to the use of the alternative term fibromyalgia syndrome for the condition. Other symptoms include debilitating fatigue, sleep disturbance, and joint stiffness. Some patients also report difficulty with swallowing, bowel and bladder abnormalities, numbness and tingling, and cognitive dysfunction. Fibromyalgia is frequently comorbid with psychiatric conditions such as depression and anxiety and stress-related disorders such as posttraumatic stress disorder. Not all fibromyalgia patients experience all associated symptoms. Fibromyalgia is estimated to affect 2\u20134% of the population, with a female to male incidence ratio of approximately 9:1. The term \"fibromyalgia\" derives from new Latin, fibro-, meaning \"fibrous tissues\", Greek myo-, \"muscle\", and Greek algos-, \"pain\"; thus the term literally means \"muscle and connective tissue pain\".",
                 "Within all the people who go to their doctor with fibromyalgia, 59% report having back pain, 54% report having ache all over, and 53% report having neck pain. The symptoms that are highly suggestive of fibromyalgia are muscle pain, although you may still have fibromyalgia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

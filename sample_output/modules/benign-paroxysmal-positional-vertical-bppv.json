@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Benign paroxysmal positional vertical (BPPV) is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with benign paroxysmal positional vertical (bppv), 98% report having dizziness, 63% report having nausea, and 53% report having vomiting. The symptoms that are highly suggestive of benign paroxysmal positional vertical (bppv) are dizziness and ringing in ear, although you may still have benign paroxysmal positional vertical (bppv) without those symptoms. People with benign paroxysmal positional vertical (bppv) almost always have dizziness."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

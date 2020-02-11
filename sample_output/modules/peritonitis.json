@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Peritonitis is an inflammation of the peritoneum, the thin tissue that lines the inner wall of the abdomen and covers most of the abdominal organs. Peritonitis may be localized or generalised, and may result from infection (often due to rupture of a hollow organ as may occur in abdominal trauma or appendicitis) or from a non-infectious process.",
                 "Within all the people who go to their doctor with peritonitis, 87% report having sharp abdominal pain, 56% report having nausea, and 48% report having vomiting. The symptoms that are highly suggestive of peritonitis are groin mass, although you may still have peritonitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

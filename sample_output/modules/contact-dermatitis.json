@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Contact dermatitis is a term for a skin reaction (dermatitis) resulting from exposure to allergens (allergic contact dermatitis) or irritants (irritant contact dermatitis). Phototoxic dermatitis occurs when the allergen or irritant is activated by sunlight.",
                 "Within all the people who go to their doctor with contact dermatitis, 88% report having skin rash, 55% report having itching of skin, and 31% report having abnormal appearing skin. The symptoms that are highly suggestive of contact dermatitis are skin rash, itching of skin, and skin dryness, peeling, scaliness, or roughness, although you may still have contact dermatitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

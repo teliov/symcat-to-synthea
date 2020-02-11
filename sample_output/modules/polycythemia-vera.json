@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Polycythemia vera (PV, PCV) (also known as erythremia, primary polycythemia and polycythemia rubra vera) is a myeloproliferative blood disorder in which the bone marrow makes too many red blood cells. It may also result in the overproduction of white blood cells and platelets.",
                 "Within all the people who go to their doctor with polycythemia vera, 43% report having fatigue, 30% report having skin lesion, and 30% report having dizziness. The symptoms that are highly suggestive of polycythemia vera are difficulty eating and joint swelling, although you may still have polycythemia vera without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

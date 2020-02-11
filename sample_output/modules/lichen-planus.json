@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lichen planus is a chronic mucocutaneous disease that affects the skin, tongue, and oral mucosa. The disease presents itself in the form of papules, lesions, or rashes. Lichen planus does not involve lichens, the fungus/algae symbionts that often grow on tree trunks; the name refers to the dry and undulating, \"lichen-like\" appearance of affected skin. It is sometimes associated with oxidative stress, certain medications and diseases, however the underlying pathology is currently unknown.",
                 "Within all the people who go to their doctor with lichen planus, 47% report having itching of skin, 47% report having abnormal appearing skin, and 47% report having skin rash. The symptoms that are highly suggestive of lichen planus are itching of skin, skin moles, skin growth, skin dryness, peeling, scaliness, or roughness, difficulty speaking, itchy scalp, mouth ulcer, and irregular appearing scalp, although you may still have lichen planus without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

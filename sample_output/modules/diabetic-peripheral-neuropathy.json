@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Diabetic neuropathies are neuropathic disorders that are associated with diabetes mellitus. These conditions are thought to result from diabetic microvascular injury involving small blood vessels that supply nerves (vasa nervorum) in addition to macrovascular conditions that can culminate in diabetic neuropathy. Relatively common conditions which may be associated with diabetic neuropathy include third nerve palsy; mononeuropathy; mononeuropathy multiplex; diabetic amyotrophy; a painful polyneuropathy; autonomic neuropathy; and thoracoabdominal neuropathy.",
                 "Within all the people who go to their doctor with diabetic peripheral neuropathy, 48% report having skin lesion, 37% report having foot or toe pain, and 33% report having loss of sensation. The symptoms that are highly suggestive of diabetic peripheral neuropathy are poor circulation and foot or toe stiffness or tightness, although you may still have diabetic peripheral neuropathy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Postpartum depression (PPD), also called postnatal depression, is a type of clinical depression which can affect women, and less frequently men, typically after childbirth. Studies report prevalence rates among women from 5% to 25%, but methodological differences among the studies make the actual prevalence rate unclear. Among men, in particular new fathers, the incidence of postpartum depression has been estimated to be between 1% and 25.5%. Postpartum depression occurs in women after they have carried a child. Symptoms include sadness, fatigue, changes in sleeping and eating patterns, reduced libido, crying episodes, anxiety, and irritability. Although a number of risk factors have been identified, the causes of PPD are not well understood. Many women recover with a treatment consisting of a support group or counseling.",
                 "Within all the people who go to their doctor with postpartum depression, 57% report having depression, 33% report having recent pregnancy, and 33% report having problems during pregnancy. The symptoms that are highly suggestive of postpartum depression are recent pregnancy and problems during pregnancy, although you may still have postpartum depression without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A urinary tract infection (UTI) (also known as acute cystitis or bladder infection) is an infection that affects part of the urinary tract. When it affects the lower urinary tract it is known as a simple cystitis (a bladder infection) and when it affects the upper urinary tract it is known as pyelonephritis (a kidney infection). Symptoms from a lower urinary tract include painful urination and either frequent urination or urge to urinate (or both), while those of pyelonephritis include fever and flank pain in addition to the symptoms of a lower UTI. In the elderly and the very young, symptoms may be vague or non specific. The main causal agent of both types is Escherichia coli, however other bacteria, viruses or fungi may rarely be the cause.",
                 "Within all the people who go to their doctor with cystitis, 72% report having painful urination, 64% report having suprapubic pain, and 62% report having frequent urination. The symptoms that are highly suggestive of cystitis are painful urination, suprapubic pain, frequent urination, blood in urine, and symptoms of bladder, although you may still have cystitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

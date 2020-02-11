@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pulmonary hypertension (PH) is an increase of blood pressure in the pulmonary artery, pulmonary vein, or pulmonary capillaries, together known as the lung vasculature, leading to shortness of breath, dizziness, fainting, leg swelling and other symptoms. Pulmonary hypertension can be a severe disease with a markedly decreased exercise tolerance and heart failure. It was first identified by Dr. Ernst von Romberg in 1891. According to the most recent classification, it can be one of five different types: arterial, venous, hypoxic, thromboembolic or miscellaneous.",
                 "Within all the people who go to their doctor with pulmonary hypertension, 68% report having shortness of breath, 39% report having difficulty breathing, and 33% report having fatigue."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

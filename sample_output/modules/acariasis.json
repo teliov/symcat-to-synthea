@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Acariasis is an infestation with mites.",
                 "Within all the people who go to their doctor with acariasis, 91% report having skin rash, 77% report having itching of skin, and 49% report having swelling of scrotum. The symptoms that are highly suggestive of acariasis are skin rash, itching of skin, swelling of scrotum, elbow weakness, cross-eyed, excessive growth, bowlegged or knock-kneed, feeling hot and cold, wrist weakness, and emotional symptoms, although you may still have acariasis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

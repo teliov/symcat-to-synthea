@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Peripheral neuropathy is damage to nerves of the peripheral nervous system, which may be caused either by diseases of or trauma to the nerve or the side effects of systemic illness.",
                 "Within all the people who go to their doctor with mononeuritis, 79% report having loss of sensation, 51% report having foot or toe pain, and 47% report having paresthesia. The symptoms that are highly suggestive of mononeuritis are loss of sensation, paresthesia, and hand or finger weakness, although you may still have mononeuritis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Gynecomastia /\u02cc\u0261a\u026an\u0268k\u0275\u02c8m\u00e6sti\u0259/ is the benign enlargement of breast tissue in males. It may occur transiently in newborns. Half or more of adolescent boys have some breast development during puberty. Gynecomastia may arise as an abnormal condition associated with disease or metabolic disorders, as a side-effect of medication, or as a result of the natural decrease of testosterone production in older males. In adolescent boys, the condition is often a source of psychological distress; however, 75% of pubertal gynecomastia cases resolve within two years of onset without treatment.",
                 "Within all the people who go to their doctor with gynecomastia, 67% report having problems with shape or size of breast, 61% report having lump or mass of breast, and 55% report having back pain. The symptoms that are highly suggestive of gynecomastia are problems with shape or size of breast, lump or mass of breast, pain or soreness of breast, and irregular belly button , although you may still have gynecomastia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

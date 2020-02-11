@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Peripheral neuropathy is damage to nerves of the peripheral nervous system, which may be caused either by diseases of or trauma to the nerve or the side effects of systemic illness.",
                 "Within all the people who go to their doctor with peripheral nerve disorder, 69% report having loss of sensation, 52% report having leg pain, and 46% report having paresthesia. The symptoms that are highly suggestive of peripheral nerve disorder are loss of sensation, paresthesia, leg weakness, and arm weakness, although you may still have peripheral nerve disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

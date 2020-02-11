@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Chagas disease (/\u02c8\u0283\u0251\u02d0\u0261\u0259s/; Portuguese: doen\u00e7a de Chagas , Spanish: enfermedad de Chagas , also known as mal de Chagas in both languages; also called American trypanosomiasis) is a tropical parasitic disease caused by the flagellate protozoan Trypanosoma cruzi. T. cruzi is commonly transmitted to humans and other mammals by an insect vector, the blood-sucking \"kissing bugs\" of the subfamily Triatominae (family Reduviidae), most commonly from species belonging to the Triatoma, Rhodnius, and Panstrongylus genera.",
                 "Within all the people who go to their doctor with chagas disease, 32% report having preoccupation with sex, 32% report having wrist cramps or spasms, and 32% report having joint cramps or spasms. The symptoms that are highly suggestive of chagas disease are shoulder cramps or spasms, joint stiffness or tightness, and knee lump or mass, although you may still have chagas disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

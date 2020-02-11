@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Multiple myeloma(from Greek myelo-, bone marrow), also known as plasma cell myeloma or Kahler's disease (after Otto Kahler), is a cancer of plasma cells, a type of white blood cell normally responsible for producing antibodies. In multiple myeloma, collections of abnormal plasma cells accumulate in the bone marrow, where they interfere with the production of normal blood cells. Most cases of myeloma also feature the production of a paraprotein\u2014an abnormal antibody which can cause kidney problems. Bone lesions and hypercalcemia (high calcium levels) are also often encountered.",
                 "Within all the people who go to their doctor with multiple myeloma, 37% report having weakness, 29% report having fatigue, and 9% report having problems with movement. The symptoms that are highly suggestive of multiple myeloma are stiffness all over and hip lump or mass, although you may still have multiple myeloma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

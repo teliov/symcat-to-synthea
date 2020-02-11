@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sinusitis or rhinosinusitis is inflammation of the paranasal sinuses. It can be due to infection, allergy, or autoimmune issues. Most cases are due to a viral infection and resolve over the course of 10 days. It is a common condition, with over 24 million cases annually in the U.S.",
                 "Within all the people who go to their doctor with acute sinusitis, 81% report having cough, 75% report having nasal congestion, and 66% report having sore throat. The symptoms that are highly suggestive of acute sinusitis are frontal headache, sinus congestion, and painful sinuses, although you may still have acute sinusitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Prostate cancer is a form of cancer that develops in the prostate, a gland in the male reproductive system. Most prostate cancers are slow growing; however, there are cases of aggressive prostate cancers. The cancer cells may metastasize (spread) from the prostate to other parts of the body, particularly the bones and lymph nodes. Prostate cancer may cause pain, difficulty in urinating, problems during sexual intercourse, or erectile dysfunction. Other symptoms can potentially develop during later stages of the disease.",
                 "Within all the people who go to their doctor with prostate cancer, 23% report having retention of urine, 17% report having blood in urine, and 15% report having symptoms of prostate. The symptoms that are highly suggestive of prostate cancer are symptoms of prostate, impotence, excessive urination at night, and flushing, although you may still have prostate cancer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

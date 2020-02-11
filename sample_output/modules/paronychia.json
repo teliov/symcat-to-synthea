@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "In medicine, paronychia (/\u02ccp\u00e6r\u0259\u02c8n\u026aki\u0259/; Greek: \u03c0\u03b1\u03c1\u03bf\u03bd\u03c5\u03c7\u03af\u03b1: para-, around, onukh-, nail) is a nail disease that is an often-tender bacterial or fungal infection of the hand or foot where the nail and skin meet at the side or the base of a finger or toenail. The infection can start suddenly (acute paronychia) or gradually (chronic paronychia). Paronychia is commonly misapplied as a synonym for whitlow or felon.",
                 "Within all the people who go to their doctor with paronychia, 73% report having hand or finger pain, 67% report having skin on arm or hand looks infected, and 65% report having irregular appearing nails. The symptoms that are highly suggestive of paronychia are hand or finger pain, skin on arm or hand looks infected, irregular appearing nails, hand or finger swelling, skin on leg or foot looks infected, foot or toe swelling, hand or finger lump or mass, and nailbiting, although you may still have paronychia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

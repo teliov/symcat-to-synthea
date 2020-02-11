@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A joint effusion is the presence of increased intra-articular fluid. It may affect any joint. Commonly it involves the knee.",
                 "Within all the people who go to their doctor with joint effusion, 86% report having knee pain, 64% report having knee swelling, and 35% report having ankle pain. The symptoms that are highly suggestive of joint effusion are knee pain, knee swelling, ankle swelling, elbow swelling, knee stiffness or tightness, and wrist swelling, although you may still have joint effusion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

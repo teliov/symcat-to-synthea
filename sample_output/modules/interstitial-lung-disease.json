@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Interstitial lung disease (ILD), also known as diffuse parenchymal lung disease (DPLD), refers to a group of lung diseases affecting the interstitium (the tissue and space around the air sacs of the lungs). It concerns alveolar epithelium, pulmonary capillary endothelium, basement membrane, perivascular and perilymphatic tissues.",
                 "Within all the people who go to their doctor with interstitial lung disease, 86% report having cough, 73% report having fever, and 67% report having nasal congestion. The symptoms that are highly suggestive of interstitial lung disease are sleepiness, although you may still have interstitial lung disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

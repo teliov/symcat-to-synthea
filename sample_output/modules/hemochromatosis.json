@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "In medicine, iron overload indicates accumulation of iron in the body from any cause. The most important causes are hereditary haemochromatosis (HHC), a genetic disorder, and transfusional iron overload, which can result from repeated blood transfusion.",
                 "Within all the people who go to their doctor with hemochromatosis, 28% report having ache all over, 16% report having abnormal appearing skin, and 9% report having recent weight loss. The symptoms that are highly suggestive of hemochromatosis are recent weight loss and too little hair, although you may still have hemochromatosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

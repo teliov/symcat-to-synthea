@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Molar pregnancy is an abnormal form of pregnancy in which a non-viable fertilized egg implants in the uterus and converts a normal pregnancy into an abnormal one (which will fail to come to term). A molar pregnancy is a gestational trophoblastic disease that grows into a mass in the uterus that has swollen chorionic villi. These villi grow in clusters that resemble grapes. A molar pregnancy can develop when an egg that is missing its nucleus is fertilized and that may or may not contain fetal tissue. It is characterized by the presence of a hydatidiform mole (or hydatid mole, mola hydatidosa). Molar pregnancies are categorized into partial and complete moles. Mole as used here simply indicates clump of growing tissue, or a 'growth'.",
                 "Within all the people who go to their doctor with hydatidiform mole, 71% report having spotting or bleeding during pregnancy, 52% report having pain during pregnancy, and 44% report having problems during pregnancy. The symptoms that are highly suggestive of hydatidiform mole are spotting or bleeding during pregnancy, pain during pregnancy, problems during pregnancy, and pelvic pain, although you may still have hydatidiform mole without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Mumps (epidemic parotitis) is a viral disease of the human species, caused by the mumps virus. Before the development of vaccination and the introduction of a vaccine, it was a common childhood disease worldwide. It is still a significant threat to health in developing countries, and outbreaks still occur sporadically in developed countries.",
                 "Within all the people who go to their doctor with mumps, 86% report having jaw swelling, 86% report having ear pain, and 77% report having neck swelling. The symptoms that are highly suggestive of mumps are jaw swelling, ear pain, neck swelling, flu-like syndrome, swollen lymph nodes, fluid retention, nailbiting, shoulder swelling, eye strain, and hip stiffness or tightness, although you may still have mumps without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

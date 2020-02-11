@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Otitis media (Latin for \"inflammation of the middle ear\") is the medical term for middle ear infection. Although several subtypes of otitis media are distinguished, the term is often used synonymously with acute otitis media. It is very common in childhood.",
                 "Within all the people who go to their doctor with acute otitis media, 84% report having ear pain, 70% report having fever, and 67% report having cough. The symptoms that are highly suggestive of acute otitis media are ear pain, redness in ear, fluid in ear, and pulling at ears, although you may still have acute otitis media without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

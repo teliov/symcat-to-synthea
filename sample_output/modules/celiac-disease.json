@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Coeliac disease (/\u02c8si\u02d0li.\u00e6k/; spelled celiac disease in North America and often celiac sprue) is an autoimmune disorder of the small intestine that occurs in genetically predisposed people of all ages from middle infancy onward. Symptoms include pain and discomfort in the digestive tract, chronic constipation and diarrhoea, failure to thrive (in children), and fatigue, but these may be absent, and symptoms in other organ systems have been described. Vitamin deficiencies are often noted in people with Coeliac disease owing to the reduced ability of the small intestine to properly absorb nutrients from food.",
                 "Within all the people who go to their doctor with celiac disease, 52% report having diarrhea, 52% report having sharp abdominal pain, and 47% report having regurgitation. The symptoms that are highly suggestive of celiac disease are regurgitation, fears and phobias, and leg lump or mass, although you may still have celiac disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

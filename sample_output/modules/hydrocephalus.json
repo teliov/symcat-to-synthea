@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hydrocephalus /\u02ccha\u026adr\u0275\u02c8s\u025bf\u0259l\u0259s/, also known as \"water on the brain,\" is a medical condition in which there is an abnormal accumulation of cerebrospinal fluid (CSF) in the ventricles, or cavities, of the brain. This may cause increased intracranial pressure inside the skull and progressive enlargement of the head, convulsion, tunnel vision, and mental disability. Hydrocephalus can also cause death. The name derives from the Greek words \u1f51\u03b4\u03c1\u03bf- (hydro-) \"water\", and \u03ba\u03ad\u03c6\u03b1\u03bb\u03bf\u03c2 (kephalos) \"head\".",
                 "Within all the people who go to their doctor with hydrocephalus, 54% report having headache, 49% report having seizures, and 29% report having vomiting. The symptoms that are highly suggestive of hydrocephalus are difficulty speaking, arm stiffness or tightness, and lack of growth, although you may still have hydrocephalus without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

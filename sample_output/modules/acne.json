@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Acne vulgaris (cystic acne or simply acne) is a common human skin disease, characterized by areas of skin with seborrhea (scaly red skin), comedones (blackheads and whiteheads), papules (pinheads), pustules (pimples), nodules (large papules) and possibly scarring. Acne affects mostly skin with the densest population of sebaceous follicles; these areas include the face, the upper part of the chest, and the back. Severe acne is inflammatory, but acne can also manifest in noninflammatory forms. The lesions are caused by changes in pilosebaceous units, skin structures consisting of a hair follicle and its associated sebaceous gland, changes that require androgen stimulation.",
                 "Within all the people who go to their doctor with acne, 94% report having acne or pimples, 38% report having skin rash, and 21% report having abnormal appearing skin. The symptoms that are highly suggestive of acne are acne or pimples, skin moles, and nose deformity, although you may still have acne without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

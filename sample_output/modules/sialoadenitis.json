@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sialadenitis (sialoadenitis) is inflammation of a salivary gland. It may be subdivided temporally into acute, chronic and recurrent forms.",
                 "Within all the people who go to their doctor with sialoadenitis, 77% report having peripheral edema, 60% report having facial pain, and 51% report having swollen lymph nodes. The symptoms that are highly suggestive of sialoadenitis are peripheral edema, facial pain, swollen lymph nodes, jaw swelling, neck mass, neck swelling, and difficulty in swallowing, although you may still have sialoadenitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

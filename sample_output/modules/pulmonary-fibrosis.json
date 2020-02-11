@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pulmonary fibrosis is the formation or development of excess fibrous connective tissue (fibrosis) in the lungs. It is also described as \"scarring of the lung\".",
                 "Within all the people who go to their doctor with pulmonary fibrosis, 78% report having shortness of breath, 62% report having cough, and 39% report having sharp chest pain. The symptoms that are highly suggestive of pulmonary fibrosis are hemoptysis, although you may still have pulmonary fibrosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Asthma (from the Greek \u1f05\u03c3\u03b8\u03bc\u03b1, \u00e1sthma, \"panting\") is a common chronic inflammatory disease of the airways characterized by variable and recurring symptoms, reversible airflow obstruction, and bronchospasm. Common symptoms include wheezing, coughing, chest tightness, and shortness of breath.",
                 "Within all the people who go to their doctor with asthma, 74% report having cough, 61% report having shortness of breath, and 55% report having wheezing. The symptoms that are highly suggestive of asthma are wheezing, although you may still have asthma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

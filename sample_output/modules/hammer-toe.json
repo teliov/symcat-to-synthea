@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A hammer toe or contracted toe is a deformity of the proximal interphalangeal joint of the second, third, or fourth toe causing it to be permanently bent, resembling a hammer. Mallet toe is a similar condition affecting the distal interphalangeal joint.",
                 "Within all the people who go to their doctor with hammer toe, 90% report having foot or toe pain, 31% report having loss of sensation, and 23% report having skin lesion. The symptoms that are highly suggestive of hammer toe are foot or toe pain and irregular appearing nails, although you may still have hammer toe without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -653,7 +653,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

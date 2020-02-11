@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pyloric stenosis (or infantile hypertrophic pyloric stenosis or pylorostenosis) is a condition that causes severe projectile non-bilious vomiting in the first few months of life. There is narrowing (stenosis) of the opening from the stomach to the first part of the small intestine known as the duodenum, due to enlargement (hypertrophy) of the muscle surrounding this opening (the pylorus, meaning \"gate\"), which spasms when the stomach empties. This hypertrophy is felt classically as an olive-shaped mass in the middle upper part or right upper quadrant of the infant's abdomen. In pyloric stenosis, it is uncertain whether there is a real congenital narrowing or whether there is a functional hypertrophy of the pyloric sphincter muscle. This condition typically develops in male babies in the first 2\u20136 weeks of life.",
                 "Within all the people who go to their doctor with pyloric stenosis, 84% report having vomiting, 35% report having infant spitting up, and 35% report having vomiting blood. The symptoms that are highly suggestive of pyloric stenosis are infant spitting up, vomiting blood, arm stiffness or tightness, regurgitation, restlessness, and symptoms of infants, although you may still have pyloric stenosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

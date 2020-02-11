@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Spina bifida (Latin: \"split spine\") is a developmental congenital disorder caused by the incomplete closing of the embryonic neural tube. Some vertebrae overlying the spinal cord are not fully formed and remain unfused and open. If the opening is large enough, this allows a portion of the spinal cord to protrude through the opening in the bones. There may or may not be a fluid-filled sac surrounding the spinal cord. Other neural tube defects include anencephaly, a condition in which the portion of the neural tube that will become the cerebrum does not close, and encephalocele, which results when other parts of the brain remain unfused.",
                 "Within all the people who go to their doctor with spina bifida, 35% report having back pain, 33% report having skin lesion, and 25% report having headache. The symptoms that are highly suggestive of spina bifida are eye moves abnormally, feet turned in, and poor circulation, although you may still have spina bifida without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

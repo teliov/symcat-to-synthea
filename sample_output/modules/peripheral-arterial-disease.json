@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Peripheral vascular disease (PVD), commonly referred to as peripheral artery disease (PAD) or peripheral artery occlusive disease (PAOD) or peripheral obliterative arteriopathy, refers to the obstruction of large arteries not within the coronary, aortic arch vasculature, or brain. PVD can result from atherosclerosis, inflammatory processes leading to stenosis, an embolism, or thrombus formation. It causes either acute or chronic ischemia (lack of blood supply). Often PVD is a term used to refer to atherosclerotic blockages found in the lower extremity.",
                 "Within all the people who go to their doctor with peripheral arterial disease, 55% report having skin lesion, 51% report having leg pain, and 24% report having foot or toe pain. The symptoms that are highly suggestive of peripheral arterial disease are poor circulation and feeling cold, although you may still have peripheral arterial disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

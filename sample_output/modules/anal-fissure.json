@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "An anal fissure is a break or tear in the skin of the anal canal. Anal fissures may be noticed by bright red anal bleeding on toilet paper, sometimes in the toilet. If acute they may cause pain after defecation but with chronic fissures pain intensity is often less. Anal fissures usually extend from the anal opening and are usually located posteriorly in the midline, probably because of the relatively unsupported nature and poor perfusion of the anal wall in that location. Fissure depth may be superficial or sometimes down to the underlying sphincter muscle.",
                 "Within all the people who go to their doctor with anal fissure, 80% report having rectal bleeding, 75% report having pain of the anus, and 65% report having blood in stool. The symptoms that are highly suggestive of anal fissure are rectal bleeding, pain of the anus, blood in stool, constipation, changes in stool appearance, irregular belly button , and vaginal dryness, although you may still have anal fissure without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

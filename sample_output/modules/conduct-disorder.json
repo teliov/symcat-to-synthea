@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Conduct disorder is a psychological disorder diagnosed in childhood or adolescence that presents itself through a repetitive and persistent pattern of behavior in which the basic rights of others or major age-appropriate norms are violated. These behaviors are often referred to as \"antisocial behaviors.\" Indeed, the disorder is often seen as the precursor to antisocial personality disorder.",
                 "Within all the people who go to their doctor with conduct disorder, 54% report having depressive or psychotic symptoms, 52% report having hostile behavior, and 31% report having excessive anger. The symptoms that are highly suggestive of conduct disorder are hostile behavior, excessive anger, temper problems, restlessness, and hysterical behavior, although you may still have conduct disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

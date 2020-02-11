@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Developmental disability is a term used in the United States and Canada to describe lifelong disabilities attributable to mental or physical impairments, manifested prior to age 18. It is not synonymous with \"developmental delay\" which is often a consequence of a temporary illness or trauma during childhood.",
                 "Within all the people who go to their doctor with developmental disability, 47% report having depressive or psychotic symptoms, 34% report having seizures, and 26% report having hostile behavior. The symptoms that are highly suggestive of developmental disability are hostile behavior, lack of growth, difficulty speaking, and obsessions and compulsions, although you may still have developmental disability without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

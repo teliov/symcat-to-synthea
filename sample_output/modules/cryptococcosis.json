@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cryptococcosis, or cryptococcal disease, is a potentially fatal fungal disease. It is caused by one of two species; Cryptococcus neoformans and Cryptococcus gattii. These were all previously thought to be subspecies of C. neoformans, but have now been identified as distinct species.",
                 "Within all the people who go to their doctor with cryptococcosis, 63% report having lip swelling, 63% report having fainting, and 63% report having seizures. The symptoms that are highly suggestive of cryptococcosis are lip swelling, fainting, seizures, shoulder swelling, nailbiting, eye strain, cross-eyed, vulvar sore, hip stiffness or tightness, itchy eyelid, and wrist weakness, although you may still have cryptococcosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

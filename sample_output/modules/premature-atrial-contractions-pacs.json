@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cardiac dysrhythmia (also known as arrhythmia or irregular heartbeat) is any of a large and heterogeneous group of conditions in which there is abnormal electrical activity in the heart. The heartbeat may be too fast or too slow, and may be regular or irregular. A heart beat that is too fast is called tachycardia and a heart beat that is too slow is called bradycardia. Although many arrhythmias are not life-threatening, some can cause cardiac arrest.",
                 "Within all the people who go to their doctor with premature atrial contractions (pacs), 84% report having palpitations, 66% report having irregular heartbeat, and 53% report having shortness of breath. The symptoms that are highly suggestive of premature atrial contractions (pacs) are palpitations, irregular heartbeat, chest tightness, increased heart rate, muscle swelling, and pus in urine, although you may still have premature atrial contractions (pacs) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

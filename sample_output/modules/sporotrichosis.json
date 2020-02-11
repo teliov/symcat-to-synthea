@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sporotrichosis (also known as \"Rose gardener's disease\") is a disease caused by the infection of the fungus Sporothrix schenckii. This fungal disease usually affects the skin, although other rare forms can affect the lungs, joints, bones, and even the brain. Because roses can spread the disease, it is one of a few diseases referred to as rose-thorn or rose-gardeners' disease.",
                 "Within all the people who go to their doctor with sporotrichosis, 100% report having knee swelling, 100% report having knee pain, and 32% report having preoccupation with sex. The symptoms that are highly suggestive of sporotrichosis are knee pain, knee swelling, shoulder cramps or spasms, joint stiffness or tightness, and knee lump or mass, although you may still have sporotrichosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

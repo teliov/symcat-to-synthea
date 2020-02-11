@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Leukemia (American English) or leukaemia (British English) is a type of cancer of the blood or bone marrow characterized by an abnormal increase of immature white blood cells called \"blasts\". Leukemia is a broad term covering a spectrum of diseases. In turn, it is part of the even broader group of diseases affecting the blood, bone marrow, and lymphoid system, which are all known as hematological neoplasms.",
                 "Within all the people who go to their doctor with leukemia, 26% report having fatigue, 25% report having fever, and 3% report having mouth pain. The symptoms that are highly suggestive of leukemia are muscle stiffness or tightness, although you may still have leukemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -653,7 +653,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

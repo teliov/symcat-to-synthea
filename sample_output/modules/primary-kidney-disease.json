@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "The kidneys are organs that serve several essential regulatory roles in most animals, including vertebrates and some invertebrates. They are essential in the urinary system and also serve homeostatic functions such as the regulation of electrolytes, maintenance of acid\u2013base balance, and regulation of blood pressure (via maintaining salt and water balance). They serve the body as a natural filter of the blood, and remove wastes which are diverted to the urinary bladder. In producing urine, the kidneys excrete wastes such as urea and ammonium, and they are also responsible for the reabsorption of water, glucose, and amino acids. The kidneys also produce hormones including calcitriol, erythropoietin, and the enzyme renin.",
                 "Within all the people who go to their doctor with primary kidney disease, 29% report having peripheral edema, 24% report having symptoms of the kidneys, and 15% report having blood in urine. The symptoms that are highly suggestive of primary kidney disease are symptoms of the kidneys, thirst, and leg stiffness or tightness, although you may still have primary kidney disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

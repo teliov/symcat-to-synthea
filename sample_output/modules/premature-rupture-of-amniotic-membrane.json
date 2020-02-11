@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A prom (in the United States) is a formal social event \u2013 usually a dance \u2013 generally held near the end of the last two years of high school.",
                 "Within all the people who go to their doctor with premature rupture of amniotic membrane, 92% report having uterine contractions, 28% report having spotting or bleeding during pregnancy, and 28% report having weight gain. The symptoms that are highly suggestive of premature rupture of amniotic membrane are uterine contractions, weight gain, spotting or bleeding during pregnancy, muscle swelling, low back weakness, elbow weakness, abnormal size or shape of ear, and back weakness, although you may still have premature rupture of amniotic membrane without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

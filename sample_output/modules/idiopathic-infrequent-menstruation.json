@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Idiopathic infrequent menstruation is encountered rarely on Symcat. We will add more content to this page if enough people like you show interest.",
                 "Within all the people who go to their doctor with idiopathic infrequent menstruation, 69% report having unpredictable menstruation, 37% report having scanty menstrual flow, and 37% report having painful menstruation. The symptoms that are highly suggestive of idiopathic infrequent menstruation are unpredictable menstruation, painful menstruation, vaginal discharge, scanty menstrual flow, infrequent menstruation, infertility, and absence of menstruation, although you may still have idiopathic infrequent menstruation without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Corneal abrasion is a medical condition involving the loss of the surface epithelial layer of the eye's cornea.",
                 "Within all the people who go to their doctor with corneal abrasion, 87% report having pain in eye, 55% report having eye redness, and 32% report having symptoms of eye. The symptoms that are highly suggestive of corneal abrasion are pain in eye, eye redness, symptoms of eye, swollen eye, lacrimation, foreign body sensation in eye, eye burns or stings, and eyelid swelling, although you may still have corneal abrasion without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A pilonidal cyst, also referred to as a pilonidal abscess, pilonidal sinus or sacrococcygeal fistula, is a cyst or abscess near or on the natal cleft of the buttocks that often contains hair and skin debris.",
                 "Within all the people who go to their doctor with pilonidal cyst, 52% report having skin growth, 41% report having lower body pain, and 32% report having ache all over. The symptoms that are highly suggestive of pilonidal cyst are skin growth, lower body pain, skin swelling, pain of the anus, bones are painful, back mass or lump, mass or swelling around the anus, and low back swelling, although you may still have pilonidal cyst without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

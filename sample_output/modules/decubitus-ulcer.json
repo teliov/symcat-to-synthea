@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pressure ulcers, also known as decubitus ulcers or bedsores, are localized injuries to the skin and/or underlying tissue that usually occur over a bony prominence as a result of pressure, or pressure in combination with shear and/or friction. The most common sites are the sacrum, coccyx, heels or the hips, but other sites such as the elbows, knees, ankles or the back of the cranium can be affected.",
                 "Within all the people who go to their doctor with decubitus ulcer, 78% report having skin lesion, 11% report having difficulty speaking, and 6% report having skin on leg or foot looks infected. The symptoms that are highly suggestive of decubitus ulcer are skin lesion, although you may still have decubitus ulcer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -653,7 +653,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

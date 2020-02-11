@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Brain abscess (or cerebral abscess) is an abscess caused by inflammation and collection of infected material, coming from local (ear infection, dental abscess, infection of paranasal sinuses, infection of the mastoid air cells of the temporal bone, epidural abscess) or remote (lung, heart, kidney etc.) infectious sources, within the brain tissue. The infection may also be introduced through a skull fracture following a head trauma or surgical procedures. Brain abscess is usually associated with congenital heart disease in young children. It may occur at any age but is most frequent in the third decade of life.",
                 "Within all the people who go to their doctor with intracranial abscess, 68% report having seizures, 58% report having low back pain, and 58% report having back pain. The symptoms that are highly suggestive of intracranial abscess are seizures and slurring words, although you may still have intracranial abscess without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A dermatomycosis is a skin disease caused by a fungus.",
                 "Within all the people who go to their doctor with fungal infection of the skin, 86% report having skin rash, 41% report having itching of skin, and 35% report having abnormal appearing skin. The symptoms that are highly suggestive of fungal infection of the skin are skin rash, itching of skin, irregular appearing scalp, too little hair, itchy scalp, and dry or flaky scalp, although you may still have fungal infection of the skin without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

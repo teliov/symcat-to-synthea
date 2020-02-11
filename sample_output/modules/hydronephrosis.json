@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hydronephrosis \u2014 literally \"water inside the kidney\" \u2014 refers to distension and dilation of the renal pelvis and calyces, usually caused by obstruction of the free flow of urine from the kidney. Untreated, it leads to progressive atrophy of the kidney. In cases of hydroureteronephrosis, there is distention of both the ureter and the renal pelvis and calices.",
                 "Within all the people who go to their doctor with hydronephrosis, 67% report having side pain, 56% report having sharp abdominal pain, and 39% report having back pain. The symptoms that are highly suggestive of hydronephrosis are side pain, symptoms of the kidneys, and symptoms of bladder, although you may still have hydronephrosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

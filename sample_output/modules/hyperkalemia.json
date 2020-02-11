@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hyperkalemia (hyperkalaemia in British English, hyper- high; kalium, potassium; -emia, \"in the blood\") refers to the condition in which the concentration of the electrolyte potassium (K+) in the blood is elevated. Extreme hyperkalemia is a medical emergency due to the risk of potentially fatal abnormal heart rhythms (arrhythmia).",
                 "Within all the people who go to their doctor with hyperkalemia, 52% report having shortness of breath, 49% report having weakness, and 45% report having nausea. The symptoms that are highly suggestive of hyperkalemia are decreased heart rate, although you may still have hyperkalemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Back pain is pain felt in the back that usually originates from the muscles, nerves, bones, joints or other structures in the spine.",
                 "Within all the people who go to their doctor with chronic back pain, 90% report having back pain, 70% report having low back pain, and 50% report having leg pain. The symptoms that are highly suggestive of chronic back pain are back pain, low back pain, back cramps or spasms, and back stiffness or tightness, although you may still have chronic back pain without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

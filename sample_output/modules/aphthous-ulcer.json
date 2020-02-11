@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Aphthous stomatitis (also termed canker sores, recurrent aphthous stomatitis, RAS, recurring oral aphthae and recurrent aphthous ulceration) is a common cause of benign and non-contagious mouth ulcers (canker sores). This condition is characterized by the repeated formation of ulcers on the mucous membrane of the oral cavity (the lining of the mouth), in otherwise healthy individuals. These ulcers occur periodically and heal completely between attacks. Symptoms range from a minor nuisance to interfering with eating and drinking. The cause is not completely understood, but may involve a T cell mediated immune response which is triggered by a variety of factors. Different people may have different triggers, including nutritional deficiencies, local trauma, stress, hormonal influences, allergies, and a genetic predisposition. The condition is very common, affecting about 20% of the general population. There is no cure, and treatments are aimed at reducing pain and speeding the healing process. Often, the onset of the condition is during childhood or adolescence and usually lasts for several years before gradually disappearing, with or without any form of treatment.",
                 "Within all the people who go to their doctor with aphthous ulcer, 82% report having mouth ulcer, 59% report having fever, and 54% report having sore throat. The symptoms that are highly suggestive of aphthous ulcer are mouth ulcer, mouth pain, tongue lesions, lip sore, and swollen tongue, although you may still have aphthous ulcer without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Myocardial infarction (MI) or acute myocardial infarction (AMI), commonly known as a heart attack, results from the partial interruption of blood supply to a part of the heart muscle, causing the heart cells to be damaged or die. This is most commonly due to occlusion (blockage) of a coronary artery following the rupture of a vulnerable atherosclerotic plaque, which is an unstable collection of cholesterol and fatty acids and white blood cells in the wall of an artery. The resulting ischemia (restriction in blood supply) and ensuing oxygen shortage, if left untreated for a sufficient period of time, can cause damage or death (infarction) of heart muscle tissue (myocardium).",
                 "Within all the people who go to their doctor with heart attack, 90% report having sharp chest pain, 56% report having shortness of breath, and 37% report having chest tightness. The symptoms that are highly suggestive of heart attack are sharp chest pain and burning chest pain, although you may still have heart attack without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

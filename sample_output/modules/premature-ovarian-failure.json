@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Premature Ovarian Failure (POF), also known as premature ovarian insufficiency, primary ovarian insufficiency (this is the most accurate term as some women may still conceive), premature menopause, hypergonadotropic hypogonadism, is the loss of function of the ovaries before age 40. A commonly cited triad for the diagnosis is amenorrhea, hypergonadotropinism, and hypoestrogenism. If it has a genetic cause, it may be called gonadal dysgenesis",
                 "Within all the people who go to their doctor with premature ovarian failure, 82% report having infertility, 22% report having absence of menstruation, and 22% report having unpredictable menstruation. The symptoms that are highly suggestive of premature ovarian failure are infertility, unpredictable menstruation, absence of menstruation, dry or flaky scalp, and pain during intercourse, although you may still have premature ovarian failure without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A superficial dermatitis occurring on skin surfaces in contact with each other, such as the axillae, neck creases, intergluteal fold, between the toes, etc. Obesity is a predisposing factor. The condition is caused by moisture and friction and is characterized by erythema, maceration, burning, and exudation.",
                 "Within all the people who go to their doctor with intertrigo (skin condition), 87% report having skin rash, 47% report having abnormal appearing skin, and 38% report having skin dryness, peeling, scaliness, or roughness. The symptoms that are highly suggestive of intertrigo (skin condition) are skin rash, skin dryness, peeling, scaliness, or roughness, skin swelling, skin irritation, and skin moles, although you may still have intertrigo (skin condition) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

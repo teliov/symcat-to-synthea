@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hepatic encephalopathy (also known as portosystemic encephalopathy) is the occurrence of confusion, altered level of consciousness, and coma as a result of liver failure. In the advanced stages it is called hepatic coma or coma hepaticum. It may ultimately lead to death.",
                 "Within all the people who go to their doctor with hepatic encephalopathy, 69% report having depressive or psychotic symptoms, 42% report having sharp abdominal pain, and 36% report having shortness of breath."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

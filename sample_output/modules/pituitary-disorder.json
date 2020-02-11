@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A Pituitary disease is a disorder primarily affecting the pituitary gland.",
                 "Within all the people who go to their doctor with pituitary disorder, 44% report having headache, 38% report having lack of growth, and 14% report having bleeding or discharge from nipple. The symptoms that are highly suggestive of pituitary disorder are lack of growth, bleeding or discharge from nipple, hot flashes, and postpartum problems of the breast, although you may still have pituitary disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

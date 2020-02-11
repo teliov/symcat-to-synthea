@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Seborrhoeic dermatitis (also seborrheic dermatitis AmE, seborrhea) (also known as \"seborrheic eczema\") is an inflammatory skin disorder affecting the scalp, face, and torso. Typically, seborrheic dermatitis presents with scaly, flaky, itchy, and red skin. It particularly affects the sebaceous-gland-rich areas of skin. In adolescents and adults, seborrhoeic dermatitis usually presents as scalp scaling similar to dandruff or as mild to marked erythema of the nasolabial fold.",
                 "Within all the people who go to their doctor with seborrheic dermatitis, 74% report having skin rash, 49% report having skin dryness, peeling, scaliness, or roughness, and 47% report having abnormal appearing skin. The symptoms that are highly suggestive of seborrheic dermatitis are skin dryness, peeling, scaliness, or roughness, irregular appearing scalp, dry or flaky scalp, itchy scalp, acne or pimples, too little hair, and symptoms of the face, although you may still have seborrheic dermatitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

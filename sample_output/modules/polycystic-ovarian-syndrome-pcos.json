@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A complex disorder characterized by infertility, HIRSUTISM; OBESITY; and various menstrual disturbances such as OLIGOMENORRHEA; AMENORRHEA; ANOVULATION. Polycystic ovary syndrome is usually associated with bilateral enlarged ovaries studded with atretic follicles, not with cysts. The term, polycystic ovary, is misleading.",
                 "Within all the people who go to their doctor with polycystic ovarian syndrome (pcos), 47% report having infertility, 34% report having unpredictable menstruation, and 27% report having weight gain. The symptoms that are highly suggestive of polycystic ovarian syndrome (pcos) are infertility, unpredictable menstruation, absence of menstruation, heavy menstrual flow, intermenstrual bleeding, long menstrual periods, painful menstruation, and hot flashes, although you may still have polycystic ovarian syndrome (pcos) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

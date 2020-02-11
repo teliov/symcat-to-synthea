@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Anal fistula, or fistula-in-ano, is an abnormal connection between the epithelialised surface of the anal canal and (usually) the perianal skin.",
                 "Within all the people who go to their doctor with anal fistula, 71% report having pain of the anus, 33% report having blood in stool, and 33% report having sharp abdominal pain. The symptoms that are highly suggestive of anal fistula are pain of the anus, blood in stool, low back cramps or spasms, discharge in stools, mass or swelling around the anus, incontinence of stool, and mass in scrotum, although you may still have anal fistula without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

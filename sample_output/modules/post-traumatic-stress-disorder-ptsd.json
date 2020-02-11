@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Posttraumatic stress disorder (PTSD) is a severe condition that may develop after a person is exposed to one or more traumatic events, such as sexual assault, serious injury or the threat of death. The diagnosis may be given when a group of symptoms such as disturbing recurring flashbacks, avoidance or numbing of memories of the event, and hyperarousal (high levels of anxiety) continue for more than a month after the traumatic event.",
                 "Within all the people who go to their doctor with post-traumatic stress disorder (ptsd), 70% report having anxiety and nervousness, 66% report having depression, and 57% report having depressive or psychotic symptoms. The symptoms that are highly suggestive of post-traumatic stress disorder (ptsd) are anxiety and nervousness, excessive anger, low self-esteem, and fears and phobias, although you may still have post-traumatic stress disorder (ptsd) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

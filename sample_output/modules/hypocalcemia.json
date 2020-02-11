@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "In medicine, hypocalcaemia (or hypocalcemia) is the presence of low serum calcium levels in the blood, usually taken as less than 2.1 mmol/L or 9 mg/dl or an ionized calcium level of less than 1.1 mmol/L or 4.5 mg/dL. It is a type of electrolyte disturbance. In the blood, about half of all calcium is bound to proteins such as serum albumin, but it is the unbound, or ionized, calcium that the body regulates. If a person has abnormal levels of blood proteins, then the plasma calcium may be inaccurate. The ionized calcium level is considered more clinically accurate in this case. In the setting of low serum albumin (frequently seen in patients with chronic diseases, hepatic disease or even long term hospitalization), the formula for corrected calcium is: Corrected calcium (mg/dL) = measured total Ca (mg/dL) + 0.8 (4.0 - serum albumin ), where 4.0 represents the average albumin level in g/dL; in SI units: Corrected calcium (mmol/L) = measured total Ca (mmol/L) + 0.02 (40 - serum albumin ), where 40 represents the average albumin level in g/L. Thus, if the albumin is low, the measured calcium may appear low when in fact it is physiologically within normal limits.",
                 "Within all the people who go to their doctor with hypocalcemia, 49% report having shortness of breath, 49% report having sharp abdominal pain, and 43% report having paresthesia. The symptoms that are highly suggestive of hypocalcemia are paresthesia and leg weakness, although you may still have hypocalcemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

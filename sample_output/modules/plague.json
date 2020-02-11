@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Plague or The plague is a disease that has a high mortality rate or a calamity with widespread and serious consequences for its victims. The terms plague or the plague may specifically refer to:",
                 "Within all the people who go to their doctor with plague, 77% report having acne or pimples, 77% report having sharp abdominal pain, and 11% report having preoccupation with sex. The symptoms that are highly suggestive of plague are acne or pimples, knee lump or mass, excessive growth, wrist weakness, vulvar sore, neck cramps or spasms, loss of sex drive, shoulder swelling, nailbiting, eye strain, and joint stiffness or tightness, although you may still have plague without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

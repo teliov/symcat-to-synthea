@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Ankylosing spondylitis (AS, from Greek ankylos, crooked; spondylos, vertebrae; -itis, inflammation), previously known as Bechterew's disease, (or syndrome) and Marie-Str\u00fcmpell disease, is a chronic inflammatory disease of the axial skeleton with variable involvement of peripheral joints and nonarticular structures. AS is a form of spondyloarthritis, a chronic, inflammatory arthritis where immune mechanisms are thought to have a key role. It mainly affects joints in the spine and the sacroiliac joint in the pelvis, and can cause eventual fusion of the spine.",
                 "Within all the people who go to their doctor with ankylosing spondylitis, 74% report having back pain, 72% report having low back pain, and 57% report having hip pain. The symptoms that are highly suggestive of ankylosing spondylitis are hip pain and stiffness all over, although you may still have ankylosing spondylitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

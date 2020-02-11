@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Eosinophilia is a condition in which the eosinophil count in the peripheral blood exceeds 0.45\u00d7109/L (450/\u03bcl). Eosinophils usually account for less than 7% of the circulating leukocytes. A marked increase in non-blood tissue eosinophil count noticed upon histopathologic examination is diagnostic for tissue eosinophilia. Several causes are known, with the most common being some form of allergic reaction or parasitosis. Diagnosis of eosinophilia is via a complete blood count (CBC), but diagnostic procedures directed at the underlying cause vary depending on the suspected condition(s). An absolute eosinophil count is not generally needed if the CBC shows marked eosinophilia. The location of the causal factor can be used to classify eosinophilia into two general types: extrinsic, in which the factor lies outside of the eosinophil cell lineage; and intrinsic eosinophilia, which denotes etiologies within the eosiniphil cell line. Specific treatments are dictated by the causative condition, though in idiopathic eosinophilia, the disease may be controlled with corticosteroids. Eosinophilia is not a disorder, unless it is idiopathic.",
                 "Within all the people who go to their doctor with pulmonary eosinophilia, 83% report having cough, 76% report having shortness of breath, and 74% report having fever."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

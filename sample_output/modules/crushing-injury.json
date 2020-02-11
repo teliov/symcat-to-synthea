@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A crush injury is injury by an object that causes compression of the body. This form of injury is common following a natural disaster or after some form of trauma from a deliberate attack. Common concerns after an injury of this type are rhabdomyolysis and crush syndrome.",
                 "Within all the people who go to their doctor with crushing injury, 62% report having hand or finger pain, 30% report having foot or toe pain, and 22% report having hand or finger swelling. The symptoms that are highly suggestive of crushing injury are hand or finger pain and hand or finger stiffness or tightness, although you may still have crushing injury without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

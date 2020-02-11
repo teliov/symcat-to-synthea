@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A sprained ankle, also known as an ankle sprain, twisted ankle, rolled ankle, floppy ankle, ankle injury or ankle ligament injury, is a common medical condition where one or more of the ligaments of the ankle is torn or partially torn.",
                 "Within all the people who go to their doctor with injury of the ankle, 88% report having ankle pain, 71% report having foot or toe pain, and 40% report having ankle swelling. The symptoms that are highly suggestive of injury of the ankle are ankle pain, foot or toe pain, ankle swelling, foot or toe swelling, foot or toe weakness, ankle stiffness or tightness, and foot or toe lump or mass, although you may still have injury of the ankle without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Overflow incontinence is a form of urinary incontinence, characterized by the involuntary release of urine from an overly full urinary bladder, often in the absence of any urge to urinate. This condition occurs in people who have a blockage of the bladder outlet (benign prostatic hyperplasia, prostate cancer, or narrowing of the urethra), or when the muscle that expels urine from the bladder is too weak to empty the bladder normally. Overflow incontinence may also be a side effect of certain medications.",
                 "Within all the people who go to their doctor with overflow incontinence, 55% report having retention of urine, 41% report having involuntary urination, and 35% report having symptoms of bladder. The symptoms that are highly suggestive of overflow incontinence are retention of urine, involuntary urination, symptoms of bladder, excessive urination at night, impotence, symptoms of prostate, hand or finger stiffness or tightness, and hesitancy, although you may still have overflow incontinence without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

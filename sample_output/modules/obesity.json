@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Obesity is a medical condition in which excess body fat has accumulated to the extent that it may have an adverse effect on health, leading to reduced life expectancy and/or increased health problems. People are considered obese when their body mass index (BMI), a measurement obtained by dividing a person's weight in kilograms by the square of the person's height in metres, exceeds 30 kg/m2.",
                 "Within all the people who go to their doctor with obesity, 56% report having weight gain, 10% report having abnormal breathing sounds, and 10% report having apnea. The symptoms that are highly suggestive of obesity are weight gain and excessive appetite, although you may still have obesity without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -573,7 +573,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

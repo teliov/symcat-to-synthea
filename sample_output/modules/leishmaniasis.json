@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Leishmaniasis is a disease caused by protozoan parasites that belong to the genus Leishmania and is transmitted by the bite of certain species of sand fly (subfamily Phlebotominae). Although the majority of the literature mentions only one genus transmitting Leishmania to humans (Lutzomyia) in the US, a 2003 study by Galati suggested a new classification for American sand flies, elevating several subgenera to the genus level. Elsewhere in the world, the genus Phlebotomus is considered the vector of leishmaniasis.",
                 "Within all the people who go to their doctor with leishmaniasis, 91% report having preoccupation with sex, 91% report having wrist cramps or spasms, and 91% report having joint cramps or spasms. The symptoms that are highly suggestive of leishmaniasis are pain in eye, shoulder cramps or spasms, facial pain, ankle pain, wrist pain, pain during pregnancy, excessive anger, joint stiffness or tightness, pain or soreness of breast, knee lump or mass, fatigue, and excessive urination at night, although you may still have leishmaniasis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

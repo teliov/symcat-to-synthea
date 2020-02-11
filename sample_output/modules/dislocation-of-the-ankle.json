@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A joint dislocation, or luxation, occurs when there is an abnormal separation in the joint, where two or more bones meet. A partial dislocation is referred to as a subluxation. Dislocations are often caused by sudden trauma on the joint like an impact or fall. A joint dislocation can cause damage to the surrounding ligaments, tendons, muscles, and nerves. Dislocations can occur in any joint major (Shoulder, knees, etc.) or minor (toes, fingers, etc.). The most common joint dislocation is a shoulder dislocation.",
                 "Within all the people who go to their doctor with dislocation of the ankle, 86% report having ankle pain, 56% report having ankle swelling, and 38% report having foot or toe pain. The symptoms that are highly suggestive of dislocation of the ankle are ankle pain, ankle swelling, eye strain, elbow weakness, elbow cramps or spasms, wrist weakness, feeling hot and cold, low back weakness, underweight, emotional symptoms, and muscle swelling, although you may still have dislocation of the ankle without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

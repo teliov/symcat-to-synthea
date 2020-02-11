@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pelvic fracture is a disruption of the bony structure of the pelvis, including the hip bone, sacrum and coccyx. The most common cause in elderly is a fall, but the most significant fractures involve high-energy forces such as a motor vehicle accident, cycling accidents, or a fall from significant height. Diagnosis is made on the basis of history, clinical features and special investigations usually including X-ray and CT. Because the pelvis cradles so many internal organs, pelvic fractures may produce significant internal bleeding which is invisible to the eye. Emergency treatment consists of advanced trauma life support management. After stabilisation, the pelvis may be surgically reconstructed.",
                 "Within all the people who go to their doctor with fracture of the pelvis, 82% report having hip pain, 54% report having groin pain, and 50% report having back pain. The symptoms that are highly suggestive of fracture of the pelvis are hip pain, groin pain, difficulty speaking, and bones are painful, although you may still have fracture of the pelvis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

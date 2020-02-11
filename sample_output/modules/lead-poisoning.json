@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Lead poisoning (also known as plumbism, colica Pictonum, saturnism, Devon colic, or painter's colic) is a medical condition in humans and other vertebrates caused by increased levels of the heavy metal lead in the body. Lead interferes with a variety of body processes and is toxic to many organs and tissues including the heart, bones, intestines, kidneys, and reproductive and nervous systems. It interferes with the development of the nervous system and is therefore particularly toxic to children, causing potentially permanent learning and behavior disorders. Symptoms include abdominal pain, confusion, headache, anemia, irritability, and in severe cases seizures, coma, and death.",
                 "Within all the people who go to their doctor with lead poisoning, 91% report having preoccupation with sex, 91% report having wrist cramps or spasms, and 91% report having joint cramps or spasms. The symptoms that are highly suggestive of lead poisoning are pain in eye, shoulder cramps or spasms, facial pain, ankle pain, wrist pain, pain during pregnancy, excessive anger, joint stiffness or tightness, pain or soreness of breast, knee lump or mass, fatigue, and excessive urination at night, although you may still have lead poisoning without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

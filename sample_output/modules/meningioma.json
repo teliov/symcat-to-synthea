@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Meningiomas are a diverse set of tumors arising from the meninges, the membranous layers surrounding the central nervous system. They arise from the arachnoid \"cap\" cells of the arachnoid villi in the meninges. These tumors are usually benign in nature; however, a small percentage are malignant. Many meningiomas are asymptomatic, producing no symptoms throughout a person's life, and require no treatment other than periodic observation. Symptomatic meningiomas are typically treated with either radiosurgery or conventional surgery. Historical evidence of meningiomas has been found going back hundreds of years, with some successful surgeries for their removal beginning in the 1800s.",
                 "Within all the people who go to their doctor with meningioma, 62% report having headache, 46% report having disturbance of memory, and 40% report having weakness. The symptoms that are highly suggestive of meningioma are disturbance of memory, difficulty speaking, and focal weakness, although you may still have meningioma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

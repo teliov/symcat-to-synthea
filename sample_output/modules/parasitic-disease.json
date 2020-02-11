@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A parasitic disease is an infectious disease caused or transmitted by a parasite. Many parasites do not cause diseases. Parasitic diseases can affect practically all living organisms, including plants and mammals. The study of parasitic diseases is called parasitology.",
                 "Within all the people who go to their doctor with parasitic disease, 38% report having sharp abdominal pain, 35% report having skin rash, and 31% report having fever. The symptoms that are highly suggestive of parasitic disease are hand or finger swelling, swollen lymph nodes, and vaginal pain, although you may still have parasitic disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

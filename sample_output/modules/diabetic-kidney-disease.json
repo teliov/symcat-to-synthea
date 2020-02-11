@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Diabetic nephropathy (nephropatia diabetica), also known as Kimmelstiel-Wilson syndrome, or nodular diabetic glomerulosclerosis and intercapillary glomerulonephritis, is a progressive kidney disease caused by angiopathy of capillaries in the kidney glomeruli. It is characterized by nephrotic syndrome and diffuse glomerulosclerosis. It is due to longstanding diabetes mellitus, and is a prime indication for dialysis in many Western countries.",
                 "Within all the people who go to their doctor with diabetic kidney disease, 12% report having impotence, 12% report having leg swelling, and 7% report having thirst. The symptoms that are highly suggestive of diabetic kidney disease are impotence, thirst, and symptoms of the kidneys, although you may still have diabetic kidney disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

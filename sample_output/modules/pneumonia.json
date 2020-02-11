@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Pneumonia is an inflammatory condition of the lung\u2014affecting primarily the microscopic air sacs known as alveoli. It is usually caused by infection with viruses or bacteria and less commonly other microorganisms, certain drugs and other conditions such as autoimmune diseases.",
                 "Within all the people who go to their doctor with pneumonia, 82% report having cough, 75% report having fever, and 69% report having shortness of breath."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

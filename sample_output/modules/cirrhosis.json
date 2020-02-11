@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Cirrhosis /s\u026a\u02c8ro\u028as\u026as/ is a consequence of chronic liver disease characterized by replacement of liver tissue by fibrosis, scar tissue and regenerative nodules (lumps that occur as a result of a process in which damaged tissue is regenerated), leading to loss of liver function. Cirrhosis is most commonly caused by alcoholism, hepatitis B and hepatitis C, and fatty liver disease, but has many other possible causes. Some cases are idiopathic (i.e., of unknown cause).",
                 "Within all the people who go to their doctor with cirrhosis, 39% report having sharp abdominal pain, 30% report having shortness of breath, and 24% report having peripheral edema. The symptoms that are highly suggestive of cirrhosis are abdominal distention, stomach bloating, and symptoms of the kidneys, although you may still have cirrhosis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

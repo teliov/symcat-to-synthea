@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "An optical system with astigmatism is one where rays that propagate in two perpendicular planes have different foci. If an optical system with astigmatism is used to form an image of a cross, the vertical and horizontal lines will be in sharp focus at two different distances. The term comes from the Greek \u03b1- (a-) meaning \"without\" and \u03c3\u03c4\u03af\u03b3\u03bc\u03b1 (stigma), \"a mark, spot, puncture\".",
                 "Within all the people who go to their doctor with astigmatism, 70% report having diminished vision, 29% report having symptoms of eye, and 24% report having lacrimation. The symptoms that are highly suggestive of astigmatism are diminished vision, symptoms of eye, lacrimation, spots or clouds in vision, foreign body sensation in eye, eye deviation, eye moves abnormally, and cross-eyed, although you may still have astigmatism without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

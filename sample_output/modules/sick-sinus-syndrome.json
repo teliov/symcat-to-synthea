@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Sick sinus syndrome (SSS), also called sinus node dysfunction (SND), is an umbrella term for a group of abnormal heart rhythms (arrhythmias) presumably caused by a malfunction of the sinus node, the heart's primary pacemaker. Bradycardia-tachycardia syndrome is a variant of sick sinus syndrome in which slow arrhythmias and fast arrhythmias alternate. In recent years, the syndrome has become increasingly prevalent in dogs. The reason is unknown.",
                 "Within all the people who go to their doctor with sick sinus syndrome, 37% report having dizziness, 35% report having shortness of breath, and 35% report having sharp chest pain. The symptoms that are highly suggestive of sick sinus syndrome are palpitations, decreased heart rate, and bleeding or discharge from nipple, although you may still have sick sinus syndrome without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -773,7 +773,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

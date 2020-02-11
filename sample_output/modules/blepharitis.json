@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Blepharitis (/bl\u025bf\u0259r\u02c8a\u026at\u0268s/ BLEF-\u0259r-EYE-tis) is an eye condition characterized by chronic inflammation of the eyelid, the severity and time course of which can vary. Onset can be acute, resolving without treatment within 2\u20134 weeks (this can be greatly reduced with lid hygiene), but more generally is a long standing inflammation varying in severity. It may be classified as seborrhoeic, staphylococcal, mixed, posterior or meiobomitis, or parasitic.",
                 "Within all the people who go to their doctor with blepharitis, 64% report having diminished vision, 56% report having eye redness, and 54% report having pain in eye. The symptoms that are highly suggestive of blepharitis are diminished vision, eye redness, pain in eye, itchiness of eye, swollen eye, symptoms of eye, lacrimation, spots or clouds in vision, eyelid swelling, white discharge from eye, eye burns or stings, and eyelid lesion or rash, although you may still have blepharitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

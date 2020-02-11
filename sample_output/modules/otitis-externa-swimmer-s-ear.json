@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Otitis externa (also known as \"External otitis\" and \"Swimmer's ear\") is an inflammation of the outer ear and ear canal. Along with otitis media, external otitis is one of the two human conditions commonly called \"earache\". It also occurs in many other species. Inflammation of the skin of the ear canal is the essence of this disorder. The inflammation can be secondary to dermatitis (eczema) only, with no microbial infection, or it can be caused by active bacterial or fungal infection. In either case, but more often with infection, the ear canal skin swells and may become painful or tender to touch.",
                 "Within all the people who go to their doctor with otitis externa (swimmer's ear), 94% report having ear pain, 38% report having fluid in ear, and 36% report having redness in ear. The symptoms that are highly suggestive of otitis externa (swimmer's ear) are ear pain, fluid in ear, redness in ear, plugged feeling in ear, diminished hearing, itchy ear(s), and bleeding from ear, although you may still have otitis externa (swimmer's ear) without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

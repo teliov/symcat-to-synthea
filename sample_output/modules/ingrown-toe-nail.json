@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Onychocryptosis (from Greek \u1f44\u03bd\u03c5\u03be onyx \"nail\" + \u03ba\u03c1\u03c5\u03c0\u03c4\u03cc\u03c2 kryptos \"hidden\"), also known as an ingrown toenail, or unguis incarnatus is a common form of nail disease. It is an often painful condition in which the nail grows so that it cuts into one or both sides of the paronychium or nail bed. This condition has been found only in shoe-wearing cultures and does not occur in habitually barefoot people since it requires downward pressure on the nail by a shoe.",
                 "Within all the people who go to their doctor with ingrown toe nail, 87% report having irregular appearing nails, 73% report having foot or toe pain, and 46% report having skin on leg or foot looks infected. The symptoms that are highly suggestive of ingrown toe nail are irregular appearing nails, foot or toe pain, skin on leg or foot looks infected, and foot or toe swelling, although you may still have ingrown toe nail without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

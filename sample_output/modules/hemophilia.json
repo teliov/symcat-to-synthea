@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Haemophilia (/hi\u02d0m\u0259\u02c8f\u026ali\u0259/; also spelled hemophilia in North America, from the Greek haima \u03b1\u1f37\u03bc\u03b1 'blood' and philia \u03c6\u03b9\u03bb\u03af\u03b1 'love') is a group of hereditary genetic disorders that impair the body's ability to control blood clotting or coagulation, which is used to stop bleeding when a blood vessel is broken. Haemophilia A (clotting factor VIII deficiency) is the most common form of the disorder, present in about 1 in 5,000\u201310,000 male births. Haemophilia B (factor IX deficiency) occurs in around 1 in about 20,000\u201334,000 male births.",
                 "Within all the people who go to their doctor with hemophilia, 29% report having leg pain, 25% report having headache, and 25% report having cough. The symptoms that are highly suggestive of hemophilia are bleeding gums, melena, and absence of menstruation, although you may still have hemophilia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A bruise (layman's term), also called a contusion (medical term), is a type of hematoma of tissue in which capillaries and sometimes venules are damaged by trauma, allowing blood to seep, hemorrhage, or extravasate into the surrounding interstitial tissues. Not blanching on pressure, bruises can involve capillaries at the level of skin, subcutaneous tissue, muscle, or bone. Bruises are not to be confused with other lesions primarily known by their diameter. These lesions include petechia (<3 mm caused typically by platelet disorders), purpura (3 mm to 1 cm caused typically by inflammation of the small blood vessels known as vasculitis), and ecchymosis (>1 cm caused typically by coagulation disorders), all of which also do not blanch on pressure, and are caused by internal bleeding not associated with trauma (e.g., platelet or coagulation disorder).",
                 "Within all the people who go to their doctor with bruise, 41% report having knee pain, 37% report having back pain, and 36% report having headache. The symptoms that are highly suggestive of bruise are rib pain, although you may still have bruise without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

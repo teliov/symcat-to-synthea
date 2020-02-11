@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hidradenitis suppurativa (HS) is a skin disease that most commonly affects areas bearing apocrine sweat glands or sebaceous glands, such as the underarms, under the breasts, inner thighs, groin and buttocks.",
                 "Within all the people who go to their doctor with hidradenitis suppurativa, 41% report having arm lump or mass, 41% report having arm pain, and 38% report having skin rash. The symptoms that are highly suggestive of hidradenitis suppurativa are arm lump or mass, skin growth, skin on arm or hand looks infected, groin mass, and arm swelling, although you may still have hidradenitis suppurativa without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

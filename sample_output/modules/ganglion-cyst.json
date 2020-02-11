@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A ganglion cyst, also known as a Bible cyst or Bible bump, is a benign soft tissue tumor that may occur in any joint, but most often occurs on or around joints and tendons in the hands or feet.",
                 "Within all the people who go to their doctor with ganglion cyst, 62% report having knee pain, 53% report having wrist pain, and 53% report having leg pain. The symptoms that are highly suggestive of ganglion cyst are wrist pain, skin growth, wrist lump or mass, hand or finger lump or mass, knee lump or mass, and wrist swelling, although you may still have ganglion cyst without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

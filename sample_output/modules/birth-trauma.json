@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Birth trauma may refer to:",
                 "Within all the people who go to their doctor with birth trauma, 46% report having arm stiffness or tightness, 46% report having seizures, and 30% report having lack of growth. The symptoms that are highly suggestive of birth trauma are arm stiffness or tightness, lack of growth, difficulty speaking, pus in sputum, emotional symptoms, itching of scrotum, muscle swelling, elbow cramps or spasms, and low back weakness, although you may still have birth trauma without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "In medicine, Raynaud's phenomenon /re\u026a\u02c8no\u028az/ is a vasospastic disorder causing discoloration of the fingers, toes, and occasionally other areas. This condition may also cause nails to become brittle with longitudinal ridges. Named after French physician Maurice Raynaud (1834\u20131881), the phenomenon is believed to be the result of vasospasms that decrease blood supply to the respective regions. Stress and cold are classic triggers of the phenomenon.",
                 "Within all the people who go to their doctor with raynaud disease, 47% report having loss of sensation, 34% report having poor circulation, and 34% report having hand or finger swelling. The symptoms that are highly suggestive of raynaud disease are hand or finger swelling, poor circulation, symptoms of eye, muscle pain, and wrist swelling, although you may still have raynaud disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

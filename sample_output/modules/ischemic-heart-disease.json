@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Ischaemic or ischemic heart disease (IHD), or myocardial ischaemia, is a disease characterized by ischaemia (reduced blood supply) of the heart muscle, usually due to coronary artery disease (atherosclerosis of the coronary arteries). Its risk increases with age, smoking, hypercholesterolaemia (high cholesterol levels), diabetes, and hypertension (high blood pressure), and is more common in men and those who have close relatives with ischaemic heart disease.",
                 "Within all the people who go to their doctor with ischemic heart disease, 57% report having sharp chest pain, 48% report having shortness of breath, and 32% report having difficulty breathing."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

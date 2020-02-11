@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Panic disorder is an anxiety disorder characterized by recurring severe panic attacks. It may also include significant behavioral changes lasting at least a month and of ongoing worry about the implications or concern about having other attacks. The latter are called anticipatory attacks (DSM-IVR). Panic disorder is not the same as agoraphobia (fear of public places), although many afflicted with panic disorder also suffer from agoraphobia. Panic attacks cannot be predicted, therefore an individual may become stressed, anxious or worried wondering when the next panic attack will occur. Panic disorder may be differentiated as a medical condition, or chemical imbalance. The DSM-IV-TR describes panic disorder and anxiety differently. Whereas anxiety is preceded by chronic stressors which build to reactions of moderate intensity that can last for days, weeks or months, panic attacks are acute events triggered by a sudden, out-of-the-blue cause: duration is short and symptoms are more intense. Panic attacks can occur in children, as well as adults. Panic in young people may be particularly distressing because children tend to have less insight about what is happening, and parents are also likely to experience distress when attacks occur.",
                 "Within all the people who go to their doctor with panic disorder, 88% report having anxiety and nervousness, 55% report having depression, and 40% report having shortness of breath. The symptoms that are highly suggestive of panic disorder are anxiety and nervousness and breathing fast, although you may still have panic disorder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

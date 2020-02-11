@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Interference with the secretion of tears by the lacrimal glands. Obstruction of the lacrimal sac or nasolacrimal duct causing acute or chronic inflammation of the lacrimal sac (DACRYOCYSTITIS). It is caused also in infants by failure of the nasolacrimal duct to open into the inferior meatus and occurs about the third week of life. In adults occlusion may occur spontaneously or after injury or nasal disease. (Newell, Ophthalmology: Principles and Concepts, 7th ed, p250)",
                 "Within all the people who go to their doctor with stenosis of the tear duct, 68% report having lacrimation, 47% report having symptoms of eye, and 47% report having eye redness. The symptoms that are highly suggestive of stenosis of the tear duct are lacrimation, symptoms of eye, eye redness, abnormal movement of eyelid, diaper rash, eye burns or stings, eyelid swelling, and white discharge from eye, although you may still have stenosis of the tear duct without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

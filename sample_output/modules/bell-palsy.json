@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Bell's palsy is a form of facial paralysis resulting from a dysfunction of the cranial nerve VII (the facial nerve) causing an inability to control facial muscles on the affected side. Several conditions can cause facial paralysis, e.g., brain tumor, stroke, myasthenia gravis, and Lyme disease. However, if no specific cause can be identified, the condition is known as Bell's palsy. Named after Scottish anatomist Charles Bell, who first described it, Bell's palsy is the most common acute mononeuropathy (disease involving only one nerve) and is the most common cause of acute facial nerve paralysis (>80%).",
                 "Within all the people who go to their doctor with bell palsy, 82% report having focal weakness, 70% report having loss of sensation, and 67% report having symptoms of the face. The symptoms that are highly suggestive of bell palsy are focal weakness, loss of sensation, symptoms of the face, facial pain, and eyelid lesion or rash, although you may still have bell palsy without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

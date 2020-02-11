@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hypertensive retinopathy is damage to the retina and retinal circulation due to high blood pressure (i.e. hypertension).",
                 "Within all the people who go to their doctor with retinopathy due to high blood pressure, 70% report having diminished vision, 38% report having spots or clouds in vision, and 35% report having symptoms of eye. The symptoms that are highly suggestive of retinopathy due to high blood pressure are diminished vision, spots or clouds in vision, symptoms of eye, itchiness of eye, foreign body sensation in eye, mass on eyelid, blindness, and pus draining from ear, although you may still have retinopathy due to high blood pressure without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

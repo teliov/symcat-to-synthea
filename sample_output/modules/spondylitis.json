@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Spondylitis is an inflammation of the vertebra. It is a form of spondylopathy. In many cases spondylitis involves one or more vertebral joints as well, which itself is called spondylarthritis.",
                 "Within all the people who go to their doctor with spondylitis, 88% report having back pain, 83% report having low back pain, and 47% report having leg pain. The symptoms that are highly suggestive of spondylitis are low back pain, back cramps or spasms, stiffness all over, muscle cramps, contractures, or spasms, low back cramps or spasms, and back mass or lump, although you may still have spondylitis without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

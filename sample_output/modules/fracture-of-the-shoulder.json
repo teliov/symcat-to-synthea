@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Fractures of the proximal humerus, including the head, anatomic and surgical necks, and tuberosities.",
                 "Within all the people who go to their doctor with fracture of the shoulder, 85% report having shoulder pain, 28% report having arm pain, and 26% report having bones are painful. The symptoms that are highly suggestive of fracture of the shoulder are shoulder pain, bones are painful, arm stiffness or tightness, shoulder swelling, shoulder stiffness or tightness, and mass on ear, although you may still have fracture of the shoulder without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

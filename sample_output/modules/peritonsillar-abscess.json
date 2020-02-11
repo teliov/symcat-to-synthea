@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Peritonsillar abscess (PTA), also known as a quinsy or quinsey, is a recognized complication of tonsillitis and consists of a collection of pus beside the tonsil in what is referred to as Peritonsilar space (Peri - meaning surrounding).",
                 "Within all the people who go to their doctor with peritonsillar abscess, 94% report having sore throat, 62% report having difficulty in swallowing, and 41% report having swollen or red tonsils. The symptoms that are highly suggestive of peritonsillar abscess are sore throat, difficulty in swallowing, swollen or red tonsils, throat feels tight, neck swelling, throat swelling, swollen lymph nodes, and throat redness, although you may still have peritonsillar abscess without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

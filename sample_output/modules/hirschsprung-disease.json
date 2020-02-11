@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Hirschsprung's disease (HD) is a disorder of the abdomen that occurs when part or all of the large intestine or antecedent parts of the gastrointestinal tract have no nerves and therefore cannot function. During normal fetal development, cells from the neural crest migrate into the large intestine (colon) to form the networks of nerves called Auerbach's plexus and Meissner's plexus. In Hirschprung's disease, the migration is not complete and part of the colon lacks these nerve bodies that regulate the activity of the colon. The affected segment of the colon cannot contract and therefore pass stool through the colon, creating an obstruction. In most affected people, the disorder affects the part of the colon that is nearest the anus. In rare cases, the lack of nerve bodies involves more of the colon. In five percent of cases, the entire colon is affected. Stomach and esophagus may be affected too. Hirschsprung's disease is also sometimes called congenital aganglionic megacolon.",
                 "Within all the people who go to their doctor with hirschsprung disease, 86% report having constipation, 41% report having ankle pain, and 41% report having vomiting. The symptoms that are highly suggestive of hirschsprung disease are constipation, wrist weakness, elbow weakness, eye strain, feeling hot and cold, nailbiting, low back weakness, emotional symptoms, and underweight, although you may still have hirschsprung disease without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

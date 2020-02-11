@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A joint dislocation, or luxation, occurs when there is an abnormal separation in the joint, where two or more bones meet. A partial dislocation is referred to as a subluxation. Dislocations are often caused by sudden trauma on the joint like an impact or fall. A joint dislocation can cause damage to the surrounding ligaments, tendons, muscles, and nerves. Dislocations can occur in any joint major (Shoulder, knees, etc.) or minor (toes, fingers, etc.). The most common joint dislocation is a shoulder dislocation.",
                 "Within all the people who go to their doctor with dislocation of the elbow, 77% report having arm pain, 67% report having elbow pain, and 51% report having arm stiffness or tightness. The symptoms that are highly suggestive of dislocation of the elbow are arm pain, elbow pain, arm stiffness or tightness, arm weakness, and elbow swelling, although you may still have dislocation of the elbow without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -733,7 +733,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

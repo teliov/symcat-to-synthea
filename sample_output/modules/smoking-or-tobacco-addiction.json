@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Nicotine is a potent parasympathomimetic alkaloid found in the nightshade family of plants (Solanaceae). It acts as a nicotinic acetylcholine receptor agonist. It is made in the roots and accumulates in the leaves of the plants. It constitutes approximately 0.6\u20133.0% of the dry weight of tobacco and is present in the range of 2\u20137 \u00b5g/kg of various edible plants. It functions as an antiherbivore chemical; therefore, nicotine was widely used as an insecticide in the past and nicotine analogs such as imidacloprid are currently widely used.",
                 "Within all the people who go to their doctor with smoking or tobacco addiction, 44% report having smoking problems, 42% report having cough, and 34% report having sharp chest pain. The symptoms that are highly suggestive of smoking or tobacco addiction are smoking problems, although you may still have smoking or tobacco addiction without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

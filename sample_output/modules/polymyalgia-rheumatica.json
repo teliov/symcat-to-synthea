@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Polymyalgia rheumatica (which takes its name from the word \"polymyalgia\" which means \"pain in many muscles\" in Greek followed by the term \"rheumatica\") abbreviated as PMR, is a syndrome with pain or stiffness, usually in the neck, shoulders, and hips. The pain can be very sudden, or can occur gradually over a period. It may be caused by an inflammatory condition of blood vessels such as temporal arteritis.",
                 "Within all the people who go to their doctor with polymyalgia rheumatica, 47% report having fatigue, 42% report having shoulder pain, and 36% report having ache all over. The symptoms that are highly suggestive of polymyalgia rheumatica are muscle pain, irregular heartbeat, leg weakness, and stiffness all over, although you may still have polymyalgia rheumatica without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

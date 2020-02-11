@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "An inguinal hernia /\u02c8\u026a\u014b\u0261w\u0268n\u0259l \u02c8h\u025crni\u0259/ is a protrusion of abdominal-cavity contents through the inguinal canal. They are very common (lifetime risk 27% for men, 3% for women). Though their repair is one of the most frequently performed surgical operations, elective surgery is no longer recommended in minimally symptomatic cases, due to the low risk of incarceration (<0.2% per year) and the significant risk (10\u201312%) of post herniorraphy pain syndrome.",
                 "Within all the people who go to their doctor with inguinal hernia, 57% report having groin pain, 37% report having groin mass, and 36% report having sharp abdominal pain. The symptoms that are highly suggestive of inguinal hernia are groin pain, groin mass, swollen abdomen, swelling of scrotum, and mass in scrotum, although you may still have inguinal hernia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -813,7 +813,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

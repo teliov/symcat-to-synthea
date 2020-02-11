@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Iron-deficiency anemia (or iron-deficiency anaemia) is a common anemia (low red blood cell or hemoglobin levels) caused by insufficient dietary intake and absorption of iron, and/or iron loss from bleeding which can originate from a range of sources such as the intestinal, uterine or urinary tract.",
                 "Within all the people who go to their doctor with iron deficiency anemia, 39% report having fatigue, 28% report having weakness, and 25% report having dizziness. The symptoms that are highly suggestive of iron deficiency anemia are heavy menstrual flow and melena, although you may still have iron deficiency anemia without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

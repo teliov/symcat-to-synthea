@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "A pinworm infection or enterobiasis is a human parasitic disease and one of the most common childhood parasitic worm infections in the developed world. It is caused by infestation of the parasitic roundworm Enterobius vermicularis, commonly called the human pinworm. Infection usually occurs through the ingestion of pinworm eggs, either through contaminated hands, food, or less commonly, water. The chief symptom is itching in the anal area. The incubation time from ingestion of eggs to the first appearance of new eggs around the anus is 4 to 6 weeks. Pinworms are usually considered a nuisance rather than a serious disease. Treatment is straightforward in uncomplicated cases, however, elimination of the parasite from a family group or institution often poses significant problems\u2014either due to an incomplete cure or reinfection. Pinworm infection has no association with any socioeconomic level, race or culture.",
                 "Within all the people who go to their doctor with pinworm infection, 69% report having itching of the anus, 65% report having sharp abdominal pain, and 54% report having pain of the anus. The symptoms that are highly suggestive of pinworm infection are itching of the anus, pain of the anus, constipation, itching of skin, and neck mass, although you may still have pinworm infection without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

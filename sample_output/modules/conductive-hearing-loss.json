@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Conductive hearing loss occurs when there is a problem conducting sound waves anywhere along the route through the outer ear, tympanic membrane (eardrum), or middle ear (ossicles). This type of hearing loss may occur in conjunction with sensorineural hearing loss or alone.",
                 "Within all the people who go to their doctor with conductive hearing loss, 85% report having diminished hearing, 43% report having ear pain, and 40% report having plugged feeling in ear. The symptoms that are highly suggestive of conductive hearing loss are diminished hearing, plugged feeling in ear, redness in ear, ringing in ear, and fluid in ear, although you may still have conductive hearing loss without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,

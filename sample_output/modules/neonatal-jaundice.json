@@ -6,7 +6,7 @@
             "direct_transition": "Age_Transition"
         },
         "Age_Transition": {
-            "type": "delay",
+            "type": "Delay",
             "exact": {
                 "quantity": 1,
                 "unit": "months"
@@ -358,7 +358,7 @@
                 "Neonatal jaundice or Neonatal hyperbilirubinemia, or Neonatal icterus (from the Greek word \u03af\u03ba\u03c4\u03b5\u03c1\u03bf\u03c2), attributive adjective: icteric, is a yellowing of the skin and other tissues of a newborn infant. A bilirubin level of more than 85 umol/l (5 mg/dL) manifests clinical jaundice in neonates whereas in adults a level of 34 umol/l (2 mg/dL) would look icteric. In newborns, jaundice is detected by blanching the skin with digital pressure so that it reveals underlying skin and subcutaneous tissue. Jaundiced newborns have an apparent icteric sclera, and yellowing of the face, extending down onto the chest.",
                 "Within all the people who go to their doctor with neonatal jaundice, 86% report having jaundice, 24% report having infant feeding problem, and 10% report having irritable infant. The symptoms that are highly suggestive of neonatal jaundice are jaundice, infant feeding problem, and recent weight loss, although you may still have neonatal jaundice without those symptoms."
             ],
-            "direct_transition": "Simple_Symptom_1"
+            "direct_transition": "Simple_Transition_1"
         },
         "Simple_Transition_1": {
             "type": "Simple",
@@ -853,7 +853,7 @@
             ],
             "direct_transition": "TreatmentComplete"
         },
-        "Treatment": {
+        "TreatmentComplete": {
             "type": "Delay",
             "exact": {
                 "quantity": 6,
