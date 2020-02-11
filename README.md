@@ -1,7 +1,7 @@
 ## Description
 
-The scripts in this project create valid [Synthea]() generic modules generated using disease and symptoms as defined
-on [Symcat]()
+The scripts in this project create valid [Synthea](https://github.com/synthetichealth/synthea) generic modules generated using disease and symptoms as defined
+on [Symcat](http://www.symcat.com/)
 
 Sample output of the generated files and modules are included in the `sample_output` directory.
 
