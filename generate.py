@@ -61,20 +61,23 @@ def generate_transition_for_age(age_distribution, prev_state, next_state):
             age_lower = parts[1]
             age_upper = parts[2]
             curr_transition = {
-                "conditions": [
-                    {
-                        "condition_type": "Age",
-                        "operator": ">=",
-                        "unit": "years",
-                        "quantity": age_lower
-                    },
-                    {
-                        "condition_type": "Age",
-                        "operator": "<=",
-                        "unit": "years",
-                        "quantity": age_upper
-                    }
-                ],
+                "condition": {
+                    "condition_type": "And",
+                    "conditions": [
+                        {
+                            "condition_type": "Age",
+                            "operator": ">=",
+                            "unit": "years",
+                            "quantity": age_lower
+                        },
+                        {
+                            "condition_type": "Age",
+                            "operator": "<=",
+                            "unit": "years",
+                            "quantity": age_upper
+                        }
+                    ],
+                },
                 "distributions": [
                     {
                         "transition": next_state,
@@ -184,7 +187,7 @@ def generate_transition_for_race(race_distribution, prev_state, next_state):
 
 def generate_synthea_module(symptom_dict, test_condition):
 
-    ## check that symptoms do exist for this module!?
+    # check that symptoms do exist for this module!?
     if not test_condition.get("symptoms"):
         return None
 
@@ -251,7 +254,6 @@ def generate_synthea_module(symptom_dict, test_condition):
         symptom_definition = symptom_dict.get(slug, None)
         if symptom_definition is None:
             # a symptom which we dont have a definition for?
-            print("No Definition: %s" % slug)
             slug_hash = hashlib.sha224(slug.encode("utf-8")).hexdigest()
             symptom_transition = {
                 "type": "Symptom",
