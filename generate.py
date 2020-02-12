@@ -341,17 +341,14 @@ def generate_synthea_module(symptom_dict, test_condition):
         "direct_transition": "TreatmentComplete"
     }
 
+    # let's wait for a year and redo the whole thing!
     states["TreatmentComplete"] = {
         "type": "Delay",
         "exact": {
-            "quantity": 6,
-            "unit": "months"
+            "quantity": 1,
+            "unit": "years"
         },
-        "direct_transition": "Terminal"
-    }
-
-    states["Terminal"] = {
-        "type": "Terminal"
+        "direct_transition": "Age_Transition"
     }
 
     return {
