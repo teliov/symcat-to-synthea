@@ -340,6 +340,12 @@ def generate_synthea_module(symptom_dict, test_condition):
                 "display": "Encounter for symptom"
             }
         ],
+        "direct_transition": "End_Doctor_Visit"
+    }
+
+    # always end the encounter
+    states["End_Doctor_Visit"] = {
+        "type": "EncounterEnd",
         "direct_transition": "TreatmentComplete"
     }
 
