@@ -262,7 +262,7 @@ def generate_synthea_module(symptom_dict, test_condition):
                     "low": 25,
                     "high": 50
                 },
-                "condition_code": condition_code,
+                "condition_codes": [condition_code],
                 "symptom_code": {
                     "system": "sha224",
                     "code": slug_hash,
@@ -283,7 +283,7 @@ def generate_synthea_module(symptom_dict, test_condition):
                     "low": 25,
                     "high": 50
                 },
-                "condition_code": condition_code,
+                "condition_codes": [condition_code],
                 "symptom_code": {
                     "system": "sha224",
                     "code": symptom_definition.get("hash"),
