@@ -132,11 +132,6 @@ def generate_transition_for_race(race_distribution, prev_state, next_state):
         if key == "race-ethnicity-other":
             # split this into three for : NATIVE, "ASIAN" and "OTHER" according to synthea
             for idx, item in enumerate(["Native", "Asian", "Other"]):
-                if idx < 2:
-                    curr_prob = prob / 2.0
-                else:
-                    curr_prob = 1 - (prob * 2.0 / 3)
-
                 curr_transition = {
                     "condition": {
                         "condition_type": "Race",
@@ -145,11 +140,11 @@ def generate_transition_for_race(race_distribution, prev_state, next_state):
                     "distributions": [
                         {
                             "transition": next_state,
-                            "distribution": curr_prob
+                            "distribution": prob
                         },
                         {
                             "transition": prev_state,
-                            "distribution": 1 - curr_prob
+                            "distribution": 1 - prob
                         }
                     ]
                 }
