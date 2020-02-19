@@ -64,6 +64,7 @@ def parse_symcat_symptoms(filename):
 def slugify_condition(condition_name):
     condition_name = condition_name.lower()
     condition_name = re.sub(r"\s+", "-", condition_name)
+    condition_name = re.sub(r"'", "-", condition_name)
     condition_name = re.sub(r"\(", "", condition_name)
     condition_name = re.sub(r"\)", "", condition_name)
     return condition_name
@@ -84,19 +85,46 @@ def is_valid_symptom(row):
         if match is None:
             continue
         condition_slug = match.groups()[0]
+
+        # if the condition ends with --2,
+        # then it's probably to avoid conflict with a symptom that also has the same name
+        if condition_slug[-3:] == "--2":
+            condition_slug = condition_slug[:-3]
+
         condition_description = row[idx + 3].strip()
         condition_symptom_summary = row[idx + 4].strip()
-        condition_symptom = row[idx + 5].strip()
+
+        # some conditions have two columns for the condition symptom summary.
+        # this would offset the symptom definition by a bit, so we test
+        symptom_url_offsets = [6, 7]
+        condition_symptom_slug = None
+        condition_symptom_offset = None
+        for jdx in symptom_url_offsets:
+            url = row[idx + jdx].strip()
+            if url == "":
+                continue
+
+            match = symcat_symptom_url_regex.match(url)
+            if match is None:
+                continue
+
+            condition_symptom_slug = match.groups()[0].strip()
+            condition_symptom_offset = jdx
+            break
+
+        if condition_symptom_offset is None:
+            continue
+
+        # if it's the second offset then we re-assign the symptom description
+        if condition_symptom_offset == 7:
+            condition_description = row[idx + 4].strip()
+            condition_symptom_summary = row[idx + 5].strip()
+
+        condition_symptom_prob = row[idx + condition_symptom_offset + 1].strip()
+        condition_symptom = row[idx + condition_symptom_offset - 1].strip()
+
         if condition_symptom == "":
             continue
-        condition_symptom_url = row[idx + 6].strip()
-        if condition_symptom_url == "":
-            continue
-        match = symcat_symptom_url_regex.match(condition_symptom_url)
-        if match is None:
-            continue
-        condition_symptom_slug = match.groups()[0].strip()
-        condition_symptom_prob = row[idx + 7].strip()
 
         try:
             condition_symptom_prob = int(condition_symptom_prob)
