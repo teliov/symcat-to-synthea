@@ -159,11 +159,11 @@ def is_valid_demographics(demo_type, row):
             continue
         grp_slug = match.groups()[0].strip()
 
-        likelihood = row[idx + 2].strip().split("x")[0]
-        if likelihood == "":
+        odds = row[idx + 2].strip().split("x")[0]
+        if odds == "":
             continue
         try:
-            likelihood = float(likelihood)
+            odds = float(odds)
         except ValueError:
             continue
         condition_name = row[idx + 3].strip()
@@ -176,7 +176,7 @@ def is_valid_demographics(demo_type, row):
             "condition_slug": slugify_condition(condition_name),
             "grp_name": grp_name,
             "grp_slug": slug_prefix.get(demo_type) + grp_slug,
-            "grp_likelihood": likelihood
+            "grp_odds": odds
         }
         break
 
@@ -249,7 +249,7 @@ def parse_symcat_conditions(filename):
                                 condition_map[condition_slug][demo_type][grp_slug] = {
                                     "name": demo_data.get("grp_name"),
                                     "slug": grp_slug,
-                                    "likelihood": demo_data.get("grp_likelihood")
+                                    "odds": demo_data.get("grp_odds")
                                 }
                             break
             idx = idx + 1

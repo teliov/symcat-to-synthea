@@ -10,14 +10,10 @@ def generate_transition_for_age(age_distribution, prev_state, next_state):
         "age-30-44-years", "age-45-59-years", "age-60-74-years", "age-75-years"
     ]
 
-    likelihood_sum = 0
-    for key in age_keys:
-        likelihood_sum += float(age_distribution.get(key).get("likelihood"))
-    likelihood_sum *= 10.0
-
     transitions = []
     for key in age_keys:
-        prob = float(age_distribution.get(key).get("likelihood")) / likelihood_sum
+        odds = age_distribution.get(key).get("odds")
+        prob = odds / (1.0 + odds)
         if key == "age-1-years":
             curr_transition = {
                 "condition": {
@@ -95,12 +91,11 @@ def generate_transition_for_age(age_distribution, prev_state, next_state):
 
 
 def generate_transition_for_sex(sex_distribution, prev_state, next_state):
-    male_likelihood = float(sex_distribution.get("sex-male").get("likelihood"))
-    female_likelihood = float(sex_distribution.get("sex-female").get("likelihood"))
-    likelihood_sum = 10.0 * (male_likelihood + female_likelihood)
+    male_odds = float(sex_distribution.get("sex-male").get("odds"))
+    female_odds = float(sex_distribution.get("sex-female").get("odds"))
 
-    male_prob = male_likelihood * 1.0 / likelihood_sum
-    female_prob = female_likelihood * 1.0 / likelihood_sum
+    male_prob = male_odds / (1.0 + male_odds)
+    female_prob = female_odds / (1.0 + female_odds)
 
     probabilities = [male_prob, female_prob]
 
@@ -129,22 +124,18 @@ def generate_transition_for_sex(sex_distribution, prev_state, next_state):
 def generate_transition_for_race(race_distribution, prev_state, next_state):
     race_keys = ["race-ethnicity-black", "race-ethnicity-hispanic", "race-ethnicity-white", "race-ethnicity-other"]
 
-    likelihood_sum = 0
-    for key in race_keys:
-        likelihood_sum += float(race_distribution.get(key).get("likelihood"))
-    likelihood_sum *= 10.0
-
     transitions = []
 
     for key in race_keys:
-        prob = float(race_distribution.get(key).get("likelihood")) / likelihood_sum
+        odds = float(race_distribution.get(key).get("odds"))
+        prob = odds / (1.0 + odds)
         if key == "race-ethnicity-other":
             # split this into three for : NATIVE, "ASIAN" and "OTHER" according to synthea
             for idx, item in enumerate(["Native", "Asian", "Other"]):
                 if idx < 2:
-                    curr_prob = prob / 2
+                    curr_prob = prob / 2.0
                 else:
-                    curr_prob = 1 - prob * 2 / 3
+                    curr_prob = 1 - (prob * 2.0 / 3)
 
                 curr_transition = {
                     "condition": {
