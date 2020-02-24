@@ -178,13 +178,18 @@ def generate_synthea_module(symptom_dict, test_condition):
         return None
 
     condition_name = test_condition.get("condition_name")
+    condition_slug = test_condition.get("condition_slug")
+
+    initial_transition = "Age_Transition"
+    incidence_counter_transition = "IncidenceCounter"
+    incidence_limit = 3
 
     states = OrderedDict()
 
     # add the initial onset
     states["Initial"] = {
         "type": "Initial",
-        "direct_transition": "Age_Transition"  # always transition to a potential onset (Delay state)
+        "direct_transition": initial_transition  # always transition to a potential onset (Delay state)
     }
 
     # add the potential onset state
@@ -194,20 +199,20 @@ def generate_synthea_module(symptom_dict, test_condition):
             "quantity": 1,
             "unit": "months"
         },
-        "complex_transition": generate_transition_for_age(test_condition.get("age"), "Age_Transition", "Sex_Transition")
+        "complex_transition": generate_transition_for_age(test_condition.get("age"), initial_transition, "Sex_Transition")
     }
 
     # add the sex transition state
     states["Sex_Transition"] = {
         "type": "Simple",
-        "complex_transition": generate_transition_for_sex(test_condition.get("sex"), "Age_Transition",
+        "complex_transition": generate_transition_for_sex(test_condition.get("sex"), initial_transition,
                                                           "Race_Transition")
     }
 
     # add the race transition state
     states["Race_Transition"] = {
         "type": "Simple",
-        "complex_transition": generate_transition_for_race(test_condition.get("race"), "Age_Transition",
+        "complex_transition": generate_transition_for_race(test_condition.get("race"), initial_transition,
                                                            "ConditionOnset")
     }
 
@@ -342,7 +347,34 @@ def generate_synthea_module(symptom_dict, test_condition):
             "quantity": 1,
             "unit": "years"
         },
-        "direct_transition": "Age_Transition"
+        "direct_transition": incidence_counter_transition
+    }
+
+    # we won't allow the same patient to fall ill with the same condition more than three times.
+    # after the third time, the module terminates
+    incidence_attribute = "count_%s" % condition_slug
+    states[incidence_counter_transition] = {
+        "type": "Counter",
+        "attribute": incidence_attribute,
+        "action": "increment",
+        "conditional_transition": [
+            {
+                "transition": "TerminalState",
+                "condition": {
+                    "condition_type": "Attribute",
+                    "attribute": incidence_attribute,
+                    "operator": ">",
+                    "value" : incidence_limit
+                }
+            },
+            {
+                "transition": initial_transition
+            }
+        ]
+    }
+
+    states["TerminalState"] = {
+        "type": "Terminal"
     }
 
     return {
