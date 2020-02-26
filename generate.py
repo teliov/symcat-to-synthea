@@ -337,7 +337,13 @@ def generate_synthea_module(symptom_dict, test_condition):
     # always end the encounter
     states["End_Doctor_Visit"] = {
         "type": "EncounterEnd",
-        "direct_transition": "TreatmentComplete"
+        "direct_transition": "ConditionEnds"
+    }
+
+    states["ConditionEnds"] = {
+        "type": "ConditionEnd",
+        "direct_transition": "TreatmentComplete",
+        "condition_onset": "ConditionOnset"
     }
 
     # let's wait for a year and redo the whole thing!

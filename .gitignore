@@ -2,3 +2,4 @@
 output
 __pycache__/
 sample_output/modules/*.json
+symptoms_db.json
