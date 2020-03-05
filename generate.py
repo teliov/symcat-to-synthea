@@ -4,171 +4,280 @@ import json
 import os
 
 
-def generate_transition_for_age(age_distribution, prev_state, next_state):
+def generate_transition_for_age(condition, age_distribution, next_state, default_state="TerminalState"):
     age_keys = [
         "age-1-years", "age-1-4-years", "age-5-14-years", "age-15-29-years",
         "age-30-44-years", "age-45-59-years", "age-60-74-years", "age-75-years"
     ]
 
     transitions = []
-    for key in age_keys:
+    adjacent_states = {}
+    # should I include default transition?
+    default_flag = False
+    for idx, key in enumerate(age_keys):
         odds = age_distribution.get(key).get("odds")
-        prob = odds / (1.0 + odds)
-        if key == "age-1-years":
-            curr_transition = {
-                "condition": {
-                    "condition_type": "Age",
-                    "operator": "<",
-                    "unit": "years",
-                    "quantity": 1
-                },
-                "distributions": [
-                    {
-                        "transition": next_state,
-                        "distribution": prob
-                    },
-                    {
-                        "transition": prev_state,
-                        "distribution": 1 - prob
-                    }
-                ]
-            }
-        elif key == "age-75-years":
-            curr_transition = {
-                "condition": {
-                    "condition_type": "Age",
-                    "operator": ">",
-                    "unit": "years",
-                    "quantity": 75
-                },
-                "distributions": [
-                    {
-                        "transition": next_state,
-                        "distribution": prob
-                    },
-                    {
-                        "transition": prev_state,
-                        "distribution": 1 - prob
-                    }
-                ]
-            }
+        prob = round(odds / (1.0 + odds), 4)
+
+        if prob <= 0:
+            default_flag = True
         else:
-            parts = key.split("-")
-            age_lower = parts[1]
-            age_upper = parts[2]
-            curr_transition = {
-                "condition": {
-                    "condition_type": "And",
-                    "conditions": [
-                        {
-                            "condition_type": "Age",
-                            "operator": ">=",
-                            "unit": "years",
-                            "quantity": age_lower
-                        },
-                        {
-                            "condition_type": "Age",
-                            "operator": "<=",
-                            "unit": "years",
-                            "quantity": age_upper
-                        }
-                    ],
-                },
-                "distributions": [
-                    {
-                        "transition": next_state,
-                        "distribution": prob
-                    },
-                    {
-                        "transition": prev_state,
-                        "distribution": 1 - prob
-                    }
-                ]
-            }
-        transitions.append(curr_transition)
-
-    return transitions
-
-
-def generate_transition_for_sex(sex_distribution, prev_state, next_state):
-    male_odds = float(sex_distribution.get("sex-male").get("odds"))
-    female_odds = float(sex_distribution.get("sex-female").get("odds"))
-
-    male_prob = male_odds / (1.0 + male_odds)
-    female_prob = female_odds / (1.0 + female_odds)
-
-    probabilities = [male_prob, female_prob]
-
-    transition = []
-    for idx in range(2):
-        transition.append({
-            "condition": {
-                "condition_type": "Gender",
-                "gender": "M" if idx == 0 else "F"
-            },
-            "distributions": [
-                {
-                    "transition": next_state,
-                    "distribution": probabilities[idx]
-                },
-                {
-                    "transition": prev_state,
-                    "distribution": 1 - probabilities[idx]
-                }
-            ]
-        })
-
-    return transition
-
-
-def generate_transition_for_race(race_distribution, prev_state, next_state):
-    race_keys = ["race-ethnicity-black", "race-ethnicity-hispanic", "race-ethnicity-white", "race-ethnicity-other"]
-
-    transitions = []
-
-    for key in race_keys:
-        odds = float(race_distribution.get(key).get("odds"))
-        prob = odds / (1.0 + odds)
-        if key == "race-ethnicity-other":
-            # split this into three for : NATIVE, "ASIAN" and "OTHER" according to synthea
-            for idx, item in enumerate(["Native", "Asian", "Other"]):
+            if key == "age-1-years":
+                next_node_name = "Ages_Less_1"
                 curr_transition = {
                     "condition": {
-                        "condition_type": "Race",
-                        "race": item
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
                     },
-                    "distributions": [
+                    "transition": next_node_name
+                }
+                state = {
+                    "type": "Simple",
+                    "distributed_transition": [
                         {
                             "transition": next_state,
                             "distribution": prob
                         },
                         {
-                            "transition": prev_state,
+                            "transition": default_state,
                             "distribution": 1 - prob
                         }
+                    ],
+                    "remarks": [
+                        "{} have an approx lifetime risk of {} of {}%.".format(
+                            "People with less than 1 year",
+                            condition,
+                            prob * 100
+                        )
                     ]
                 }
-                transitions.append(curr_transition)
+            elif key == "age-75-years":
+                next_node_name = "Ages_75_More"
+                curr_transition = {
+                    "condition": {
+                        "condition_type": "Age",
+                        "operator": ">=",
+                        "unit": "years",
+                        "quantity": 75
+                    },
+                    "transition": next_node_name
+                }
+                state = {
+                    "type": "Simple",
+                    "distributed_transition": [
+                        {
+                            "transition": next_state,
+                            "distribution": prob
+                        },
+                        {
+                            "transition": default_state,
+                            "distribution": 1 - prob
+                        }
+                    ],
+                    "remarks": [
+                        "{} have an approx lifetime risk of {} of {}%.".format(
+                            "People with 75 years or more",
+                            condition,
+                            prob * 100
+                        )
+                    ]
+                }
+            else:
+                parts = key.split("-")
+                age_lower = parts[1]
+                age_upper = parts[2]
+                next_node_name = "Ages_{}_{}".format(age_lower, age_upper)
+                curr_transition = {
+                    "condition": {
+                        "condition_type": "And",
+                        "conditions": [
+                            {
+                                "condition_type": "Age",
+                                "operator": ">=",
+                                "unit": "years",
+                                "quantity": age_lower
+                            },
+                            {
+                                "condition_type": "Age",
+                                "operator": "<=",
+                                "unit": "years",
+                                "quantity": age_upper
+                            }
+                        ],
+                    },
+                    "transition": next_node_name
+                }
+                state = {
+                    "type": "Simple",
+                    "distributed_transition": [
+                        {
+                            "transition": next_state,
+                            "distribution": prob
+                        },
+                        {
+                            "transition": default_state,
+                            "distribution": 1 - prob
+                        }
+                    ],
+                    "remarks": [
+                        "People with age between {} and {} years have an approx lifetime risk of {} of {}%.".format(
+                            age_lower,
+                            age_upper,
+                            condition,
+                            prob * 100
+                        )
+                    ]
+                }
+            transitions.append(curr_transition)
+            adjacent_states[next_node_name] = state
+
+        if (idx == len(age_keys) - 1) and default_flag:
+            transitions.append({
+                "transition": default_state
+            })
+
+    return transitions, adjacent_states
+
+
+def generate_transition_for_sex(condition, sex_distribution, next_state, default_state="TerminalState"):
+    male_odds = float(sex_distribution.get("sex-male").get("odds"))
+    female_odds = float(sex_distribution.get("sex-female").get("odds"))
+
+    male_prob = round(male_odds / (1.0 + male_odds), 4)
+    female_prob = round(female_odds / (1.0 + female_odds), 4)
+
+    probabilities = [male_prob, female_prob]
+
+    transition = []
+    adjacent_states = {}
+    # should I include default transition?
+    default_flag = False
+    for idx in range(len(probabilities)):
+        if probabilities[idx] > 0:
+            next_node_name = "Male" if idx == 0 else "Female"
+            transition.append({
+                "condition": {
+                    "condition_type": "Gender",
+                    "gender": "M" if idx == 0 else "F"
+                },
+                "transition": next_node_name
+            })
+
+            state = {
+                "type": "Simple",
+                "distributed_transition": [
+                    {
+                        "distribution": probabilities[idx],
+                        "transition": next_state
+                    },
+                    {
+                        "distribution": 1 - probabilities[idx],
+                        "transition": default_state
+                    }
+                ],
+                "remarks": [
+                    "{} have an approx lifetime risk of {} of {}%.".format(
+                        "Men" if idx == 0 else "Women",
+                        condition,
+                        probabilities[idx] * 100
+                    )
+                ]
+            }
+            adjacent_states[next_node_name] = state
         else:
+            default_flag = True
+
+        if (idx == len(probabilities) - 1) and default_flag:
+            transition.append({
+                "transition": default_state
+            })
+
+    return transition, adjacent_states
+
+
+def generate_transition_for_race(condition, race_distribution, next_state, default_state="TerminalState"):
+    race_keys = ["race-ethnicity-black", "race-ethnicity-hispanic",
+                 "race-ethnicity-white", "race-ethnicity-other"]
+
+    transitions = []
+    adjacent_states = {}
+
+    for key in race_keys:
+        odds = float(race_distribution.get(key).get("odds"))
+        prob = round(odds / (1.0 + odds), 4)
+
+        if key == "race-ethnicity-other":
+            # split this into three for : NATIVE, "ASIAN" and "OTHER" according
+            # to synthea
+            for idx, item in enumerate(["Native", "Asian", "Other"]):
+                next_node_name = "Race_{}".format(item)
+                curr_transition = {
+                    "condition": {
+                        "condition_type": "Race",
+                        "race": item
+                    },
+                    "transition": next_node_name
+                }
+                transitions.append(curr_transition)
+
+                state = {
+                    "type": "Simple",
+                    "distributed_transition": [
+                        {
+                            "transition": next_state,
+                            "distribution": prob
+                        },
+                        {
+                            "transition": default_state,
+                            "distribution": 1 - prob
+                        }
+                    ],
+                    "remarks": [
+                        "{} have an approx lifetime risk of {} of {}%.".format(
+                            item + " people" if item != "Other" else "People from other races",
+                            condition,
+                            prob * 100
+                        )
+                    ]
+                }
+                adjacent_states[next_node_name] = state
+        else:
+            next_node_name = "Race_{}".format(
+                race_distribution.get(key).get("name")
+            )
             curr_transition = {
                 "condition": {
                     "condition_type": "Race",
                     "race": race_distribution.get(key).get("name")
                 },
-                "distributions": [
+                "transition": next_node_name
+            }
+            transitions.append(curr_transition)
+
+            state = {
+                "type": "Simple",
+                "distributed_transition": [
                     {
                         "transition": next_state,
                         "distribution": prob
                     },
                     {
-                        "transition": prev_state,
+                        "transition": default_state,
                         "distribution": 1 - prob
                     }
+                ],
+                "remarks": [
+                    "{} have an approx lifetime risk of {} of {}%.".format(
+                        race_distribution.get(key).get("name") + " people",
+                        condition,
+                        prob * 100
+                    )
                 ]
             }
-            transitions.append(curr_transition)
+            adjacent_states[next_node_name] = state
 
-    return transitions
+    return transitions, adjacent_states
 
 
 def generate_synthea_module(symptom_dict, test_condition):
@@ -180,7 +289,7 @@ def generate_synthea_module(symptom_dict, test_condition):
     condition_name = test_condition.get("condition_name")
     condition_slug = test_condition.get("condition_slug")
 
-    initial_transition = "Age_Transition"
+    potential_infection_transition = "Potential_Infection"
     incidence_counter_transition = "IncidenceCounter"
     incidence_attribute = "count_%s" % condition_slug
     incidence_limit = 3
@@ -190,32 +299,34 @@ def generate_synthea_module(symptom_dict, test_condition):
 
     # add the initial onset
     states["Initial"] = {
-        "type": "Initial",
-        "direct_transition": initial_transition  # always transition to a potential onset (Delay state)
+        "type": "Initial"
     }
 
-    # add the potential onset state
-    states["Age_Transition"] = {
-        "type": "Delay",
-        "exact": {
-            "quantity": 1,
-            "unit": "months"
-        },
-        "complex_transition": generate_transition_for_age(test_condition.get("age"), initial_transition, "Sex_Transition")
+    # sex states
+    sex_conditional_transition, sex_states = generate_transition_for_sex(
+        condition_name, test_condition.get(
+            "sex"), "Check_Race", "TerminalState"
+    )
+    states["Initial"]["conditional_transition"] = sex_conditional_transition
+    states.update(sex_states)
+
+    # add Check_Race node
+    states["Check_Race"] = {
+        "type": "Simple"
     }
 
-    # add the sex transition state
-    states["Sex_Transition"] = {
+    # race states
+    race_conditional_transition, race_states = generate_transition_for_race(
+        condition_name,
+        test_condition.get("race"), "Init_Counter", "No_Infection"
+    )
+    states["Check_Race"]["conditional_transition"] = race_conditional_transition
+    states.update(race_states)
+
+    # add No_Infection node
+    states["No_Infection"] = {
         "type": "Simple",
-        "complex_transition": generate_transition_for_sex(test_condition.get("sex"), initial_transition,
-                                                          "Race_Transition")
-    }
-
-    # add the race transition state
-    states["Race_Transition"] = {
-        "type": "Simple",
-        "complex_transition": generate_transition_for_race(test_condition.get("race"), initial_transition,
-                                                           "Init_Counter")
+        "direct_transition": "TerminalState"
     }
 
     # add Init_Counter node
@@ -223,11 +334,34 @@ def generate_synthea_module(symptom_dict, test_condition):
         "type": "SetAttribute",
         "attribute": incidence_attribute,
         "value": 0,
-        "direct_transition": node_infection_name
+        "direct_transition": potential_infection_transition
     }
 
+    # add Potential_Infection node
+    states[potential_infection_transition] = {
+        "type": "Delay",
+        "range": {
+            "low": 1,
+            "high": 3,
+            "unit": "months"
+        }
+    }
+
+    # age state
+    age_conditional_transition, age_states = generate_transition_for_age(
+        condition_name,
+        test_condition.get(
+            "age"), node_infection_name, potential_infection_transition
+    )
+    states[potential_infection_transition][
+        "conditional_transition"] = age_conditional_transition
+    states.update(age_states)
+
+    initial_transition = potential_infection_transition
+
     # add the Condition state (a ConditionOnset) stage
-    condition_hash = hashlib.sha224(test_condition.get("condition_slug").encode("utf-8")).hexdigest()
+    condition_hash = hashlib.sha224(test_condition.get(
+        "condition_slug").encode("utf-8")).hexdigest()
     condition_code = {
         "system": "sha224",
         "code": condition_hash,
@@ -379,7 +513,7 @@ def generate_synthea_module(symptom_dict, test_condition):
                     "condition_type": "Attribute",
                     "attribute": incidence_attribute,
                     "operator": ">",
-                    "value" : incidence_limit
+                    "value": incidence_limit
                 }
             },
             {
