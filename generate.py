@@ -182,6 +182,7 @@ def generate_synthea_module(symptom_dict, test_condition):
 
     initial_transition = "Age_Transition"
     incidence_counter_transition = "IncidenceCounter"
+    incidence_attribute = "count_%s" % condition_slug
     incidence_limit = 3
 
     states = OrderedDict()
@@ -213,7 +214,15 @@ def generate_synthea_module(symptom_dict, test_condition):
     states["Race_Transition"] = {
         "type": "Simple",
         "complex_transition": generate_transition_for_race(test_condition.get("race"), initial_transition,
-                                                           "ConditionOnset")
+                                                           "Init_Counter")
+    }
+
+    # add Init_Counter node
+    states["Init_Counter"] = {
+        "type": "SetAttribute",
+        "attribute": incidence_attribute,
+        "value": 0,
+        "direct_transition": "ConditionOnset"
     }
 
     # add the Condition state (a ConditionOnset) stage
@@ -358,7 +367,6 @@ def generate_synthea_module(symptom_dict, test_condition):
 
     # we won't allow the same patient to fall ill with the same condition more than three times.
     # after the third time, the module terminates
-    incidence_attribute = "count_%s" % condition_slug
     states[incidence_counter_transition] = {
         "type": "Counter",
         "attribute": incidence_attribute,
