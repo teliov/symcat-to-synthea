@@ -184,6 +184,7 @@ def generate_synthea_module(symptom_dict, test_condition):
     incidence_counter_transition = "IncidenceCounter"
     incidence_attribute = "count_%s" % condition_slug
     incidence_limit = 3
+    node_infection_name = condition_name.replace(" ", "_") + "_Infection"
 
     states = OrderedDict()
 
@@ -222,7 +223,7 @@ def generate_synthea_module(symptom_dict, test_condition):
         "type": "SetAttribute",
         "attribute": incidence_attribute,
         "value": 0,
-        "direct_transition": "ConditionOnset"
+        "direct_transition": node_infection_name
     }
 
     # add the Condition state (a ConditionOnset) stage
@@ -232,7 +233,7 @@ def generate_synthea_module(symptom_dict, test_condition):
         "code": condition_hash,
         "display": condition_name
     }
-    states["ConditionOnset"] = {
+    states[node_infection_name] = {
         "type": "ConditionOnset",
         "codes": [condition_code],
         "target_encounter": "Doctor_Visit",
@@ -352,7 +353,7 @@ def generate_synthea_module(symptom_dict, test_condition):
     states["ConditionEnds"] = {
         "type": "ConditionEnd",
         "direct_transition": "TreatmentComplete",
-        "condition_onset": "ConditionOnset"
+        "condition_onset": node_infection_name
     }
 
     # let's wait for a year and redo the whole thing!
