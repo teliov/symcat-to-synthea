@@ -49,7 +49,7 @@ def parse_symcat_symptoms(filename):
                     symptom_hash = hashlib.sha224(symptom_slug.encode("UTF-8")).hexdigest()
 
                     # get the description for this symptom.
-                    symptom_description = row[3]
+                    symptom_description = row[curr_offset + 3]
 
                     symptom_map[symptom_slug] = {
                         'name': symptom_name,
