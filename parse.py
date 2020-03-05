@@ -61,6 +61,83 @@ def parse_symcat_symptoms(filename):
     return symptom_map
 
 
+def is_valid_symptom_infos(info_type, row):
+    # this function aims at collecting additional infos
+    # for a giving symtom from the csv file
+
+    offset_dict = {
+        "common_causes": [5, 26, 47, 68, 89],
+        "age": [9, 30, 51, 72, 93],
+        "sex": [13, 34, 55, 76, 97],
+        "race": [17, 38, 59, 80, 101],
+    }
+
+    offsets = offset_dict.get(info_type, None)
+    if offsets is None:
+        raise Exception("Invalid demography type")
+
+    regex_selector = {
+        "common_causes": symcat_condition_url_regex,
+        "age": symcat_age_url_regex,
+        "sex": symcat_sex_url_regex,
+        "race": symcat_race_url_regex
+    }
+
+    slug_prefix = {
+        "common_causes": "cause-",
+        "age": "age-",
+        "sex": "sex-",
+        "race": "race-ethnicity-"
+    }
+
+    is_valid = False
+    data = {}
+
+    for idx in offsets:
+        grp_name = row[idx].strip()
+        if grp_name == "":
+            continue
+        grp_url = row[idx + 1].strip()
+        if grp_url == "":
+            continue
+
+        regex = regex_selector.get(info_type)
+        match = regex.match(grp_url)
+        if match is None:
+            continue
+        grp_slug = match.groups()[0].strip()
+
+        if info_type == "common_causes":
+            odds = row[idx + 2].strip()
+        else:
+            odds = row[idx + 2].strip().split("x")[0]
+        if odds == "":
+            continue
+        try:
+            odds = float(odds)
+        except ValueError:
+            continue
+        if info_type == "common_causes":
+            symptom_name = row[idx - 5].strip()
+            if symptom_name == "":
+                continue
+        else:
+            symptom_name = row[idx + 3].strip()
+            if symptom_name == "":
+                continue
+        # if we get here then surely this is a valid age definition
+        is_valid = True
+        data = {
+            "symptom_name": symptom_name.lower(),
+            "grp_name": grp_name,
+            "grp_slug": slug_prefix.get(info_type) + grp_slug,
+            "grp_odds": odds
+        }
+        break
+
+    return is_valid, data
+
+
 def slugify_condition(condition_name):
     condition_name = condition_name.lower()
     condition_name = re.sub(r"\s+", "-", condition_name)
