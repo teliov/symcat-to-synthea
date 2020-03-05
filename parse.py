@@ -19,6 +19,8 @@ def parse_symcat_symptoms(filename):
     # so when checking for the symptom name for instance, you would need to check all 5 different column group
     # for a match before concluding that the target is indeed missing.
     content_offsets = [0, 21, 42, 63, 84]
+    # to keep track of the slug associated to each symtom name
+    slug_dict = {}
     with open(filename, newline='') as fp:
         symptom_reader = csv.reader(fp)
         idx = 0
@@ -35,27 +37,56 @@ def parse_symcat_symptoms(filename):
                     else:
                         curr_offset = jdx
                         break
-                if curr_offset is None:
-                    continue
 
-                symptom_url = row[curr_offset + 1]
-                match = symcat_symptom_url_regex.match(symptom_url)
-                if match is None:
-                    continue
-                symptom_slug = match.groups()[0].strip()
-                if symptom_slug not in symptom_map:
-                    # we've not seen this symptom already
-                    # generate a hash based off this
-                    symptom_hash = hashlib.sha224(symptom_slug.encode("UTF-8")).hexdigest()
+                if curr_offset is not None:
+                    symptom_url = row[curr_offset + 1]
+                    match = symcat_symptom_url_regex.match(symptom_url)
+                    if match is None:
+                        continue
+                    symptom_slug = match.groups()[0].strip()
+                    if symptom_slug not in symptom_map:
+                        # we've not seen this symptom already
+                        # generate a hash based off this
+                        symptom_hash = hashlib.sha224(
+                            symptom_slug.encode("UTF-8")).hexdigest()
 
-                    # get the description for this symptom.
-                    symptom_description = row[curr_offset + 3]
+                        # get the description for this symptom.
+                        symptom_description = row[curr_offset + 3]
 
-                    symptom_map[symptom_slug] = {
-                        'name': symptom_name,
-                        'hash': symptom_hash,
-                        'description': symptom_description
-                    }
+                        # saving additional infos 
+                        # (common_causes, age, sex, race).
+                        symptom_map[symptom_slug] = {
+                            'name': symptom_name,
+                            'hash': symptom_hash,
+                            'description': symptom_description,
+                            'common_causes': {},
+                            'age': {},
+                            'sex': {},
+                            'race': {}
+                        }
+                        slug_dict[symptom_name.lower()] = symptom_slug
+
+                # Adding additional info present in the data base
+                info_types = ["common_causes", "age", "sex", "race"]
+                for info_type in info_types:
+                    is_valid, info_data = is_valid_symptom_infos(
+                        info_type, row
+                    )
+                    if is_valid:
+                        symptom_name = info_data.get("symptom_name")
+                        symptom_slug = slug_dict.get(symptom_name, None)
+                        if symptom_slug is None:
+                            continue
+                        grp_slug = info_data.get("grp_slug")
+                        if grp_slug not in symptom_map[symptom_slug][info_type]:
+                            label = "odds" if info_type != "common_causes" else "probability"
+                            symptom_map[symptom_slug][info_type][grp_slug] = {
+                                "name": info_data.get("grp_name"),
+                                "slug": grp_slug,
+                                label: info_data.get("grp_odds")
+                            }
+                        break
+
             idx = idx + 1
 
     return symptom_map
