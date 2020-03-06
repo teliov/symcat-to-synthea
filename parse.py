@@ -19,6 +19,8 @@ def parse_symcat_symptoms(filename):
     # so when checking for the symptom name for instance, you would need to check all 5 different column group
     # for a match before concluding that the target is indeed missing.
     content_offsets = [0, 21, 42, 63, 84]
+    # to keep track of the slug associated to each symtom name
+    slug_dict = {}
     with open(filename, newline='') as fp:
         symptom_reader = csv.reader(fp)
         idx = 0
@@ -35,30 +37,136 @@ def parse_symcat_symptoms(filename):
                     else:
                         curr_offset = jdx
                         break
-                if curr_offset is None:
-                    continue
 
-                symptom_url = row[curr_offset + 1]
-                match = symcat_symptom_url_regex.match(symptom_url)
-                if match is None:
-                    continue
-                symptom_slug = match.groups()[0].strip()
-                if symptom_slug not in symptom_map:
-                    # we've not seen this symptom already
-                    # generate a hash based off this
-                    symptom_hash = hashlib.sha224(symptom_slug.encode("UTF-8")).hexdigest()
+                if curr_offset is not None:
+                    symptom_url = row[curr_offset + 1]
+                    match = symcat_symptom_url_regex.match(symptom_url)
+                    if match is None:
+                        continue
+                    symptom_slug = match.groups()[0].strip()
+                    if symptom_slug not in symptom_map:
+                        # we've not seen this symptom already
+                        # generate a hash based off this
+                        symptom_hash = hashlib.sha224(
+                            symptom_slug.encode("UTF-8")).hexdigest()
 
-                    # get the description for this symptom.
-                    symptom_description = row[3]
+                        # get the description for this symptom.
+                        symptom_description = row[curr_offset + 3]
 
-                    symptom_map[symptom_slug] = {
-                        'name': symptom_name,
-                        'hash': symptom_hash,
-                        'description': symptom_description
-                    }
+                        # saving additional infos 
+                        # (common_causes, age, sex, race).
+                        symptom_map[symptom_slug] = {
+                            'name': symptom_name,
+                            'hash': symptom_hash,
+                            'description': symptom_description,
+                            'common_causes': {},
+                            'age': {},
+                            'sex': {},
+                            'race': {}
+                        }
+                        slug_dict[symptom_name.lower()] = symptom_slug
+
+                # Adding additional info present in the data base
+                info_types = ["common_causes", "age", "sex", "race"]
+                for info_type in info_types:
+                    is_valid, info_data = is_valid_symptom_infos(
+                        info_type, row
+                    )
+                    if is_valid:
+                        symptom_name = info_data.get("symptom_name")
+                        symptom_slug = slug_dict.get(symptom_name, None)
+                        if symptom_slug is None:
+                            continue
+                        grp_slug = info_data.get("grp_slug")
+                        if grp_slug not in symptom_map[symptom_slug][info_type]:
+                            label = "odds" if info_type != "common_causes" else "probability"
+                            symptom_map[symptom_slug][info_type][grp_slug] = {
+                                "name": info_data.get("grp_name"),
+                                "slug": grp_slug,
+                                label: info_data.get("grp_odds")
+                            }
+                        break
+
             idx = idx + 1
 
     return symptom_map
+
+
+def is_valid_symptom_infos(info_type, row):
+    # this function aims at collecting additional infos
+    # for a giving symtom from the csv file
+
+    offset_dict = {
+        "common_causes": [5, 26, 47, 68, 89],
+        "age": [9, 30, 51, 72, 93],
+        "sex": [13, 34, 55, 76, 97],
+        "race": [17, 38, 59, 80, 101],
+    }
+
+    offsets = offset_dict.get(info_type, None)
+    if offsets is None:
+        raise Exception("Invalid demography type")
+
+    regex_selector = {
+        "common_causes": symcat_condition_url_regex,
+        "age": symcat_age_url_regex,
+        "sex": symcat_sex_url_regex,
+        "race": symcat_race_url_regex
+    }
+
+    slug_prefix = {
+        "common_causes": "cause-",
+        "age": "age-",
+        "sex": "sex-",
+        "race": "race-ethnicity-"
+    }
+
+    is_valid = False
+    data = {}
+
+    for idx in offsets:
+        grp_name = row[idx].strip()
+        if grp_name == "":
+            continue
+        grp_url = row[idx + 1].strip()
+        if grp_url == "":
+            continue
+
+        regex = regex_selector.get(info_type)
+        match = regex.match(grp_url)
+        if match is None:
+            continue
+        grp_slug = match.groups()[0].strip()
+
+        if info_type == "common_causes":
+            odds = row[idx + 2].strip()
+        else:
+            odds = row[idx + 2].strip().split("x")[0]
+        if odds == "":
+            continue
+        try:
+            odds = float(odds)
+        except ValueError:
+            continue
+        if info_type == "common_causes":
+            symptom_name = row[idx - 5].strip()
+            if symptom_name == "":
+                continue
+        else:
+            symptom_name = row[idx + 3].strip()
+            if symptom_name == "":
+                continue
+        # if we get here then surely this is a valid age definition
+        is_valid = True
+        data = {
+            "symptom_name": symptom_name.lower(),
+            "grp_name": grp_name,
+            "grp_slug": slug_prefix.get(info_type) + grp_slug,
+            "grp_odds": odds
+        }
+        break
+
+    return is_valid, data
 
 
 def slugify_condition(condition_name):
