@@ -4,7 +4,49 @@ import json
 import os
 
 
+def prob_val(x, ndigits=4):
+    """Function for converting odd ratio into probability.
+
+    Parameters
+    ----------
+    x : float
+        the odd ratio value.
+    ndigits : int
+        Number of decimal places to round to (default: 4).
+
+    Returns
+    -------
+    float
+        the probability value with the corresponding number of decimals.
+    """
+    return round(x / (1 + x), ndigits)
+
+
 def generate_transition_for_age(condition, age_distribution, next_state, default_state="TerminalState"):
+    """Function for defining age-based transitions in the generated PGM module
+
+    Parameters
+    ----------
+    condition : str
+        The name of the condition for which the PGM is being generated.
+    age_distribution : dict
+        Dictionnary containing the odd values associated to each age category.
+    next_state : str
+        The name of the node to transit in case we sample withing the
+        provided distribution
+    default_state : str
+        The name of the node to transit in case we do not sample withing the
+        provided distribution (default: "TerminalState").
+
+    Returns
+    -------
+    transitions: list
+        the corresponding list of generated transitions
+    nodes: dict
+        the associated nodes to the transition being generated. 
+        These nodes will later be used to update the state dictionnary
+        of the current PGM.
+    """
     age_keys = [
         "age-1-years", "age-1-4-years", "age-5-14-years", "age-15-29-years",
         "age-30-44-years", "age-45-59-years", "age-60-74-years", "age-75-years"
@@ -16,7 +58,7 @@ def generate_transition_for_age(condition, age_distribution, next_state, default
     default_flag = False
     for idx, key in enumerate(age_keys):
         odds = age_distribution.get(key).get("odds")
-        prob = round(odds / (1.0 + odds), 4)
+        prob = prob_val(odds)
 
         if prob <= 0:
             default_flag = True
@@ -141,11 +183,35 @@ def generate_transition_for_age(condition, age_distribution, next_state, default
 
 
 def generate_transition_for_sex(condition, sex_distribution, next_state, default_state="TerminalState"):
+    """Function for defining sex-based transitions in the generated PGM module
+
+    Parameters
+    ----------
+    condition : str
+        The name of the condition for which the PGM is being generated.
+    sex_distribution : dict
+        Dictionnary containing the odd values associated to each sex category.
+    next_state : str
+        The name of the node to transit in case we sample withing the
+        provided distribution
+    default_state : str
+        The name of the node to transit in case we do not sample withing the
+        provided distribution (default: "TerminalState").
+
+    Returns
+    -------
+    transitions: list
+        the corresponding list of generated transitions
+    nodes: dict
+        the associated nodes to the transition being generated. 
+        These nodes will later be used to update the state dictionnary
+        of the current PGM.
+    """
     male_odds = float(sex_distribution.get("sex-male").get("odds"))
     female_odds = float(sex_distribution.get("sex-female").get("odds"))
 
-    male_prob = round(male_odds / (1.0 + male_odds), 4)
-    female_prob = round(female_odds / (1.0 + female_odds), 4)
+    male_prob = prob_val(male_odds)
+    female_prob = prob_val(female_odds)
 
     probabilities = [male_prob, female_prob]
 
@@ -197,6 +263,30 @@ def generate_transition_for_sex(condition, sex_distribution, next_state, default
 
 
 def generate_transition_for_race(condition, race_distribution, next_state, default_state="TerminalState"):
+    """Function for defining race-based transitions in the generated PGM module
+
+    Parameters
+    ----------
+    condition : str
+        The name of the condition for which the PGM is being generated.
+    race_distribution : dict
+        Dictionnary containing the odd values associated to each race category.
+    next_state : str
+        The name of the node to transit in case we sample withing the
+        provided distribution
+    default_state : str
+        The name of the node to transit in case we do not sample withing the
+        provided distribution (default: "TerminalState").
+
+    Returns
+    -------
+    transitions: list
+        the corresponding list of generated transitions
+    nodes: dict
+        the associated nodes to the transition being generated. 
+        These nodes will later be used to update the state dictionnary
+        of the current PGM.
+    """
     race_keys = ["race-ethnicity-black", "race-ethnicity-hispanic",
                  "race-ethnicity-white", "race-ethnicity-other"]
 
@@ -205,7 +295,7 @@ def generate_transition_for_race(condition, race_distribution, next_state, defau
 
     for key in race_keys:
         odds = float(race_distribution.get(key).get("odds"))
-        prob = round(odds / (1.0 + odds), 4)
+        prob = prob_val(odds)
 
         if key == "race-ethnicity-other":
             # split this into three for : NATIVE, "ASIAN" and "OTHER" according
@@ -281,6 +371,22 @@ def generate_transition_for_race(condition, race_distribution, next_state, defau
 
 
 def generate_synthea_module(symptom_dict, test_condition):
+    """Function for generating the PGM module for a given condition.
+
+    Parameters
+    ----------
+    symptom_dict : dict
+        Dictionnary containing all the symptoms of the database
+        with their related characteristics.
+    test_condition : dict
+        Dictionnary containing information related to the condition
+        for which the PGM is being generated.
+
+    Returns
+    -------
+    dict
+        A ddictionnary describing the PGM of the provided condition.
+    """
 
     # check that symptoms do exist for this module!?
     if not test_condition.get("symptoms"):
@@ -533,6 +639,25 @@ def generate_synthea_module(symptom_dict, test_condition):
 
 
 def generate_synthea_modules(symptom_file, conditions_file, output_dir):
+    """Function for generating and save the PGM
+    module as a JSON file for all the conditions.
+
+    Parameters
+    ----------
+    symptom_file : str
+        Path of the JSON file containing all the symptoms of the database
+        with their related characteristics.
+    conditions_file : str
+        Path of the JSON file containing all the conditions of the database
+        with their related characteristics.
+    output_dir : str
+        Path of the directory where the generatd JSON files will be saved.
+
+    Returns
+    -------
+    bool
+        True uf the generation process is well peformed otherwise False
+    """
     with open(symptom_file) as fp:
         symptoms_data = json.load(fp)
 

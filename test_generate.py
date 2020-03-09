@@ -1,14 +1,15 @@
 import os
 
 from parse import parse_symcat_conditions, parse_symcat_symptoms, slugify_condition
-from generate import generate_synthea_module
-
-
-def prob_val(x, ndigits=4):
-    return round(x / (1 + x), ndigits)
+from generate import generate_synthea_module, prob_val
 
 
 class TestGenerator(object):
+
+    def test_prob_value(self):
+        assert prob_val(0.4) == round(0.4 / 1.4, 4)
+        assert prob_val(0.3, 7) == round(0.3 / 1.3, 7)
+        assert prob_val(0.3, 2) != 0.5
 
     def test_symcat_2_synthea__generator(self, tmpdir):
         sample_symptoms = [

@@ -10,6 +10,20 @@ symcat_race_url_regex = re.compile(r"http://www.symcat.com/demographics/race-eth
 
 
 def parse_symcat_symptoms(filename):
+    """Function for parsing the symptom csv file.
+
+    Parameters
+    ----------
+    filename : str
+        Path to the csv file describing the symptoms in the Symcat database.
+
+    Returns
+    -------
+    symptom_dict : dict
+        Dictionnary containing all the symptoms of the database
+        with their related characteristics.
+    """
+
     # let's start with the easy one first. Symcat has these 474 symptoms.
     # let's get a unique id symptom_name, symptom_description for all of them
 
@@ -53,7 +67,7 @@ def parse_symcat_symptoms(filename):
                         # get the description for this symptom.
                         symptom_description = row[curr_offset + 3]
 
-                        # saving additional infos 
+                        # saving additional infos
                         # (common_causes, age, sex, race).
                         symptom_map[symptom_slug] = {
                             'name': symptom_name,
@@ -195,7 +209,8 @@ def is_valid_symptom(row):
         condition_slug = match.groups()[0]
 
         # if the condition ends with --2,
-        # then it's probably to avoid conflict with a symptom that also has the same name
+        # then it's probably to avoid conflict with a symptom that also has the
+        # same name
         if condition_slug[-3:] == "--2":
             condition_slug = condition_slug[:-3]
 
@@ -228,7 +243,8 @@ def is_valid_symptom(row):
             condition_description = row[idx + 4].strip()
             condition_symptom_summary = row[idx + 5].strip()
 
-        condition_symptom_prob = row[idx + condition_symptom_offset + 1].strip()
+        condition_symptom_prob = row[
+            idx + condition_symptom_offset + 1].strip()
         condition_symptom = row[idx + condition_symptom_offset - 1].strip()
 
         if condition_symptom == "":
@@ -320,6 +336,20 @@ def is_valid_demographics(demo_type, row):
 
 
 def parse_symcat_conditions(filename):
+    """Function for parsing the symptom csv file.
+
+    Parameters
+    ----------
+    filename : str
+        Path to the csv file describing the conditions in the Symcat database.
+
+    Returns
+    -------
+    condition_dict : dict
+        Dictionnary containing all the conditions of the database
+        with their related characteristics.
+    """
+
     # working on the symcat conditions now ..,
     # let's get the conditions
     condition_map = {}
@@ -353,7 +383,8 @@ def parse_symcat_conditions(filename):
                             "condition_description")
 
                     if condition_map[condition_slug].get("condition_remarks", None) is None:
-                        condition_map[condition_slug]["condition_remarks"] = symptom_data.get("condition_remarks")
+                        condition_map[condition_slug][
+                            "condition_remarks"] = symptom_data.get("condition_remarks")
 
                     # have we not recorded this symptom already ? then:
                     symptom_slug = symptom_data.get("symptom_slug")
@@ -365,7 +396,8 @@ def parse_symcat_conditions(filename):
                 else:
                     demo_types = ["age", "sex", "race"]
                     for demo_type in demo_types:
-                        is_valid, demo_data = is_valid_demographics(demo_type, row)
+                        is_valid, demo_data = is_valid_demographics(
+                            demo_type, row)
                         if is_valid:
                             condition_slug = demo_data.get("condition_slug")
                             if condition_slug not in condition_map:
