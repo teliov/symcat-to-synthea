@@ -19,6 +19,7 @@ def prob_val(x, ndigits=4):
     float
         the probability value with the corresponding number of decimals.
     """
+    assert (x is not None) and (x >= 0)
     return round(x / (1 + x), ndigits)
 
 
