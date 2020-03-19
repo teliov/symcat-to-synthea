@@ -23,7 +23,7 @@ def prob_val(x, ndigits=4):
     return round(x / (1 + x), ndigits)
 
 
-def generate_transition_for_age(condition, age_distribution, next_state, default_state="TerminalState"):
+def generate_transition_for_age(condition, age_distribution, next_state, default_state="TerminalState", suffix=""):
     """Function for defining age-based transitions in the generated PGM module
 
     Parameters
@@ -38,6 +38,9 @@ def generate_transition_for_age(condition, age_distribution, next_state, default
     default_state : str
         The name of the node to transit in case we do not sample withing the
         provided distribution (default: "TerminalState").
+    suffix : str
+        The suffix to append to the name of the nodes being generated.
+        (default: "").
 
     Returns
     -------
@@ -66,6 +69,7 @@ def generate_transition_for_age(condition, age_distribution, next_state, default
         else:
             if key == "age-1-years":
                 next_node_name = "Ages_Less_1"
+                next_node_name += suffix
                 curr_transition = {
                     "condition": {
                         "condition_type": "Age",
@@ -97,6 +101,7 @@ def generate_transition_for_age(condition, age_distribution, next_state, default
                 }
             elif key == "age-75-years":
                 next_node_name = "Ages_75_More"
+                next_node_name += suffix
                 curr_transition = {
                     "condition": {
                         "condition_type": "Age",
@@ -131,6 +136,7 @@ def generate_transition_for_age(condition, age_distribution, next_state, default
                 age_lower = parts[1]
                 age_upper = parts[2]
                 next_node_name = "Ages_{}_{}".format(age_lower, age_upper)
+                next_node_name += suffix
                 curr_transition = {
                     "condition": {
                         "condition_type": "And",
@@ -183,13 +189,13 @@ def generate_transition_for_age(condition, age_distribution, next_state, default
     return transitions, adjacent_states
 
 
-def generate_transition_for_sex(condition, sex_distribution, next_state, default_state="TerminalState"):
+def generate_transition_for_sex(condition, sex_distribution, next_state, default_state="TerminalState", suffix=""):
     """Function for defining sex-based transitions in the generated PGM module
 
     Parameters
     ----------
     condition : str
-        The name of the condition for which the PGM is being generated.
+        The name of the condition/symptom for which the PGM is being generated.
     sex_distribution : dict
         Dictionnary containing the odd values associated to each sex category.
     next_state : str
@@ -198,6 +204,9 @@ def generate_transition_for_sex(condition, sex_distribution, next_state, default
     default_state : str
         The name of the node to transit in case we do not sample withing the
         provided distribution (default: "TerminalState").
+    suffix : str
+        The suffix to append to the name of the nodes being generated.
+        (default: "").
 
     Returns
     -------
@@ -223,6 +232,7 @@ def generate_transition_for_sex(condition, sex_distribution, next_state, default
     for idx in range(len(probabilities)):
         if probabilities[idx] > 0:
             next_node_name = "Male" if idx == 0 else "Female"
+            next_node_name += suffix
             transition.append({
                 "condition": {
                     "condition_type": "Gender",
@@ -263,7 +273,7 @@ def generate_transition_for_sex(condition, sex_distribution, next_state, default
     return transition, adjacent_states
 
 
-def generate_transition_for_race(condition, race_distribution, next_state, default_state="TerminalState"):
+def generate_transition_for_race(condition, race_distribution, next_state, default_state="TerminalState", suffix=""):
     """Function for defining race-based transitions in the generated PGM module
 
     Parameters
@@ -278,6 +288,9 @@ def generate_transition_for_race(condition, race_distribution, next_state, defau
     default_state : str
         The name of the node to transit in case we do not sample withing the
         provided distribution (default: "TerminalState").
+    suffix : str
+        The suffix to append to the name of the nodes being generated.
+        (default: "").
 
     Returns
     -------
@@ -303,6 +316,7 @@ def generate_transition_for_race(condition, race_distribution, next_state, defau
             # to synthea
             for idx, item in enumerate(["Native", "Asian", "Other"]):
                 next_node_name = "Race_{}".format(item)
+                next_node_name += suffix
                 curr_transition = {
                     "condition": {
                         "condition_type": "Race",
@@ -337,6 +351,7 @@ def generate_transition_for_race(condition, race_distribution, next_state, defau
             next_node_name = "Race_{}".format(
                 race_distribution.get(key).get("name")
             )
+            next_node_name += suffix
             curr_transition = {
                 "condition": {
                     "condition_type": "Race",
@@ -494,6 +509,16 @@ def generate_synthea_module(symptom_dict, test_condition):
         slug = curr_symptom.get("slug")
 
         symptom_definition = symptom_dict.get(slug, None)
+
+        if idx == len(keys) - 1:
+            next_target = "Doctor_Visit"
+        else:
+            next_target = "Simple_Transition_%d" % (idx + 2)
+
+        simple_transition_name = "Simple_Transition_%d" % (idx + 1)
+        symptom_transition_name = "Symptom_%d" % (idx + 1)
+        symptom_first_node = None
+
         if symptom_definition is None:
             # a symptom which we dont have a definition for?
             slug_hash = hashlib.sha224(slug.encode("utf-8")).hexdigest()
@@ -540,21 +565,96 @@ def generate_synthea_module(symptom_dict, test_condition):
                     symptom_definition.get("description")
                 ]
             }
+            # addiing symptom-based risk factors
+            symptom_gender_rf = symptom_definition.get("sex", None)
+            symptom_race_rf = symptom_definition.get("race", None)
+            symptom_age_rf = symptom_definition.get("age", None)
 
-        simple_transition_name = "Simple_Transition_%d" % (idx + 1)
-        symptom_transition_name = "Symptom_%d" % (idx + 1)
+            symptom_name = symptom_definition.get("name")
+            suffix = "_Sym%d" % (idx + 1)
 
-        if idx == len(keys) - 1:
-            next_target = "Doctor_Visit"
-        else:
-            next_target = "Simple_Transition_%d" % (idx + 2)
+            has_gender_rf = not (
+                (symptom_gender_rf is None) or (len(symptom_gender_rf) == 0)
+            )
+            has_race_rf = not (
+                (symptom_race_rf is None) or (len(symptom_race_rf) == 0)
+            )
+            has_age_rf = not (
+                (symptom_age_rf is None) or (len(symptom_age_rf) == 0)
+            )
+
+            gender_sub_state = "Check_Gender" + suffix
+            race_sub_state = "Check_Race" + suffix
+            age_sub_state = "Check_Age" + suffix
+
+            if has_gender_rf:
+                # sex states
+                current_sub_state = gender_sub_state
+                if symptom_first_node is None:
+                    symptom_first_node = current_sub_state
+                states[current_sub_state] = {
+                    "type": "Simple"
+                }
+                if has_race_rf:
+                    next_sub_state = race_sub_state
+                elif has_age_rf:
+                    next_sub_state = age_sub_state
+                else:
+                    next_sub_state = symptom_transition_name
+
+                sym_sex_conditional_transition, sym_sex_states = generate_transition_for_sex(
+                    symptom_name, symptom_gender_rf, next_sub_state, next_target, suffix
+                )
+                states[current_sub_state][
+                    "conditional_transition"] = sym_sex_conditional_transition
+                states.update(sym_sex_states)
+
+            if has_race_rf:
+                # race states
+                current_sub_state = race_sub_state
+                if symptom_first_node is None:
+                    symptom_first_node = current_sub_state
+                states[current_sub_state] = {
+                    "type": "Simple"
+                }
+                if has_age_rf:
+                    next_sub_state = age_sub_state
+                else:
+                    next_sub_state = symptom_transition_name
+
+                sym_race_conditional_transition, sym_race_states = generate_transition_for_race(
+                    symptom_name, symptom_race_rf, next_sub_state, next_target, suffix
+                )
+                states[current_sub_state][
+                    "conditional_transition"] = sym_race_conditional_transition
+                states.update(sym_race_states)
+
+            if has_age_rf:
+                # age states
+                current_sub_state = age_sub_state
+                if symptom_first_node is None:
+                    symptom_first_node = current_sub_state
+                states[current_sub_state] = {
+                    "type": "Simple"
+                }
+                next_sub_state = symptom_transition_name
+
+                sym_age_conditional_transition, sym_age_states = generate_transition_for_age(
+                    symptom_name, symptom_age_rf, next_sub_state, next_target, suffix
+                )
+                states[current_sub_state][
+                    "conditional_transition"] = sym_age_conditional_transition
+                states.update(sym_age_states)
+
+        if symptom_first_node is None:
+            symptom_first_node = symptom_transition_name
 
         simple_transition = {
             "type": "Simple",
             "distributed_transition": [
                 {
                     "distribution": probability,
-                    "transition": symptom_transition_name
+                    "transition": symptom_first_node
                 },
                 {
                     "distribution": 1 - probability,
