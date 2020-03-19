@@ -386,7 +386,7 @@ def generate_transition_for_race(condition, race_distribution, next_state, defau
     return transitions, adjacent_states
 
 
-def generate_synthea_module(symptom_dict, test_condition):
+def generate_synthea_module(symptom_dict, test_condition, incidence_limit=3):
     """Function for generating the PGM module for a given condition.
 
     Parameters
@@ -414,7 +414,7 @@ def generate_synthea_module(symptom_dict, test_condition):
     potential_infection_transition = "Potential_Infection"
     incidence_counter_transition = "IncidenceCounter"
     incidence_attribute = "count_%s" % condition_slug
-    incidence_limit = 3
+    incidence_limit = incidence_limit
     node_infection_name = condition_name.replace(" ", "_") + "_Infection"
 
     states = OrderedDict()
@@ -739,7 +739,7 @@ def generate_synthea_module(symptom_dict, test_condition):
     }
 
 
-def generate_synthea_modules(symptom_file, conditions_file, output_dir):
+def generate_synthea_modules(symptom_file, conditions_file, output_dir, incidence_limit=3):
     """Function for generating and save the PGM
     module as a JSON file for all the conditions.
 
@@ -769,7 +769,7 @@ def generate_synthea_modules(symptom_file, conditions_file, output_dir):
         os.mkdir(output_dir)
 
     for key, value in conditions_data.items():
-        module = generate_synthea_module(symptoms_data, value)
+        module = generate_synthea_module(symptoms_data, value, incidence_limit)
         if module is None:
             continue
         filename = os.path.join(output_dir, "%s.json" % key)
