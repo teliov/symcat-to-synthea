@@ -19,6 +19,10 @@ if __name__ == "__main__":
     parser.add_argument('--symptoms_json', help='Symcat json export')
     parser.add_argument('--conditions_json', help='Symcat conditions export')
 
+    parser.add_argument('--incidence_limit', type=int, default=3,
+        help='Number of time a patient may have a condition'
+    )
+
     parser.add_argument('--output', help="Output directory")
 
     args = parser.parse_args()
@@ -35,7 +39,7 @@ if __name__ == "__main__":
         # we're generating modules
         if not args.symptoms_json or not args.conditions_json:
             raise ValueError("You must supply both the parsed symptoms.json and conditions.json file")
-        generate_synthea_modules(args.symptoms_json, args.conditions_json, output_dir)
+        generate_synthea_modules(args.symptoms_json, args.conditions_json, output_dir, args.incidence_limit)
     elif args.parse_symptoms:
         if not args.symptoms_csv:
             raise ValueError("You must supply the symcat exported symptoms CSV file")
@@ -50,3 +54,4 @@ if __name__ == "__main__":
             json.dump(conditions, fp, indent=4)
     else:
         raise ValueError("You must either generate modules, parse symptoms or parse conditions")
+
