@@ -96,42 +96,14 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
         for race_key in race_prior_keys
     ])
 
-    # Prob(!condition | risk factors)
-    sex_comp_denom = sum([
-        (1.0 - prob_val(
-            distribution.get("sex").get(sex_key).get("odds")
-        )) * priors["Gender"][sex_key]
-        for sex_key in sex_keys
-    ])
-    age_comp_denom = sum([
-        (1.0 - prob_val(
-            distribution.get("age").get(age_key).get("odds")
-        )) * priors["Age"][age_key]
-        for age_key in age_keys
-    ])
-    race_comp_denom = sum([
-        (1.0 - prob_val(
-            distribution.get("race").get(
-                "race-ethnicity-other" if race_key in [
-                    "race-ethnicity-asian", "race-ethnicity-native"] else race_key
-            ).get("odds")
-        )) * priors["Race"][race_key]
-        for race_key in race_prior_keys
-    ])
-
     # condition priors
     prior_condition_from_gender = sex_denom
     prior_condition = priors["Conditions"].get(
         condition.lower(), prior_condition_from_gender)
-    prior_comp_condition = 1.0 - prior_condition
 
     assert sex_denom > 0, "the sex denom probability must be greater than 0"
     assert age_denom > 0, "the age denom probability must be greater than 0"
     assert race_denom > 0, "the race denom probability must be greater than 0"
-
-    assert sex_comp_denom > 0, "the comp sex denom probability must be greater than 0"
-    assert age_comp_denom > 0, "the comp age denom probability must be greater than 0"
-    assert race_comp_denom > 0, "the comp race denom probability must be greater than 0"
 
     for sex_key in sex_keys:
         sex_odds = distribution.get("sex").get(sex_key).get("odds")
@@ -144,10 +116,6 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
             "condition_type": "Gender",
             "gender": "M" if sex_key == "sex-male" else "F"
         }
-
-        p_sex = (sex_prob * priors["Gender"][sex_key]) / sex_denom
-        p_comp_sex = ((1 - sex_prob) *
-                      priors["Gender"][sex_key]) / sex_comp_denom
 
         for age_key in age_keys:
             age_odds = distribution.get("age").get(age_key).get("odds")
@@ -181,20 +149,16 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
                             "condition_type": "Age",
                             "operator": ">=",
                             "unit": "years",
-                            "quantity": age_lower
+                            "quantity": int(age_lower)
                         },
                         {
                             "condition_type": "Age",
                             "operator": "<=",
                             "unit": "years",
-                            "quantity": age_upper
+                            "quantity": int(age_upper)
                         }
                     ],
                 }
-
-            p_age = (age_prob * priors["Age"][age_key]) / age_denom
-            p_comp_age = ((1 - age_prob) *
-                          priors["Age"][age_key]) / age_comp_denom
 
             for race_key in race_keys:
                 race_odds = distribution.get("race").get(race_key).get("odds")
@@ -221,17 +185,10 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
                             "condition_type": "And",
                             "conditions": conditions
                         }
-                        p_race = (
-                            race_prob * priors["Race"][race_val]) / race_denom
-                        p_comp_race = (
-                            (1 - race_prob) * priors["Race"][race_val]) / race_comp_denom
 
-                        p_sex_race_age = p_sex * p_age * p_race
-                        p_comp_sex_race_age = p_comp_sex * p_comp_age * p_comp_race
-
+                        p_sex_race_age = sex_prob * age_prob * race_prob
                         p_cond_g_sex_race_age = (p_sex_race_age * prior_condition) / (
-                            (p_sex_race_age * prior_condition) +
-                            (p_comp_sex_race_age * prior_comp_condition)
+                            (sex_denom * age_denom * race_denom)
                         )
 
                         p_cond_g_sex_race_age = round_val(
@@ -263,17 +220,10 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
                         "condition_type": "And",
                         "conditions": conditions
                     }
-                    p_race = (
-                        race_prob * priors["Race"][race_key]) / race_denom
-                    p_comp_race = (
-                        (1 - race_prob) * priors["Race"][race_key]) / race_comp_denom
 
-                    p_sex_race_age = p_sex * p_age * p_race
-                    p_comp_sex_race_age = p_comp_sex * p_comp_age * p_comp_race
-
+                    p_sex_race_age = sex_prob * age_prob * race_prob
                     p_cond_g_sex_race_age = (p_sex_race_age * prior_condition) / (
-                        (p_sex_race_age * prior_condition) +
-                        (p_comp_sex_race_age * prior_comp_condition)
+                        (sex_denom * age_denom * race_denom)
                     )
 
                     p_cond_g_sex_race_age = round_val(p_cond_g_sex_race_age)
@@ -391,14 +341,6 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
         for race_key in race_prior_keys
     ]) if len(race_dict) > 0 else 1
 
-    # condition priors
-    prior_condition_from_gender = priors["Symptoms"].get(
-        symptom.lower(), sex_denom)
-    prior_condition_from_race = priors["Symptoms"].get(
-        symptom.lower(), race_denom)
-    prior_condition_from_age = priors["Symptoms"].get(
-        symptom.lower(), age_denom)
-
     assert sex_denom > 0, "the sex denom probability must be greater than 0"
     assert age_denom > 0, "the age denom probability must be greater than 0"
     assert race_denom > 0, "the race denom probability must be greater than 0"
@@ -470,13 +412,13 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
                                 "condition_type": "Age",
                                 "operator": ">=",
                                 "unit": "years",
-                                "quantity": age_lower
+                                "quantity": int(age_lower)
                             },
                             {
                                 "condition_type": "Age",
                                 "operator": "<=",
                                 "unit": "years",
-                                "quantity": age_upper
+                                "quantity": int(age_upper)
                             }
                         ],
                     }
@@ -898,7 +840,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
     states["ConditionEnds"] = {
         "type": "ConditionEnd",
-        "direct_transition": "TreatmentComplete",
+        "direct_transition": incidence_counter_transition,
         "condition_onset": node_infection_name
     }
 
@@ -918,7 +860,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
         "type": "SetAttribute",
         "attribute": noinfection_attribute,
         "value": 0,
-        "direct_transition": incidence_counter_transition
+        "direct_transition": potential_infection_transition
     }
 
     # we won't allow the same patient to fall ill with the same condition more than three times.
@@ -938,7 +880,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
                 }
             },
             {
-                "transition": potential_infection_transition
+                "transition": "TreatmentComplete"
             }
         ]
     }

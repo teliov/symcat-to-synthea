@@ -23,7 +23,7 @@ if __name__ == "__main__":
     parser.add_argument('--conditions_json', help='Symcat conditions export')
 
     parser.add_argument(
-        '--incidence_limit', type=int, default=3,
+        '--incidence_limit', type=int, default=1,
         help='Number of time a patient may have a condition'
     )
     parser.add_argument(
@@ -35,7 +35,7 @@ if __name__ == "__main__":
         help='Minimum delay in years to wait for performing the next attempt to assign the contion to a person'
     )
     parser.add_argument(
-        '--max_delay_years', type=int, default=10,
+        '--max_delay_years', type=int, default=80,
         help='Maximum delay in years to wait for performing the next attempt to assign the contion to a person'
     )
     parser.add_argument(

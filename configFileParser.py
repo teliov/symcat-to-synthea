@@ -7,7 +7,7 @@ def normalize_priors(priors):
     for k in priors.keys():
         val = priors[k]
         if val is not None:
-            assert val >= 0, "priors sholud be positive"
+            assert val >= 0, "priors should be positive"
             sumProba += val
         else:
             numNone += 1
@@ -92,11 +92,15 @@ def load_config(filename):
             priors['Conditions'][k.lower()] = convert_to_float(
                 config['Conditions'].get(k, '0.5')
             )
+            assert (priors['Conditions'][k.lower()] >=
+                    0 and priors['Conditions'][k.lower()] <= 1)
 
     if 'Symptoms' in config:
         for k in config['Symptoms']:
             priors['Symptoms'][k.lower()] = convert_to_float(
-                config['Conditions'].get(k, '0.5')
+                config['Symptoms'].get(k, '0.5')
             )
+            assert (priors['Symptoms'][k.lower()] >=
+                    0 and priors['Symptoms'][k.lower()] <= 1)
 
     return priors
