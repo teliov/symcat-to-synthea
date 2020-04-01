@@ -577,7 +577,7 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
     return transitions
 
 
-def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10):
+def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10, min_symptoms=1):
     """Function for generating the PGM module for a given condition.
 
     Parameters
@@ -607,6 +607,9 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
         Maximum delay in years to wait for performing the next attempt 
         to assign the contion to a person.
         (default: 10)
+    min_symptoms: int
+        Minimum number of symptoms to enforce at generation time.
+        (default: 1)
 
     Returns
     -------
@@ -624,6 +627,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
     potential_infection_transition = "Potential_Infection"
     incidence_counter_transition = "IncidenceCounter"
     incidence_attribute = "count_%s" % condition_slug
+    num_symptom_attribute = "count_symptom_%s" % condition_slug
     noinfection_attribute = "noinf_cons_count_%s" % condition_slug
     incidence_limit = incidence_limit
     noinfection_limit = noinfection_limit
@@ -714,6 +718,16 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
         "code": condition_hash,
         "display": condition_name
     }
+    next_stage = "Simple_Transition_1"
+    if min_symptoms > 0:
+        states["Init_Symptom_Counter"] = {
+            "type": "SetAttribute",
+            "attribute": num_symptom_attribute,
+            "value": 0,
+            "direct_transition": next_stage
+        }
+        next_stage = "Init_Symptom_Counter"
+
     states[node_infection_name] = {
         "type": "ConditionOnset",
         "codes": [condition_code],
@@ -722,16 +736,25 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
             test_condition.get("condition_description"),
             test_condition.get("condition_remarks")
         ],
-        "direct_transition": "Simple_Transition_1"
+        "direct_transition": next_stage
     }
 
     # now we start to model the symptoms, we use
     condition_symptoms = test_condition.get("symptoms")
-    keys = list(condition_symptoms.keys())
+    keys = [
+        (k, float(condition_symptoms.get(k).get("probability")) * 1 / 100)
+        for k in condition_symptoms.keys()
+    ]
+
     for idx in range(len(keys)):
-        curr_symptom = condition_symptoms.get(keys[idx])
-        probability = float(curr_symptom.get("probability")) * 1.0 / 100
+        curr_symptom = condition_symptoms.get(keys[idx][0])
+        probability = keys[idx][1]
         slug = curr_symptom.get("slug")
+        check_on_num_symptoms = False
+        if min_symptoms > 0:
+            remaining = len(keys) - idx
+            if remaining <= min_symptoms:
+                check_on_num_symptoms = True
 
         symptom_definition = symptom_dict.get(slug, None)
 
@@ -742,6 +765,39 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
         simple_transition_name = "Simple_Transition_%d" % (idx + 1)
         symptom_transition_name = "Symptom_%d" % (idx + 1)
+
+        next_stage = next_target
+        if min_symptoms > 0:
+            inc_symptom = "Inc_Symptom_%d" % (idx + 1)
+            states[inc_symptom] = {
+                "type": "Counter",
+                "attribute": num_symptom_attribute,
+                "action": "increment",
+                "direct_transition": next_stage
+            }
+            next_stage = inc_symptom
+
+        next_point = next_target
+        if check_on_num_symptoms:
+            check_symptom = "Check_Symptom_%d" % (idx + 1)
+            states[check_symptom] = {
+                "type": "Simple",
+                "conditional_transition": [
+                    {
+                        "condition": {
+                            "condition_type": "Attribute",
+                            "attribute": num_symptom_attribute,
+                            "operator": "<",
+                            "value": min_symptoms
+                        },
+                        "transition": symptom_transition_name
+                    },
+                    {
+                        "transition": next_point
+                    }
+                ]
+            }
+            next_point = check_symptom
 
         if symptom_definition is None:
             # a symptom which we dont have a definition for?
@@ -765,7 +821,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
                     "display": "%s (finding)" % slug
                 },
                 "remarks": [],
-                "direct_transition": next_target
+                "direct_transition": next_stage
             }
             simple_transition = {
                 "type": "Simple",
@@ -776,7 +832,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
                     },
                     {
                         "distribution": 1 - probability,
-                        "transition": next_target
+                        "transition": next_point
                     }
                 ]
             }
@@ -802,7 +858,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
                 "remarks": [
                     symptom_definition.get("description")
                 ],
-                "direct_transition": next_target
+                "direct_transition": next_stage
             }
 
             simple_transition = {
@@ -810,7 +866,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
                 "complex_transition": generate_symtoms_for_sex_race_age(
                     symptom_transition["symptom"], probability,
                     symptom_definition, symptom_transition_name,
-                    priors, next_target
+                    priors, next_point
                 )
             }
 
@@ -895,7 +951,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
     }
 
 
-def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_file="", incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10):
+def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_file="", incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10, min_symptoms=1):
     """Function for generating and save the PGM
     module as a JSON file for all the conditions.
 
@@ -929,6 +985,9 @@ def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_f
         Maximum delay in years to wait for performing the next attempt 
         to assign the contion to a person.
         (default: 10)
+    min_symptoms: int
+        Minimum number of symptoms to enforce at generation time.
+        (default: 1)
 
     Returns
     -------
@@ -949,7 +1008,7 @@ def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_f
     for key, value in conditions_data.items():
         module = generate_synthea_module(
             symptoms_data, value, priors, incidence_limit,
-            noinfection_limit, min_delay_years, max_delay_years
+            noinfection_limit, min_delay_years, max_delay_years, min_symptoms
         )
         if module is None:
             continue

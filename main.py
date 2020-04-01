@@ -39,6 +39,10 @@ if __name__ == "__main__":
         help='Maximum delay in years to wait for performing the next attempt to assign the contion to a person'
     )
     parser.add_argument(
+        '--min_symptoms', type=int, default=1,
+        help='Minimum number of symptoms to enforce at each condition sampling.'
+    )
+    parser.add_argument(
         '--config_file', type=str, default="",
         help='path to the config file'
     )
@@ -63,7 +67,7 @@ if __name__ == "__main__":
         generate_synthea_modules(
             args.symptoms_json, args.conditions_json, output_dir, args.config_file,
             args.incidence_limit, args.noinfection_limit,
-            args.min_delay_years, args.max_delay_years,
+            args.min_delay_years, args.max_delay_years, args.min_symptoms
         )
     elif args.parse_symptoms:
         if not args.symptoms_csv:
