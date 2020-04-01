@@ -87,9 +87,11 @@ class TestConfigFileParser(object):
             "",
             "[Symptoms]",
             "symptom1 = 0.6",
+            "symptom2 = ",
             "",
             "[Conditions]",
             "condition1 = 0.3",
+            "condition2 = ",
         ]
 
         config_file = tmpdir.join("priors.ini")
@@ -123,4 +125,6 @@ class TestConfigFileParser(object):
         assert priors['Race']["race-ethnicity-native"] == 0.05
 
         assert priors['Symptoms']["symptom1"] == 0.6
+        assert priors['Symptoms']["symptom2"] == 1.0
         assert priors['Conditions']["condition1"] == 0.3
+        assert priors['Conditions']["condition2"] == 1.0

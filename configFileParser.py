@@ -89,17 +89,19 @@ def load_config(filename):
 
     if 'Conditions' in config:
         for k in config['Conditions']:
-            priors['Conditions'][k.lower()] = convert_to_float(
-                config['Conditions'].get(k, '0.5')
-            )
+            val = config['Conditions'].get(k, None)
+            if (val is None) or val == "":
+                val = "1.0"
+            priors['Conditions'][k.lower()] = convert_to_float(val)
             assert (priors['Conditions'][k.lower()] >=
                     0 and priors['Conditions'][k.lower()] <= 1)
 
     if 'Symptoms' in config:
         for k in config['Symptoms']:
-            priors['Symptoms'][k.lower()] = convert_to_float(
-                config['Symptoms'].get(k, '0.5')
-            )
+            val = config['Symptoms'].get(k, None)
+            if (val is None) or val == "":
+                val = "1.0"
+            priors['Symptoms'][k.lower()] = convert_to_float(val)
             assert (priors['Symptoms'][k.lower()] >=
                     0 and priors['Symptoms'][k.lower()] <= 1)
 
