@@ -274,19 +274,6 @@ class TestGenerator(object):
 
                 assert probability == computed_proba
 
-        for e in itertools.product(priors["Age"].keys(), priors["Gender"].keys(), priors["Race"].keys()):
-            age_key, gender_key, race_key = e
-            key_test = age_key + "|" + gender_key + "|" + race_key
-            if not (key_test in contributed_keys):
-
-                computed_proba, age_race_gender_prior = self.get_symptom_proba(
-                    symptom_name, age_key, race_key, gender_key,
-                    priors, provided_condition_probs, marginale_condition,
-                    expected_probability
-                )
-
-                mean_proba += computed_proba * age_race_gender_prior
-
         assert (num_distributed_condtions == expected_num_conditions)
         assert (round_val(mean_proba) == round_val(expected_probability))
 
