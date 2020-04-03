@@ -751,6 +751,13 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
     # sort symptoms in the ascending order
     keys = sorted(keys, key=lambda x: x[1])
+    if len(keys) > 0:
+        if min_symptoms > 0:
+            states["Init_Symptom_Counter"][
+                "direct_transition"] = "Simple_Transition_%d" % (keys[0][2] + 1)
+        else:
+            states[node_infection_name][
+                "direct_transition"] = "Simple_Transition_%d" % (keys[0][2] + 1)
 
     for idx in range(len(keys)):
         curr_symptom = condition_symptoms.get(keys[idx][0])
