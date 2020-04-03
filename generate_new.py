@@ -742,13 +742,20 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
     # now we start to model the symptoms, we use
     condition_symptoms = test_condition.get("symptoms")
     keys = [
-        (k, float(condition_symptoms.get(k).get("probability")) * 1 / 100)
+        [k, float(condition_symptoms.get(k).get("probability")) * 1 / 100]
         for k in condition_symptoms.keys()
     ]
+
+    for idx, key in enumerate(keys):
+        key.append(idx)
+
+    # sort symptoms in the ascending order
+    keys = sorted(keys, key=lambda x: x[1])
 
     for idx in range(len(keys)):
         curr_symptom = condition_symptoms.get(keys[idx][0])
         probability = keys[idx][1]
+        index = keys[idx][2]
         slug = curr_symptom.get("slug")
         check_on_num_symptoms = False
         if min_symptoms > 0:
@@ -761,14 +768,15 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
         if idx == len(keys) - 1:
             next_target = "Doctor_Visit"
         else:
-            next_target = "Simple_Transition_%d" % (idx + 2)
+            next_index = keys[idx + 1][2]
+            next_target = "Simple_Transition_%d" % (next_index + 1)
 
-        simple_transition_name = "Simple_Transition_%d" % (idx + 1)
-        symptom_transition_name = "Symptom_%d" % (idx + 1)
+        simple_transition_name = "Simple_Transition_%d" % (index + 1)
+        symptom_transition_name = "Symptom_%d" % (index + 1)
 
         next_stage = next_target
         if min_symptoms > 0:
-            inc_symptom = "Inc_Symptom_%d" % (idx + 1)
+            inc_symptom = "Inc_Symptom_%d" % (index + 1)
             states[inc_symptom] = {
                 "type": "Counter",
                 "attribute": num_symptom_attribute,
@@ -779,7 +787,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
         next_point = next_target
         if check_on_num_symptoms:
-            check_symptom = "Check_Symptom_%d" % (idx + 1)
+            check_symptom = "Check_Symptom_%d" % (index + 1)
             states[check_symptom] = {
                 "type": "Simple",
                 "conditional_transition": [
