@@ -3,7 +3,7 @@ import argparse
 import json
 import os
 
-from generate_new import generate_synthea_modules
+from generate import generate_synthea_modules
 from parse import parse_symcat_conditions, parse_symcat_symptoms
 
 if __name__ == "__main__":

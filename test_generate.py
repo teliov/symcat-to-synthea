@@ -1,7 +1,9 @@
 import os
+import itertools
 
 from parse import parse_symcat_conditions, parse_symcat_symptoms, slugify_condition
-from generate import generate_synthea_module, prob_val
+from generate_new import generate_synthea_module, prob_val, round_val
+from configFileParser import load_config
 
 
 class TestGenerator(object):
@@ -10,6 +12,270 @@ class TestGenerator(object):
         assert prob_val(0.4) == round(0.4 / 1.4, 4)
         assert prob_val(0.3, 7) == round(0.3 / 1.3, 7)
         assert prob_val(0.3, 2) != 0.5
+
+    def get_symptom_proba(self, symptom_name, age_key, race_key, gender_key, priors, provided_condition_probs, marginale_condition, expected_probability):
+
+        p_gender = provided_condition_probs["Gender"][gender_key]
+        gender_prior = priors["Gender"][gender_key]
+
+        p_race = provided_condition_probs["Race"][race_key]
+        race_prior = priors["Race"][race_key]
+
+        p_age = provided_condition_probs["Age"][age_key]
+        age_prior = priors["Age"][age_key]
+
+        age_race_gender_prior = age_prior * race_prior * gender_prior
+
+        sym_prior_gender = marginale_condition["Gender"]
+        sym_prior_age = marginale_condition["Age"]
+        sym_prior_race = marginale_condition["Race"]
+
+        computed_proba = (expected_probability *
+                          p_gender * p_race * p_age)
+        computed_proba /= (sym_prior_gender *
+                           sym_prior_age * sym_prior_race)
+
+        computed_proba = round_val(computed_proba)
+
+        return computed_proba, age_race_gender_prior
+
+    def get_condition_proba(self, condition_name, age_key, race_key, gender_key, priors, provided_condition_probs, marginale_condition):
+
+        p_gender = provided_condition_probs["Gender"][gender_key]
+        gender_prior = priors["Gender"][gender_key]
+
+        p_race = provided_condition_probs["Race"][race_key]
+        race_prior = priors["Race"][race_key]
+
+        p_age = provided_condition_probs["Age"][age_key]
+        age_prior = priors["Age"][age_key]
+
+        age_race_gender_prior = age_prior * race_prior * gender_prior
+
+        condition_prior_gender = priors["Conditions"].get(
+            condition_name, marginale_condition["Gender"]
+        )
+
+        marginal_prior_gender = marginale_condition["Gender"]
+        marginal_prior_age = marginale_condition["Age"]
+        marginal_prior_race = marginale_condition["Race"]
+
+        computed_proba = (
+            condition_prior_gender * p_gender * p_race * p_age
+        )
+        computed_proba /= (
+            marginal_prior_gender * marginal_prior_age * marginal_prior_race)
+
+        computed_proba = round_val(computed_proba)
+
+        return computed_proba, age_race_gender_prior
+
+    def get_exception_keys_and_num_condition(self, provided_condition_probs):
+        keys_to_avoids = {
+            "Age": [
+                k for k in provided_condition_probs["Age"]
+                if provided_condition_probs["Age"][k] == 0
+            ],
+            "Gender": [
+                k for k in provided_condition_probs["Gender"]
+                if provided_condition_probs["Gender"][k] == 0
+            ],
+        }
+        expected_num_conditions = len(provided_condition_probs["Race"])
+        expected_num_conditions *= (
+            len(provided_condition_probs["Gender"]
+                ) - len(keys_to_avoids["Gender"])
+        )
+        expected_num_conditions *= (
+            len(provided_condition_probs["Age"]) - len(keys_to_avoids["Age"])
+        )
+        return keys_to_avoids, expected_num_conditions
+
+    def process_complex_transition(self, condition_stmts, keys_to_avoids):
+        age_min = 0
+        age_max = 140
+        gender = None
+        race = None
+
+        for acase in condition_stmts:
+            if acase["condition_type"] == "Gender":
+                gender = acase["gender"]
+            elif acase["condition_type"] == "Race":
+                race = acase["race"]
+            elif acase["condition_type"] == "Age":
+                if acase["operator"] in [">", ">="]:
+                    age_min = acase["quantity"]
+                elif acase["operator"] in ["<", "<="]:
+                    age_max = acase["quantity"]
+                else:
+                    assert False
+            elif acase["condition_type"] == "And":
+                assert len(acase["conditions"]) == 2
+                for subcase in acase["conditions"]:
+                    if subcase["condition_type"] == "Age":
+                        if subcase["operator"] in [">", ">="]:
+                            age_min = subcase["quantity"]
+                        elif subcase["operator"] in ["<", "<="]:
+                            age_max = subcase["quantity"]
+                        else:
+                            assert False
+                    else:
+                        assert False
+            else:
+                assert False
+
+        age_min = int(age_min)
+        age_max = int(age_max)
+
+        assert gender is not None
+        assert race is not None
+        assert age_min <= age_max
+
+        if gender == "M":
+            gender_key = "sex-male"
+        elif gender == "F":
+            gender_key = "sex-female"
+        else:
+            assert False
+
+        if race == "Black":
+            race_key = "race-ethnicity-black"
+        elif race == "Hispanic":
+            race_key = "race-ethnicity-hispanic"
+        elif race == "White":
+            race_key = "race-ethnicity-white"
+        elif race == "Asian":
+            race_key = "race-ethnicity-asian"
+        elif race == "Native":
+            race_key = "race-ethnicity-native"
+        elif race == "Other":
+            race_key = "race-ethnicity-other"
+        else:
+            assert False
+
+        if (age_min == 0 and age_max == 1):
+            age_key = "age-1-years"
+        elif (age_min == 1 and age_max == 4):
+            age_key = "age-1-4-years"
+        elif (age_min == 5 and age_max == 14):
+            age_key = "age-5-14-years"
+        elif (age_min == 15 and age_max == 29):
+            age_key = "age-15-29-years"
+        elif (age_min == 30 and age_max == 44):
+            age_key = "age-30-44-years"
+        elif (age_min == 45 and age_max == 59):
+            age_key = "age-45-59-years"
+        elif (age_min == 60 and age_max == 74):
+            age_key = "age-60-74-years"
+        elif (age_min == 75):
+            age_key = "age-75-years"
+        else:
+            assert False
+
+        if keys_to_avoids is not None:
+            if "Age" in keys_to_avoids:
+                for k in keys_to_avoids["Age"]:
+                    assert not (age_key == k)
+            if "Gender" in keys_to_avoids:
+                for k in keys_to_avoids["Gender"]:
+                    assert not (gender_key == k)
+
+        return age_key, race_key, gender_key
+
+    def check_condition_proba(self, condition_name, module_proba, priors, provided_condition_probs):
+
+        keys_to_avoids, expected_num_conditions = self.get_exception_keys_and_num_condition(
+            provided_condition_probs
+        )
+
+        marginale_condition = {
+            k: sum([priors[k][d] * provided_condition_probs[k][d] for d in priors[k].keys()])
+            for k in provided_condition_probs.keys()
+        }
+        marginale_not_condition = {
+            k: sum([priors[k][d] * (1 - provided_condition_probs[k][d]) for d in priors[k].keys()])
+            for k in provided_condition_probs.keys()
+        }
+
+        all_possibilities = module_proba['complex_transition']
+        num_distributed_condtions = 0
+        for possibility in all_possibilities:
+            if "condition" in possibility and "distributions" in possibility:
+                num_distributed_condtions += 1
+
+                condition_stmts = possibility["condition"]
+                distribution_stmts = possibility["distributions"]
+
+                if condition_stmts["condition_type"] == "And":
+                    condition_stmts = condition_stmts["conditions"]
+                else:
+                    condition_stmts = [condition_stmts]
+
+                age_key, race_key, gender_key = self.process_complex_transition(
+                    condition_stmts, keys_to_avoids
+                )
+
+                probability = distribution_stmts[0]["distribution"]
+
+                computed_proba, age_race_gender_prior = self.get_condition_proba(
+                    condition_name, age_key, race_key, gender_key,
+                    priors, provided_condition_probs, marginale_condition
+                )
+
+                assert probability == computed_proba
+
+        assert (num_distributed_condtions == expected_num_conditions)
+
+    def check_symptom_proba(self, symptom_name, module_proba, priors, provided_condition_probs, expected_probability):
+
+        keys_to_avoids, expected_num_conditions = self.get_exception_keys_and_num_condition(
+            provided_condition_probs
+        )
+
+        marginale_condition = {
+            k: sum([priors[k][d] * provided_condition_probs[k][d] for d in priors[k].keys()])
+            for k in provided_condition_probs.keys()
+        }
+
+        all_possibilities = module_proba['complex_transition']
+        num_distributed_condtions = 0
+
+        mean_proba = 0
+        contributed_keys = set()
+
+        for possibility in all_possibilities:
+            if "condition" in possibility and "distributions" in possibility:
+                num_distributed_condtions += 1
+
+                condition_stmts = possibility["condition"]
+                distribution_stmts = possibility["distributions"]
+
+                if condition_stmts["condition_type"] == "And":
+                    condition_stmts = condition_stmts["conditions"]
+                else:
+                    condition_stmts = [condition_stmts]
+
+                age_key, race_key, gender_key = self.process_complex_transition(
+                    condition_stmts, keys_to_avoids
+                )
+
+                probability = distribution_stmts[0]["distribution"]
+                contributed_keys.add(
+                    age_key + "|" + gender_key + "|" + race_key
+                )
+
+                computed_proba, age_race_gender_prior = self.get_symptom_proba(
+                    symptom_name, age_key, race_key, gender_key,
+                    priors, provided_condition_probs, marginale_condition,
+                    expected_probability
+                )
+
+                mean_proba += probability * age_race_gender_prior
+
+                assert probability == computed_proba
+
+        assert (num_distributed_condtions == expected_num_conditions)
+        assert (round_val(mean_proba) == round_val(expected_probability))
 
     def test_symcat_2_synthea__generator(self, tmpdir):
         sample_symptoms = [
@@ -105,172 +371,227 @@ class TestGenerator(object):
         filename_condition = os.path.join(tmpdir, 'conditions.csv')
         condition_map = parse_symcat_conditions(filename_condition)
 
-        key1 = "abdominal-distention"
-        key2 = "bleeding-from-ear"
+        config_data = [
+            "[Gender]",
+            "sex-male = 1.2",
+            "sex-female = 0.8",
+            "",
+            "[Race]",
+            "race-ethnicity-black = 0.3",
+            "race-ethnicity-hispanic = 0.2",
+            "race-ethnicity-white = 0.3",
+            "race-ethnicity-other = 0.1",
+            "race-ethnicity-asian = 0.05",
+            "race-ethnicity-native = 0.05",
+            "",
+            "[Age]",
+            "age-1-years = 0.1",
+            "age-1-4-years = 0.2",
+            "age-5-14-years = 0.1",
+            "age-15-29-years = 0.2",
+            "age-30-44-years = 0.1",
+            "age-45-59-years = 0.2",
+            "age-60-74-years = 0.09",
+            "age-75-years = 0.01",
+            "",
+            "[Symptoms]",
+            "symptom1 = 0.6",
+            "",
+            "[Conditions]",
+            "condition1 = 0.3",
+        ]
 
-        prob = "distribution"
-        name = "name"
-        state = "states"
-        dist_dis = "distributed_transition"
-        M = "Male"
-        F = "Female"
-        black = "Race_Black"
-        hispa = "Race_Hispanic"
-        white = "Race_White"
-        other = "Race_Other"
-        a0_1 = "Ages_Less_1"
-        a1_4 = "Ages_1_4"
-        a5_14 = "Ages_5_14"
-        a15_29 = "Ages_15_29"
-        a30_44 = "Ages_30_44"
-        a45_59 = "Ages_45_59"
-        a60_74 = "Ages_60_74"
-        a75 = "Ages_75_More"
-        sym = "symptom"
-        tran1 = "Simple_Transition_1"
-        tran2 = "Simple_Transition_2"
-        ndigits = 4
-        suff1 = "_Sym1"
-        suff2 = "_Sym2"
-
-        Ms1 = M + suff1
-        Fs1 = F + suff1
-        blas1 = black + suff1
-        hiss1 = hispa + suff1
-        whis1 = white + suff1
-        oths1 = other + suff1
-        a01s1 = a0_1 + suff1
-        a14s1 = a1_4 + suff1
-        a514s1 = a5_14 + suff1
-        a152s1 = a15_29 + suff1
-        a344s1 = a30_44 + suff1
-        a459s1 = a45_59 + suff1
-        a674s1 = a60_74 + suff1
-        a75s1 = a75 + suff1
-
-        Ms2 = M + suff2
-        Fs2 = F + suff2
-        blas2 = black + suff2
-        hiss2 = hispa + suff2
-        whis2 = white + suff2
-        oths2 = other + suff2
-        a01s2 = a0_1 + suff2
-        a14s2 = a1_4 + suff2
-        a514s2 = a5_14 + suff2
-        a152s2 = a15_29 + suff2
-        a344s2 = a30_44 + suff2
-        a459s2 = a45_59 + suff2
-        a674s2 = a60_74 + suff2
-        a75s2 = a75 + suff2
+        config_file = tmpdir.join("priors.ini")
+        sample_data = "\n".join(config_data)
+        config_file.write(sample_data)
+        filename_config = os.path.join(tmpdir, "priors.ini")
+        priors = load_config(filename_config)
 
         modules = {
-            key: generate_synthea_module(symptom_map, value)
+            key: generate_synthea_module(symptom_map, value, priors)
             for key, value in condition_map.items()
         }
 
         key1 = slugify_condition("Abdominal aortic aneurysm")
         key2 = slugify_condition("Appendicitis")
 
+        name = "name"
+        state = "states"
+        sym = "symptom"
+
         assert len(modules) == 2
 
         ##################### Test for condition 1 ############################
+
         assert key1 in modules
         assert modules[key1][name] == "Abdominal aortic aneurysm"
+        provided_condition_probs = {
+            "Gender": {
+                "sex-male": prob_val(1.8),
+                "sex-female": prob_val(0.4),
+            },
+            "Race": {
+                "race-ethnicity-black": prob_val(0.4),
+                "race-ethnicity-hispanic": prob_val(0.6),
+                "race-ethnicity-white": prob_val(1.4),
+                "race-ethnicity-other": prob_val(0.1),
+                "race-ethnicity-asian": prob_val(0.1),
+                "race-ethnicity-native": prob_val(0.1),
+            },
 
-        assert modules[key1][state][M][dist_dis][0][prob] == prob_val(1.8)
-        assert modules[key1][state][F][dist_dis][0][prob] == prob_val(0.4)
-
-        assert modules[key1][state][black][dist_dis][0][prob] == prob_val(0.4)
-        assert modules[key1][state][hispa][dist_dis][0][prob] == prob_val(0.6)
-        assert modules[key1][state][white][dist_dis][0][prob] == prob_val(1.4)
-        assert modules[key1][state][other][dist_dis][0][prob] == prob_val(0.1)
-
-        assert a0_1 not in modules[key1][state]
-        assert a1_4 not in modules[key1][state]
-        assert a5_14 not in modules[key1][state]
-        assert a15_29 not in modules[key1][state]
-        assert modules[key1][state][a30_44][dist_dis][0][prob] == prob_val(0.1)
-        assert modules[key1][state][a45_59][dist_dis][0][prob] == prob_val(0.4)
-        assert modules[key1][state][a60_74][dist_dis][0][prob] == prob_val(2.9)
-        assert modules[key1][state][a75][dist_dis][0][prob] == prob_val(5.0)
+            "Age": {
+                "age-1-years": prob_val(0.0),
+                "age-1-4-years": prob_val(0.0),
+                "age-5-14-years": prob_val(0.0),
+                "age-15-29-years": prob_val(0.0),
+                "age-30-44-years": prob_val(0.1),
+                "age-45-59-years": prob_val(0.4),
+                "age-60-74-years": prob_val(2.9),
+                "age-75-years": prob_val(5.0),
+            },
+        }
+        self.check_condition_proba(
+            modules[key1][name],
+            modules[key1][state]['Potential_Infection'],
+            priors,
+            provided_condition_probs
+        )
 
         assert modules[key1][state]["Symptom_1"][sym] == "Bleeding from ear"
-        assert modules[key1][state][tran1][dist_dis][0][prob] == 0.53
-
-        assert Fs1 not in modules[key1][state]
-        assert modules[key1][state][Ms1][dist_dis][0][prob] == prob_val(1.3)
-
-        assert modules[key1][state][blas1][dist_dis][0][prob] == prob_val(0.9)
-        assert modules[key1][state][hiss1][dist_dis][0][prob] == prob_val(1.4)
-        assert modules[key1][state][whis1][dist_dis][0][prob] == prob_val(0.9)
-        assert modules[key1][state][oths1][dist_dis][0][prob] == prob_val(0.0)
-
-        assert not a344s1 in modules[key1][state]
-        assert modules[key1][state][a01s1][dist_dis][0][prob] == prob_val(2.1)
-        assert modules[key1][state][a14s1][dist_dis][0][prob] == prob_val(4.2)
-        assert modules[key1][state][a514s1][dist_dis][0][prob] == prob_val(1.7)
-        assert modules[key1][state][a152s1][dist_dis][0][prob] == prob_val(0.7)
-        assert modules[key1][state][a459s1][dist_dis][0][prob] == prob_val(0.5)
-        assert modules[key1][state][a674s1][dist_dis][0][prob] == prob_val(0.3)
-        assert modules[key1][state][a75s1][dist_dis][0][prob] == prob_val(1.1)
+        expected_symptom_probability = 0.53
+        provided_symptom_probs = {
+            "Gender": {
+                "sex-male": prob_val(1.3),
+                "sex-female": prob_val(0.0),
+            },
+            "Race": {
+                "race-ethnicity-black": prob_val(0.9),
+                "race-ethnicity-hispanic": prob_val(1.4),
+                "race-ethnicity-white": prob_val(0.9),
+                "race-ethnicity-other": prob_val(0.0),
+                "race-ethnicity-asian": prob_val(0.0),
+                "race-ethnicity-native": prob_val(0.0),
+            },
+            "Age": {
+                "age-1-years": prob_val(2.1),
+                "age-1-4-years": prob_val(4.2),
+                "age-5-14-years": prob_val(1.7),
+                "age-15-29-years": prob_val(0.7),
+                "age-30-44-years": prob_val(0.0),
+                "age-45-59-years": prob_val(0.5),
+                "age-60-74-years": prob_val(0.3),
+                "age-75-years": prob_val(1.1),
+            },
+        }
+        self.check_symptom_proba(
+            modules[key1][state]["Symptom_1"]["symptom"],
+            modules[key1][state]["Simple_Transition_1"],
+            priors,
+            provided_symptom_probs,
+            expected_symptom_probability
+        )
 
         assert modules[key1][state]["Symptom_2"][sym] == "Abdominal distention"
-        assert modules[key1][state][tran2][dist_dis][0][prob] == 0.35
-
-        assert modules[key1][state][Ms2][dist_dis][0][prob] == prob_val(1.2)
-        assert modules[key1][state][Fs2][dist_dis][0][prob] == prob_val(0.9)
-
-        assert modules[key1][state][blas2][dist_dis][0][prob] == prob_val(0.9)
-        assert modules[key1][state][hiss2][dist_dis][0][prob] == prob_val(0.5)
-        assert modules[key1][state][whis2][dist_dis][0][prob] == prob_val(1.2)
-        assert modules[key1][state][oths2][dist_dis][0][prob] == prob_val(0.5)
-
-        assert a14s2 not in modules[key1][state]
-        assert a514s2 not in modules[key1][state]
-        assert modules[key1][state][a01s2][dist_dis][0][prob] == prob_val(0.8)
-        assert modules[key1][state][a152s2][dist_dis][0][prob] == prob_val(0.3)
-        assert modules[key1][state][a344s2][dist_dis][0][prob] == prob_val(0.8)
-        assert modules[key1][state][a459s2][dist_dis][0][prob] == prob_val(1.9)
-        assert modules[key1][state][a674s2][dist_dis][0][prob] == prob_val(2.4)
-        assert modules[key1][state][a75s2][dist_dis][0][prob] == prob_val(0.3)
+        expected_symptom_probability = 0.35
+        provided_symptom_probs = {
+            "Gender": {
+                "sex-male": prob_val(1.2),
+                "sex-female": prob_val(0.9),
+            },
+            "Race": {
+                "race-ethnicity-black": prob_val(0.9),
+                "race-ethnicity-hispanic": prob_val(0.5),
+                "race-ethnicity-white": prob_val(1.2),
+                "race-ethnicity-other": prob_val(0.5),
+                "race-ethnicity-asian": prob_val(0.5),
+                "race-ethnicity-native": prob_val(0.5),
+            },
+            "Age": {
+                "age-1-years": prob_val(0.8),
+                "age-1-4-years": prob_val(0.0),
+                "age-5-14-years": prob_val(0.0),
+                "age-15-29-years": prob_val(0.3),
+                "age-30-44-years": prob_val(0.8),
+                "age-45-59-years": prob_val(1.9),
+                "age-60-74-years": prob_val(2.4),
+                "age-75-years": prob_val(0.3),
+            },
+        }
+        self.check_symptom_proba(
+            modules[key1][state]["Symptom_2"]["symptom"],
+            modules[key1][state]["Simple_Transition_2"],
+            priors,
+            provided_symptom_probs,
+            expected_symptom_probability
+        )
 
         ##################### Test for condition 2 ############################
         assert key2 in modules
         assert modules[key2][name] == "Appendicitis"
 
-        assert modules[key2][state][M][dist_dis][0][prob] == prob_val(1.3)
-        assert modules[key2][state][F][dist_dis][0][prob] == prob_val(0.8)
+        provided_condition_probs = {
+            "Gender": {
+                "sex-male": prob_val(1.3),
+                "sex-female": prob_val(0.8),
+            },
+            "Race": {
+                "race-ethnicity-black": prob_val(0.4),
+                "race-ethnicity-hispanic": prob_val(1.5),
+                "race-ethnicity-white": prob_val(0.0),
+                "race-ethnicity-other": prob_val(1.3),
+                "race-ethnicity-asian": prob_val(1.3),
+                "race-ethnicity-native": prob_val(1.3),
+            },
 
-        assert modules[key2][state][black][dist_dis][0][prob] == prob_val(0.4)
-        assert modules[key2][state][hispa][dist_dis][0][prob] == prob_val(1.5)
-        assert modules[key2][state][white][dist_dis][0][prob] == prob_val(0.0)
-        assert modules[key2][state][other][dist_dis][0][prob] == prob_val(1.3)
-
-        assert modules[key2][state][a0_1][dist_dis][0][prob] == prob_val(0.1)
-        assert modules[key2][state][a1_4][dist_dis][0][prob] == prob_val(0.3)
-        assert modules[key2][state][a5_14][dist_dis][0][prob] == prob_val(2.2)
-        assert modules[key2][state][a15_29][dist_dis][0][prob] == prob_val(1.9)
-        assert modules[key2][state][a30_44][dist_dis][0][prob] == prob_val(1.0)
-        assert modules[key2][state][a45_59][dist_dis][0][prob] == prob_val(0.7)
-        assert modules[key2][state][a60_74][dist_dis][0][prob] == prob_val(0.5)
-        assert modules[key2][state][a75][dist_dis][0][prob] == prob_val(0.2)
+            "Age": {
+                "age-1-years": prob_val(0.1),
+                "age-1-4-years": prob_val(0.3),
+                "age-5-14-years": prob_val(2.2),
+                "age-15-29-years": prob_val(1.9),
+                "age-30-44-years": prob_val(1.0),
+                "age-45-59-years": prob_val(0.7),
+                "age-60-74-years": prob_val(0.5),
+                "age-75-years": prob_val(0.2),
+            },
+        }
+        self.check_condition_proba(
+            modules[key2][name],
+            modules[key2][state]['Potential_Infection'],
+            priors,
+            provided_condition_probs
+        )
 
         assert modules[key2][state]["Symptom_1"][sym] == "Abdominal distention"
-        assert modules[key2][state][tran1][dist_dis][0][prob] == 0.91
+        expected_symptom_probability = 0.91
+        provided_symptom_probs = {
+            "Gender": {
+                "sex-male": prob_val(1.2),
+                "sex-female": prob_val(0.9),
+            },
+            "Race": {
+                "race-ethnicity-black": prob_val(0.9),
+                "race-ethnicity-hispanic": prob_val(0.5),
+                "race-ethnicity-white": prob_val(1.2),
+                "race-ethnicity-other": prob_val(0.5),
+                "race-ethnicity-asian": prob_val(0.5),
+                "race-ethnicity-native": prob_val(0.5),
+            },
 
-        assert modules[key2][state][Ms1][dist_dis][0][prob] == prob_val(1.2)
-        assert modules[key2][state][Fs1][dist_dis][0][prob] == prob_val(0.9)
-
-        assert modules[key2][state][blas1][dist_dis][0][prob] == prob_val(0.9)
-        assert modules[key2][state][hiss1][dist_dis][0][prob] == prob_val(0.5)
-        assert modules[key2][state][whis1][dist_dis][0][prob] == prob_val(1.2)
-        assert modules[key2][state][oths1][dist_dis][0][prob] == prob_val(0.5)
-
-        assert a14s2 not in modules[key2][state]
-        assert a514s2 not in modules[key2][state]
-        assert modules[key2][state][a01s1][dist_dis][0][prob] == prob_val(0.8)
-        assert modules[key2][state][a152s1][dist_dis][0][prob] == prob_val(0.3)
-        assert modules[key2][state][a344s1][dist_dis][0][prob] == prob_val(0.8)
-        assert modules[key2][state][a459s1][dist_dis][0][prob] == prob_val(1.9)
-        assert modules[key2][state][a674s1][dist_dis][0][prob] == prob_val(2.4)
-        assert modules[key2][state][a75s1][dist_dis][0][prob] == prob_val(0.3)
+            "Age": {
+                "age-1-years": prob_val(0.8),
+                "age-1-4-years": prob_val(0.0),
+                "age-5-14-years": prob_val(0.0),
+                "age-15-29-years": prob_val(0.3),
+                "age-30-44-years": prob_val(0.8),
+                "age-45-59-years": prob_val(1.9),
+                "age-60-74-years": prob_val(2.4),
+                "age-75-years": prob_val(0.3),
+            },
+        }
+        self.check_symptom_proba(
+            modules[key2][state]["Symptom_1"]["symptom"],
+            modules[key2][state]["Simple_Transition_1"],
+            priors,
+            provided_symptom_probs,
+            expected_symptom_probability
+        )
