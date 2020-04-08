@@ -52,8 +52,10 @@ class TestGenerator(object):
 
         age_race_gender_prior = age_prior * race_prior * gender_prior
 
+        default_condition_prior = 0.5
+
         condition_prior_gender = priors["Conditions"].get(
-            condition_name, marginale_condition["Gender"]
+            condition_name, default_condition_prior
         )
 
         marginal_prior_gender = marginale_condition["Gender"]

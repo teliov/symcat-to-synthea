@@ -2,6 +2,7 @@ import configparser
 
 
 def normalize_priors(priors):
+    # normalize the proba values so that they sum to 1
     sumProba = 0.0
     numNone = 0
     for k in priors.keys():
@@ -38,6 +39,7 @@ def convert_to_float(val):
 
 
 def load_config(filename):
+    # create an empty config data structure.
     config = configparser.ConfigParser()
     if (filename is not None) and (filename != ""):
         config.read(filename)
@@ -91,7 +93,7 @@ def load_config(filename):
         for k in config['Conditions']:
             val = config['Conditions'].get(k, None)
             if (val is None) or val == "":
-                val = "1.0"
+                val = "0.5"
             priors['Conditions'][k.lower()] = convert_to_float(val)
             assert (priors['Conditions'][k.lower()] >=
                     0 and priors['Conditions'][k.lower()] <= 1)
@@ -100,7 +102,7 @@ def load_config(filename):
         for k in config['Symptoms']:
             val = config['Symptoms'].get(k, None)
             if (val is None) or val == "":
-                val = "1.0"
+                val = "0.5"
             priors['Symptoms'][k.lower()] = convert_to_float(val)
             assert (priors['Symptoms'][k.lower()] >=
                     0 and priors['Symptoms'][k.lower()] <= 1)

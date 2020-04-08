@@ -97,9 +97,9 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
     ])
 
     # condition priors
-    prior_condition_from_gender = sex_denom
+    default_prior_condition = 0.5
     prior_condition = priors["Conditions"].get(
-        condition.lower(), prior_condition_from_gender)
+        condition.lower(), default_prior_condition)
 
     assert sex_denom > 0, "the sex denom probability must be greater than 0"
     assert age_denom > 0, "the age denom probability must be greater than 0"
@@ -318,7 +318,7 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
     race_dict = distribution.get("race", {})
     age_dict = distribution.get("age", {})
 
-    # Prob (condition | risk factors)
+    # Prob (symptom | condition, risk factors)
     sex_denom = sum([
         prob_val(
             sex_dict.get(sex_key).get("odds")

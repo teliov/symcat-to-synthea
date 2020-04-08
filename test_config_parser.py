@@ -1,6 +1,6 @@
 import os
 
-from configFileParser import load_config
+from configFileParser import load_config, normalize_priors
 
 
 class TestConfigFileParser(object):
@@ -18,6 +18,15 @@ class TestConfigFileParser(object):
         assert 1.0 == self.sum_prob_distribution(priors['Gender'])
         assert 1.0 == self.sum_prob_distribution(priors['Age'])
         assert 1.0 == self.sum_prob_distribution(priors['Race'])
+
+    def test_normalize_priors(self):
+        priors = {
+            "a": 1.2,
+            "b": 0.8,
+            "c": 0.2
+        }
+        priors = normalize_priors(priors)
+        assert 1.0 == self.sum_prob_distribution(priors)
 
     def test_empty_config(self, tmpdir):
 
@@ -125,6 +134,6 @@ class TestConfigFileParser(object):
         assert priors['Race']["race-ethnicity-native"] == 0.05
 
         assert priors['Symptoms']["symptom1"] == 0.6
-        assert priors['Symptoms']["symptom2"] == 1.0
+        assert priors['Symptoms']["symptom2"] == 0.5
         assert priors['Conditions']["condition1"] == 0.3
-        assert priors['Conditions']["condition2"] == 1.0
+        assert priors['Conditions']["condition2"] == 0.5
