@@ -810,7 +810,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, num_history_ye
             "condition_type": "Attribute",
             "attribute": history_age_attribute,
             "operator": "<=",
-            "value": num_history_years
+            "value": 0
         },
         "direct_transition": potential_infection_transition
     }
