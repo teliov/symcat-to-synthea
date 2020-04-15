@@ -23,20 +23,8 @@ if __name__ == "__main__":
     parser.add_argument('--conditions_json', help='Symcat conditions export')
 
     parser.add_argument(
-        '--incidence_limit', type=int, default=1,
-        help='Number of time a patient may have a condition'
-    )
-    parser.add_argument(
-        '--noinfection_limit', type=int, default=3,
-        help='Number max of consecutive failure attempts to assign a condition to a person'
-    )
-    parser.add_argument(
-        '--min_delay_years', type=int, default=1,
-        help='Minimum delay in years to wait for performing the next attempt to assign the contion to a person'
-    )
-    parser.add_argument(
-        '--max_delay_years', type=int, default=80,
-        help='Maximum delay in years to wait for performing the next attempt to assign the contion to a person'
+        '--num_history_years', type=int, default=1,
+        help='Given the target age of a patient, this is the number of years from that target year from which pathologoes are generated.'
     )
     parser.add_argument(
         '--min_symptoms', type=int, default=1,
@@ -66,8 +54,7 @@ if __name__ == "__main__":
                 "You must supply both the parsed symptoms.json and conditions.json file")
         generate_synthea_modules(
             args.symptoms_json, args.conditions_json, output_dir, args.config_file,
-            args.incidence_limit, args.noinfection_limit,
-            args.min_delay_years, args.max_delay_years, args.min_symptoms
+            args.num_history_years, args.min_symptoms
         )
     elif args.parse_symptoms:
         if not args.symptoms_csv:

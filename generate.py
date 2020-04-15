@@ -577,7 +577,182 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
     return transitions
 
 
-def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10, min_symptoms=1):
+def generate_transition_for_history_attribute(attribute_name, next_state):
+    """Function for defining age-based transitions in the generated PGM module
+    Parameters
+    ----------
+    attribute_name : str
+        The name of the attribute for testing purposes.
+    next_state : str
+        The name of the node to transit in case we sample withing the
+        provided distribution
+    default_state : str
+        The name of the node to transit in case we do not sample withing the
+        provided distribution (default: "TerminalState").
+    Returns
+    -------
+    transitions: list
+        the corresponding list of generated transitions
+    nodes: dict
+        the associated nodes to the transition being generated. 
+        These nodes will later be used to update the state dictionnary
+        of the current PGM.
+    """
+    time_keys = [
+        "age-1-years", "age-1-5-years", "age-5-15-years", "age-15-30-years",
+        "age-30-45-years", "age-45-60-years", "age-60-75-years", "age-75-years"
+    ]
+
+    transitions = []
+    adjacent_states = {}
+    for idx, key in enumerate(time_keys):
+        if key == "age-1-years":
+            next_node_name = "End_Time_LessOrEqual_1"
+            curr_transition = {
+                "condition": {
+                    "condition_type": "Attribute",
+                    "attribute": attribute_name,
+                    "operator": "<=",
+                    "value": 1
+                },
+                "transition": next_node_name
+            }
+            state = {
+                "type": "Delay",
+                "exact": {
+                    "quantity": 1,
+                    "unit": "months"
+                },
+                "direct_transition": next_state
+            }
+        elif key == "age-75-years":
+            next_node_name = "End_Time_Greater_75"
+            curr_transition = {
+                "condition": {
+                    "condition_type": "Attribute",
+                    "attribute": attribute_name,
+                    "operator": ">",
+                    "value": 75
+                },
+                "transition": next_node_name
+            }
+            state = {
+                "type": "Delay",
+                "exact": {
+                    "quantity": 75,
+                    "unit": "years"
+                },
+                "direct_transition": next_state
+            }
+        else:
+            parts = key.split("-")
+            age_lower = parts[1]
+            age_upper = parts[2]
+            next_node_name = "End_Time_{}_{}".format(age_lower, age_upper)
+            curr_transition = {
+                "condition": {
+                    "condition_type": "And",
+                    "conditions": [
+                        {
+                            "condition_type": "Attribute",
+                            "attribute": attribute_name,
+                            "operator": ">",
+                            "value": int(age_lower)
+                        },
+                        {
+                            "condition_type": "Attribute",
+                            "attribute": attribute_name,
+                            "operator": "<=",
+                            "value": int(age_upper)
+                        }
+                    ],
+                },
+                "transition": next_node_name
+            }
+            state = {
+                "type": "Delay",
+                "exact": {
+                    "quantity": int(age_lower),
+                    "unit": "years"
+                },
+                "direct_transition": next_state
+            }
+        transitions.append(curr_transition)
+        adjacent_states[next_node_name] = state
+
+    return transitions, adjacent_states
+
+
+def generate_synthea_common_history_module(num_history_years=1):
+    """Function for generating the PGM module which aims at setting the attribute
+    `age_time_to_the_end` for a given person as a function of his current_age and target_age
+    that is: `age_time_to_the_end = target_age - current_age`.
+
+    Parameters
+    ----------
+    num_history_years: int
+        given the target age of a patient, this is the number of years from 
+        that target year from which pathologoes are generated.
+        (default: 1)
+
+    Returns
+    -------
+    dict
+        A ddictionnary describing the PGM of the correspondinf module.
+    """
+
+    history_age_attribute = "age_time_to_the_end"
+
+    states = OrderedDict()
+
+    # add the initial onset
+    states["Initial"] = {
+        "type": "Initial",
+        "direct_transition": "History_Age_Attribute"
+    }
+
+    # set attrbute based on target age
+    states["History_Age_Attribute"] = {
+        "type": "SetAttribute",
+        "attribute": history_age_attribute,
+        "expression": "#{target_age} - #{age} - " + str(num_history_years)
+    }
+
+    # time states
+    time_conditional_transition, time_states = generate_transition_for_history_attribute(
+        history_age_attribute, "Check_Exit"
+    )
+    states["History_Age_Attribute"][
+        "conditional_transition"] = time_conditional_transition
+    states.update(time_states)
+
+    # check if the time history is verified
+    states["Check_Exit"] = {
+        "type": "Simple",
+        "conditional_transition": [
+            {
+                "condition": {
+                    "condition_type": "False",
+                },
+                "transition": "TerminalState"
+            },
+            {
+                "transition": "History_Age_Attribute"
+            }
+        ]
+    }
+
+    states["TerminalState"] = {
+        "type": "Terminal"
+    }
+
+    return {
+        "name": "update_age_time_to_the_end",
+        "states": states
+    }
+
+
+def generate_synthea_module(symptom_dict, test_condition, priors, num_history_years=1, min_symptoms=1):
     """Function for generating the PGM module for a given condition.
 
     Parameters
@@ -592,21 +767,10 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
         Dictionnary containing information related to the 
         priors associated to age, race, sex categories 
         as well as conditions and symptoms
-    incidence_limit: int
-        maximum number of time a person can have the condition.
-        (default: 3)
-    noinfection_limit: int
-        Terminate the module if there is `noinfection_limit` consecutive attempts 
-        to assign the condition to a person without success.
-        (default: 3)
-    min_delay_years: int
-        Minimum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
+    num_history_years: int
+        given the target age of a patient, this is the number of years from 
+        that target year from which pathologoes are generated.
         (default: 1)
-    max_delay_years: int
-        Maximum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
-        (default: 10)
     min_symptoms: int
         Minimum number of symptoms to enforce at generation time.
         (default: 1)
@@ -626,11 +790,9 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
     potential_infection_transition = "Potential_Infection"
     incidence_counter_transition = "IncidenceCounter"
-    incidence_attribute = "count_%s" % condition_slug
     num_symptom_attribute = "count_symptom_%s" % condition_slug
-    noinfection_attribute = "noinf_cons_count_%s" % condition_slug
-    incidence_limit = incidence_limit
-    noinfection_limit = noinfection_limit
+    # history_age_attribute = "history_age_%s" % condition_slug
+    history_age_attribute = "age_time_to_the_end"
     node_infection_name = condition_name.replace(" ", "_") + "_Infection"
 
     states = OrderedDict()
@@ -638,32 +800,17 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
     # add the initial onset
     states["Initial"] = {
         "type": "Initial",
-        "direct_transition": "Init_Cons_NoInf_Counter"
+        "direct_transition": "Check_History_Age_Attribute"
     }
 
-    # add Init_Cons_NoInf_Counter node
-    states["Init_Cons_NoInf_Counter"] = {
-        "type": "SetAttribute",
-        "attribute": noinfection_attribute,
-        "value": 0,
-        "direct_transition": "Init_Incidence_Counter"
-    }
-
-    # add Init_Incidence_Counter node
-    states["Init_Incidence_Counter"] = {
-        "type": "SetAttribute",
-        "attribute": incidence_attribute,
-        "value": 0,
-        "direct_transition": "Time_Delay"
-    }
-
-    # add Potential_Infection node
-    states["Time_Delay"] = {
-        "type": "Delay",
-        "range": {
-            "low": 0,
-            "high": 60,
-            "unit": "months"
+    # check if the time history is verified
+    states["Check_History_Age_Attribute"] = {
+        "type": "Guard",
+        "allow": {
+            "condition_type": "Attribute",
+            "attribute": history_age_attribute,
+            "operator": "<=",
+            "value": num_history_years
         },
         "direct_transition": potential_infection_transition
     }
@@ -680,34 +827,8 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
     # we will end this module if a patient does not catch the condition n
     # consecutive times.
     states["No_Infection"] = {
-        "type": "Counter",
-        "attribute": noinfection_attribute,
-        "action": "increment",
-        "conditional_transition": [
-            {
-                "transition": "TerminalState",
-                "condition": {
-                    "condition_type": "Attribute",
-                    "attribute": noinfection_attribute,
-                    "operator": ">=",
-                    "value": noinfection_limit
-                }
-            },
-            {
-                "transition": "No_Infection_Time_Delay"
-            }
-        ]
-    }
-
-    # add Potential_Infection node
-    states["No_Infection_Time_Delay"] = {
-        "type": "Delay",
-        "range": {
-            "low": min_delay_years,
-            "high": max_delay_years,
-            "unit": "years"
-        },
-        "direct_transition": potential_infection_transition
+        "type": "Simple",
+        "direct_transition": "TerminalState"
     }
 
     # add the Condition state (a ConditionOnset) stage
@@ -911,49 +1032,8 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
     states["ConditionEnds"] = {
         "type": "ConditionEnd",
-        "direct_transition": incidence_counter_transition,
+        "direct_transition": "TerminalState",
         "condition_onset": node_infection_name
-    }
-
-    # let's wait for a year and redo the whole thing!
-    states["TreatmentComplete"] = {
-        "type": "Delay",
-        "range": {
-            "low": min_delay_years,
-            "high": max_delay_years,
-            "unit": "years"
-        },
-        "direct_transition": "Reset_Cons_NoInf_Counter"
-    }
-
-    # reset no infectin counter
-    states["Reset_Cons_NoInf_Counter"] = {
-        "type": "SetAttribute",
-        "attribute": noinfection_attribute,
-        "value": 0,
-        "direct_transition": potential_infection_transition
-    }
-
-    # we won't allow the same patient to fall ill with the same condition more than three times.
-    # after the third time, the module terminates
-    states[incidence_counter_transition] = {
-        "type": "Counter",
-        "attribute": incidence_attribute,
-        "action": "increment",
-        "conditional_transition": [
-            {
-                "transition": "TerminalState",
-                "condition": {
-                    "condition_type": "Attribute",
-                    "attribute": incidence_attribute,
-                    "operator": ">=",
-                    "value": incidence_limit
-                }
-            },
-            {
-                "transition": "TreatmentComplete"
-            }
-        ]
     }
 
     states["TerminalState"] = {
@@ -966,7 +1046,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
     }
 
 
-def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_file="", incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10, min_symptoms=1):
+def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_file="", num_history_years=1, min_symptoms=1):
     """Function for generating and save the PGM
     module as a JSON file for all the conditions.
 
@@ -985,21 +1065,10 @@ def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_f
         priors associated to age, race, sex categories 
         as well as conditions and symptoms
         (default:"")
-    incidence_limit: int
-        maximum number of time a person can have the condition.
-        (default: 3)
-    noinfection_limit: int
-        Terminate the module if there is `noinfection_limit` consecutive attempts 
-        to assign the condition to a person without success.
-        (default: 3)
-    min_delay_years: int
-        Minimum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
+    num_history_years: int
+        given the target age of a patient, this is the number of years from 
+        that target year from which pathologoes are generated.
         (default: 1)
-    max_delay_years: int
-        Maximum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
-        (default: 10)
     min_symptoms: int
         Minimum number of symptoms to enforce at generation time.
         (default: 1)
@@ -1022,8 +1091,7 @@ def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_f
 
     for key, value in conditions_data.items():
         module = generate_synthea_module(
-            symptoms_data, value, priors, incidence_limit,
-            noinfection_limit, min_delay_years, max_delay_years, min_symptoms
+            symptoms_data, value, priors, num_history_years, min_symptoms
         )
         if module is None:
             continue
@@ -1031,4 +1099,10 @@ def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_f
 
         with open(filename, "w") as fp:
             json.dump(module, fp, indent=4)
+
+    module = generate_synthea_common_history_module(num_history_years)
+    filename = os.path.join(output_dir, "%s.json" % ("1_" + module["name"]))
+    with open(filename, "w") as fp:
+        json.dump(module, fp, indent=4)
+
     return True
