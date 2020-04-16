@@ -35,7 +35,7 @@ if __name__ == "__main__":
         help='Minimum delay in years to wait for performing the next attempt to assign the condition to a person'
     )
     parser.add_argument(
-        '--max_delay_years', type=int, default=80,
+        '--max_delay_years', type=int, default=10,
         help='Maximum delay in years to wait for performing the next attempt to assign the condition to a person'
     )
     parser.add_argument(

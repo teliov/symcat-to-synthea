@@ -59,7 +59,7 @@ It is set to a default of 1.
 **max_delay_years**:
 
 See `min_delay_years` above.
-It is set to a default of 80.
+It is set to a default of 10.
 
 **min_symptoms**:
 
