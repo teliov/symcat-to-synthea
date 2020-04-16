@@ -43,6 +43,8 @@ class GeneratorConfig(object):
     min_symptoms: int
         Minimum number of symptoms to enforce at generation time.
         (default: 1)
+    prefix: string
+        prefix to be preppended to a module's output file name
     """
     symptom_file = None
     conditions_file = None
@@ -53,6 +55,7 @@ class GeneratorConfig(object):
     min_delay_years = 1
     max_delay_years = 10
     min_symptoms = 1
+    prefix = ""
 
 
 def prob_val(x, ndigits=4):
@@ -962,7 +965,7 @@ def generate_synthea_modules(config):
         )
         if module is None:
             continue
-        filename = os.path.join(config.output_dir, "%s.json" % key)
+        filename = os.path.join(config.output_dir, "%s%s.json" % (config.prefix, key))
 
         with open(filename, "w") as fp:
             json.dump(module, fp, indent=4)

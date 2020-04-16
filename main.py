@@ -47,6 +47,11 @@ if __name__ == "__main__":
         help='path to the config file'
     )
 
+    parser.add_argument(
+        '--module_prefix', type=int, default="",
+        help='Add a prefix to the name of generated modules'
+    )
+
     parser.add_argument('--output', help="Output directory")
 
     args = parser.parse_args()
@@ -71,6 +76,7 @@ if __name__ == "__main__":
         config.min_delay_years = args.min_delay_years
         config.max_delay_years = args.max_delay_years
         config.min_symptoms = args.min_symptoms
+        config.prefix = args.module_prefix
 
         if not args.symptoms_json or not args.conditions_json:
             raise ValueError(
