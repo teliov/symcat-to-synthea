@@ -1,5 +1,6 @@
 .idea/
 output
 __pycache__/
-sample_output/modules/*.json
+sample_output/
 symptoms_db.json
+venv

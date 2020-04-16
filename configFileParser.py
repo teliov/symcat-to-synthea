@@ -17,10 +17,6 @@ def normalize_priors(priors):
             if sumProba > 0:
                 for k in priors.keys():
                     priors[k] /= sumProba
-            else:
-                remainderProb = remainder / len(priors.keys())
-                for k in priors.keys():
-                    priors[k] = remainderProb
     else:
         assert sumProba <= 1, "expressed priors should be sum to maximum 1"
         remainder = 1.0 - sumProba

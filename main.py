@@ -3,7 +3,7 @@ import argparse
 import json
 import os
 
-from generate import generate_synthea_modules
+from generate import generate_synthea_modules, GeneratorConfig
 from parse import parse_symcat_conditions, parse_symcat_symptoms
 
 if __name__ == "__main__":
@@ -32,11 +32,11 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         '--min_delay_years', type=int, default=1,
-        help='Minimum delay in years to wait for performing the next attempt to assign the contion to a person'
+        help='Minimum delay in years to wait for performing the next attempt to assign the condition to a person'
     )
     parser.add_argument(
         '--max_delay_years', type=int, default=80,
-        help='Maximum delay in years to wait for performing the next attempt to assign the contion to a person'
+        help='Maximum delay in years to wait for performing the next attempt to assign the condition to a person'
     )
     parser.add_argument(
         '--min_symptoms', type=int, default=1,
@@ -61,18 +61,27 @@ if __name__ == "__main__":
 
     if args.gen_modules:
         # we're generating modules
+        config = GeneratorConfig()
+        config.output_dir = output_dir
+        config.symptom_file = args.symptoms_json
+        config.conditions_file = args.conditions_json
+        config.config_file = args.config_file
+        config.incidence_limit = args.incidence_limit
+        config.noinfection_limit = args.noinfection_limit
+        config.min_delay_years = args.min_delay_years
+        config.max_delay_years = args.max_delay_years
+        config.min_symptoms = args.min_symptoms
+
         if not args.symptoms_json or not args.conditions_json:
             raise ValueError(
-                "You must supply both the parsed symptoms.json and conditions.json file")
-        generate_synthea_modules(
-            args.symptoms_json, args.conditions_json, output_dir, args.config_file,
-            args.incidence_limit, args.noinfection_limit,
-            args.min_delay_years, args.max_delay_years, args.min_symptoms
-        )
+                "You must supply both the parsed symptoms.json and conditions.json file"
+            )
+        generate_synthea_modules(config)
     elif args.parse_symptoms:
         if not args.symptoms_csv:
             raise ValueError(
-                "You must supply the symcat exported symptoms CSV file")
+                "You must supply the symcat exported symptoms CSV file"
+            )
         symptoms = parse_symcat_symptoms(args.symptoms_csv)
         with open(os.path.join(output_dir, "symptoms.json"), "w") as fp:
             json.dump(symptoms, fp, indent=4)
@@ -85,4 +94,5 @@ if __name__ == "__main__":
             json.dump(conditions, fp, indent=4)
     else:
         raise ValueError(
-            "You must either generate modules, parse symptoms or parse conditions")
+            "You must either generate modules, parse symptoms or parse conditions"
+        )
