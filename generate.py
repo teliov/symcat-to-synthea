@@ -6,6 +6,58 @@ import os
 from configFileParser import load_config
 
 
+class GeneratorConfig(object):
+    """
+    Class for holding config options for the synthea module generator
+
+    Attributes
+    ----------
+    symptom_file : str
+        Path of the JSON file containing all the symptoms of the database
+        with their related characteristics.
+    conditions_file : str
+        Path of the JSON file containing all the conditions of the database
+        with their related characteristics.
+    output_dir : str
+        Path of the directory where the generatd JSON files will be saved.
+    config_file : str
+        path to the config file containing information related to the
+        priors associated to age, race, sex categories
+        as well as conditions and symptoms
+        (default:"")
+    incidence_limit: int
+        maximum number of time a person can have the condition.
+        (default: 3)
+    noinfection_limit: int
+        Terminate the module if there is `noinfection_limit` consecutive attempts
+        to assign the condition to a person without success.
+        (default: 3)
+    min_delay_years: int
+        Minimum delay in years to wait for performing the next attempt
+        to assign the condition to a person.
+        (default: 1)
+    max_delay_years: int
+        Maximum delay in years to wait for performing the next attempt
+        to assign the condition to a person.
+        (default: 10)
+    min_symptoms: int
+        Minimum number of symptoms to enforce at generation time.
+        (default: 1)
+    prefix: string
+        prefix to be preppended to a module's output file name
+    """
+    symptom_file = None
+    conditions_file = None
+    output_dir = None
+    config_file = ""
+    incidence_limit = 3
+    noinfection_limit = 3
+    min_delay_years = 1
+    max_delay_years = 10
+    min_symptoms = 1
+    prefix = ""
+
+
 def prob_val(x, ndigits=4):
     """Function for converting odd ratio into probability.
 
@@ -251,9 +303,8 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
     return transitions
 
 
-def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_state, priors, default_state="TerminalState"):
+def generate_symptoms_for_sex_race_age(symptom, probability, distribution, next_state, priors, default_state="TerminalState"):
     """Function for defining age-based transitions in the generated PGM module
-
     Parameters
     ----------
     symptom : str
@@ -261,17 +312,16 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
     probability : float
         The absolute probablity value of the symtom given the cuurent condition.
     distribution : dict
-        Dictionnary containing the odd values associated to each age category, 
+        Dictionnary containing the odd values associated to each age category,
         race category, and sex category
     next_state : str
         The name of the node to transit in case we sample withing the
-        provided distribution    
+        provided distribution
     priors : dict
         The priors associated to age, race, sex categories as well as conditions and symptoms
     default_state : str
         The name of the node to transit in case we do not sample withing the
         provided distribution (default: "TerminalState").
-
     Returns
     -------
     transitions: list
@@ -281,10 +331,7 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
         "age-1-years", "age-1-4-years", "age-5-14-years", "age-15-29-years",
         "age-30-44-years", "age-45-59-years", "age-60-74-years", "age-75-years"
     ]
-    race_keys = [
-        "race-ethnicity-black", "race-ethnicity-hispanic",
-        "race-ethnicity-white", "race-ethnicity-other"
-    ]
+
     race_prior_keys = [
         "race-ethnicity-black", "race-ethnicity-hispanic",
         "race-ethnicity-white", "race-ethnicity-other",
@@ -294,7 +341,8 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
 
     transitions = []
 
-    if ((len(distribution.get("sex")) == 0) and (len(distribution.get("age")) == 0) and (len(distribution.get("race")) == 0)):
+    if ((len(distribution.get("sex")) == 0) and (len(distribution.get("age")) == 0) and (
+            len(distribution.get("race")) == 0)):
         probability = round_val(probability)
         transitions.append({
             "distributions": [
@@ -426,14 +474,46 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
             for race_key in race_dict.keys():
                 if race_key == fake_race_key:
                     race_prob = 1
-                    condition_race = None
+                    condition_race = [None]
+                else:
+                    race_odds = race_dict.get(race_key).get("odds")
+                    race_prob = prob_val(race_odds)
+
+                    if race_key == "race-ethnicity-other":
+                        # split this into three for : NATIVE, "ASIAN" and "OTHER"
+                        # according to synthea
+                        othersVal = [
+                            ("race-ethnicity-native", "Native"),
+                            ("race-ethnicity-asian", "Asian"),
+                            ("race-ethnicity-other", "Other"),
+                        ]
+                        condition_race = []
+                        for _, item in othersVal:
+                            condition_race.append({
+                                "condition_type": "Race",
+                                "race": item
+                            })
+                    else:
+                        condition_race = [{
+                            "condition_type": "Race",
+                            "race": distribution.get("race").get(race_key).get("name")
+                        }]
+
+                p_numerator = probability * sex_prob * age_prob * race_prob
+                p_denominator = age_denom * sex_denom * race_denom
+                p_symp_g_cond_sex_race_age = round_val(p_numerator / p_denominator)
+
+                num_repeat = len(condition_race)
+
+                for idx in range(num_repeat):
                     conditions = []
                     if condition_sex is not None:
                         conditions.append(condition_sex)
                     if condition_age is not None:
                         conditions.append(condition_age)
-                    if condition_race is not None:
-                        conditions.append(condition_race)
+                    current_condition_race = condition_race[idx]
+                    if current_condition_race is not None:
+                        conditions.append(current_condition_race)
 
                     if len(conditions) > 1:
                         condition_node = {
@@ -444,13 +524,6 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
                         condition_node = conditions[0]
                     else:
                         condition_node = None
-
-                    p_symp_g_cond_sex_race_age = (
-                        probability * sex_prob * age_prob * race_prob
-                    ) / (age_denom * sex_denom * race_denom)
-
-                    p_symp_g_cond_sex_race_age = round_val(
-                        p_symp_g_cond_sex_race_age)
 
                     a_transition = {
                         "distributions": [
@@ -464,110 +537,11 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
                             }
                         ]
                     }
+
                     if condition_node is not None:
                         a_transition["condition"] = condition_node
 
-                    # saving transitions
                     transitions.append(a_transition)
-
-                else:
-                    race_odds = race_dict.get(race_key).get("odds")
-                    race_prob = prob_val(race_odds)
-                    if race_key == "race-ethnicity-other":
-                        # split this into three for : NATIVE, "ASIAN" and "OTHER"
-                        # according to synthea
-                        othersVal = [
-                            ("race-ethnicity-native", "Native"),
-                            ("race-ethnicity-asian", "Asian"),
-                            ("race-ethnicity-other", "Other"),
-                        ]
-                        for race_other in othersVal:
-                            race_val, item = race_other
-                            condition_race = {
-                                "condition_type": "Race",
-                                "race": item
-                            }
-                            # do stuff here
-                            conditions = []
-                            if condition_sex is not None:
-                                conditions.append(condition_sex)
-                            if condition_age is not None:
-                                conditions.append(condition_age)
-                            if condition_race is not None:
-                                conditions.append(condition_race)
-
-                            if len(conditions) > 1:
-                                condition_node = {
-                                    "condition_type": "And",
-                                    "conditions": conditions
-                                }
-                            else:
-                                condition_node = conditions[0]
-
-                            p_symp_g_cond_sex_race_age = (
-                                probability * sex_prob * age_prob * race_prob
-                            ) / (age_denom * sex_denom * race_denom)
-
-                            p_symp_g_cond_sex_race_age = round_val(
-                                p_symp_g_cond_sex_race_age)
-
-                            # saving transitions
-                            transitions.append({
-                                "condition": condition_node,
-                                "distributions": [
-                                    {
-                                        "transition": next_state,
-                                        "distribution": p_symp_g_cond_sex_race_age
-                                    },
-                                    {
-                                        "transition": default_state,
-                                        "distribution": 1 - p_symp_g_cond_sex_race_age
-                                    }
-                                ]
-                            })
-
-                    else:
-                        condition_race = {
-                            "condition_type": "Race",
-                            "race": distribution.get("race").get(race_key).get("name")
-                        }
-                        conditions = []
-                        if condition_sex is not None:
-                            conditions.append(condition_sex)
-                        if condition_age is not None:
-                            conditions.append(condition_age)
-                        if condition_race is not None:
-                            conditions.append(condition_race)
-
-                        if len(conditions) > 1:
-                            condition_node = {
-                                "condition_type": "And",
-                                "conditions": conditions
-                            }
-                        else:
-                            condition_node = conditions[0]
-
-                        p_symp_g_cond_sex_race_age = (
-                            probability * sex_prob * age_prob * race_prob
-                        ) / (age_denom * sex_denom * race_denom)
-
-                        p_symp_g_cond_sex_race_age = round_val(
-                            p_symp_g_cond_sex_race_age)
-
-                        # saving transitions
-                        transitions.append({
-                            "condition": condition_node,
-                            "distributions": [
-                                {
-                                    "transition": next_state,
-                                    "distribution": p_symp_g_cond_sex_race_age
-                                },
-                                {
-                                    "transition": default_state,
-                                    "distribution": 1 - p_symp_g_cond_sex_race_age
-                                }
-                            ]
-                        })
 
     if default_flag:
         transitions.append({
@@ -577,49 +551,42 @@ def generate_symtoms_for_sex_race_age(symptom, probability, distribution, next_s
     return transitions
 
 
-def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10, min_symptoms=1):
+def generate_synthea_module(symptom_dict, test_condition, priors, config = None):
     """Function for generating the PGM module for a given condition.
 
     Parameters
     ----------
     symptom_dict : dict
-        Dictionnary containing all the symptoms of the database
+        Dictionary containing all the symptoms of the database
         with their related characteristics.
     test_condition : dict
-        Dictionnary containing information related to the condition
+        Dictionary containing information related to the condition
         for which the PGM is being generated.
     priors : dict
-        Dictionnary containing information related to the 
+        Dictionary containing information related to the
         priors associated to age, race, sex categories 
         as well as conditions and symptoms
-    incidence_limit: int
-        maximum number of time a person can have the condition.
-        (default: 3)
-    noinfection_limit: int
-        Terminate the module if there is `noinfection_limit` consecutive attempts 
-        to assign the condition to a person without success.
-        (default: 3)
-    min_delay_years: int
-        Minimum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
-        (default: 1)
-    max_delay_years: int
-        Maximum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
-        (default: 10)
-    min_symptoms: int
-        Minimum number of symptoms to enforce at generation time.
-        (default: 1)
+    config: GeneratorConfig
+        GeneratorConfig object that holds the configuration parameters for the generator
 
     Returns
     -------
     dict
-        A ddictionnary describing the PGM of the provided condition.
+        A dictionary describing the PGM of the provided condition.
     """
 
     # check that symptoms do exist for this module!?
     if not test_condition.get("symptoms"):
         return None
+
+    if config is None:
+        config = GeneratorConfig()
+
+    incidence_limit = config.incidence_limit
+    noinfection_limit = config.noinfection_limit
+    min_delay_years = config.min_delay_years
+    max_delay_years = config.max_delay_years
+    min_symptoms = config.min_symptoms
 
     condition_name = test_condition.get("condition_name")
     condition_slug = test_condition.get("condition_slug")
@@ -751,6 +718,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
     # sort symptoms in the ascending order
     keys = sorted(keys, key=lambda x: x[1])
+
     if len(keys) > 0:
         if min_symptoms > 0:
             states["Init_Symptom_Counter"][
@@ -878,7 +846,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
 
             simple_transition = {
                 "type": "Simple",
-                "complex_transition": generate_symtoms_for_sex_race_age(
+                "complex_transition": generate_symptoms_for_sex_race_age(
                     symptom_transition["symptom"], probability,
                     symptom_definition, symptom_transition_name,
                     priors, next_point
@@ -966,68 +934,38 @@ def generate_synthea_module(symptom_dict, test_condition, priors, incidence_limi
     }
 
 
-def generate_synthea_modules(symptom_file, conditions_file, output_dir, config_file="", incidence_limit=3, noinfection_limit=3, min_delay_years=1, max_delay_years=10, min_symptoms=1):
+def generate_synthea_modules(config):
     """Function for generating and save the PGM
     module as a JSON file for all the conditions.
 
     Parameters
     ----------
-    symptom_file : str
-        Path of the JSON file containing all the symptoms of the database
-        with their related characteristics.
-    conditions_file : str
-        Path of the JSON file containing all the conditions of the database
-        with their related characteristics.
-    output_dir : str
-        Path of the directory where the generatd JSON files will be saved.    
-    config_file : str
-        path to the config file containing information related to the 
-        priors associated to age, race, sex categories 
-        as well as conditions and symptoms
-        (default:"")
-    incidence_limit: int
-        maximum number of time a person can have the condition.
-        (default: 3)
-    noinfection_limit: int
-        Terminate the module if there is `noinfection_limit` consecutive attempts 
-        to assign the condition to a person without success.
-        (default: 3)
-    min_delay_years: int
-        Minimum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
-        (default: 1)
-    max_delay_years: int
-        Maximum delay in years to wait for performing the next attempt 
-        to assign the contion to a person.
-        (default: 10)
-    min_symptoms: int
-        Minimum number of symptoms to enforce at generation time.
-        (default: 1)
-
+    config : GeneratorConfig
+        GeneratorConfig object that holds the configuration parameters for the generator
     Returns
     -------
     bool
-        True uf the generation process is well peformed otherwise False
+        True if the generation process is well performed otherwise an Error would have been raised
     """
-    with open(symptom_file) as fp:
+
+    with open(config.symptom_file) as fp:
         symptoms_data = json.load(fp)
 
-    with open(conditions_file) as fp:
+    with open(config.conditions_file) as fp:
         conditions_data = json.load(fp)
 
-    if not os.path.isdir(output_dir):
-        os.mkdir(output_dir)
+    if not os.path.isdir(config.output_dir):
+        os.mkdir(config.output_dir)
 
-    priors = load_config(config_file)
+    priors = load_config(config.config_file)
 
     for key, value in conditions_data.items():
         module = generate_synthea_module(
-            symptoms_data, value, priors, incidence_limit,
-            noinfection_limit, min_delay_years, max_delay_years, min_symptoms
+            symptoms_data, value, priors, config
         )
         if module is None:
             continue
-        filename = os.path.join(output_dir, "%s.json" % key)
+        filename = os.path.join(config.output_dir, "%s%s.json" % (config.prefix, key))
 
         with open(filename, "w") as fp:
             json.dump(module, fp, indent=4)

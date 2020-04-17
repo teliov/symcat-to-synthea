@@ -1,5 +1,4 @@
 import os
-import itertools
 
 from parse import parse_symcat_conditions, parse_symcat_symptoms, slugify_condition
 from generate import generate_synthea_module, prob_val, round_val
