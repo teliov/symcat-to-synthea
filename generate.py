@@ -713,24 +713,24 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config = None)
         for k in condition_symptoms.keys()
     ]
 
-    # sort symptoms in the ascending order
-    keys = sorted(keys, key=lambda x: x[1])
-
     for idx, key in enumerate(keys):
         key.append(idx)
+
+    # sort symptoms in the ascending order
+    keys = sorted(keys, key=lambda x: x[1])
 
     if len(keys) > 0:
         if min_symptoms > 0:
             states["Init_Symptom_Counter"][
-                "direct_transition"] = "Simple_Transition_%d" % 1
+                "direct_transition"] = "Simple_Transition_%d" % (keys[0][2] + 1)
         else:
             states[node_infection_name][
-                "direct_transition"] = "Simple_Transition_%d" % 1
+                "direct_transition"] = "Simple_Transition_%d" % (keys[0][2] + 1)
 
     for idx in range(len(keys)):
         curr_symptom = condition_symptoms.get(keys[idx][0])
         probability = keys[idx][1]
-        index = idx
+        index = keys[idx][2]
         slug = curr_symptom.get("slug")
         check_on_num_symptoms = False
         if min_symptoms > 0:
@@ -743,7 +743,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config = None)
         if idx == len(keys) - 1:
             next_target = "Doctor_Visit"
         else:
-            next_index = idx + 1
+            next_index = keys[idx + 1][2]
             next_target = "Simple_Transition_%d" % (next_index + 1)
 
         simple_transition_name = "Simple_Transition_%d" % (index + 1)
