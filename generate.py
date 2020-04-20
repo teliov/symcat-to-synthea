@@ -551,7 +551,6 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, next_
     return transitions
 
 
-
 def generate_synthea_module(symptom_dict, test_condition, priors, config = None):
     """Function for generating the PGM module for a given condition.
 
@@ -594,9 +593,11 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config = None)
 
     potential_infection_transition = "Potential_Infection"
     incidence_counter_transition = "IncidenceCounter"
+    incidence_attribute = "count_%s" % condition_slug
     num_symptom_attribute = "count_symptom_%s" % condition_slug
-    # history_age_attribute = "history_age_%s" % condition_slug
-    history_age_attribute = "age_time_to_the_end"
+    noinfection_attribute = "noinf_cons_count_%s" % condition_slug
+    incidence_limit = incidence_limit
+    noinfection_limit = noinfection_limit
     node_infection_name = condition_name.replace(" ", "_") + "_Infection"
 
     states = OrderedDict()
@@ -604,17 +605,32 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config = None)
     # add the initial onset
     states["Initial"] = {
         "type": "Initial",
-        "direct_transition": "Check_History_Age_Attribute"
+        "direct_transition": "Init_Cons_NoInf_Counter"
     }
 
-    # check if the time history is verified
-    states["Check_History_Age_Attribute"] = {
-        "type": "Guard",
-        "allow": {
-            "condition_type": "Attribute",
-            "attribute": history_age_attribute,
-            "operator": "<=",
-            "value": 0
+    # add Init_Cons_NoInf_Counter node
+    states["Init_Cons_NoInf_Counter"] = {
+        "type": "SetAttribute",
+        "attribute": noinfection_attribute,
+        "value": 0,
+        "direct_transition": "Init_Incidence_Counter"
+    }
+
+    # add Init_Incidence_Counter node
+    states["Init_Incidence_Counter"] = {
+        "type": "SetAttribute",
+        "attribute": incidence_attribute,
+        "value": 0,
+        "direct_transition": "Time_Delay"
+    }
+
+    # add Potential_Infection node
+    states["Time_Delay"] = {
+        "type": "Delay",
+        "range": {
+            "low": 0,
+            "high": 60,
+            "unit": "months"
         },
         "direct_transition": potential_infection_transition
     }
@@ -631,8 +647,34 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config = None)
     # we will end this module if a patient does not catch the condition n
     # consecutive times.
     states["No_Infection"] = {
-        "type": "Simple",
-        "direct_transition": "TerminalState"
+        "type": "Counter",
+        "attribute": noinfection_attribute,
+        "action": "increment",
+        "conditional_transition": [
+            {
+                "transition": "TerminalState",
+                "condition": {
+                    "condition_type": "Attribute",
+                    "attribute": noinfection_attribute,
+                    "operator": ">=",
+                    "value": noinfection_limit
+                }
+            },
+            {
+                "transition": "No_Infection_Time_Delay"
+            }
+        ]
+    }
+
+    # add Potential_Infection node
+    states["No_Infection_Time_Delay"] = {
+        "type": "Delay",
+        "range": {
+            "low": min_delay_years,
+            "high": max_delay_years,
+            "unit": "years"
+        },
+        "direct_transition": potential_infection_transition
     }
 
     # add the Condition state (a ConditionOnset) stage
@@ -837,8 +879,49 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config = None)
 
     states["ConditionEnds"] = {
         "type": "ConditionEnd",
-        "direct_transition": "TerminalState",
+        "direct_transition": incidence_counter_transition,
         "condition_onset": node_infection_name
+    }
+
+    # let's wait for a year and redo the whole thing!
+    states["TreatmentComplete"] = {
+        "type": "Delay",
+        "range": {
+            "low": min_delay_years,
+            "high": max_delay_years,
+            "unit": "years"
+        },
+        "direct_transition": "Reset_Cons_NoInf_Counter"
+    }
+
+    # reset no infectin counter
+    states["Reset_Cons_NoInf_Counter"] = {
+        "type": "SetAttribute",
+        "attribute": noinfection_attribute,
+        "value": 0,
+        "direct_transition": potential_infection_transition
+    }
+
+    # we won't allow the same patient to fall ill with the same condition more than three times.
+    # after the third time, the module terminates
+    states[incidence_counter_transition] = {
+        "type": "Counter",
+        "attribute": incidence_attribute,
+        "action": "increment",
+        "conditional_transition": [
+            {
+                "transition": "TerminalState",
+                "condition": {
+                    "condition_type": "Attribute",
+                    "attribute": incidence_attribute,
+                    "operator": ">=",
+                    "value": incidence_limit
+                }
+            },
+            {
+                "transition": "TreatmentComplete"
+            }
+        ]
     }
 
     states["TerminalState"] = {
@@ -859,7 +942,6 @@ def generate_synthea_modules(config):
     ----------
     config : GeneratorConfig
         GeneratorConfig object that holds the configuration parameters for the generator
-        
     Returns
     -------
     bool
@@ -887,10 +969,4 @@ def generate_synthea_modules(config):
 
         with open(filename, "w") as fp:
             json.dump(module, fp, indent=4)
-
-    module = generate_synthea_common_history_module(num_history_years)
-    filename = os.path.join(output_dir, "%s.json" % ("1_" + module["name"]))
-    with open(filename, "w") as fp:
-        json.dump(module, fp, indent=4)
-
     return True
