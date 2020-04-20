@@ -48,7 +48,7 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        '--module_prefix', type=int, default="",
+        '--module_prefix', type=str, default="",
         help='Add a prefix to the name of generated modules'
     )
 
