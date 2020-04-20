@@ -18,7 +18,7 @@ def normalize_priors(priors):
                 for k in priors.keys():
                     priors[k] /= sumProba
             else:
-                remainderProb = remainder / len(priors.keys())
+                remainderProb = 1.0 / len(priors.keys())
                 for k in priors.keys():
                     priors[k] = remainderProb
     else:
