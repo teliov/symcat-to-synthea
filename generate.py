@@ -27,7 +27,7 @@ class GeneratorConfig(object):
         (default:"")
     num_history_years: int
         given the target age of a patient, this is the number of years from 
-        that target age from which pathologoes are generated.
+        that target age from which pathologies are generated.
         (default: 1)
     min_symptoms: int
         Minimum number of symptoms to enforce at generation time.
