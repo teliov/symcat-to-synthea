@@ -23,20 +23,8 @@ if __name__ == "__main__":
     parser.add_argument('--conditions_json', help='Symcat conditions export')
 
     parser.add_argument(
-        '--incidence_limit', type=int, default=1,
-        help='Number of time a patient may have a condition'
-    )
-    parser.add_argument(
-        '--noinfection_limit', type=int, default=3,
-        help='Number max of consecutive failure attempts to assign a condition to a person'
-    )
-    parser.add_argument(
-        '--min_delay_years', type=int, default=1,
-        help='Minimum delay in years to wait for performing the next attempt to assign the condition to a person'
-    )
-    parser.add_argument(
-        '--max_delay_years', type=int, default=10,
-        help='Maximum delay in years to wait for performing the next attempt to assign the condition to a person'
+        '--num_history_years', type=int, default=1,
+        help='Given the target age of a patient, this is the number of years from that target year from which pathologoes are generated.'
     )
     parser.add_argument(
         '--min_symptoms', type=int, default=1,
@@ -71,10 +59,7 @@ if __name__ == "__main__":
         config.symptom_file = args.symptoms_json
         config.conditions_file = args.conditions_json
         config.config_file = args.config_file
-        config.incidence_limit = args.incidence_limit
-        config.noinfection_limit = args.noinfection_limit
-        config.min_delay_years = args.min_delay_years
-        config.max_delay_years = args.max_delay_years
+        config.num_history_years = args.num_history_years
         config.min_symptoms = args.min_symptoms
         config.prefix = args.module_prefix
 
