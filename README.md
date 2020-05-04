@@ -31,35 +31,12 @@ To generate valid Synthea modules using from previously parsed symptoms and cond
 There are other options available when generating synthea modules from parsed conditions and symptoms. What follows is a
 brief explanation of these options 
 
-**incidence_limit**:
+**num_history_years**:
 
-This determines how many times a patient is allowed to contract a condition.
-Increasing this value would result in more conditions (and as a result more data) being generated for the same number of patients.
-However an increased value of the `incidence_limit` also means the generator takes much longer time to generate the same number of patients.
-It is set to a default of 3.
-
-**noinfection_limit**:
-
-This determines the limit on how many times synthea's generator should attempt to assign a condition to a patient.
-It is set to a default of 3.
-
-**min_delay_years**:
-
-Minimum delay in years to wait for performing the next attempt to assign the condition to a person. This option,
-together with the `max_delay_years` option are used to make the condition onset age distribution more uniform across synthea's
-age range.
-A side effect of setting the `incidence_limit` - especially for conditions which have similar odds for the different age
-distributions - is that it becomes highly likely that a generated patient reaches the incidence limit very early on in the life
-cycle. This creates a situation where the condition onset age distribution is skewed more towards the young section.
-Adjusting this value, together with `max_delay_years` reduces the number of attempts within a particular age distribution
-and increases the chances that the condition age distribution is more uniformly spread.
+Given the target age of a patient (that is the maximum age he will live while being simulated in Synthea), this is the number of years from that target age moving backward from which pathologies are generated. In other words, if `age` is the target age and `num_history_years` is set to `n`, then the pathologies will only be generated when the patient's age is between [`age - n`, `àge`].
+This allows the pathologies to be spread according to Synthea census data. To make it possible, there is a special `json` module file that is generated (`1_update_age_time_to_the_end.json`) which aims at updating the difference between the target age and the current age of a person being simulated. This module needs to run simultaneously with classic condition modules in Synthea for the simulation to work properly.
 
 It is set to a default of 1.
-
-**max_delay_years**:
-
-See `min_delay_years` above.
-It is set to a default of 10.
 
 **min_symptoms**:
 
