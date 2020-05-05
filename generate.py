@@ -1,5 +1,7 @@
 from collections import OrderedDict
+from functools import reduce
 import hashlib
+import itertools
 import json
 import os
 
@@ -67,7 +69,270 @@ def round_val(x, ndigits=4):
     return round(x, ndigits)
 
 
-def generate_transition_for_sex_race_age(condition, distribution, next_state, priors, default_state="TerminalState"):
+def get_ind_prob_symptom_cond_given_sex(sex_dict, sex_cond_dict, priors, sex_key):
+    """compute P(symptom, condition | sex) for a given sex category
+    """
+    return prob_val(
+        sex_dict.get(sex_key).get("odds")
+    ) * prob_val(
+        sex_cond_dict.get(sex_key).get("odds")
+    )
+
+
+def get_prob_symptom_cond_given_sex(sex_dict, sex_cond_dict, priors, sex_keys):
+    """compute P(symptom, condition | sex) for all sex categories
+    """
+    return [
+        get_ind_prob_symptom_cond_given_sex(
+            sex_dict, sex_cond_dict, priors, sex_key
+        ) * priors["Gender"][sex_key]
+        for sex_key in sex_keys
+    ]
+
+
+def get_ind_prob_symptom_cond_given_age(age_dict, age_cond_dict, priors, age_key):
+    """compute P(symptom, condition | age) for a given age category
+    """
+    return prob_val(
+        age_dict.get(age_key).get("odds")
+    ) * prob_val(
+        age_cond_dict.get(age_key).get("odds")
+    )
+
+
+def get_prob_symptom_cond_given_age(age_dict, age_cond_dict, priors, age_keys):
+    """compute P(symptom, condition | age) for all age categories
+    """
+    return [
+        get_ind_prob_symptom_cond_given_age(
+            age_dict, age_cond_dict, priors, age_key
+        ) * priors["Age"][age_key]
+        for age_key in age_keys
+    ]
+
+
+def get_ind_prob_symptom_cond_given_race(race_dict, race_cond_dict, priors, race_key):
+    """compute P(symptom, condition | race) for a given race category
+    """
+    return prob_val(
+        race_dict.get(
+            "race-ethnicity-other" if race_key in [
+                "race-ethnicity-asian", "race-ethnicity-native"] else race_key
+        ).get("odds")
+    ) * prob_val(
+        race_cond_dict.get(
+            "race-ethnicity-other" if race_key in [
+                "race-ethnicity-asian", "race-ethnicity-native"] else race_key
+        ).get("odds")
+    )
+
+
+def get_prob_symptom_cond_given_race(race_dict, race_cond_dict, priors, race_keys):
+    """compute P(symptom, condition | race) for all race categories
+    """
+    return [
+        get_ind_prob_symptom_cond_given_race(
+            race_dict, race_cond_dict, priors, race_key
+        ) * priors["Race"][race_key]
+        for race_key in race_keys
+    ]
+
+
+def get_symptom_stats_infos(condition_definition, symptom_definition, probability, condition_proba, priors, sex_keys, age_keys, race_keys):
+    """Function for getting stats info from a symptom given a condition and priors on risks factors
+
+    Parameters
+    ----------
+    condition_definition : dict
+        Dictionnary containing the odd values associated to each age category, 
+        race category, and sex category
+    symptom_definition : dict
+        Dictionary containing all the symptoms of the database
+        with their related characteristics.
+    probability: float
+        The absolute probablity value of the symtom given the cuurent condition.
+    condition_proba : dict
+        the probability of the condition for each coombination of risk factors (sex, age, race)
+        without the effect of the condition priors. P(ARG|C)/P(ARG). Note that the true condition
+        probability would be obtained by P(C|ARG) = P(ARG|C) * P(C)/ P(ARG).
+    priors : dict
+        The priors associated to age, race, sex categories as well as conditions and symptoms
+    sex_keys : list
+        keys for referencing sex related risk factor categories
+    age_keys : list
+        keys for referencing age related risk factor categories
+    race_keys : list
+        keys for referencing race related risk factor categories
+
+    Returns
+    -------
+    cond_prior: float
+        the condition prior value that gurantee non negative symptom probability values
+    """
+
+    sex_cond_dict = condition_definition.get("sex", {})
+    race_cond_dict = condition_definition.get("race", {})
+    age_cond_dict = condition_definition.get("age", {})
+
+    sex_dict = symptom_definition.get("sex", {})
+    race_dict = symptom_definition.get("race", {})
+    age_dict = symptom_definition.get("age", {})
+
+    sex_prob_values = get_prob_symptom_cond_given_sex(
+        sex_dict, sex_cond_dict, priors, sex_keys
+    )
+    age_prob_values = get_prob_symptom_cond_given_age(
+        age_dict, age_cond_dict, priors, age_keys
+    )
+    race_prob_values = get_prob_symptom_cond_given_race(
+        race_dict, race_cond_dict, priors, race_keys
+    )
+    sex_denom = sum(
+        sex_prob_values
+    ) if (len(sex_dict) > 0 and len(sex_cond_dict) > 0) else 1
+    age_denom = sum(
+        age_prob_values
+    ) if (len(age_dict) > 0 and len(age_cond_dict) > 0) else 1
+    race_denom = sum(
+        race_prob_values
+    ) if (len(race_dict) > 0 and len(race_cond_dict) > 0) else 1
+
+    assert sex_denom >= 0, "the sex denom probability must be greater or equal to 0"
+    assert age_denom >= 0, "the age denom probability must be greater or equal to 0"
+    assert race_denom >= 0, "the race denom probability must be greater or equal to 0"
+
+    # compute P(symptom, condition | risk_factor) / risk_factor_demom
+    sex_numerator = [
+        get_ind_prob_symptom_cond_given_sex(
+            sex_dict, sex_cond_dict, priors, sex_key
+        ) / sex_denom if sex_denom > 0 else 0.0
+        for sex_key in sex_keys
+    ]
+    age_numerator = [
+        get_ind_prob_symptom_cond_given_age(
+            age_dict, age_cond_dict, priors, age_key
+        ) / age_denom if age_denom > 0 else 0.0
+        for age_key in age_keys
+    ]
+    race_numerator = [
+        get_ind_prob_symptom_cond_given_race(
+            race_dict, race_cond_dict, priors, race_key
+        ) / race_denom if race_denom > 0 else 0.0
+        for race_key in race_keys
+    ]
+
+    # compute cross product of risk_factor numerators
+    cross_product = [
+        probability * reduce((lambda x, y: x * y), element)
+        for element in itertools.product(sex_numerator, age_numerator, race_numerator)
+    ]
+
+    # global key separator
+    sep_key = '|'
+
+    # get p(condition | risk factors)
+    prob_condition = [
+        condition_proba.get(sep_key.join(element), 0.0)
+        for element in itertools.product(sex_keys, age_keys, race_keys)
+    ]
+    prob_condition = [
+        a if a > 0 else 1e-3 for a in prob_condition
+    ]
+
+    # divide cross_product by prob_condition
+    cross_product = [
+        a / b for a, b in zip(cross_product, prob_condition)
+    ]
+
+    # max of cross product and max value for condition prior
+    max_symp_cross_prod = max(cross_product)
+    max_symp_prior_condition = 1.0 / \
+        max_symp_cross_prod if max_symp_cross_prod > 0 else 1.0
+    if max_symp_prior_condition > 1.0:
+        max_symp_prior_condition = 1.0
+
+    # global_key = sep_key.join([sex_key, age_key, race_val])
+    # # print(global_key, prior_condition,
+    # #      condition_proba.get(global_key, prior_condition))
+    # p_numerator = probability * sex_prob * age_prob * race_prob * prior_condition
+    # p_denominator = age_denom * sex_denom * race_denom * condition_proba.get(
+    #     global_key, prior_condition)
+    # p_symp_g_cond_sex_race_age = round_val(
+    #     p_numerator / p_denominator) if p_denominator > 0 else 0.0
+
+    return sex_denom, age_denom, race_denom, max_symp_prior_condition
+
+
+def get_max_condition_priors_wrt_symptoms(condition, distribution, symptom_dict, priors, cond_risk_factor_prob_dict, current_cond_prior):
+    """Function for defining the condition prior in such a way to avoid neg symptoms probabilities
+
+    Parameters
+    ----------
+    condition : str
+        The name of the condition for which the PGM is being generated.
+    distribution : dict
+        Dictionnary containing the odd values associated to each age category, 
+        race category, and sex category
+    symptom_dict : dict
+        Dictionary containing all the symptoms of the database
+        with their related characteristics.
+    priors : dict
+        The priors associated to age, race, sex categories as well as conditions and symptoms
+    cond_risk_factor_prob_dict : dict
+        the probability of the condition for each coombination of risk factors (sex, age, race)
+        without the effect of the condition priors. P(ARG|C)/P(ARG). Note that the true condition
+        probability would be obtained by P(C|ARG) = P(ARG|C) * P(C)/ P(ARG).
+    current_cond_prior : float
+        current condition prior to evaluate against the symptoms.
+
+    Returns
+    -------
+    cond_prior: float
+        the condition prior value that gurantee non negative symptom probability values
+    """
+    age_keys = [
+        "age-1-years", "age-1-4-years", "age-5-14-years", "age-15-29-years",
+        "age-30-44-years", "age-45-59-years", "age-60-74-years", "age-75-years"
+    ]
+    race_prior_keys = [
+        "race-ethnicity-black", "race-ethnicity-hispanic",
+        "race-ethnicity-white", "race-ethnicity-other",
+        "race-ethnicity-asian", "race-ethnicity-native",
+    ]
+    sex_keys = ["sex-male", "sex-female"]
+
+    condition_symptoms = distribution.get("symptoms")
+    symptom_keys = list(condition_symptoms.keys())
+
+    tmp_cond_prob_value = {
+        d: current_cond_prior * cond_risk_factor_prob_dict[d]
+        for d in cond_risk_factor_prob_dict.keys()
+    }
+
+    result = [current_cond_prior]
+
+    for k in symptom_keys:
+        curr_symptom = condition_symptoms.get(k)
+        probability = float(condition_symptoms.get(
+            k).get("probability")) * 1 / 100
+        slug = curr_symptom.get("slug")
+        symptom_definition = symptom_dict.get(slug, {})
+
+        _, _, _, max_symp_prior_condition = get_symptom_stats_infos(
+            distribution, symptom_definition, probability,
+            tmp_cond_prob_value, priors,
+            sex_keys, age_keys, race_prior_keys
+        )
+
+        result.append(max_symp_prior_condition)
+
+    # take the min value
+    min_value = min(result)
+
+    return min_value
+
+
+def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, next_state, priors, default_state="TerminalState"):
     """Function for defining age-based transitions in the generated PGM module
 
     Parameters
@@ -77,6 +342,9 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
     distribution : dict
         Dictionnary containing the odd values associated to each age category, 
         race category, and sex category
+    symptom_dict : dict
+        Dictionary containing all the symptoms of the database
+        with their related characteristics.
     next_state : str
         The name of the node to transit in case we sample withing the
         provided distribution    
@@ -90,6 +358,8 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
     -------
     transitions: list
         the corresponding list of generated transitions
+    transitions_dict: dict
+        the dict containing the prob values for each risk factor combination (sex,age,race)
     """
     age_keys = [
         "age-1-years", "age-1-4-years", "age-5-14-years", "age-15-29-years",
@@ -107,6 +377,7 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
     sex_keys = ["sex-male", "sex-female"]
 
     transitions = []
+    transitions_dict = {}
 
     # should I include default transition?
     default_flag = False
@@ -134,20 +405,88 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
         for race_key in race_prior_keys
     ])
 
+    assert sex_denom >= 0, "the sex denom probability must be greater or equal to 0"
+    assert age_denom >= 0, "the age denom probability must be greater or equal to 0"
+    assert race_denom >= 0, "the race denom probability must be greater or equal to 0"
+
+    # compute P(condition | risk_factor) / risk_factor_demom
+    sex_numerator = [
+        prob_val(
+            distribution.get("sex").get(sex_key).get("odds")
+        ) / sex_denom if sex_denom > 0 else 0.0
+        for sex_key in sex_keys
+    ]
+    age_numerator = [
+        prob_val(
+            distribution.get("age").get(age_key).get("odds")
+        ) / age_denom if age_denom > 0 else 0.0
+        for age_key in age_keys
+    ]
+    race_numerator = [
+        prob_val(
+            distribution.get("race").get(
+                "race-ethnicity-other" if race_key in [
+                    "race-ethnicity-asian", "race-ethnicity-native"] else race_key
+            ).get("odds")
+        ) / race_denom if race_denom > 0 else 0.0
+        for race_key in race_prior_keys
+    ]
+
+    # global key separator
+    sep_key = '|'
+
+    # compute cross product of risk_factor numerators
+    cross_product = [
+        reduce((lambda x, y: x * y), element)
+        for element in itertools.product(sex_numerator, age_numerator, race_numerator)
+    ]
+    cross_product_keys = [
+        sep_key.join(element)
+        for element in itertools.product(sex_keys, age_keys, race_prior_keys)
+
+    ]
+    cond_risk_factor_prob_dict = {
+        cross_product_keys[i]: cross_product[i]
+        for i in range(len(cross_product))
+    }
+
+    # max of cross product and max value for condition prior
+    max_cross_prod = max(cross_product)
+    max_prior_condition = 1.0 / max_cross_prod if max_cross_prod > 0 else 1.0
+    if max_prior_condition > 1.0:
+        max_prior_condition = 1.0
+
     # condition priors
     default_prior_condition = 0.5
     prior_condition = priors["Conditions"].get(
         condition.lower(), default_prior_condition)
+    prior_condition = min([prior_condition, max_prior_condition])
 
-    assert sex_denom > 0, "the sex denom probability must be greater than 0"
-    assert age_denom > 0, "the age denom probability must be greater than 0"
-    assert race_denom > 0, "the race denom probability must be greater than 0"
+    niter = 0
+    max_iters = 25
+    while True:
+        tmp_prior = get_max_condition_priors_wrt_symptoms(
+            condition, distribution, symptom_dict, priors,
+            cond_risk_factor_prob_dict, prior_condition)
+        if tmp_prior == prior_condition or niter >= max_iters:
+            break
+        else:
+            prior_condition = tmp_prior
+            niter += 1
+
+    transitions_dict['prior_condition'] = prior_condition
+
+    neg_flag = False
 
     for sex_key in sex_keys:
         sex_odds = distribution.get("sex").get(sex_key).get("odds")
         sex_prob = prob_val(sex_odds)
         if sex_prob <= 0:
             default_flag = True
+            for age_key in age_keys:
+                for race_key in race_prior_keys:
+                    global_key = sep_key.join([sex_key, age_key, race_key])
+                    transitions_dict[global_key] = 0.0
             continue
 
         condition_sex = {
@@ -160,6 +499,9 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
             age_prob = prob_val(age_odds)
             if age_prob <= 0:
                 default_flag = True
+                for race_key in race_prior_keys:
+                    global_key = sep_key.join([sex_key,  age_key, race_key])
+                    transitions_dict[global_key] = 0.0
                 continue
 
             if age_key == "age-1-years":
@@ -232,6 +574,17 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
                         p_cond_g_sex_race_age = round_val(
                             p_cond_g_sex_race_age)
 
+                        global_key = sep_key.join(
+                            [sex_key, age_key, race_val])
+                        transitions_dict[global_key] = p_cond_g_sex_race_age
+
+                        assert p_cond_g_sex_race_age <= 1.0
+
+                        if (not neg_flag) and p_cond_g_sex_race_age > 1:
+                            neg_flag = True
+                            print(
+                                "Warning: neg flag for condition {}".format(condition))
+
                         # saving transitions
                         transitions.append({
                             "condition": condition_node,
@@ -266,6 +619,15 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
 
                     p_cond_g_sex_race_age = round_val(p_cond_g_sex_race_age)
 
+                    global_key = sep_key.join([sex_key, age_key, race_key])
+                    transitions_dict[global_key] = p_cond_g_sex_race_age
+
+                    assert p_cond_g_sex_race_age <= 1.0
+
+                    if (not neg_flag) and p_cond_g_sex_race_age > 1:
+                        neg_flag = True
+                        print("Warning: neg flag for condition {}".format(condition))
+
                     # saving transitions
                     transitions.append({
                         "condition": condition_node,
@@ -286,10 +648,302 @@ def generate_transition_for_sex_race_age(condition, distribution, next_state, pr
             "transition": default_state
         })
 
-    return transitions
+    return transitions, transitions_dict
 
 
-def generate_symptoms_for_sex_race_age(symptom, probability, distribution, next_state, priors, default_state="TerminalState"):
+def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condition, condition_distribution, condition_proba, next_state, priors, default_state="TerminalState"):
+    """Function for defining age-based transitions in the generated PGM module
+    Parameters
+    ----------
+    symptom : str
+        The name of the symptom for which the transitions is being generated.
+    probability : float
+        The absolute probablity value of the symtom given the cuurent condition.
+    distribution : dict
+        Dictionnary containing the odd values associated to each age category,
+        race category, and sex category
+    condition : str
+        The name of the condition for which the PGM is being generated.
+    condition_distribution : dict        
+        Dictionnary containing the odd values associated to each age category,
+        race category, and sex category for the condition related to the symptom
+        being generated
+    condition_proba: dict
+        Dictionnary containing the probabilities of the condition related to the symptom
+        being generated given each risk factor combination (sex, age, race).
+    next_state : str
+        The name of the node to transit in case we sample withing the
+        provided distribution
+    priors : dict
+        The priors associated to age, race, sex categories as well as conditions and symptoms
+    default_state : str
+        The name of the node to transit in case we do not sample withing the
+        provided distribution (default: "TerminalState").
+    Returns
+    -------
+    transitions: list
+        the corresponding list of generated transitions
+    transitions_dict: dict
+        the dict containing the prob values for each risk factor combination (sex,age,race)
+    """
+    age_keys = [
+        "age-1-years", "age-1-4-years", "age-5-14-years", "age-15-29-years",
+        "age-30-44-years", "age-45-59-years", "age-60-74-years", "age-75-years"
+    ]
+
+    race_prior_keys = [
+        "race-ethnicity-black", "race-ethnicity-hispanic",
+        "race-ethnicity-white", "race-ethnicity-other",
+        "race-ethnicity-asian", "race-ethnicity-native",
+    ]
+    sex_keys = ["sex-male", "sex-female"]
+
+    transitions = []
+    transitions_dict = {}
+
+    # global key separator
+    sep_key = '|'
+
+    if ((len(distribution.get("sex")) == 0) and (len(distribution.get("age")) == 0) and (
+            len(distribution.get("race")) == 0)):
+        probability = round_val(probability)
+        transitions.append({
+            "distributions": [
+                {
+                    "transition": next_state,
+                    "distribution": probability
+                },
+                {
+                    "transition": default_state,
+                    "distribution": 1 - probability
+                }
+            ]
+        })
+        transitions_dict[sep_key.join(['None', 'None', 'None'])] = probability
+
+        return transitions, transitions_dict
+
+    # should I include default transition?
+    default_flag = False
+
+    sex_dict = distribution.get("sex", {})
+    race_dict = distribution.get("race", {})
+    age_dict = distribution.get("age", {})
+
+    sex_cond_dict = condition_distribution.get("sex", {})
+    race_cond_dict = condition_distribution.get("race", {})
+    age_cond_dict = condition_distribution.get("age", {})
+
+    sex_denom, age_denom, race_denom, symp_prior_condition = get_symptom_stats_infos(
+        condition_distribution, distribution, probability,
+        condition_proba, priors,
+        sex_keys, age_keys, race_prior_keys
+    )
+
+    max_prior_condition = condition_proba['prior_condition']
+
+    # condition priors
+    default_prior_condition = 0.5
+    prior_condition = priors["Conditions"].get(
+        condition.lower(), default_prior_condition)
+    prior_condition = min(
+        [prior_condition, max_prior_condition, symp_prior_condition])
+    # prior_condition = max_prior_condition
+
+    fake_sex_key = 'sex-none'
+    fake_age_key = 'age-none'
+    fake_race_key = 'race-none'
+
+    if len(sex_dict) == 0:
+        sex_dict[fake_sex_key] = 1.0
+
+    if len(age_dict) == 0:
+        age_dict[fake_age_key] = 1.0
+
+    if len(race_dict) == 0:
+        race_dict[fake_race_key] = 1.0
+
+    neg_flag = False
+
+    for sex_key in sex_dict.keys():
+
+        if sex_key == fake_sex_key:  # fake_dick
+            sex_prob = 1
+            condition_sex = None
+            sex_key = "None"
+        else:
+            sex_prob = get_ind_prob_symptom_cond_given_sex(
+                sex_dict, sex_cond_dict, priors, sex_key
+            )
+            if sex_prob <= 0:
+                default_flag = True
+                for age_key in age_keys:
+                    for race_key in race_prior_keys:
+                        global_key = sep_key.join([sex_key, age_key, race_key])
+                        transitions_dict[global_key] = 0.0
+                continue
+
+            condition_sex = {
+                "condition_type": "Gender",
+                "gender": "M" if sex_key == "sex-male" else "F"
+            }
+
+        for age_key in age_dict.keys():
+            if age_key == fake_age_key:  # fake_dict
+                age_prob = 1
+                condition_age = None
+                age_key = "None"
+            else:
+                age_prob = get_ind_prob_symptom_cond_given_age(
+                    age_dict, age_cond_dict, priors, age_key
+                )
+                if age_prob <= 0:
+                    default_flag = True
+                    for race_key in race_prior_keys:
+                        global_key = sep_key.join([sex_key, age_key, race_key])
+                        transitions_dict[global_key] = 0.0
+                    continue
+
+                if age_key == "age-1-years":
+                    condition_age = {
+                        "condition_type": "Age",
+                        "operator": "<",
+                        "unit": "years",
+                        "quantity": 1
+                    }
+                elif age_key == "age-75-years":
+                    condition_age = {
+                        "condition_type": "Age",
+                        "operator": ">",
+                        "unit": "years",
+                        "quantity": 75
+                    }
+                else:
+                    parts = age_key.split("-")
+                    age_lower = parts[1]
+                    age_upper = parts[2]
+                    condition_age = {
+                        "condition_type": "And",
+                        "conditions": [
+                            {
+                                "condition_type": "Age",
+                                "operator": ">=",
+                                "unit": "years",
+                                "quantity": int(age_lower)
+                            },
+                            {
+                                "condition_type": "Age",
+                                "operator": "<=",
+                                "unit": "years",
+                                "quantity": int(age_upper)
+                            }
+                        ],
+                    }
+
+            for race_key in race_dict.keys():
+                if race_key == fake_race_key:
+                    race_prob = 1
+                    condition_race = [None]
+                    race_key = "None"
+                    race_vals = [race_key]
+                else:
+                    race_prob = get_ind_prob_symptom_cond_given_race(
+                        race_dict, race_cond_dict, priors, race_key
+                    )
+
+                    if race_key == "race-ethnicity-other":
+                        # split this into three for : NATIVE, "ASIAN" and "OTHER"
+                        # according to synthea
+                        othersVal = [
+                            ("race-ethnicity-native", "Native"),
+                            ("race-ethnicity-asian", "Asian"),
+                            ("race-ethnicity-other", "Other"),
+                        ]
+                        condition_race = []
+                        race_vals = []
+                        for race_val, item in othersVal:
+                            condition_race.append({
+                                "condition_type": "Race",
+                                "race": item
+                            })
+                            race_vals.append(race_val)
+                    else:
+                        condition_race = [{
+                            "condition_type": "Race",
+                            "race": distribution.get("race").get(race_key).get("name")
+                        }]
+                        race_vals = [race_key]
+
+                for idx, race_val in enumerate(race_vals):
+
+                    global_key = sep_key.join([sex_key, age_key, race_val])
+                    # print(global_key, prior_condition,
+                    #      condition_proba.get(global_key, prior_condition))
+                    p_numerator = probability * sex_prob * age_prob * race_prob * prior_condition
+                    p_denominator = age_denom * sex_denom * race_denom * condition_proba.get(
+                        global_key, prior_condition)
+                    p_symp_g_cond_sex_race_age = round_val(
+                        p_numerator / p_denominator) if p_denominator > 0 else 0.0
+
+                    # assert p_symp_g_cond_sex_race_age <= 1.0
+
+                    transitions_dict[global_key] = p_symp_g_cond_sex_race_age
+
+                    if (not neg_flag) and p_symp_g_cond_sex_race_age > 1:
+                        neg_flag = True
+                        print(
+                            "Warning: neg flag for symptoms {} - {} - {} - {} - {} - {}".format(
+                                condition, symptom, p_symp_g_cond_sex_race_age,
+                                max_prior_condition, symp_prior_condition,
+                                abs(max_prior_condition - symp_prior_condition))
+                        )
+
+                    conditions = []
+                    if condition_sex is not None:
+                        conditions.append(condition_sex)
+                    if condition_age is not None:
+                        conditions.append(condition_age)
+                    current_condition_race = condition_race[idx]
+                    if current_condition_race is not None:
+                        conditions.append(current_condition_race)
+
+                    if len(conditions) > 1:
+                        condition_node = {
+                            "condition_type": "And",
+                            "conditions": conditions
+                        }
+                    elif len(conditions) == 1:
+                        condition_node = conditions[0]
+                    else:
+                        condition_node = None
+
+                    a_transition = {
+                        "distributions": [
+                            {
+                                "transition": next_state,
+                                "distribution": p_symp_g_cond_sex_race_age
+                            },
+                            {
+                                "transition": default_state,
+                                "distribution": 1 - p_symp_g_cond_sex_race_age
+                            }
+                        ]
+                    }
+
+                    if condition_node is not None:
+                        a_transition["condition"] = condition_node
+
+                    transitions.append(a_transition)
+
+    if default_flag:
+        transitions.append({
+            "transition": default_state
+        })
+
+    return transitions, transitions_dict
+
+
+def generate_symptoms_for_sex_race_age_old(symptom, probability, distribution, next_state, priors, default_state="TerminalState"):
     """Function for defining age-based transitions in the generated PGM module
     Parameters
     ----------
@@ -392,6 +1046,8 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, next_
     if len(race_dict) == 0:
         race_dict[fake_race_key] = 1.0
 
+    neg_flag = False
+
     for sex_key in sex_dict.keys():
 
         if sex_key == fake_sex_key:  # fake_dick
@@ -489,6 +1145,10 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, next_
                 p_denominator = age_denom * sex_denom * race_denom
                 p_symp_g_cond_sex_race_age = round_val(
                     p_numerator / p_denominator)
+
+                if (not neg_flag) and p_symp_g_cond_sex_race_age > 1:
+                    neg_flag = True
+                    print("Warning: neg flag for symptoms {}".format(symptom))
 
                 num_repeat = len(condition_race)
 
@@ -776,11 +1436,13 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config=None):
     }
 
     # Add potential infection
+    transitions, condition_dict_prob = generate_transition_for_sex_race_age(
+        condition_name, test_condition, symptom_dict,
+        node_infection_name, priors, "No_Infection"
+    )
     states[potential_infection_transition] = {
         "type": "Simple",
-        "complex_transition": generate_transition_for_sex_race_age(
-            condition_name, test_condition, node_infection_name, priors, "No_Infection"
-        )
+        "complex_transition": transitions
     }
 
     # add No_Infection node
@@ -933,6 +1595,7 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config=None):
                     }
                 ]
             }
+            sym_transitions_dict['|'.join(['None'] * 3)] = probability
         else:
             symptom_transition = {
                 "type": "Symptom",
@@ -958,13 +1621,17 @@ def generate_synthea_module(symptom_dict, test_condition, priors, config=None):
                 "direct_transition": next_stage
             }
 
+            sym_transitions, sym_transitions_dict = generate_symptoms_for_sex_race_age(
+                symptom_transition["symptom"], probability,
+                symptom_definition,
+                condition_name, test_condition, condition_dict_prob,
+                symptom_transition_name,
+                priors, next_point
+            )
+
             simple_transition = {
                 "type": "Simple",
-                "complex_transition": generate_symptoms_for_sex_race_age(
-                    symptom_transition["symptom"], probability,
-                    symptom_definition, symptom_transition_name,
-                    priors, next_point
-                )
+                "complex_transition": sym_transitions
             }
 
         states[simple_transition_name] = simple_transition
