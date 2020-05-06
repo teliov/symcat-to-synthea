@@ -700,10 +700,8 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
     )
 
     max_prior_condition = condition_proba.get('prior_condition', 1.0)
-
     # condition priors
     prior_condition = min([max_prior_condition, symp_prior_condition])
-    # prior_condition = max_prior_condition
 
     fake_sex_key = 'sex-none'
     fake_age_key = 'age-none'
@@ -842,28 +840,30 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
                 for idx, race_val in enumerate(race_vals):
 
                     global_key = sep_key.join([sex_key, age_key, race_val])
-                    # print(global_key, prior_condition,
-                    #      condition_proba.get(global_key, prior_condition))
-                    p_numerator = probability * sex_prob * age_prob * race_prob * prior_condition
-                    p_denominator = age_denom * sex_denom * race_denom * condition_proba.get(
-                        global_key, prior_condition)
-                    p_symp_g_cond_sex_race_age_1 = round_val(
-                        p_numerator / p_denominator) if p_denominator > 0 else 0.0
+
+                    # p_numerator = probability * sex_prob * age_prob * race_prob * prior_condition
+                    # p_denominator = age_denom * sex_denom * race_denom * condition_proba.get(
+                    #     global_key, prior_condition)
+                    # p_symp_g_cond_sex_race_age_1 = round_val(
+                    #     p_numerator / p_denominator) if p_denominator > 0 else 0.0
+                    # p_symp_g_cond_sex_race_age_1 = min(
+                    #     1.0,
+                    #     p_symp_g_cond_sex_race_age_1
+                    # )
+                    # p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_1
 
                     p_numerator_2 = probability * sex_prob * age_prob * \
                         race_prob * sex_cond_denom * age_cond_denom * race_cond_denom
                     p_denominator_2 = age_denom * sex_denom * race_denom * \
                         sex_cond_prob * age_cond_prob * race_cond_prob
-
                     p_symp_g_cond_sex_race_age_2 = round_val(
                         p_numerator_2 / p_denominator_2) if p_denominator_2 > 0 else 0.0
-
                     p_symp_g_cond_sex_race_age_2 = min(
-                        p_symp_g_cond_sex_race_age_2, 1.0)
+                        p_symp_g_cond_sex_race_age_2,
+                        1.0
+                    )
 
-                    # p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_1
                     p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_2
-
                     transitions_dict[global_key] = p_symp_g_cond_sex_race_age
 
                     conditions = []
