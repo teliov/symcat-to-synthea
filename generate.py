@@ -138,6 +138,73 @@ def get_prob_symptom_cond_given_race(race_dict, race_cond_dict, priors, race_key
     ]
 
 
+def get_max_valid_condition_prior(distribution, sex_denom, age_denom, race_denom, sex_keys, age_keys, race_keys):
+    """Function for computing the priors leading to non negative P(C|ARG) for any
+       risk factors combination.
+
+    Parameters
+    ----------
+    distribution : dict
+        Dictionnary containing the odd values associated to each age category, 
+        race category, and sex category 
+    sex_denom : float
+        marginal of the condition with respect to sex SUM_g P(C|G=g) * P(G=g) 
+    age_denom : float
+        marginal of the condition with respect to age SUM_a P(C|A=a) * P(A=a)  
+    race_denom : float
+        marginal of the condition with respect to race SUM_r P(C|R=r) * P(R=r)  
+    sex_keys : list
+        keys for referencing sex related risk factor categories
+    age_keys : list
+        keys for referencing age related risk factor categories
+    race_keys : list
+        keys for referencing race related risk factor categories
+
+    Returns
+    -------
+    prior: float
+        the value of the prior
+    """
+    # compute P(condition | risk_factor)
+    sex_numerator = [
+        prob_val(
+            distribution.get("sex").get(sex_key).get("odds")
+        )
+        for sex_key in sex_keys
+    ]
+    age_numerator = [
+        prob_val(
+            distribution.get("age").get(age_key).get("odds")
+        )
+        for age_key in age_keys
+    ]
+    race_numerator = [
+        prob_val(
+            distribution.get("race").get(
+                "race-ethnicity-other" if race_key in [
+                    "race-ethnicity-asian", "race-ethnicity-native"] else race_key
+            ).get("odds")
+        )
+        for race_key in race_keys
+    ]
+
+    # compute cross product of risk_factor numerators
+    cross_product = [
+        reduce((lambda x, y: x * y), element)
+        for element in itertools.product(sex_numerator, age_numerator, race_numerator)
+    ]
+    denom = sex_denom * age_denom * race_denom
+
+    # max of cross product and max value for condition prior
+    non_zero_data = []
+    for i in range(len(cross_product)):
+        if cross_product[i] > 0:
+            non_zero_data.append(denom / cross_product[i])
+    prior_condition = min(non_zero_data)
+
+    return prior_condition
+
+
 def get_symptom_stats_infos(condition_definition, symptom_definition, probability, condition_proba, priors, sex_keys, age_keys, race_keys):
     """Function for getting stats info from a symptom given a condition and priors on risks factors
 
@@ -311,9 +378,6 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
     transitions = []
     transitions_dict = {}
 
-    # should I include default transition?
-    default_flag = False
-
     # Prob (condition | risk factors)
     sex_denom = sum([
         prob_val(
@@ -341,53 +405,25 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
     assert age_denom >= 0, "the age denom probability must be greater or equal to 0"
     assert race_denom >= 0, "the race denom probability must be greater or equal to 0"
 
-    # compute P(condition | risk_factor) / risk_factor_demom
-    sex_numerator = [
-        prob_val(
-            distribution.get("sex").get(sex_key).get("odds")
-        )  # / sex_denom if sex_denom > 0 else 0.0
-        for sex_key in sex_keys
-    ]
-    age_numerator = [
-        prob_val(
-            distribution.get("age").get(age_key).get("odds")
-        )  # / age_denom if age_denom > 0 else 0.0
-        for age_key in age_keys
-    ]
-    race_numerator = [
-        prob_val(
-            distribution.get("race").get(
-                "race-ethnicity-other" if race_key in [
-                    "race-ethnicity-asian", "race-ethnicity-native"] else race_key
-            ).get("odds")
-        )  # / race_denom if race_denom > 0 else 0.0
-        for race_key in race_prior_keys
-    ]
-
-    # global key separator
-    sep_key = '|'
-
-    # compute cross product of risk_factor numerators
-    cross_product = [
-        reduce((lambda x, y: x * y), element)
-        for element in itertools.product(sex_numerator, age_numerator, race_numerator)
-    ]
-    denom = sex_denom * age_denom * race_denom
-
-    # max of cross product and max value for condition prior
-    non_zero_data = []
-    for i in range(len(cross_product)):
-        if cross_product[i] > 0:
-            non_zero_data.append(denom / cross_product[i])
-    min_cross_prod = min(non_zero_data)
+    max_valid_prior = get_max_valid_condition_prior(
+        distribution, sex_denom, age_denom, race_denom,
+        sex_keys, age_keys, race_prior_keys
+    )
 
     # condition priors
     default_prior_condition = 0.5
     prior_condition = priors["Conditions"].get(
         condition.lower(), default_prior_condition)
-    prior_condition = min([min_cross_prod, prior_condition])
+    prior_condition = min([max_valid_prior, prior_condition])
 
+    # save the used prior
     transitions_dict['prior_condition'] = prior_condition
+
+    # global key separator
+    sep_key = '|'
+
+    # should I include default transition?
+    default_flag = False
 
     for sex_key in sex_keys:
         sex_odds = distribution.get("sex").get(sex_key).get("odds")
