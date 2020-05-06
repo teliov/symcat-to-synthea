@@ -205,27 +205,28 @@ def get_symptom_stats_infos(condition_definition, symptom_definition, probabilit
     sex_numerator = [
         get_ind_prob_symptom_cond_given_sex(
             sex_dict, sex_cond_dict, priors, sex_key
-        ) / sex_denom if sex_denom > 0 else 0.0
+        )  # / sex_denom if sex_denom > 0 else 0.0
         for sex_key in sex_keys
     ]
     age_numerator = [
         get_ind_prob_symptom_cond_given_age(
             age_dict, age_cond_dict, priors, age_key
-        ) / age_denom if age_denom > 0 else 0.0
+        )  # / age_denom if age_denom > 0 else 0.0
         for age_key in age_keys
     ]
     race_numerator = [
         get_ind_prob_symptom_cond_given_race(
             race_dict, race_cond_dict, priors, race_key
-        ) / race_denom if race_denom > 0 else 0.0
+        )  # / race_denom if race_denom > 0 else 0.0
         for race_key in race_keys
     ]
 
     # compute cross product of risk_factor numerators
     cross_product = [
-        probability * reduce((lambda x, y: x * y), element)
+        reduce((lambda x, y: x * y), element)
         for element in itertools.product(sex_numerator, age_numerator, race_numerator)
     ]
+    global_max_cross_product = max(cross_product)
 
     # global key separator
     sep_key = '|'
@@ -235,32 +236,32 @@ def get_symptom_stats_infos(condition_definition, symptom_definition, probabilit
         condition_proba.get(sep_key.join(element), 0.0)
         for element in itertools.product(sex_keys, age_keys, race_keys)
     ]
-    prob_condition = [
-        a if a > 0 else 1e-3 for a in prob_condition
-    ]
-
+    # # divide cross_product by prob_condition
+    # local_cross_product = [
+    #     a / b if b > 0 else 0 for a, b in zip(cross_product, prob_condition)
+    # ]
     # divide cross_product by prob_condition
-    cross_product = [
-        a / b for a, b in zip(cross_product, prob_condition)
-    ]
+    denom = sex_denom * age_denom * race_denom
+    local_cross_product = []
+    for a, b in zip(cross_product, prob_condition):
+        if a > 0:
+            local_cross_product.append(b * denom / a)
 
-    # max of cross product and max value for condition prior
-    max_symp_cross_prod = max(cross_product)
-    max_symp_prior_condition = 1.0 / \
-        max_symp_cross_prod if max_symp_cross_prod > 0 else 1.0
-    if max_symp_prior_condition > 1.0:
-        max_symp_prior_condition = 1.0
+    local_max_cross_product = max(local_cross_product) if len(
+        local_cross_product) > 0 else 0.0
+    local_min_cross_product = min(local_cross_product) if len(
+        local_cross_product) > 0 else 1.0
 
-    # global_key = sep_key.join([sex_key, age_key, race_val])
-    # # print(global_key, prior_condition,
-    # #      condition_proba.get(global_key, prior_condition))
-    # p_numerator = probability * sex_prob * age_prob * race_prob * prior_condition
-    # p_denominator = age_denom * sex_denom * race_denom * condition_proba.get(
-    #     global_key, prior_condition)
-    # p_symp_g_cond_sex_race_age = round_val(
-    #     p_numerator / p_denominator) if p_denominator > 0 else 0.0
+    #max_cross_prod = local_max_cross_product  # global_max_cross_product  #
+    # prior_symptom_condition = min(
+    # 1.0, max([sex_denom, age_denom, race_denom, max_cross_prod**.5,
+    # probability]))
 
-    return sex_denom, age_denom, race_denom, max_symp_prior_condition
+    prior_symptom_condition = min([1.0, local_min_cross_product])
+
+    prior_condition = min(prior_symptom_condition / probability, 1.0)
+
+    return sex_denom, age_denom, race_denom, prior_condition
 
 
 def get_max_condition_priors_wrt_symptoms(condition, distribution, symptom_dict, priors, cond_risk_factor_prob_dict, current_cond_prior):
@@ -413,13 +414,13 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
     sex_numerator = [
         prob_val(
             distribution.get("sex").get(sex_key).get("odds")
-        ) / sex_denom if sex_denom > 0 else 0.0
+        )  # / sex_denom if sex_denom > 0 else 0.0
         for sex_key in sex_keys
     ]
     age_numerator = [
         prob_val(
             distribution.get("age").get(age_key).get("odds")
-        ) / age_denom if age_denom > 0 else 0.0
+        )  # / age_denom if age_denom > 0 else 0.0
         for age_key in age_keys
     ]
     race_numerator = [
@@ -428,7 +429,7 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
                 "race-ethnicity-other" if race_key in [
                     "race-ethnicity-asian", "race-ethnicity-native"] else race_key
             ).get("odds")
-        ) / race_denom if race_denom > 0 else 0.0
+        )  # / race_denom if race_denom > 0 else 0.0
         for race_key in race_prior_keys
     ]
 
@@ -445,14 +446,22 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
         for element in itertools.product(sex_keys, age_keys, race_prior_keys)
 
     ]
+    denom = sex_denom * age_denom * race_denom
     cond_risk_factor_prob_dict = {
-        cross_product_keys[i]: cross_product[i]
+        cross_product_keys[i]: cross_product[i] / denom if denom > 0 else 0.0
         for i in range(len(cross_product))
     }
 
     # max of cross product and max value for condition prior
+    non_zero_data = []
+    for i in range(len(cross_product)):
+        if cross_product[i] > 0:
+            non_zero_data.append(denom / cross_product[i])
+
+    min_cross_prod = min(non_zero_data)
     max_cross_prod = max(cross_product)
     max_prior_condition = 1.0 / max_cross_prod if max_cross_prod > 0 else 1.0
+    max_prior_condition = max_prior_condition ** (1 / 3)
     if max_prior_condition > 1.0:
         max_prior_condition = 1.0
 
@@ -460,19 +469,43 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
     default_prior_condition = 0.5
     prior_condition = priors["Conditions"].get(
         condition.lower(), default_prior_condition)
-    prior_condition = min([prior_condition, max_prior_condition])
+    #prior_condition = min([sex_denom, age_denom, race_denom])
+    #prior_condition = min([prior_condition, max_prior_condition])
+    prior_condition = min([min_cross_prod, prior_condition])
+
+    # min_marginale = min([sex_denom, age_denom, race_denom])
+    # max_conditional = max_cross_prod**.5
+    # if max_conditional <= min_marginale:
+    #     if not (prior_condition >= max_conditional and prior_condition <= min_marginale):
+    #         prior_condition = min_marginale
+    # else:
+    #     prior_condition = (min_marginale + max_conditional) / 2.0
+
+    # print(condition, ":", prior_condition)
+    # prior_condition = min(
+    #     1.0, max([prior_condition, sex_denom, age_denom, race_denom, max_cross_prod**.5]))
+    # print(condition, " : ", prior_condition, ":", max(
+    #     cross_product), " - ", min(cross_product))
+    # print(condition, ":", max(cross_product), " - ", min(cross_product))
 
     niter = 0
-    max_iters = 25
-    while True:
+    max_iters = 0
+    old_prior = prior_condition
+    tmp_priors = []
+    while True and max_iters > 0:
         tmp_prior = get_max_condition_priors_wrt_symptoms(
             condition, distribution, symptom_dict, priors,
             cond_risk_factor_prob_dict, prior_condition)
+        tmp_priors.append(tmp_prior)
         if tmp_prior == prior_condition or niter >= max_iters:
+            prior_condition = tmp_prior
             break
         else:
             prior_condition = tmp_prior
             niter += 1
+
+    # print(condition, " : ", prior_condition,
+    #      " : ", old_prior, " : ", tmp_priors)
 
     transitions_dict['prior_condition'] = prior_condition
 
@@ -723,6 +756,29 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
 
         return transitions, transitions_dict
 
+    # Prob (condition | risk factors)
+    sex_cond_denom = sum([
+        prob_val(
+            condition_distribution.get("sex").get(sex_key).get("odds")
+        ) * priors["Gender"][sex_key]
+        for sex_key in sex_keys
+    ])
+    age_cond_denom = sum([
+        prob_val(
+            condition_distribution.get("age").get(age_key).get("odds")
+        ) * priors["Age"][age_key]
+        for age_key in age_keys
+    ])
+    race_cond_denom = sum([
+        prob_val(
+            condition_distribution.get("race").get(
+                "race-ethnicity-other" if race_key in [
+                    "race-ethnicity-asian", "race-ethnicity-native"] else race_key
+            ).get("odds")
+        ) * priors["Race"][race_key]
+        for race_key in race_prior_keys
+    ])
+
     # should I include default transition?
     default_flag = False
 
@@ -740,14 +796,11 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
         sex_keys, age_keys, race_prior_keys
     )
 
-    max_prior_condition = condition_proba['prior_condition']
+    max_prior_condition = condition_proba.get('prior_condition', 1.0)
 
     # condition priors
-    default_prior_condition = 0.5
-    prior_condition = priors["Conditions"].get(
-        condition.lower(), default_prior_condition)
     prior_condition = min(
-        [prior_condition, max_prior_condition, symp_prior_condition])
+        [max_prior_condition, symp_prior_condition])
     # prior_condition = max_prior_condition
 
     fake_sex_key = 'sex-none'
@@ -769,11 +822,15 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
 
         if sex_key == fake_sex_key:  # fake_dick
             sex_prob = 1
+            sex_cond_prob = 1
             condition_sex = None
             sex_key = "None"
         else:
             sex_prob = get_ind_prob_symptom_cond_given_sex(
                 sex_dict, sex_cond_dict, priors, sex_key
+            )
+            sex_cond_prob = prob_val(
+                condition_distribution.get("sex").get(sex_key).get("odds")
             )
             if sex_prob <= 0:
                 default_flag = True
@@ -791,11 +848,15 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
         for age_key in age_dict.keys():
             if age_key == fake_age_key:  # fake_dict
                 age_prob = 1
+                age_cond_prob = 1
                 condition_age = None
                 age_key = "None"
             else:
                 age_prob = get_ind_prob_symptom_cond_given_age(
                     age_dict, age_cond_dict, priors, age_key
+                )
+                age_cond_prob = prob_val(
+                    condition_distribution.get("age").get(age_key).get("odds")
                 )
                 if age_prob <= 0:
                     default_flag = True
@@ -843,6 +904,7 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
             for race_key in race_dict.keys():
                 if race_key == fake_race_key:
                     race_prob = 1
+                    race_cond_prob = 1
                     condition_race = [None]
                     race_key = "None"
                     race_vals = [race_key]
@@ -850,7 +912,10 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
                     race_prob = get_ind_prob_symptom_cond_given_race(
                         race_dict, race_cond_dict, priors, race_key
                     )
-
+                    race_cond_prob = prob_val(
+                        condition_distribution.get(
+                            "race").get(race_key).get("odds")
+                    )
                     if race_key == "race-ethnicity-other":
                         # split this into three for : NATIVE, "ASIAN" and "OTHER"
                         # according to synthea
@@ -882,14 +947,28 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
                     p_numerator = probability * sex_prob * age_prob * race_prob * prior_condition
                     p_denominator = age_denom * sex_denom * race_denom * condition_proba.get(
                         global_key, prior_condition)
-                    p_symp_g_cond_sex_race_age = round_val(
+                    p_symp_g_cond_sex_race_age_1 = round_val(
                         p_numerator / p_denominator) if p_denominator > 0 else 0.0
 
-                    # assert p_symp_g_cond_sex_race_age <= 1.0
+                    p_numerator_2 = probability * sex_prob * age_prob * \
+                        race_prob * sex_cond_denom * age_cond_denom * race_cond_denom
+                    p_denominator_2 = age_denom * sex_denom * race_denom * \
+                        sex_cond_prob * age_cond_prob * race_cond_prob
+
+                    p_symp_g_cond_sex_race_age_2 = round_val(
+                        p_numerator_2 / p_denominator_2) if p_denominator_2 > 0 else 0.0
+
+                    p_symp_g_cond_sex_race_age_2 = min(
+                        p_symp_g_cond_sex_race_age_2, 1.0)
+
+                    # p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_1
+                    p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_2
+
+                    assert p_symp_g_cond_sex_race_age <= 1.0
 
                     transitions_dict[global_key] = p_symp_g_cond_sex_race_age
 
-                    if (not neg_flag) and p_symp_g_cond_sex_race_age > 1:
+                    if (not neg_flag) and p_symp_g_cond_sex_race_age_2 > 1:
                         neg_flag = True
                         print(
                             "Warning: neg flag for symptoms {} - {} - {} - {} - {} - {}".format(
