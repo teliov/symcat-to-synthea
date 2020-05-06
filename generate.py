@@ -702,8 +702,7 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
     max_prior_condition = condition_proba.get('prior_condition', 1.0)
 
     # condition priors
-    prior_condition = min(
-        [max_prior_condition, symp_prior_condition])
+    prior_condition = min([max_prior_condition, symp_prior_condition])
     # prior_condition = max_prior_condition
 
     fake_sex_key = 'sex-none'
@@ -718,8 +717,6 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
 
     if len(race_dict) == 0:
         race_dict[fake_race_key] = 1.0
-
-    neg_flag = False
 
     for sex_key in sex_dict.keys():
 
@@ -867,18 +864,7 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
                     # p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_1
                     p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_2
 
-                    assert p_symp_g_cond_sex_race_age <= 1.0
-
                     transitions_dict[global_key] = p_symp_g_cond_sex_race_age
-
-                    if (not neg_flag) and p_symp_g_cond_sex_race_age_2 > 1:
-                        neg_flag = True
-                        print(
-                            "Warning: neg flag for symptoms {} - {} - {} - {} - {} - {}".format(
-                                condition, symptom, p_symp_g_cond_sex_race_age,
-                                max_prior_condition, symp_prior_condition,
-                                abs(max_prior_condition - symp_prior_condition))
-                        )
 
                     conditions = []
                     if condition_sex is not None:
