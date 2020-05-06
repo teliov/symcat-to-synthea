@@ -405,10 +405,11 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
     assert age_denom >= 0, "the age denom probability must be greater or equal to 0"
     assert race_denom >= 0, "the race denom probability must be greater or equal to 0"
 
-    max_valid_prior = get_max_valid_condition_prior(
-        distribution, sex_denom, age_denom, race_denom,
-        sex_keys, age_keys, race_prior_keys
-    )
+    # max_valid_prior = get_max_valid_condition_prior(
+    #     distribution, sex_denom, age_denom, race_denom,
+    #     sex_keys, age_keys, race_prior_keys
+    # )
+    max_valid_prior = 1.0
 
     # condition priors
     default_prior_condition = 0.5

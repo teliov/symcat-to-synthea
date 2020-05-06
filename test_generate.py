@@ -157,14 +157,15 @@ class TestGenerator(object):
         for i in range(len(cross_product)):
             if cross_product[i] > 0:
                 non_zero_data.append(denom / cross_product[i])
-        min_cross_prod = min(non_zero_data)
+        # max_valid_prior = min(non_zero_data)
+        max_valid_prior = 1.0
 
         default_condition_prior = 0.5
 
         prior_condition = priors["Conditions"].get(
             condition_name, default_condition_prior
         )
-        prior_condition = min([min_cross_prod, prior_condition])
+        prior_condition = min([max_valid_prior, prior_condition])
 
         marginal_prior_gender = marginale_condition["Gender"]
         marginal_prior_age = marginale_condition["Age"]
@@ -177,6 +178,7 @@ class TestGenerator(object):
             marginal_prior_gender * marginal_prior_age * marginal_prior_race)
 
         computed_proba = round_val(computed_proba)
+        computed_proba = min(1.0, computed_proba)
 
         return computed_proba, age_race_gender_prior
 
