@@ -522,6 +522,7 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
                             p_cond_g_sex_race_age)
                         p_cond_g_sex_race_age = min(1.0, p_cond_g_sex_race_age)
 
+                        assert p_cond_g_sex_race_age <= 1
                         global_key = sep_key.join(
                             [sex_key, age_key, race_val])
                         transitions_dict[global_key] = p_cond_g_sex_race_age
@@ -561,6 +562,7 @@ def generate_transition_for_sex_race_age(condition, distribution, symptom_dict, 
                     p_cond_g_sex_race_age = round_val(p_cond_g_sex_race_age)
                     p_cond_g_sex_race_age = min(1.0, p_cond_g_sex_race_age)
 
+                    assert p_cond_g_sex_race_age <= 1
                     global_key = sep_key.join([sex_key, age_key, race_key])
                     transitions_dict[global_key] = p_cond_g_sex_race_age
 
@@ -864,6 +866,8 @@ def generate_symptoms_for_sex_race_age(symptom, probability, distribution, condi
                     )
 
                     p_symp_g_cond_sex_race_age = p_symp_g_cond_sex_race_age_2
+
+                    assert p_symp_g_cond_sex_race_age <= 1
                     transitions_dict[global_key] = p_symp_g_cond_sex_race_age
 
                     conditions = []
