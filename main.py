@@ -3,7 +3,7 @@ import argparse
 import json
 import os
 
-from generate import generate_synthea_modules, GeneratorConfig
+from generate.generator import  GeneratorConfig, Generator, BASIC_MODULE_GENERATOR
 from parse import parse_symcat_conditions, parse_symcat_symptoms
 
 if __name__ == "__main__":
@@ -40,6 +40,11 @@ if __name__ == "__main__":
         help='Add a prefix to the name of generated modules'
     )
 
+    parser.add_argument(
+        '--generator_mode', type=int, default=BASIC_MODULE_GENERATOR,
+        help="Select which method is to be used in generating the modules"
+    )
+
     parser.add_argument('--output', help="Output directory")
 
     args = parser.parse_args()
@@ -62,12 +67,14 @@ if __name__ == "__main__":
         config.num_history_years = args.num_history_years
         config.min_symptoms = args.min_symptoms
         config.prefix = args.module_prefix
+        config.generator_mode = args.generator_mode
 
         if not args.symptoms_json or not args.conditions_json:
             raise ValueError(
                 "You must supply both the parsed symptoms.json and conditions.json file"
             )
-        generate_synthea_modules(config)
+        generator = Generator(config)
+        generator.generate()
     elif args.parse_symptoms:
         if not args.symptoms_csv:
             raise ValueError(
