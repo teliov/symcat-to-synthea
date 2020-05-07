@@ -1,4 +1,6 @@
 import os
+from functools import reduce
+import itertools
 
 from parse import parse_symcat_conditions, parse_symcat_symptoms, slugify_condition
 from generate import generate_synthea_module, prob_val, round_val
@@ -12,27 +14,118 @@ class TestGenerator(object):
         assert prob_val(0.3, 7) == round(0.3 / 1.3, 7)
         assert prob_val(0.3, 2) != 0.5
 
-    def get_symptom_proba(self, symptom_name, age_key, race_key, gender_key, priors, provided_condition_probs, marginale_condition, expected_probability):
+    def get_symptom_proba(self, condition_name, symptom_name, age_key, race_key, gender_key, priors, provided_symptom_probs, provided_condition_probs, marginale_symptom, expected_probability):
 
-        p_gender = provided_condition_probs["Gender"][gender_key]
-        gender_prior = priors["Gender"][gender_key]
+        p_gender = provided_symptom_probs["Gender"][
+            gender_key] * provided_condition_probs["Gender"][gender_key]
+        gender_prior = priors["Gender"][gender_key] * \
+            provided_condition_probs["Gender"][gender_key]
+        p_cond_gender = provided_condition_probs["Gender"][gender_key]
 
-        p_race = provided_condition_probs["Race"][race_key]
-        race_prior = priors["Race"][race_key]
+        p_race = provided_symptom_probs["Race"][
+            race_key] * provided_condition_probs["Race"][race_key]
+        race_prior = priors["Race"][race_key] * \
+            provided_condition_probs["Race"][race_key]
+        p_cond_race = provided_condition_probs["Race"][race_key]
 
-        p_age = provided_condition_probs["Age"][age_key]
-        age_prior = priors["Age"][age_key]
+        p_age = provided_symptom_probs["Age"][
+            age_key] * provided_condition_probs["Age"][age_key]
+        age_prior = priors["Age"][age_key] * \
+            provided_condition_probs["Age"][age_key]
+        p_cond_age = provided_condition_probs["Age"][age_key]
 
         age_race_gender_prior = age_prior * race_prior * gender_prior
 
-        sym_prior_gender = marginale_condition["Gender"]
-        sym_prior_age = marginale_condition["Age"]
-        sym_prior_race = marginale_condition["Race"]
+        marginale_condition = {
+            k: sum([priors[k][d] * provided_condition_probs[k][d] for d in priors[k].keys()])
+            for k in provided_condition_probs.keys()
+        }
 
-        computed_proba = (expected_probability *
-                          p_gender * p_race * p_age)
-        computed_proba /= (sym_prior_gender *
-                           sym_prior_age * sym_prior_race)
+        denom = reduce((lambda x, y: x * y), marginale_condition.values())
+        age_race_gender_prior = age_race_gender_prior / denom
+        cross_product_cond = [
+            reduce((lambda x, y: x * y), element)
+            for element in itertools.product(
+                *[
+                    provided_condition_probs[k].values() for k in provided_condition_probs.keys()
+                ]
+            )
+        ]
+        non_zero_data = []
+        for i in range(len(cross_product_cond)):
+            if cross_product_cond[i] > 0:
+                non_zero_data.append(denom / cross_product_cond[i])
+        min_cross_prod = min(non_zero_data)
+        default_condition_prior = 0.5
+        max_prior_condition = priors["Conditions"].get(
+            condition_name, default_condition_prior
+        )
+        max_prior_condition = min([min_cross_prod, max_prior_condition])
+
+        denom_symp = reduce((lambda x, y: x * y), marginale_symptom.values())
+        cross_product = [
+            reduce((lambda x, y: x * y), element)
+            for element in itertools.product(
+                *[
+                    [
+                        provided_symptom_probs[k][d] *
+                        provided_condition_probs[k][d]
+                        for d in sorted(provided_condition_probs[k].keys())
+                    ]
+                    for k in sorted(provided_condition_probs.keys())
+                ]
+            )
+        ]
+        prob_condition = [
+            (self.get_condition_proba(
+                condition_name, age_key1, race_key1, gender_key1,
+                priors, provided_condition_probs, marginale_condition
+            )[0], "|".join([age_key1, gender_key1, race_key1]))
+            for age_key1, gender_key1, race_key1 in itertools.product(
+                *[
+                    sorted(provided_condition_probs[k].keys())
+                    for k in sorted(provided_condition_probs.keys())
+                ]
+            )
+        ]
+        prob_condition_dict = {
+            b[1]: b[0] for b in prob_condition
+        }
+        local_cross_product = []
+        for a, b in zip(cross_product, prob_condition):
+            if a > 0:
+                local_cross_product.append(b[0] * denom_symp / a)
+        local_min_cross_product = min(local_cross_product) if len(
+            local_cross_product) > 0 else 1.0
+        prior_symptom_condition = min([1.0, local_min_cross_product])
+        symp_prior_condition = min(prior_symptom_condition /
+                                   expected_probability, 1.0)
+
+        prior_condition = min([max_prior_condition, symp_prior_condition])
+
+        sym_prior_gender = marginale_symptom["Gender"]
+        sym_prior_age = marginale_symptom["Age"]
+        sym_prior_race = marginale_symptom["Race"]
+
+        numerator = (expected_probability *
+                     p_gender * p_race * p_age * prior_condition)
+        denominator = (
+            sym_prior_gender * sym_prior_age * sym_prior_race *
+            prob_condition_dict.get(
+                "|".join([age_key, gender_key, race_key]),
+                prior_condition
+            )
+        )
+
+        numerator_2 = expected_probability * p_gender * p_race * p_age * denom
+        denominator_2 = sym_prior_gender * sym_prior_age * \
+            sym_prior_race * p_cond_age * p_cond_race * p_cond_gender
+
+        if denominator > 0:
+            # computed_proba = numerator / denominator
+            computed_proba = numerator_2 / denominator_2
+        else:
+            computed_proba = 0.0
 
         computed_proba = round_val(computed_proba)
 
@@ -51,23 +144,41 @@ class TestGenerator(object):
 
         age_race_gender_prior = age_prior * race_prior * gender_prior
 
+        denom = reduce((lambda x, y: x * y), marginale_condition.values())
+        cross_product = [
+            reduce((lambda x, y: x * y), element)
+            for element in itertools.product(
+                *[
+                    provided_condition_probs[k].values() for k in provided_condition_probs.keys()
+                ]
+            )
+        ]
+        non_zero_data = []
+        for i in range(len(cross_product)):
+            if cross_product[i] > 0:
+                non_zero_data.append(denom / cross_product[i])
+        # max_valid_prior = min(non_zero_data)
+        max_valid_prior = 1.0
+
         default_condition_prior = 0.5
 
-        condition_prior_gender = priors["Conditions"].get(
+        prior_condition = priors["Conditions"].get(
             condition_name, default_condition_prior
         )
+        prior_condition = min([max_valid_prior, prior_condition])
 
         marginal_prior_gender = marginale_condition["Gender"]
         marginal_prior_age = marginale_condition["Age"]
         marginal_prior_race = marginale_condition["Race"]
 
         computed_proba = (
-            condition_prior_gender * p_gender * p_race * p_age
+            prior_condition * p_gender * p_race * p_age
         )
         computed_proba /= (
             marginal_prior_gender * marginal_prior_age * marginal_prior_race)
 
         computed_proba = round_val(computed_proba)
+        computed_proba = min(1.0, computed_proba)
 
         return computed_proba, age_race_gender_prior
 
@@ -91,6 +202,27 @@ class TestGenerator(object):
             len(provided_condition_probs["Age"]) - len(keys_to_avoids["Age"])
         )
         return keys_to_avoids, expected_num_conditions
+
+    def get_exception_keys_and_num_symptom(self, provided_symptom_probs, provided_condition_probs):
+        keys_to_avoids = {
+            "Age": [
+                k for k in provided_symptom_probs["Age"]
+                if provided_symptom_probs["Age"][k] * provided_condition_probs["Age"][k] == 0
+            ],
+            "Gender": [
+                k for k in provided_symptom_probs["Gender"]
+                if provided_symptom_probs["Gender"][k] * provided_condition_probs["Gender"][k] == 0
+            ],
+        }
+        expected_num_symptoms = len(provided_symptom_probs["Race"])
+        expected_num_symptoms *= (
+            len(provided_symptom_probs["Gender"]
+                ) - len(keys_to_avoids["Gender"])
+        )
+        expected_num_symptoms *= (
+            len(provided_symptom_probs["Age"]) - len(keys_to_avoids["Age"])
+        )
+        return keys_to_avoids, expected_num_symptoms
 
     def process_complex_transition(self, condition_stmts, keys_to_avoids):
         age_min = 0
@@ -227,15 +359,15 @@ class TestGenerator(object):
 
         assert (num_distributed_condtions == expected_num_conditions)
 
-    def check_symptom_proba(self, symptom_name, module_proba, priors, provided_condition_probs, expected_probability):
+    def check_symptom_proba(self, condition_name, symptom_name, module_proba, priors, provided_symptom_probs, provided_condition_probs, expected_probability):
 
-        keys_to_avoids, expected_num_conditions = self.get_exception_keys_and_num_condition(
-            provided_condition_probs
+        keys_to_avoids, expected_num_conditions = self.get_exception_keys_and_num_symptom(
+            provided_symptom_probs, provided_condition_probs
         )
 
         marginale_condition = {
-            k: sum([priors[k][d] * provided_condition_probs[k][d] for d in priors[k].keys()])
-            for k in provided_condition_probs.keys()
+            k: sum([priors[k][d] * provided_symptom_probs[k][d] * provided_condition_probs[k][d] for d in priors[k].keys()])
+            for k in provided_symptom_probs.keys()
         }
 
         all_possibilities = module_proba['complex_transition']
@@ -266,14 +398,17 @@ class TestGenerator(object):
                 )
 
                 computed_proba, age_race_gender_prior = self.get_symptom_proba(
-                    symptom_name, age_key, race_key, gender_key,
-                    priors, provided_condition_probs, marginale_condition,
-                    expected_probability
+                    condition_name, symptom_name, age_key, race_key, gender_key,
+                    priors, provided_symptom_probs, provided_condition_probs,
+                    marginale_condition, expected_probability
                 )
 
                 mean_proba += probability * age_race_gender_prior
 
-                assert probability == computed_proba
+                assert probability == min(1.0, computed_proba)
+
+                mean_proba += (computed_proba - probability) * \
+                    age_race_gender_prior
 
         assert (num_distributed_condtions == expected_num_conditions)
         assert (round_val(mean_proba) == round_val(expected_probability))
@@ -485,10 +620,12 @@ class TestGenerator(object):
             },
         }
         self.check_symptom_proba(
+            modules[key1][name],
             modules[key1][state]["Symptom_1"]["symptom"],
             modules[key1][state]["Simple_Transition_1"],
             priors,
             provided_symptom_probs,
+            provided_condition_probs,
             expected_symptom_probability
         )
 
@@ -519,10 +656,12 @@ class TestGenerator(object):
             },
         }
         self.check_symptom_proba(
+            modules[key1][name],
             modules[key1][state]["Symptom_2"]["symptom"],
             modules[key1][state]["Simple_Transition_2"],
             priors,
             provided_symptom_probs,
+            provided_condition_probs,
             expected_symptom_probability
         )
 
@@ -590,9 +729,11 @@ class TestGenerator(object):
             },
         }
         self.check_symptom_proba(
+            modules[key2][name],
             modules[key2][state]["Symptom_1"]["symptom"],
             modules[key2][state]["Simple_Transition_1"],
             priors,
             provided_symptom_probs,
+            provided_condition_probs,
             expected_symptom_probability
         )
