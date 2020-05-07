@@ -2,7 +2,14 @@ import json
 import os
 import hashlib
 from collections import OrderedDict
-from .helpers import TransitionStates, AttrKeys, get_transition_to_no_infection, generate_synthea_common_history_module
+from .helpers import TransitionStates, AttrKeys, generate_synthea_common_history_module
+
+
+def get_transition_to_no_infection():
+    return {
+        "type": "Simple",
+        "direct_transition": TransitionStates.NO_INFECTION
+    }
 
 
 class ModuleGenerator(object):

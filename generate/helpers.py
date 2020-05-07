@@ -192,12 +192,6 @@ def generate_synthea_common_history_module(num_history_years=1):
     }
 
 
-def get_transition_to_no_infection():
-    return {
-        "type": "Simple",
-        "direct_transition": TransitionStates.NO_INFECTION
-    }
-
 
 class AttrKeys:
     AGE_KEYS = [
