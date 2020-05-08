@@ -2,7 +2,7 @@ import json
 import os
 import hashlib
 from collections import OrderedDict
-from .helpers import TransitionStates, AttrKeys, generate_synthea_common_history_module
+from .helpers import TransitionStates, AttrKeys, generate_synthea_common_history_module, prob_val, round_val
 
 
 def get_transition_to_no_infection():
@@ -12,7 +12,7 @@ def get_transition_to_no_infection():
     }
 
 
-class ModuleGenerator(object):
+class ModuleGenerator():
     """
     Base class for Symcat-Synthea module generators
 
@@ -371,7 +371,8 @@ class BasicModuleGenerator(ModuleGenerator):
         }
 
     @staticmethod
-    def generate_transition_for_age(condition, age_distribution, next_state, default_state=TransitionStates.TERMINAL_STATE):
+    def generate_transition_for_age(condition, age_distribution, next_state,
+                                    default_state=TransitionStates.TERMINAL_STATE):
         """
         :param condition:
         :param age_distribution:
@@ -385,8 +386,7 @@ class BasicModuleGenerator(ModuleGenerator):
         default_flag = False
 
         for idx, key in enumerate(AttrKeys.AGE_KEYS):
-            odds = age_distribution.get(key).get("odds")
-            prob = round(odds / (1.0 + odds), 4)
+            prob = prob_val(age_distribution.get(key).get("odds"))
 
             if prob <= 0:
                 # then terminate module
@@ -511,12 +511,10 @@ class BasicModuleGenerator(ModuleGenerator):
         return transitions, adjacent_states
 
     @staticmethod
-    def generate_transition_for_sex(condition, sex_distribution, next_state, default_state=TransitionStates.TERMINAL_STATE):
-        male_odds = float(sex_distribution.get("sex-male").get("odds"))
-        female_odds = float(sex_distribution.get("sex-female").get("odds"))
-
-        male_prob = round(male_odds / (1.0 + male_odds), 4)
-        female_prob = round(female_odds / (1.0 + female_odds), 4)
+    def generate_transition_for_sex(condition, sex_distribution, next_state,
+                                    default_state=TransitionStates.TERMINAL_STATE):
+        male_prob = prob_val(sex_distribution.get("sex-male").get("odds"))
+        female_prob = prob_val(sex_distribution.get("sex-female").get("odds"))
 
         probabilities = [male_prob, female_prob]
 
@@ -572,8 +570,7 @@ class BasicModuleGenerator(ModuleGenerator):
         adjacent_states = {}
 
         for key in AttrKeys.RACE_KEYS:
-            odds = float(race_distribution.get(key).get("odds"))
-            prob = round(odds / (1.0 + odds), 4)
+            prob = prob_val(race_distribution.get(key).get("odds"))
 
             if prob <= 0:
                 prob = 0.001

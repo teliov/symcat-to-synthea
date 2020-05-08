@@ -3,7 +3,7 @@ import argparse
 import json
 import os
 
-from generate.generator import  GeneratorConfig, Generator, BASIC_MODULE_GENERATOR
+from generator.generator import  GeneratorConfig, Generator, ADVANCED_MODULE_GENERATOR
 from parse import parse_symcat_conditions, parse_symcat_symptoms
 
 if __name__ == "__main__":
@@ -24,7 +24,8 @@ if __name__ == "__main__":
 
     parser.add_argument(
         '--num_history_years', type=int, default=1,
-        help='Given the target age of a patient, this is the number of years from that target year from which pathologoes are generated.'
+        help='Given the target age of a patient, this is the number of years from '
+             'that target year from which pathologoes are generated.'
     )
     parser.add_argument(
         '--min_symptoms', type=int, default=1,
@@ -41,8 +42,8 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        '--generator_mode', type=int, default=BASIC_MODULE_GENERATOR,
-        help="Select which method is to be used in generating the modules"
+        '--generator_mode', type=int, default=ADVANCED_MODULE_GENERATOR,
+        help="Select which method is to be used in generating the modules. Defaults to the advanced method"
     )
 
     parser.add_argument('--output', help="Output directory")

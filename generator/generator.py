@@ -44,7 +44,7 @@ class GeneratorConfig(object):
     num_history_years = 1
     min_symptoms = 1
     prefix = ""
-    generator_mode = BASIC_MODULE_GENERATOR
+    generator_mode = ADVANCED_MODULE_GENERATOR
 
 
 class Generator(object):
