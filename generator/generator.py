@@ -76,8 +76,8 @@ class Generator(object):
             os.mkdir(self.config.output_dir)
 
         if self.config.generator_mode == BASIC_MODULE_GENERATOR:
-            module_generator = BasicModuleGenerator(conditions=conditions_data, symptoms=symptoms_data, config=self.config)
+            module_generator = BasicModuleGenerator(config=self.config)
         else:
-            module_generator = AdvancedModuleGenerator(conditions=conditions_data, symptoms=symptoms_data, config=self.config)
+            module_generator = AdvancedModuleGenerator(config=self.config)
 
-        module_generator.generate()
+        module_generator.generate(conditions_data, symptoms_data)
