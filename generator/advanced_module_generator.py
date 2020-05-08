@@ -8,15 +8,23 @@ from .helpers import load_config, TransitionStates, prob_val, round_val, AttrKey
 
 
 class AdvancedModuleGenerator(ModuleGenerator):
-    def __init__(self, conditions, symptoms, config):
-        super().__init__(conditions, symptoms, config)
+    def __init__(self, config):
+        super().__init__(config)
 
         self.priors = load_config(self.config.config_file)
         self.sep_key = '|'
 
-    def generate_module(self, key):
-        condition = self.conditions.get(key)
+    def generate_module(self, condition, symptoms):
+        """
+        Generates a Synthea compatible module for the passed condition
 
+        Parameters
+        -----------
+        condition: dict
+            dictionary containing symcat definitions for the condition
+        symptoms: dict
+            dictionary containing definitions for symcat symptoms
+        """
         if not condition.get("symptoms", None):
             return None
 
@@ -144,7 +152,7 @@ class AdvancedModuleGenerator(ModuleGenerator):
                 if remaining <= min_symptoms:
                     check_on_num_symptoms = True
 
-            symptom_definition = self.symptoms.get(slug, None)
+            symptom_definition = symptoms.get(slug, None)
 
             if idx == len(keys) - 1:
                 next_target = TransitionStates.TARGET_ENCOUNTER_END
@@ -289,6 +297,28 @@ class AdvancedModuleGenerator(ModuleGenerator):
         }
 
     def generate_transition_for_sex_race_age(self, condition, distribution, next_state, default_state=TransitionStates):
+        """Function for defining age-based transitions in the generated PGM module
+
+            Parameters
+            ----------
+            condition : str
+                The name of the condition for which the PGM is being generated.
+            distribution : dict
+                Dictionnary containing the odd values associated to each age category,
+                race category, and sex category
+            next_state : str
+                The name of the node to transit in case we sample withing the
+                provided distribution
+            default_state : str
+                The name of the node to transit in case we do not sample withing the
+                provided distribution (default: "TerminalState").
+            Returns
+            -------
+            transitions: list
+                the corresponding list of generated transitions
+            transitions_dict: dict
+                the dict containing the prob values for each risk factor combination (sex,age,race)
+            """
         transitions = []
         transitions_dict = {}
         sex_denom = sum([
@@ -443,7 +473,7 @@ class AdvancedModuleGenerator(ModuleGenerator):
                                     },
                                     {
                                         "transition": default_state,
-                                        "distribution": round_val(1 - p_cond_g_sex_race_age)
+                                        "distribution": 1 - p_cond_g_sex_race_age
                                     }
                                 ]
                             })
@@ -482,7 +512,7 @@ class AdvancedModuleGenerator(ModuleGenerator):
                                 },
                                 {
                                     "transition": default_state,
-                                    "distribution": round_val(1 - p_cond_g_sex_race_age)
+                                    "distribution": 1 - p_cond_g_sex_race_age
                                 }
                             ]
                         })
@@ -557,7 +587,7 @@ class AdvancedModuleGenerator(ModuleGenerator):
             self.get_ind_prob_symptom_cond_given_race(
                 race_dict, race_cond_dict, race_key
             ) * self.priors["Race"][race_key]
-            for race_key in AttrKeys.RACE_KEYS
+            for race_key in AttrKeys.RACE_PRIOR_KEYS
         ]
 
     def get_symptom_stats_infos(self, condition_definition, symptom_definition, probability, condition_proba):
@@ -577,15 +607,6 @@ class AdvancedModuleGenerator(ModuleGenerator):
             the probability of the condition for each coombination of risk factors (sex, age, race)
             without the effect of the condition priors. P(ARG|C)/P(ARG). Note that the true condition
             probability would be obtained by P(C|ARG) = P(ARG|C) * P(C)/ P(ARG).
-        priors : dict
-            The priors associated to age, race, sex categories as well as conditions and symptoms
-        sex_keys : list
-            keys for referencing sex related risk factor categories
-        age_keys : list
-            keys for referencing age related risk factor categories
-        race_keys : list
-            keys for referencing race related risk factor categories
-
         Returns
         -------
         cond_prior: float
@@ -640,7 +661,7 @@ class AdvancedModuleGenerator(ModuleGenerator):
             self.get_ind_prob_symptom_cond_given_race(
                 race_dict, race_cond_dict, race_key
             )  # / race_denom if race_denom > 0 else 0.0
-            for race_key in AttrKeys.RACE_KEYS
+            for race_key in AttrKeys.RACE_PRIOR_KEYS
         ]
 
         # compute cross product of risk_factor numerators
@@ -678,27 +699,21 @@ class AdvancedModuleGenerator(ModuleGenerator):
         """Function for defining age-based transitions in the generated PGM module
             Parameters
             ----------
-            symptom : str
-                The name of the symptom for which the transitions is being generated.
             probability : float
                 The absolute probablity value of the symtom given the cuurent condition.
             distribution : dict
-                Dictionnary containing the odd values associated to each age category,
+                Dictionary containing the odd values associated to each age category,
                 race category, and sex category
-            condition : str
-                The name of the condition for which the PGM is being generated.
             condition_distribution : dict
-                Dictionnary containing the odd values associated to each age category,
+                Dictionary containing the odd values associated to each age category,
                 race category, and sex category for the condition related to the symptom
                 being generated
             condition_proba: dict
-                Dictionnary containing the probabilities of the condition related to the symptom
+                Dictionary containing the probabilities of the condition related to the symptom
                 being generated given each risk factor combination (sex, age, race).
             next_state : str
                 The name of the node to transit in case we sample withing the
                 provided distribution
-            priors : dict
-                The priors associated to age, race, sex categories as well as conditions and symptoms
             default_state : str
                 The name of the node to transit in case we do not sample withing the
                 provided distribution (default: "TerminalState").

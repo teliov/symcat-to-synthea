@@ -50,3 +50,16 @@ for age, race and gender.
 A sample file is included in the repo (see the `priors.ini` file).
 If provided, the priors defined in the config file are used to adjust the probabilities which would eventually be expressed in the
 generated modules. 
+
+**generator_mode**
+
+The mode in which the synthea modules are generated. There are two options:
+- Basic Generation
+- Advanced Generation
+
+The basic generation mode uses symcat data as is with no modifications.
+
+The advanced generation mode incorporates provided probabilty priors (passed via the `config_file` option) 
+for population attributes (i.e age, race and gender) and also conditions and symptoms.
+It falls back to reasonable defaults when no configuration is passed. This allows for a more involved estimation probability for a
+condition given the race, age and gender. There is also a more involved estimation of symptoms given the condition, race, age and gender

@@ -3,11 +3,12 @@ from functools import reduce
 import itertools
 
 from parse import parse_symcat_conditions, parse_symcat_symptoms, slugify_condition
-from generate import generate_synthea_module, prob_val, round_val
-from configFileParser import load_config
+from generator.helpers import prob_val, round_val, load_config
+from generator.advanced_module_generator import AdvancedModuleGenerator
+from generator.generator import GeneratorConfig
 
 
-class TestGenerator(object):
+class TestAdvancedGenerator(object):
 
     def test_prob_value(self):
         assert prob_val(0.4) == round(0.4 / 1.4, 4)
@@ -541,12 +542,22 @@ class TestGenerator(object):
         sample_data = "\n".join(config_data)
         config_file.write(sample_data)
         filename_config = os.path.join(tmpdir, "priors.ini")
-        priors = load_config(filename_config)
 
+        gen_config = GeneratorConfig()
+        gen_config.config_file = filename_config
+
+        generator = AdvancedModuleGenerator(gen_config)
+
+        priors = load_config(filename_config)
         modules = {
-            key: generate_synthea_module(symptom_map, value, priors)
+            key: generator.generate_module(value, symptom_map)
             for key, value in condition_map.items()
         }
+
+        # modules = {
+        #     key: generate_synthea_module(symptom_map, value, priors)
+        #     for key, value in condition_map.items()
+        # }
 
         key1 = slugify_condition("Abdominal aortic aneurysm")
         key2 = slugify_condition("Appendicitis")

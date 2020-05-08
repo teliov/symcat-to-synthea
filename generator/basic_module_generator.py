@@ -25,7 +25,7 @@ class ModuleGenerator():
     config: GeneratorConfig
         Generator config object
     """
-    def __init__(self, conditions, symptoms, config):
+    def __init__(self, config):
         """
 
         Parameters
@@ -37,13 +37,11 @@ class ModuleGenerator():
         config: GeneratorConfig
             see class doc
         """
-        self.conditions = conditions
-        self.symptoms = symptoms
         self.config = config
 
-    def generate(self):
-        for key in self.conditions.keys():
-            module = self.generate_module(key)
+    def generate(self, conditions, symptoms):
+        for key, value in conditions.items():
+            module = self.generate_module(value, symptoms)
             if module is None:
                 continue
             filename = os.path.join(
@@ -63,15 +61,12 @@ class ModuleGenerator():
             with open(filename, "w") as fp:
                 json.dump(module, fp, indent=4)
 
-    def generate_module(self, key):
+    def generate_module(self, condition, symptoms):
         return {}
 
 
 class BasicModuleGenerator(ModuleGenerator):
-    def generate_module(self, key):
-
-        condition = self.conditions.get(key)
-
+    def generate_module(self, condition, symptoms):
         if not condition.get("symptoms", None):
             return None
 
@@ -228,7 +223,7 @@ class BasicModuleGenerator(ModuleGenerator):
                 if remaining <= self.config.min_symptoms:
                     check_on_num_symptoms = True
 
-            symptom_definition = self.symptoms.get(slug, None)
+            symptom_definition = symptoms.get(slug, None)
             if idx == len(keys) - 1:
                 next_target = target_encounter_end
             else:
