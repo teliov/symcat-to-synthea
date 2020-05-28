@@ -1,5 +1,6 @@
 from collections import OrderedDict
 import configparser
+import re
 
 
 def prob_val(x, ndigits=4):
@@ -312,3 +313,109 @@ def load_config(filename):
                     0 and priors['Symptoms'][k.lower()] <= 1)
 
     return priors
+
+
+def extract_age(age):
+    age_regex = re.compile("\d+")
+    m = age_regex.match(age)
+    if m is None:
+        raise ValueError("Invalid age: {}".format(age))
+    return int(m.group(0))
+
+
+def get_age_transition(age_distribution):
+    slug = age_distribution.get("slug")
+    parts = slug.split("-")
+    if len(parts) == 3:
+        if parts[1] == "1":
+            age = 1
+            next_node_name = "Age_Less_{}".format(age)
+            transition = {
+                "condition": {
+                    "condition_type": "Age",
+                    "operator": "<",
+                    "unit": "years",
+                    "quantity": age
+                },
+                "transition": next_node_name
+            }
+        elif parts[1] == "75":
+            age = 75
+            next_node_name = "Age_{}_More".format(age)
+            transition = {
+                "condition": {
+                    "condition_type": "Age",
+                    "operator": ">=",
+                    "unit": "years",
+                    "quantity": age
+                },
+                "transition": next_node_name
+            }
+        else:
+            raise ValueError("Got invalid age group: %s" % slug)
+    elif parts[1] == "l":
+        age = extract_age(parts[2])
+        next_node_name = "Age_Less_{}".format(age)
+        transition = {
+            "condition": {
+                "condition_type": "Age",
+                "operator": "<",
+                "unit": "years",
+                "quantity": age
+            },
+            "transition": next_node_name
+        }
+    elif parts[1] == "g":
+        age = extract_age(parts[2])
+        next_node_name = "Age_{}_More".format(age)
+        transition = {
+            "condition": {
+                "condition_type": "Age",
+                "operator": ">=",
+                "unit": "years",
+                "quantity": age
+            },
+            "transition": next_node_name
+        }
+    else:
+        try:
+            age_lower = extract_age(parts[1])
+            age_upper = extract_age(parts[2])
+        except ValueError as e:
+            print(age_distribution)
+            raise e
+        next_node_name = "Ages_{}_{}".format(age_lower, age_upper)
+        transition = {
+            "condition": {
+                "condition_type": "And",
+                "conditions": [
+                    {
+                        "condition_type": "Age",
+                        "operator": ">=",
+                        "unit": "years",
+                        "quantity": age_lower
+                    },
+                    {
+                        "condition_type": "Age",
+                        "operator": "<=",
+                        "unit": "years",
+                        "quantity": age_upper
+                    }
+                ],
+            },
+            "transition": next_node_name
+        }
+
+    return transition
+
+
+def get_uniform_distribution(keys):
+    prob = 1.0/len(keys)
+
+    distribution = {key: {
+        "slug": key,
+        "name": key,
+        "probability": prob
+    } for key in keys}
+
+    return distribution

@@ -2,10 +2,13 @@ import json
 import os
 from .basic_module_generator import BasicModuleGenerator
 from .advanced_module_generator import AdvancedModuleGenerator
+from .ai_med_generator import AIMedModuleGenerator, AIMedNLICEGenerator
 
 
 ADVANCED_MODULE_GENERATOR = 1
 BASIC_MODULE_GENERATOR = 2
+AI_MED_BASIC_MODULE_GENERATOR = 3
+AI_MED_NLICE_MODULE_GENERATOR = 4
 
 
 class GeneratorConfig(object):
@@ -77,6 +80,10 @@ class Generator(object):
 
         if self.config.generator_mode == BASIC_MODULE_GENERATOR:
             module_generator = BasicModuleGenerator(config=self.config)
+        elif self.config.generator_mode == AI_MED_BASIC_MODULE_GENERATOR:
+            module_generator = AIMedModuleGenerator(config=self.config)
+        elif self.config.generator_mode == AI_MED_NLICE_MODULE_GENERATOR:
+            module_generator = AIMedNLICEGenerator(config=self.config)
         else:
             module_generator = AdvancedModuleGenerator(config=self.config)
 
