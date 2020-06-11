@@ -1,6 +1,6 @@
 import os
 
-from configFileParser import load_config, normalize_priors
+from generator.helpers import load_config, normalize_priors
 
 
 class TestConfigFileParser(object):
