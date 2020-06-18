@@ -7,7 +7,9 @@ from .helpers import load_config, TransitionStates, prob_val, round_val, AttrKey
 
 
 class AIMedModuleGenerator(ModuleGenerator):
-    def generate_module(self, condition, symptoms):
+    def generate_module(self, condition, symptoms=None):
+        if symptoms is None:
+            symptoms = {}
         if not condition.get("symptoms", None):
             return None
 
@@ -505,6 +507,8 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
 
     def normalise_nlice(self, nlice):
         sum_prob = sum(nlice.values())
+        if sum_prob < 100:
+            return nlice
         keys = list(nlice.keys())
         for key in keys:
             nlice[key] = nlice[key]/sum_prob
@@ -513,10 +517,10 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
 
     def get_nlice_states(self, symptom_name, symptom_data, condition_code, next_state):
         if "nlice" not in symptom_data:
-            return []
+            return {}
 
         nlice_prefix = "Symptom_%s-nlice" % symptom_name
-        states = []
+        states = OrderedDict()
         nlice = symptom_data.get("nlice")
         nlice_keys = list(nlice.keys())
         for idx, key in enumerate(nlice_keys):
@@ -525,7 +529,7 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
             else:
                 next_nlice_key = nlice_keys[idx+1]
                 next_node = list(nlice.get(next_nlice_key).keys())[0]
-                next_node = "%s-%s-%s" % (nlice_prefix, next_nlice_key, next_node)
+                next_node = "transition-%s-%s-%s" % (nlice_prefix, next_nlice_key, next_node)
 
             # get the normalised nlice values
             normalised_nlice = self.normalise_nlice(nlice.get(key))
@@ -533,8 +537,9 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
             for jdx, attribute in enumerate(normalised_keys):
                 nlice_identifier = "%s-nlice-%s-%s" % (symptom_name, key, attribute)
                 nlice_state_name = "%s-%s-%s" % (nlice_prefix, key, attribute)
-                slug_hash = hashlib.sha224(nlice_state_name.encode("utf-8")).hexdigest()
+                slug_hash = hashlib.sha224(nlice_identifier.encode("utf-8")).hexdigest()
                 probability = normalised_nlice.get(attribute)
+                nlice_transition_name = "transition-%s" % nlice_state_name
                 nlice_state = {
                     "type": "Symptom",
                     "symptom": nlice_state_name,
@@ -553,32 +558,39 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
                         "code": nlice_identifier,
                         "display": "%s (finding)" % nlice_identifier
                     },
+                    "direct_transition": next_node,
                     "remarks": []
                 }
 
                 if jdx == len(normalised_keys) - 1:
-                    nlice_state.update({
-                        "direct_transition": next_node
-                    })
+                    transition_state = {
+                        "type": "Simple",
+                        "direct_transition": nlice_state_name,
+                    }
                 else:
                     next_nlice_state = "%s-%s-%s" % (nlice_prefix, key, normalised_keys[jdx + 1])
-                    nlice_state.update({
+                    transition_state = {
+                        "type": "Simple",
                         "distributed_transition": [
                             {
                                 "distribution": probability,
-                                "transition": next_node
+                                "transition": nlice_state_name
                             },
                             {
                                 "distribution": 1 - probability,
-                                "transition": next_nlice_state
+                                "transition": "transition-%s" % next_nlice_state
                             }
                         ]
-                    })
+                    }
 
-                states.append(nlice_state)
+                states[nlice_transition_name] = transition_state
+                states[nlice_state_name] = nlice_state
         return states
 
-    def generate_module(self, condition, symptoms):
+    def generate_module(self, condition, symptoms=None):
+        if symptoms is None:
+            symptoms = {}
+
         if not condition.get("symptoms", None):
             return None
 
@@ -779,7 +791,8 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
                 }
                 next_point = check_symptom
 
-            symptom_target = next_stage if len(nlice_states) == 0 else nlice_states[0].get("symptom")
+            nlice_state_keys = list(nlice_states.keys())
+            symptom_target = next_stage if len(nlice_state_keys) == 0 else nlice_state_keys[0]
             if symptom_definition is None:
                 # a symptom which we dont have a definition for?
                 slug_hash = hashlib.sha224(slug.encode("utf-8")).hexdigest()
@@ -857,9 +870,8 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
 
             states[simple_transition_name] = simple_transition
             states[symptom_transition_name] = symptom_transition
-            for nlice_state in nlice_states:
-                state_name = nlice_state.get("symptom")
-                states[state_name] = nlice_state
+            for state_name in nlice_states:
+                states[state_name] = nlice_states[state_name]
 
         # always end the encounter
         states[target_encounter_end] = {
