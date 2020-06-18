@@ -507,13 +507,15 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
 
     def normalise_nlice(self, nlice):
         sum_prob = sum(nlice.values())
+        is_100 = True
         if sum_prob < 100:
-            return nlice
+            is_100 = False
+            sum_prob = 100
         keys = list(nlice.keys())
         for key in keys:
             nlice[key] = nlice[key]/sum_prob
 
-        return nlice
+        return nlice, is_100
 
     def get_nlice_states(self, symptom_name, symptom_data, condition_code, next_state):
         if "nlice" not in symptom_data:
@@ -532,7 +534,7 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
                 next_node = "transition-%s-%s-%s" % (nlice_prefix, next_nlice_key, next_node)
 
             # get the normalised nlice values
-            normalised_nlice = self.normalise_nlice(nlice.get(key))
+            normalised_nlice, is_100 = self.normalise_nlice(nlice.get(key))
             normalised_keys = list(normalised_nlice.keys())
             for jdx, attribute in enumerate(normalised_keys):
                 nlice_identifier = "%s-nlice-%s-%s" % (symptom_name, key, attribute)
@@ -563,10 +565,25 @@ class AIMedNLICEGenerator(AIMedModuleGenerator):
                 }
 
                 if jdx == len(normalised_keys) - 1:
-                    transition_state = {
-                        "type": "Simple",
-                        "direct_transition": nlice_state_name,
-                    }
+                    if is_100:
+                        transition_state = {
+                            "type": "Simple",
+                            "direct_transition": nlice_state_name,
+                        }
+                    else:
+                        transition_state = {
+                            "type": "Simple",
+                            "distributed_transition": [
+                                {
+                                    "distribution": probability,
+                                    "transition": nlice_state_name
+                                },
+                                {
+                                    "distribution": 1-probability,
+                                    "transition": next_node
+                                }
+                            ]
+                        }
                 else:
                     next_nlice_state = "%s-%s-%s" % (nlice_prefix, key, normalised_keys[jdx + 1])
                     transition_state = {
