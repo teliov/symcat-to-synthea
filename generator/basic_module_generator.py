@@ -56,7 +56,7 @@ class ModuleGenerator():
             module = generate_synthea_common_history_module(self.config.num_history_years)
             filename = os.path.join(
                 self.config.output_dir,
-                "%s%s.json" % (self.config.prefix, "1_aaaa_" + module["name"])
+                "%s%s.json" % (self.config.prefix, "1" + module["name"])
             )
             with open(filename, "w") as fp:
                 json.dump(module, fp, indent=4)
