@@ -3,7 +3,7 @@
 The scripts in this project create valid [Synthea](https://github.com/synthetichealth/synthea) generic modules generated using disease and symptoms as defined
 on [Symcat](http://www.symcat.com/)
 
-Sample output of the generated files and modules are included in the `sample_output` directory.
+Sample output of the parsed symptom and condition files are included in the `sample_output` directory.
 
 ## Usage
 This has been tested using Python3, so you would need that at a minimum to run this.
