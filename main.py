@@ -61,7 +61,7 @@ if __name__ == "__main__":
     if args.gen_modules:
         # we're generating modules
         config = GeneratorConfig()
-        config.output_dir = output_dir
+        config.output_dir = os.path.join(output_dir, "modules/")
         config.symptom_file = args.symptoms_json
         config.conditions_file = args.conditions_json
         config.config_file = args.config_file
